@@ -12,18 +12,18 @@ const cards = [
       "Average return on investment from GoHighLevel automation systems.",
   },
   {
-    title: "Google Ads",
+    title: "Funnel Systems",
     value: 3.8,
-    suffix: "× ROAS",
+    suffix: "× conversions",
     description:
-      "Return on ad spend for clients running optimized Google Ads campaigns.",
+      "Conversion lift from engineered sales funnels with optimized copy and flow.",
   },
   {
-    title: "Local SEO",
+    title: "A2P 10DLC",
     value: 3.1,
-    suffix: "× profile views",
+    suffix: "× deliverability",
     description:
-      "Increase in Google Business Profile views after local SEO optimization.",
+      "SMS deliverability improvement after proper A2P registration and compliance setup.",
   },
 ];
 

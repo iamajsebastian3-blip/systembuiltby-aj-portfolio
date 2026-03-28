@@ -17,16 +17,16 @@ const audits = [
       "80% of leads go cold without automated follow-up sequences in place.",
   },
   {
-    title: "Local SEO",
+    title: "A2P / SMS Compliance",
     pct: 35,
     description:
-      "Local visibility is the lowest-hanging fruit — and most businesses ignore it.",
+      "Unregistered numbers get filtered. Proper A2P setup ensures your messages land.",
   },
   {
-    title: "Paid Advertising",
+    title: "Funnel Performance",
     pct: 42,
     description:
-      "Ad spend without tracking and optimization is money burned.",
+      "Most funnels leak leads at every step. Engineered funnels fix the flow.",
   },
 ];
 

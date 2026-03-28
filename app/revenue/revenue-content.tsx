@@ -10,7 +10,7 @@ export function RevenueContent() {
   return (
     <PageTransition>
       {/* Hero */}
-      <section className="bg-persian py-20 px-6 text-center">
+      <section className="bg-persian/20 backdrop-blur-xl py-20 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="text-white/60 text-sm uppercase tracking-widest mb-4">

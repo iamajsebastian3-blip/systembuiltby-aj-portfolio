@@ -173,9 +173,9 @@ export function RevenueCalculator() {
                 fix: "Automated CRM pipeline",
               },
               {
-                label: "Weak SEO",
+                label: "Low SMS Deliverability",
                 pct: 27,
-                fix: "Local SEO domination",
+                fix: "A2P 10DLC compliance setup",
               },
             ].map((item) => (
               <div
@@ -204,9 +204,7 @@ export function RevenueCalculator() {
               You&apos;re leaving {formatDollars(leak)}/month on the table.
             </p>
             <a
-              href="https://solution13.online/booking"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/consult/booking"
               className="bg-yellow text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-dark transition-colors shrink-0"
             >
               Get Your Free Audit
