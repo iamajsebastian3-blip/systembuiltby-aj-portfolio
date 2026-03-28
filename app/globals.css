@@ -67,7 +67,7 @@
 }
 
 :root {
-  --background: #000000;
+  --background: #08060e;
   --foreground: #ffffff;
   --card: #141414;
   --card-foreground: #ffffff;
@@ -102,7 +102,7 @@
 }
 
 .dark {
-  --background: #000000;
+  --background: #08060e;
   --foreground: #ffffff;
   --card: #141414;
   --card-foreground: #ffffff;
@@ -152,7 +152,7 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: #08060e;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
@@ -160,6 +160,59 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+/* Animated gradient border */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glow-rotate {
+  0% { --glow-angle: 0deg; }
+  100% { --glow-angle: 360deg; }
+}
+
+.glow-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0%,
+    #5e17eb 15%,
+    #7c3aed 30%,
+    #f6cb1f 45%,
+    transparent 60%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: glow-rotate 4s linear infinite;
+  z-index: -1;
+}
+
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+.marquee-scroll {
+  animation: marquee 30s linear infinite;
+}
+.marquee-scroll:hover {
+  animation-play-state: paused;
 }
 
 /* Reduced motion */

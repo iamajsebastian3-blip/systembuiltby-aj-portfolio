@@ -223,7 +223,7 @@ export function ServicesContent() {
   return (
     <PageTransition>
       {/* Hero */}
-      <div className="bg-persian py-16 pb-12">
+      <div className="bg-persian/20 backdrop-blur-xl py-16 pb-12">
         <div className="max-w-[1100px] mx-auto px-8">
           <ScrollReveal>
             <div className="text-xs font-extrabold tracking-[0.14em] uppercase text-white/50 mb-2">
@@ -245,7 +245,7 @@ export function ServicesContent() {
       </div>
 
       {/* Stats bar */}
-      <div className="border-b border-white/[0.06] bg-surface">
+      <div className="border-b border-white/[0.06] bg-white/[0.03] backdrop-blur-md">
         <div className="max-w-[1100px] mx-auto px-8 py-5">
           <ScrollReveal delay={0.2}>
             <div className="flex items-center justify-center gap-8 md:gap-16 flex-wrap">

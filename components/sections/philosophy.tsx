@@ -24,15 +24,14 @@ const modules = [
   {
     id: "MOD_04",
     title: "Intentional Automation",
-    body: "Automation should feel human — not mechanical. Scale without sacrificing experience.",
+    body: "Automation should feel human \u2014 not mechanical. Scale without sacrificing experience.",
   },
 ];
 
 export function Philosophy() {
   return (
-    <section className="bg-black py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-yellow">
             Methodology
@@ -42,18 +41,17 @@ export function Philosophy() {
           </h2>
         </div>
 
-        {/* 2x2 grid */}
-        <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <StaggerChildren className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {modules.map((mod) => (
             <StaggerItem key={mod.id}>
-              <div className="group rounded-[14px] border border-white/[0.08] bg-white/[0.04] p-7 transition-all duration-300 hover:-translate-y-[3px] hover:border-yellow/30 hover:bg-white/[0.07]">
-                <span className="mb-3 inline-block text-xs font-semibold tracking-widest text-yellow">
+              <div className="group glow-border p-7 rounded-xl transition-all duration-300 bg-white/[0.04] backdrop-blur-sm hover:-translate-y-[3px] hover:bg-white/[0.07]">
+                <span className="mb-3 inline-block text-xs font-semibold tracking-widest text-yellow/80">
                   {mod.id}
                 </span>
                 <h3 className="mb-2 text-lg font-extrabold text-white">
                   {mod.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-white/50">
+                <p className="text-sm leading-relaxed text-white/40">
                   {mod.body}
                 </p>
               </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { PageTransition } from "@/components/motion/page-transition";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -42,7 +43,22 @@ function BodyText({ children }: { children: React.ReactNode }) {
 export function AboutContent() {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-transparent">
+        {/* Hero */}
+        <section className="bg-persian/20 backdrop-blur-xl px-8 py-16 pb-12">
+          <div className="mx-auto max-w-[1100px]">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/50">
+              About
+            </p>
+            <h1 className="mb-3 text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+              About AJ
+            </h1>
+            <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
+              Growth engineer specializing in GoHighLevel automation systems, funnels, and CRM infrastructure.
+            </p>
+          </div>
+        </section>
+
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-14 px-8 py-16 pb-20 lg:grid-cols-[1fr_340px]">
           {/* Left column — Bio */}
           <div className="flex flex-col gap-10">
@@ -136,7 +152,7 @@ export function AboutContent() {
 
             {/* Flow diagram */}
             <ScrollReveal delay={0.5}>
-              <div className="rounded-lg border border-persian/30 bg-persian/[0.15] px-5 py-4 text-center text-sm font-medium tracking-wide text-purple-400">
+              <div className="rounded-lg border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm px-5 py-4 text-center text-sm font-medium tracking-wide text-white/50">
                 Capture → Nurture → Convert → Scale
               </div>
             </ScrollReveal>
@@ -187,7 +203,7 @@ export function AboutContent() {
             <ScrollReveal delay={0.85}>
               <Link
                 href="/#contact"
-                className="inline-block rounded-lg bg-persian px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-persian-dark"
+                className="inline-block rounded-lg bg-persian/20 backdrop-blur-sm border border-persian/30 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-persian/40 hover:border-persian/50 hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
               >
                 Book Strategy Call →
               </Link>
@@ -199,10 +215,13 @@ export function AboutContent() {
             <div className="flex flex-col gap-6">
               {/* Photo placeholder */}
               <ScrollReveal delay={0.1}>
-                <div className="flex aspect-[3/4] items-center justify-center rounded-[14px] border border-white/[0.08] bg-[#111]">
-                  <span className="text-sm text-white/30">
-                    Photo placeholder
-                  </span>
+                <div className="relative aspect-[3/4] overflow-hidden rounded-[14px] border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm">
+                  <Image
+                    src="/aj-about.png"
+                    alt="Allen Bactad"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </ScrollReveal>
 

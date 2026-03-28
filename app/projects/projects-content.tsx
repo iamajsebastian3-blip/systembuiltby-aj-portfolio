@@ -275,12 +275,12 @@ function AutomationCard({
   chips,
 }: (typeof automations)[number]) {
   return (
-    <div className="group rounded-2xl border border-persian/30 bg-[#1a0f3a] p-7 transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/70 hover:shadow-[0_8px_30px_rgba(94,23,235,0.15)]">
-      <div className="mb-4 flex h-[38px] w-[38px] items-center justify-center rounded-[9px] border border-persian/40 bg-persian/30 text-lg">
+    <div className="group rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm p-7 transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
+      <div className="mb-4 flex h-[38px] w-[38px] items-center justify-center rounded-[9px] border border-white/[0.1] bg-white/[0.06] text-lg">
         {icon}
       </div>
       <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
-      <p className="mb-3 text-xs font-medium text-purple-400">{subtitle}</p>
+      <p className="mb-3 text-xs font-medium text-white/50">{subtitle}</p>
       <p className="mb-4 text-[13px] leading-relaxed text-white/55">
         {description}
       </p>
@@ -288,7 +288,7 @@ function AutomationCard({
         {chips.map((chip) => (
           <span
             key={chip}
-            className="rounded-full border border-persian/40 bg-persian/25 px-2.5 py-1 text-[0.68rem] font-bold text-purple-300"
+            className="rounded-full border border-white/[0.1] bg-white/[0.06] px-2.5 py-1 text-[0.68rem] font-bold text-white/50"
           >
             {chip}
           </span>
@@ -319,7 +319,7 @@ function FunnelCard({
       );
 
   return (
-    <Wrapper className="group block overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/50 hover:shadow-[0_8px_30px_rgba(94,23,235,0.12)]">
+    <Wrapper className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       {/* Thumbnail */}
       <div
         className="relative h-48 overflow-hidden"
@@ -369,7 +369,7 @@ function FunnelCard({
             </span>
           )}
         </div>
-        <p className="mb-2 text-sm text-purple-400">{subtitle}</p>
+        <p className="mb-2 text-sm text-white/50">{subtitle}</p>
         <p className="text-xs text-white/45">{pages}</p>
       </div>
     </Wrapper>
@@ -382,12 +382,12 @@ function WebsiteCard({
   tech,
   light,
 }: (typeof websites)[number]) {
-  const barColor = light ? "bg-white/20" : "bg-purple-400/30";
-  const blockColor = light ? "bg-white/10" : "bg-purple-400/15";
-  const thumbBg = light ? "bg-[#1e1e2e]" : "bg-[#0d0d1a]";
+  const barColor = light ? "bg-white/20" : "bg-white/15";
+  const blockColor = light ? "bg-white/10" : "bg-white/[0.07]";
+  const thumbBg = light ? "bg-white/[0.06]" : "bg-white/[0.03]";
 
   return (
-    <div className="group overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/50 hover:shadow-[0_8px_30px_rgba(94,23,235,0.12)]">
+    <div className="group overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       {/* Wireframe thumbnail */}
       <div
         className={`flex h-[170px] flex-col items-start gap-3 p-6 ${thumbBg}`}
@@ -401,7 +401,7 @@ function WebsiteCard({
       {/* Body */}
       <div className="p-5">
         <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
-        <p className="mb-2 text-sm text-purple-400">{subtitle}</p>
+        <p className="mb-2 text-sm text-white/50">{subtitle}</p>
         <p className="text-xs text-white/45">{tech}</p>
       </div>
     </div>
@@ -421,7 +421,7 @@ function AppCard({
     : "bg-gradient-to-br from-[#0f0a3d] to-[#27187E]";
 
   return (
-    <div className="group overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/50 hover:shadow-[0_8px_30px_rgba(94,23,235,0.12)]">
+    <div className="group overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       {/* Emoji thumbnail */}
       <div className={`flex h-40 items-center justify-center ${thumbBg}`}>
         <span className="text-5xl">{emoji}</span>
@@ -429,7 +429,7 @@ function AppCard({
       {/* Body */}
       <div className="p-5">
         <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
-        <p className="mb-2 text-sm text-purple-400">{subtitle}</p>
+        <p className="mb-2 text-sm text-white/50">{subtitle}</p>
         <p className="mb-4 text-[13px] leading-relaxed text-white/55">
           {description}
         </p>
@@ -437,7 +437,7 @@ function AppCard({
           {chips.map((chip) => (
             <span
               key={chip}
-              className="rounded-full border border-persian/40 bg-persian/25 px-2.5 py-1 text-[0.68rem] font-bold text-purple-300"
+              className="rounded-full border border-white/[0.1] bg-white/[0.06] px-2.5 py-1 text-[0.68rem] font-bold text-white/50"
             >
               {chip}
             </span>
@@ -517,9 +517,9 @@ export function ProjectsContent() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-transparent">
         {/* ---- Hero ---- */}
-        <section className="bg-persian px-8 py-16 pb-12">
+        <section className="bg-persian/20 backdrop-blur-xl px-8 py-16 pb-12">
           <div className="mx-auto max-w-[1100px]">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/50">
               Portfolio
@@ -535,7 +535,7 @@ export function ProjectsContent() {
         </section>
 
         {/* ---- Sticky tabs ---- */}
-        <div className="sticky top-16 z-30 border-b border-white/10 bg-background">
+        <div className="sticky top-16 z-30 border-b border-white/[0.06] bg-white/[0.03] backdrop-blur-md">
           <div className="mx-auto flex max-w-[1100px] gap-2 overflow-x-auto px-8 py-3">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;

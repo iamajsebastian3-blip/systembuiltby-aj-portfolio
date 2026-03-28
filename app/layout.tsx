@@ -33,10 +33,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} dark`}>
-      <body className="font-sans">
-        <Navbar />
-        <main className="pt-16">{children}</main>
-        <Footer />
+      <body className="font-sans bg-[#08060e] relative overflow-x-hidden">
+        {/* Ambient background blobs */}
+        <div className="pointer-events-none fixed inset-0 z-0">
+          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] rounded-full bg-[#2a0a5e]/60 blur-[180px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#1a0640]/70 blur-[160px]" />
+          <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] rounded-full bg-[#1e0a50]/40 blur-[140px]" />
+          <div className="absolute bottom-[30%] right-[10%] w-[300px] h-[300px] rounded-full bg-[#3a0f7a]/25 blur-[100px]" />
+        </div>
+        <div className="relative z-10">
+          <Navbar />
+          <main className="pt-16">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

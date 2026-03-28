@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 
 const faqs = [
@@ -56,62 +55,67 @@ export function FAQ() {
   };
 
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
         <ScrollReveal>
           <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-persian">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-persian-light/70">
               FAQ
             </span>
-            <h2 className="text-3xl font-black uppercase leading-tight text-black md:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
               System Inquiries
             </h2>
           </div>
         </ScrollReveal>
 
-        {/* Accordion */}
         <ScrollReveal>
-          <div className="mx-auto max-w-[720px]">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="border-b-4 border-white bg-gray-100"
-              >
-                <button
-                  onClick={() => toggle(index)}
-                  className="flex w-full items-center justify-between px-6 py-5 text-left"
+          <div className="mx-auto max-w-[720px] flex flex-col gap-2">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={index}
+                  className={`overflow-hidden rounded-xl transition-all duration-300 bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] ${
+                    isOpen ? "bg-white/[0.06] border-white/[0.12]" : ""
+                  }`}
                 >
-                  <span className="text-sm font-bold uppercase tracking-wide text-persian">
-                    {faq.question}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="ml-4 shrink-0 text-persian"
+                  <button
+                    onClick={() => toggle(index)}
+                    className="flex w-full items-center justify-between px-6 py-5 text-left"
                   >
-                    <ChevronDown size={20} />
-                  </motion.span>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {openIndex === index && (
-                    <motion.div
-                      key={`answer-${index}`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
+                    <span className="text-sm font-bold uppercase tracking-wide text-persian-light/80">
+                      {faq.question}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="ml-4 shrink-0 text-persian-light/60"
                     >
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-gray-500">
-                        {faq.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                        <path d="M5 8l5 5 5-5" />
+                      </svg>
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key={`answer-${index}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-6 pb-5 text-sm leading-relaxed text-white/40">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </ScrollReveal>
       </div>

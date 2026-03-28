@@ -115,7 +115,7 @@ function DropdownMenu({
         />
       </button>
       <div
-        className={`absolute top-full left-0 mt-3 w-64 bg-[#141414] border border-white/10 rounded-lg shadow-xl overflow-hidden transition-all duration-200 origin-top ${
+        className={`absolute top-full left-0 mt-3 w-64 bg-[#0d0b14]/90 backdrop-blur-xl border border-white/[0.08] rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.4)] overflow-hidden transition-all duration-200 origin-top ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
@@ -209,8 +209,8 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-black/92 backdrop-blur-xl border-b border-white/10 transition-shadow duration-300 ${
-          scrolled ? "shadow-[0_4px_32px_rgba(94,23,235,0.2)]" : ""
+        className={`fixed top-0 left-0 right-0 z-50 bg-[#08060e]/80 backdrop-blur-xl border-b border-white/[0.06] transition-shadow duration-300 ${
+          scrolled ? "shadow-[0_4px_32px_rgba(94,23,235,0.15)]" : ""
         }`}
       >
         <nav className="mx-auto max-w-[1280px] px-4 sm:px-6 h-16 flex items-center justify-between">

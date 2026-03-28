@@ -62,7 +62,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 26, stiffness: 300 }}
-            className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#0d0d0d] border-l border-white/10 md:hidden"
+            className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-[#0d0b14]/95 backdrop-blur-xl border-l border-white/[0.08] md:hidden"
           >
             <div className="flex items-center justify-between p-4 border-b border-white/10">
               <span className="font-bold text-sm uppercase tracking-wide">
