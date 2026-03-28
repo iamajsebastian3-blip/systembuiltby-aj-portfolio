@@ -20,34 +20,32 @@ interface NavDropdown {
 }
 
 const solutionsDropdown: NavDropdown = {
-  label: "Solutions",
+  label: "Gallery",
   items: [
     { label: "About", emoji: "\u{1F91D}", href: "/about", description: "Who I am & how I work" },
     { label: "Portfolio", emoji: "\u{1F4C1}", href: "/projects", description: "Automations, funnels, websites, apps" },
-    { label: "Services", emoji: "\u{1F9E9}", href: "/projects#sec-auto", description: "All 8 service categories" },
+    { label: "Services", emoji: "\u{1F9E9}", href: "/services", description: "All 8 service categories" },
     { label: "Packages", emoji: "\u{1F4E6}", href: "/packages", description: "Starter \u00B7 Growth \u00B7 Scale" },
   ],
 };
 
 const workDropdown: NavDropdown = {
-  label: "Work",
+  label: "Link",
   items: [
     { label: "Featured Funnel", emoji: "\u{1F3AF}", href: "/portfolio#op-funnel", description: "Live funnel showcase" },
     { label: "Featured Website", emoji: "\u{1F310}", href: "/portfolio#op-website", description: "Live website showcase" },
-    { label: "Automations", emoji: "\u26A1", href: "/projects#sec-auto", description: "GHL workflow builds" },
-    { label: "Apps & Tools", emoji: "\u{1F4F1}", href: "/projects#sec-apps", description: "Web apps & integrations" },
   ],
-  dividerAfter: 1,
 };
 
 const routeToActiveNav: Record<string, string> = {
   "/": "Home",
-  "/about": "Solutions",
-  "/projects": "Solutions",
-  "/packages": "Solutions",
+  "/about": "Gallery",
+  "/projects": "Gallery",
+  "/packages": "Gallery",
+  "/services": "Gallery",
   "/revenue": "Revenue Tools",
   "/consult": "Home",
-  "/portfolio": "Work",
+  "/portfolio": "Link",
 };
 
 function getActiveNav(pathname: string): string {
@@ -233,8 +231,8 @@ export function Navbar() {
 
             <DropdownMenu
               dropdown={solutionsDropdown}
-              isOpen={openDropdown === "Solutions"}
-              onToggle={() => toggleDropdown("Solutions")}
+              isOpen={openDropdown === "Gallery"}
+              onToggle={() => toggleDropdown("Gallery")}
               dropdownRef={solutionsRef}
             />
 

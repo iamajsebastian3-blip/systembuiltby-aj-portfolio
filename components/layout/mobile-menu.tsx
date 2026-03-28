@@ -15,6 +15,7 @@ const menuLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/projects" },
+  { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
   { label: "Revenue Tools", href: "/revenue" },
   { label: "Featured Work", href: "/portfolio" },

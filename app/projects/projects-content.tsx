@@ -90,6 +90,8 @@ const funnels = [
     gradientFrom: "#27187E",
     gradientTo: "#3f2db5",
     emoji: "\uD83C\uDFD7\uFE0F",
+    url: "https://webinar-funnel-zeta.vercel.app/",
+    isLive: true,
   },
   {
     title: "Lead Funnel",
@@ -98,6 +100,8 @@ const funnels = [
     gradientFrom: "#1d1260",
     gradientTo: "#27187E",
     emoji: "\uD83D\uDD25",
+    url: "https://lead-funnel-sample.vercel.app/",
+    isLive: true,
   },
   {
     title: "Sales Funnel",
@@ -106,6 +110,8 @@ const funnels = [
     gradientFrom: "#0f0a3d",
     gradientTo: "#27187E",
     emoji: "\uD83D\uDCB0",
+    url: "https://sales-funnel-sample.vercel.app/sales-page.html",
+    isLive: true,
   },
   {
     title: "Opt-in Funnel",
@@ -114,6 +120,8 @@ const funnels = [
     gradientFrom: "#27187E",
     gradientTo: "#4834c8",
     emoji: "\uD83D\uDCCB",
+    url: "https://opt-in-funnel-beta.vercel.app/",
+    isLive: true,
   },
   {
     title: "Tripwire Funnel",
@@ -122,6 +130,8 @@ const funnels = [
     gradientFrom: "#1a0f5e",
     gradientTo: "#3b2d9a",
     emoji: "\u26A1",
+    url: "https://tripwire-funnel.vercel.app/offer-page.html",
+    isLive: true,
   },
   {
     title: "VSL Funnel",
@@ -130,6 +140,38 @@ const funnels = [
     gradientFrom: "#27187E",
     gradientTo: "#1d1260",
     emoji: "\uD83D\uDCAC",
+    url: "https://vsl-funnel-gilt.vercel.app/vsl-page.html",
+    isLive: true,
+  },
+  {
+    title: "Real Estate Funnel",
+    subtitle: "Property Listing Lead Gen",
+    pages: "3 pages \u00B7 Landing \u2192 Listings \u2192 Contact",
+    gradientFrom: "#1a3a2a",
+    gradientTo: "#27187E",
+    emoji: "\uD83C\uDFE0",
+    url: "https://real-estate-funnel-drab.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Resort Booking Funnel",
+    subtitle: "Hospitality Booking Flow",
+    pages: "3 pages \u00B7 Landing \u2192 Rooms \u2192 Booking",
+    gradientFrom: "#0f2a4a",
+    gradientTo: "#27187E",
+    emoji: "\uD83C\uDFD6\uFE0F",
+    url: "https://booking-funnel.vercel.app/landing-page.html",
+    isLive: true,
+  },
+  {
+    title: "Product Launch Funnel",
+    subtitle: "New Product Release Page",
+    pages: "3 pages \u00B7 Teaser \u2192 Launch \u2192 Order",
+    gradientFrom: "#2a1a0f",
+    gradientTo: "#27187E",
+    emoji: "\uD83D\uDE80",
+    url: "https://product-launch-funnel.vercel.app/",
+    isLive: true,
   },
 ];
 
@@ -263,25 +305,74 @@ function FunnelCard({
   gradientFrom,
   gradientTo,
   emoji,
-}: (typeof funnels)[number]) {
+  url,
+  isLive,
+}: (typeof funnels)[number] & { url?: string; isLive?: boolean }) {
+  const Wrapper = url
+    ? ({ children, className }: { children: React.ReactNode; className: string }) => (
+        <a href={url} target="_blank" rel="noopener noreferrer" className={className}>
+          {children}
+        </a>
+      )
+    : ({ children, className }: { children: React.ReactNode; className: string }) => (
+        <div className={className}>{children}</div>
+      );
+
   return (
-    <div className="group overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/50 hover:shadow-[0_8px_30px_rgba(94,23,235,0.12)]">
-      {/* Gradient thumbnail */}
+    <Wrapper className="group block overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/50 hover:shadow-[0_8px_30px_rgba(94,23,235,0.12)]">
+      {/* Thumbnail */}
       <div
-        className="flex h-40 items-center justify-center"
+        className="relative h-48 overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`,
         }}
       >
-        <span className="text-5xl opacity-60">{emoji}</span>
+        {isLive && url ? (
+          <>
+            {/* Live site preview via iframe */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <iframe
+                src={url}
+                title={`${title} preview`}
+                className="w-[1280px] h-[800px] origin-top-left border-0"
+                style={{ transform: "scale(0.28)", transformOrigin: "top left" }}
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
+                tabIndex={-1}
+              />
+            </div>
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+                View Live →
+              </span>
+            </div>
+            {/* Live badge */}
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-1 z-10">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-[0.6rem] font-bold text-white uppercase tracking-wider">Live</span>
+            </div>
+          </>
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <span className="text-5xl opacity-60">{emoji}</span>
+          </div>
+        )}
       </div>
       {/* Body */}
       <div className="p-5">
-        <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
+        <div className="flex items-center gap-2 mb-1">
+          <h3 className="text-base font-bold text-white">{title}</h3>
+          {isLive && (
+            <span className="text-[0.55rem] font-extrabold bg-persian/20 text-persian border border-persian/30 rounded-full px-2 py-0.5 uppercase tracking-wider">
+              Deployed
+            </span>
+          )}
+        </div>
         <p className="mb-2 text-sm text-purple-400">{subtitle}</p>
         <p className="text-xs text-white/45">{pages}</p>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 

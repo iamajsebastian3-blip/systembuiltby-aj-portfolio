@@ -15,14 +15,14 @@ const skills = [
 ];
 
 const categories = [
-  { icon: "🔥", name: "Funnel & Website Systems" },
-  { icon: "🔥", name: "CRM & Pipeline Systems" },
-  { icon: "🔥", name: "Automation & Workflows" },
-  { icon: "📅", name: "Booking Systems" },
-  { icon: "📲", name: "A2P 10DLC Setup", isNew: true, heat: 1 },
-  { icon: "🤖", name: "AI Chatbot Systems", isNew: true, heat: 2 },
-  { icon: "🖥", name: "Custom Frontend" },
-  { icon: "⚙️", name: "Advanced Integrations" },
+  { icon: "🔥", name: "Funnel & Website Systems", desc: "High-converting landing pages and sales funnels" },
+  { icon: "🔥", name: "CRM & Pipeline Systems", desc: "Structured lead tracking from first touch to close" },
+  { icon: "🔥", name: "Automation & Workflows", desc: "End-to-end GHL workflow automation" },
+  { icon: "📅", name: "Booking Systems", desc: "Calendar integration with automated reminders" },
+  { icon: "📲", name: "A2P 10DLC Setup", desc: "Compliant SMS registration and setup", isNew: true, heat: 1 },
+  { icon: "🤖", name: "AI Chatbot Systems", desc: "Intelligent bots that qualify leads 24/7", isNew: true, heat: 2 },
+  { icon: "🖥", name: "Custom Frontend", desc: "Tailored web interfaces and dashboards" },
+  { icon: "⚙️", name: "Advanced Integrations", desc: "API and webhook connections across your stack" },
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -211,10 +211,13 @@ export function AboutContent() {
                 {categories.map((cat) => (
                   <StaggerItem key={cat.name}>
                     <div className="flex items-center gap-3 rounded-[10px] border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 transition-colors hover:border-persian/30 hover:bg-persian/[0.12] hover:text-white">
-                      <span className="text-base">{cat.icon}</span>
-                      <span className="text-sm text-white/65">{cat.name}</span>
+                      <span className="text-base shrink-0">{cat.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-sm font-semibold text-white/65">{cat.name}</span>
+                        <p className="text-[0.65rem] text-white/35 mt-0.5 leading-snug">{cat.desc}</p>
+                      </div>
                       {cat.isNew && (
-                        <span className="ml-auto rounded-full bg-yellow px-1.5 py-0.5 text-[0.55rem] font-extrabold text-black">
+                        <span className="ml-auto shrink-0 rounded-full bg-yellow px-1.5 py-0.5 text-[0.55rem] font-extrabold text-black">
                           NEW {"🔥".repeat(cat.heat ?? 1)}
                         </span>
                       )}
