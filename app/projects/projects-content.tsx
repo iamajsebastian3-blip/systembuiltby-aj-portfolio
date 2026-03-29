@@ -27,54 +27,68 @@ type TabId = (typeof tabs)[number]["id"];
 
 const automations = [
   {
-    icon: "\u26A1",
-    title: "New Lead Capture \u2014 Workflow 1",
-    subtitle: "GHL Automation \u00B7 7 steps",
+    icon: "\uD83D\uDD25",
+    title: "Lead Capture \u2192 Conversion Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Full Funnel",
     description:
-      "Instantly captures new form leads, tags them, fires an SMS + email sequence, and moves them into the sales pipeline \u2014 zero manual steps.",
-    chips: [
-      "Form Submit Trigger",
-      "Contact Tag",
-      "SMS Instant",
-      "Email Sequence",
-      "Pipeline Move",
-    ],
+      "Captures leads from forms, ads, and landing pages \u2014 then moves them through qualification, nurture, and conversion stages automatically.",
+    chips: ["Form Trigger", "Auto-Tag", "SMS + Email", "Pipeline Stages", "Conversion Tracking"],
   },
   {
     icon: "\uD83D\uDCC5",
-    title: "Appointment Reminder Sequence",
-    subtitle: "GHL Automation \u00B7 5 steps",
+    title: "Appointment Booking Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Booking Flow",
     description:
-      "Reduces no-shows with a multi-touch reminder flow: 48h SMS, 24h email, 2h final nudge, and a no-show branch for follow-up.",
-    chips: [
-      "Appt Trigger",
-      "48h SMS",
-      "24h Email",
-      "2h SMS",
-      "No-show Branch",
-    ],
+      "Automates the entire booking flow \u2014 from calendar scheduling to reminders, no-show recovery, and post-appointment follow-up.",
+    chips: ["Calendar Sync", "48h/24h/2h Reminders", "No-Show Branch", "Rebooking", "Review Ask"],
   },
   {
-    icon: "\uD83D\uDCDD",
-    title: "Post-Service Review Request",
-    subtitle: "GHL Automation \u00B7 4 steps",
+    icon: "\uD83D\uDCB0",
+    title: "Sales Pipeline (High-Ticket)",
+    subtitle: "GHL Pipeline \u00B7 Closer Flow",
     description:
-      "Automatically asks for a review after service completion with a timed delay and follow-up if no response.",
-    chips: ["Service Tag", "2h Wait", "SMS Review Ask", "48h Follow-up"],
+      "Engineered for high-ticket offers \u2014 moves qualified leads through discovery, proposal, negotiation, and close stages with automated follow-ups.",
+    chips: ["Lead Scoring", "Discovery Call", "Proposal Stage", "Follow-Up Sequence", "Won/Lost Tracking"],
   },
   {
-    icon: "\uD83E\uDD1D",
-    title: "Cold Lead Re-engagement",
-    subtitle: "GHL Automation \u00B7 6 steps",
+    icon: "\uD83D\uDED2",
+    title: "Ecommerce / Order Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Order Flow",
     description:
-      "Re-activates stale leads after 14 days of inactivity with a multi-step nurture sequence and reply-based exit.",
-    chips: [
-      "14-Day Inactivity",
-      "SMS 1",
-      "Email 1",
-      "SMS 2 + Offer",
-      "Reply Stopper",
-    ],
+      "Tracks orders from purchase to fulfillment \u2014 with abandoned cart recovery, order confirmations, and post-purchase upsell sequences.",
+    chips: ["Order Trigger", "Cart Recovery", "Confirmation SMS", "Upsell Sequence", "Review Request"],
+  },
+  {
+    icon: "\uD83D\uDD01",
+    title: "Re-engagement / Nurture Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Reactivation",
+    description:
+      "Wakes up cold leads and past clients with multi-touch nurture sequences \u2014 SMS, email, and value-driven content over 14\u201330 days.",
+    chips: ["Inactivity Trigger", "Drip Sequence", "Offer Nudge", "Reply Detection", "Re-qualification"],
+  },
+  {
+    icon: "\uD83C\uDFDD\uFE0F",
+    title: "Booking / Reservation Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Hospitality",
+    description:
+      "Built for resorts, hotels, and service-based businesses \u2014 handles reservation requests, confirmations, pre-arrival sequences, and feedback.",
+    chips: ["Reservation Form", "Confirmation Flow", "Pre-Arrival SMS", "Check-In Reminder", "Feedback Loop"],
+  },
+  {
+    icon: "\uD83E\uDDD1\u200D\uD83C\uDFEB",
+    title: "High-Ticket Client Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Premium Flow",
+    description:
+      "Designed for coaches, consultants, and agencies \u2014 moves prospects through application, vetting, strategy call, and onboarding stages.",
+    chips: ["Application Form", "Vetting Stage", "Strategy Call", "Contract/Payment", "Onboarding"],
+  },
+  {
+    icon: "\uD83C\uDFC6",
+    title: "Client Onboarding & Delivery Pipeline",
+    subtitle: "GHL Pipeline \u00B7 Fulfillment",
+    description:
+      "Automates post-sale delivery \u2014 welcome sequences, kickoff scheduling, milestone tracking, and project completion with review requests.",
+    chips: ["Welcome Sequence", "Kickoff Call", "Milestone Tracking", "Delivery Complete", "Testimonial Ask"],
   },
 ];
 

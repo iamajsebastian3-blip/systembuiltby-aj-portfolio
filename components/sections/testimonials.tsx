@@ -6,11 +6,18 @@ import {
   StaggerItem,
 } from "@/components/motion/stagger-children";
 
-const testimonials = [
+const testimonials: {
+  name: string;
+  role: string;
+  initials: string;
+  avatar?: string;
+  quote: string;
+}[] = [
   {
     name: "Claire Montero",
     role: "7-Figure Service Brand",
     initials: "CM",
+    avatar: "/testimonials/claire.jpg",
     quote:
       "AJ didn\u2019t just \u2018set up\u2019 our HighLevel. He rebuilt the entire logic behind how our leads move. Before him, we had automations but no structure. Now everything flows perfectly.",
   },
@@ -18,6 +25,7 @@ const testimonials = [
     name: "Marcus Delgado",
     role: "Consulting Firm",
     initials: "MD",
+    avatar: "/testimonials/marcus.jpg",
     quote:
       "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
   },
@@ -25,6 +33,7 @@ const testimonials = [
     name: "Ethel Navarro",
     role: "B2B Service Company",
     initials: "EN",
+    avatar: "/testimonials/ethel.jpg",
     quote:
       "Most people know the tools. AJ understands the system behind them. He thinks in infrastructure \u2014 how data flows, how stages connect, how automations actually behave at scale.",
   },
@@ -79,8 +88,12 @@ export function Testimonials() {
                     </p>
                     <div className="h-px bg-white/[0.06] mb-4" />
                     <div className="flex items-center gap-3">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-persian/25 border border-persian/20 text-xs font-bold text-white/80">
-                        {t.initials}
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/[0.08] border border-white/[0.10] text-xs font-bold text-white/60 overflow-hidden">
+                        {t.avatar ? (
+                          <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                        ) : (
+                          t.initials
+                        )}
                       </div>
                       <div>
                         <p className="text-sm font-bold text-persian-light">

@@ -22,7 +22,7 @@ export function HLBanner() {
                 first build package.
               </p>
               <a
-                href="#"
+                href="/consult"
                 className="inline-block rounded-full bg-yellow px-8 py-3 text-xs font-bold uppercase tracking-widest text-black transition-all hover:shadow-[0_0_24px_rgba(246,203,31,0.25)]"
               >
                 Get Started With HighLevel

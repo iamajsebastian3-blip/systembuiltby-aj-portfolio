@@ -9,7 +9,7 @@ const packages = [
   {
     phase: "PHASE ONE",
     name: "STARTER",
-    price: 197,
+    price: 297,
     features: [
       "1-page funnel build",
       "Mobile-optimized design",
@@ -21,7 +21,7 @@ const packages = [
   {
     phase: "PHASE TWO",
     name: "GROWTH",
-    price: 597,
+    price: 697,
     isPopular: true,
     features: [
       "Multi-step funnel build",
@@ -35,7 +35,7 @@ const packages = [
   {
     phase: "PHASE THREE",
     name: "SCALE",
-    price: 1497,
+    price: 1897,
     features: [
       "Full website + funnel system",
       "Advanced GHL automation workflows",

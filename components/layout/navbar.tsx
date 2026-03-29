@@ -32,7 +32,7 @@ const solutionsDropdown: NavDropdown = {
 const workDropdown: NavDropdown = {
   label: "Link",
   items: [
-    { label: "Featured Funnel", emoji: "\u{1F3AF}", href: "/portfolio#op-funnel", description: "Live funnel showcase" },
+    { label: "Featured Funnel", emoji: "\u{1F3AF}", href: "https://ajautomate.co/system-builtby-aj", description: "Live funnel showcase" },
     { label: "Featured Website", emoji: "\u{1F310}", href: "/portfolio#op-website", description: "Live website showcase" },
   ],
 };

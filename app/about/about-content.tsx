@@ -95,9 +95,9 @@ export function AboutContent() {
 
             <ScrollReveal delay={0.15}>
               <BodyText>
-                With over 5 years of experience building inside GoHighLevel and
-                integrating with platforms like Stripe, Calendly, Twilio, and
-                Zapier, I bring a full-stack automation mindset to every project.
+                With over 5 years in freelancing and a deep focus on automation
+                for the last 12 months, I bring a full-stack automation mindset
+                to every project.
               </BodyText>
             </ScrollReveal>
 
@@ -202,7 +202,7 @@ export function AboutContent() {
             {/* CTA */}
             <ScrollReveal delay={0.85}>
               <Link
-                href="/#contact"
+                href="/consult"
                 className="inline-block rounded-lg bg-persian/20 backdrop-blur-sm border border-persian/30 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-persian/40 hover:border-persian/50 hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
               >
                 Book Strategy Call →

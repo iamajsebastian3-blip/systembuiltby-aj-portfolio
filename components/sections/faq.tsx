@@ -31,16 +31,6 @@ const faqs = [
       "After the strategy call, you\u2019ll receive a custom proposal. Once approved, we kick off with onboarding, build the system, test it end-to-end, walk you through everything, and launch.",
   },
   {
-    question: "Do I need to already have GoHighLevel?",
-    answer:
-      "No. I can set up a new GHL account for you as part of the onboarding process. If you sign up through my affiliate link, you\u2019ll also receive a discount on your first build package.",
-  },
-  {
-    question: "Will I be trained on how to use the system?",
-    answer:
-      "Yes. Every build includes a walkthrough call where I show you exactly how to manage your system \u2014 pipelines, automations, dashboards, and contacts. You\u2019ll also receive documentation for reference.",
-  },
-  {
     question: "What if the system isn\u2019t converting after launch?",
     answer:
       "All packages include post-launch support. If something isn\u2019t performing, I\u2019ll diagnose the issue, adjust the logic, and optimize until the system delivers. You\u2019re not left to figure it out alone.",
