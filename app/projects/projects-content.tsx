@@ -33,6 +33,7 @@ const automations = [
     description:
       "Captures leads from forms, ads, and landing pages \u2014 then moves them through qualification, nurture, and conversion stages automatically.",
     chips: ["Form Trigger", "Auto-Tag", "SMS + Email", "Pipeline Stages", "Conversion Tracking"],
+    image: "/lead-capture-pipeline.png",
   },
   {
     icon: "\uD83D\uDCC5",
@@ -287,28 +288,91 @@ function AutomationCard({
   subtitle,
   description,
   chips,
+  image,
 }: (typeof automations)[number]) {
+  const [showPreview, setShowPreview] = useState(false);
+
+  const cardClass = "group rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm p-7 transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]";
+
   return (
-    <div className="group rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm p-7 transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
-      <div className="mb-4 flex h-[38px] w-[38px] items-center justify-center rounded-[9px] border border-white/[0.1] bg-white/[0.06] text-lg">
-        {icon}
+    <>
+      <div
+        className={`${cardClass} ${image ? "cursor-pointer" : ""}`}
+        onClick={image ? () => setShowPreview(true) : undefined}
+      >
+        {image && (
+          <div className="mb-4 -mx-7 -mt-7 rounded-t-2xl overflow-hidden relative h-36 bg-gradient-to-br from-persian/15 via-[#1a0845]/30 to-persian/10 flex items-center justify-center group-hover:from-persian/25 group-hover:via-[#1a0845]/40 group-hover:to-persian/15 transition-all duration-300">
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/[0.08] border border-white/[0.15] flex items-center justify-center group-hover:bg-persian/30 group-hover:border-persian/40 transition-all duration-300">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                </svg>
+              </div>
+              <p className="text-xs font-semibold text-white/30 uppercase tracking-widest group-hover:text-white/60 transition-colors">Click to Preview</p>
+            </div>
+          </div>
+        )}
+        <div className="mb-2 flex items-center gap-2">
+          <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[9px] border border-white/[0.1] bg-white/[0.06] text-lg">
+            {icon}
+          </div>
+          {image && (
+            <span className="text-[0.6rem] font-extrabold uppercase tracking-wider text-persian-light bg-persian/20 border border-persian/30 rounded-full px-2 py-0.5">Preview</span>
+          )}
+        </div>
+        <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
+        <p className="mb-3 text-xs font-medium text-white/50">{subtitle}</p>
+        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-1.5">
+          {chips.map((chip) => (
+            <span
+              key={chip}
+              className="rounded-full border border-white/[0.1] bg-white/[0.06] px-2.5 py-1 text-[0.68rem] font-bold text-white/50"
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
       </div>
-      <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
-      <p className="mb-3 text-xs font-medium text-white/50">{subtitle}</p>
-      <p className="mb-4 text-[13px] leading-relaxed text-white/55">
-        {description}
-      </p>
-      <div className="flex flex-wrap gap-1.5">
-        {chips.map((chip) => (
-          <span
-            key={chip}
-            className="rounded-full border border-white/[0.1] bg-white/[0.06] px-2.5 py-1 text-[0.68rem] font-bold text-white/50"
+
+      {/* Image lightbox modal */}
+      <AnimatePresence>
+        {showPreview && image && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm cursor-pointer overflow-y-auto"
+            onClick={() => setShowPreview(false)}
           >
-            {chip}
-          </span>
-        ))}
-      </div>
-    </div>
+            <div className="min-h-full flex flex-col items-center py-8 px-6">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="relative max-w-3xl w-full"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setShowPreview(false)}
+                  className="sticky top-0 float-right z-10 mb-2 flex items-center gap-1.5 rounded-full bg-white/[0.1] backdrop-blur-sm border border-white/[0.15] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white/70 hover:text-white hover:bg-white/[0.2] transition-colors"
+                >
+                  Close &times;
+                </button>
+                <div className="clear-both rounded-2xl overflow-hidden border border-white/[0.1] shadow-[0_24px_64px_rgba(0,0,0,0.6)]">
+                  <img src={image} alt={title} className="w-full h-auto" />
+                </div>
+                <p className="text-center text-xs text-white/30 mt-3 mb-4 uppercase tracking-widest">{title}</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
