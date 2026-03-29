@@ -33,7 +33,7 @@ const automations = [
     description:
       "Captures leads from forms, ads, and landing pages \u2014 then moves them through qualification, nurture, and conversion stages automatically.",
     chips: ["Form Trigger", "Auto-Tag", "SMS + Email", "Pipeline Stages", "Conversion Tracking"],
-    image: "/lead-capture-pipeline.png",
+    image: "/pipeline-lead-capture.png",
   },
   {
     icon: "\uD83D\uDCC5",
@@ -42,6 +42,7 @@ const automations = [
     description:
       "Automates the entire booking flow \u2014 from calendar scheduling to reminders, no-show recovery, and post-appointment follow-up.",
     chips: ["Calendar Sync", "48h/24h/2h Reminders", "No-Show Branch", "Rebooking", "Review Ask"],
+    image: "/pipeline-app-booking.png",
   },
   {
     icon: "\uD83D\uDCB0",
@@ -50,6 +51,7 @@ const automations = [
     description:
       "Engineered for high-ticket offers \u2014 moves qualified leads through discovery, proposal, negotiation, and close stages with automated follow-ups.",
     chips: ["Lead Scoring", "Discovery Call", "Proposal Stage", "Follow-Up Sequence", "Won/Lost Tracking"],
+    image: "/pipeline-sales.png",
   },
   {
     icon: "\uD83D\uDED2",
@@ -58,6 +60,7 @@ const automations = [
     description:
       "Tracks orders from purchase to fulfillment \u2014 with abandoned cart recovery, order confirmations, and post-purchase upsell sequences.",
     chips: ["Order Trigger", "Cart Recovery", "Confirmation SMS", "Upsell Sequence", "Review Request"],
+    image: "/pipeline-order.png",
   },
   {
     icon: "\uD83D\uDD01",
@@ -66,6 +69,7 @@ const automations = [
     description:
       "Wakes up cold leads and past clients with multi-touch nurture sequences \u2014 SMS, email, and value-driven content over 14\u201330 days.",
     chips: ["Inactivity Trigger", "Drip Sequence", "Offer Nudge", "Reply Detection", "Re-qualification"],
+    image: "/pipeline-nurture.png",
   },
   {
     icon: "\uD83C\uDFDD\uFE0F",
@@ -74,6 +78,7 @@ const automations = [
     description:
       "Built for resorts, hotels, and service-based businesses \u2014 handles reservation requests, confirmations, pre-arrival sequences, and feedback.",
     chips: ["Reservation Form", "Confirmation Flow", "Pre-Arrival SMS", "Check-In Reminder", "Feedback Loop"],
+    image: "/pipeline-reservation.png",
   },
   {
     icon: "\uD83E\uDDD1\u200D\uD83C\uDFEB",
@@ -82,6 +87,7 @@ const automations = [
     description:
       "Designed for coaches, consultants, and agencies \u2014 moves prospects through application, vetting, strategy call, and onboarding stages.",
     chips: ["Application Form", "Vetting Stage", "Strategy Call", "Contract/Payment", "Onboarding"],
+    image: "/pipeline-high-ticket.png",
   },
   {
     icon: "\uD83C\uDFC6",
@@ -90,6 +96,7 @@ const automations = [
     description:
       "Automates post-sale delivery \u2014 welcome sequences, kickoff scheduling, milestone tracking, and project completion with review requests.",
     chips: ["Welcome Sequence", "Kickoff Call", "Milestone Tracking", "Delivery Complete", "Testimonial Ask"],
+    image: "/pipeline-client-onboarding.png",
   },
 ];
 
@@ -215,9 +222,12 @@ const websites = [
   },
   {
     title: "E-commerce",
-    subtitle: "Shopify Product Landing",
-    tech: "Shopify \u00B7 Custom sections",
+    subtitle: "AJ Bactad Store",
+    tech: "Next.js \u00B7 Vercel",
     light: false,
+    url: "https://aj-bactad-ecommerce-4793kbr8a-aj29.vercel.app/",
+    isLive: true,
+    thumbnail: "/ecommerce-thumbnail.png",
   },
   {
     title: "Professional Services",
@@ -291,6 +301,7 @@ function AutomationCard({
   image,
 }: (typeof automations)[number]) {
   const [showPreview, setShowPreview] = useState(false);
+  const [zoom, setZoom] = useState(1);
 
   const cardClass = "group rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm p-7 transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]";
 
@@ -345,28 +356,58 @@ function AutomationCard({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm cursor-pointer overflow-y-auto"
-            onClick={() => setShowPreview(false)}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm cursor-pointer overflow-auto"
+            onClick={() => { setShowPreview(false); setZoom(1); }}
           >
-            <div className="min-h-full flex flex-col items-center py-8 px-6">
+            {/* Top bar with controls */}
+            <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-3 bg-black/60 backdrop-blur-md border-b border-white/[0.06]">
+              <p className="text-xs text-white/40 uppercase tracking-widest">{title}</p>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={(e) => { e.stopPropagation(); setZoom(Math.max(0.5, zoom - 0.25)); }}
+                  className="w-8 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.15] transition-colors text-lg font-bold"
+                >
+                  −
+                </button>
+                <span className="text-xs text-white/50 font-bold w-12 text-center">{Math.round(zoom * 100)}%</span>
+                <button
+                  onClick={(e) => { e.stopPropagation(); setZoom(Math.min(3, zoom + 0.25)); }}
+                  className="w-8 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.15] transition-colors text-lg font-bold"
+                >
+                  +
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); setZoom(1); }}
+                  className="px-3 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.15] transition-colors text-[0.6rem] font-bold uppercase tracking-wider"
+                >
+                  Reset
+                </button>
+                <div className="w-px h-5 bg-white/[0.1] mx-1" />
+                <button
+                  onClick={(e) => { e.stopPropagation(); setShowPreview(false); setZoom(1); }}
+                  className="px-3 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.15] transition-colors text-xs font-bold uppercase tracking-wider"
+                >
+                  Close &times;
+                </button>
+              </div>
+            </div>
+
+            {/* Zoomable image */}
+            <div className="flex justify-center p-6" onClick={(e) => e.stopPropagation()}>
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="relative max-w-3xl w-full"
-                onClick={(e) => e.stopPropagation()}
+                className="rounded-2xl overflow-hidden border border-white/[0.1] shadow-[0_24px_64px_rgba(0,0,0,0.6)] inline-block"
               >
-                <button
-                  onClick={() => setShowPreview(false)}
-                  className="sticky top-0 float-right z-10 mb-2 flex items-center gap-1.5 rounded-full bg-white/[0.1] backdrop-blur-sm border border-white/[0.15] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white/70 hover:text-white hover:bg-white/[0.2] transition-colors"
-                >
-                  Close &times;
-                </button>
-                <div className="clear-both rounded-2xl overflow-hidden border border-white/[0.1] shadow-[0_24px_64px_rgba(0,0,0,0.6)]">
-                  <img src={image} alt={title} className="w-full h-auto" />
-                </div>
-                <p className="text-center text-xs text-white/30 mt-3 mb-4 uppercase tracking-widest">{title}</p>
+                <img
+                  src={image}
+                  alt={title}
+                  className="block transition-transform duration-200 origin-top-left"
+                  style={{ transform: `scale(${zoom})`, transformOrigin: "top left", width: zoom > 1 ? `${100}%` : "100%" }}
+                  draggable={false}
+                />
               </motion.div>
             </div>
           </motion.div>
@@ -459,30 +500,69 @@ function WebsiteCard({
   subtitle,
   tech,
   light,
-}: (typeof websites)[number]) {
+  url,
+  isLive,
+  thumbnail,
+}: (typeof websites)[number] & { url?: string; isLive?: boolean; thumbnail?: string }) {
   const barColor = light ? "bg-white/20" : "bg-white/15";
   const blockColor = light ? "bg-white/10" : "bg-white/[0.07]";
   const thumbBg = light ? "bg-white/[0.06]" : "bg-white/[0.03]";
 
+  const Wrapper = url
+    ? ({ children, className }: { children: React.ReactNode; className: string }) => (
+        <a href={url} target="_blank" rel="noopener noreferrer" className={className}>
+          {children}
+        </a>
+      )
+    : ({ children, className }: { children: React.ReactNode; className: string }) => (
+        <div className={className}>{children}</div>
+      );
+
   return (
-    <div className="group overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
-      {/* Wireframe thumbnail */}
-      <div
-        className={`flex h-[170px] flex-col items-start gap-3 p-6 ${thumbBg}`}
-      >
-        <div className={`h-1.5 w-[70%] rounded ${barColor}`} />
-        <div className={`h-1.5 w-[50%] rounded ${barColor}`} />
-        <div className={`h-5 w-[85%] rounded ${blockColor}`} />
-        <div className={`h-12 w-full rounded ${blockColor}`} />
-        <div className={`h-5 w-[60%] rounded ${blockColor}`} />
+    <Wrapper className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
+      {/* Thumbnail */}
+      <div className={`relative h-[170px] overflow-hidden ${isLive ? "" : thumbBg}`}>
+        {isLive && url ? (
+          <div className="relative h-full overflow-hidden">
+            {thumbnail ? (
+              <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
+            ) : (
+              <div className="h-full bg-gradient-to-br from-persian/15 via-[#1a0845]/30 to-persian/10" />
+            )}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+                View Live &rarr;
+              </span>
+            </div>
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-1 z-10">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-[0.6rem] font-bold text-white uppercase tracking-wider">Live</span>
+            </div>
+          </div>
+        ) : (
+          <div className="flex h-full flex-col items-start gap-3 p-6">
+            <div className={`h-1.5 w-[70%] rounded ${barColor}`} />
+            <div className={`h-1.5 w-[50%] rounded ${barColor}`} />
+            <div className={`h-5 w-[85%] rounded ${blockColor}`} />
+            <div className={`h-12 w-full rounded ${blockColor}`} />
+            <div className={`h-5 w-[60%] rounded ${blockColor}`} />
+          </div>
+        )}
       </div>
       {/* Body */}
       <div className="p-5">
-        <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
+        <div className="flex items-center gap-2 mb-1">
+          <h3 className="text-base font-bold text-white">{title}</h3>
+          {isLive && (
+            <span className="text-[0.55rem] font-extrabold bg-persian/20 text-persian border border-persian/30 rounded-full px-2 py-0.5 uppercase tracking-wider">
+              Deployed
+            </span>
+          )}
+        </div>
         <p className="mb-2 text-sm text-white/50">{subtitle}</p>
         <p className="text-xs text-white/45">{tech}</p>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
