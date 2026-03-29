@@ -4,68 +4,102 @@ const toolkitItems = [
   {
     name: "GoHighLevel",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#00C853" />
-        <text x="20" y="26" textAnchor="middle" fill="white" fontWeight="900" fontSize="18" fontFamily="Inter, sans-serif">G</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M5 18V6h3v12H5z" fill="#FF6B35" />
+        <path d="M10 18V10h3v8h-3z" fill="#FFB800" />
+        <path d="M15 18V3h3v15h-3z" fill="#1CA44E" />
       </svg>
     ),
   },
   {
     name: "Zapier",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#FF4A00" />
-        <path d="M20 10L30 20L20 30L10 20L20 10Z" fill="white" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF4A00">
+        <path d="M15.477 12.89l2.645-2.645a.61.61 0 000-.862l-.708-.708a.61.61 0 00-.862 0L12 13.228 7.448 8.675a.61.61 0 00-.862 0l-.708.708a.61.61 0 000 .862L8.523 12.89l-2.645 2.645a.61.61 0 000 .862l.708.708a.61.61 0 00.862 0L12 12.552l4.552 4.553a.61.61 0 00.862 0l.708-.708a.61.61 0 000-.862L15.477 12.89zM12 18a6 6 0 110-12 6 6 0 010 12z" />
       </svg>
     ),
   },
   {
     name: "Figma",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#1e1e1e" />
-        <circle cx="16" cy="14" r="3.5" fill="#F24E1E" />
-        <circle cx="24" cy="14" r="3.5" fill="#FF7262" />
-        <circle cx="16" cy="22" r="3.5" fill="#A259FF" />
-        <circle cx="24" cy="22" r="3.5" fill="#1ABCFE" />
-        <circle cx="16" cy="30" r="3.5" fill="#0ACF83" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z" fill="#0ACF83" />
+        <path d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z" fill="#A259FF" />
+        <path d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z" fill="#F24E1E" />
+        <path d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z" fill="#FF7262" />
+        <path d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z" fill="#1ABCFE" />
       </svg>
     ),
   },
   {
     name: "Claude",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#D4A574" />
-        <text x="20" y="27" textAnchor="middle" fill="white" fontWeight="800" fontSize="20" fontFamily="Georgia, serif">C</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#D4A574">
+        <path d="M4.709 15.955l4.397-11.91h1.592l-4.378 11.91H4.709zm5.903 0L15.01 4.045h1.573l-4.378 11.91h-1.593zm5.884 0l4.397-11.91h1.592l-4.378 11.91h-1.611z" />
       </svg>
     ),
   },
   {
     name: "ChatGPT",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#10A37F" />
-        <text x="20" y="26" textAnchor="middle" fill="white" fontWeight="800" fontSize="16" fontFamily="Inter, sans-serif">AI</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#10A37F">
+        <path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.708.2 6.046 6.046 0 005.12 2.575a5.985 5.985 0 00-3.998 2.9 6.046 6.046 0 00.743 7.097 5.98 5.98 0 00.51 4.911 6.051 6.051 0 006.515 2.9A5.985 5.985 0 0013.293 23.8a6.046 6.046 0 006.587-2.375 5.985 5.985 0 003.998-2.9 6.046 6.046 0 00-.743-7.097 5.98 5.98 0 00.147-1.607zM13.293 21.95a4.494 4.494 0 01-2.887-1.05l.144-.083 4.794-2.768a.778.778 0 00.393-.676v-6.756l2.026 1.17a.072.072 0 01.04.055v5.594a4.518 4.518 0 01-4.51 4.514zm-9.69-4.143a4.49 4.49 0 01-.538-3.023l.144.084 4.794 2.768a.778.778 0 00.786 0l5.854-3.381v2.34a.072.072 0 01-.029.062l-4.848 2.8a4.518 4.518 0 01-6.163-1.65zm-1.262-10.48A4.49 4.49 0 014.698 5.1l-.002.158v5.536a.778.778 0 00.393.676l5.854 3.381-2.026 1.17a.072.072 0 01-.067.006l-4.848-2.8a4.518 4.518 0 01-1.66-6.163zM19.063 12.79l-5.854-3.382 2.026-1.17a.072.072 0 01.067-.005l4.848 2.8a4.518 4.518 0 01-.697 8.142v-5.709a.778.778 0 00-.39-.676zm2.015-3.036l-.144-.083-4.794-2.768a.778.778 0 00-.786 0l-5.854 3.381V7.944a.072.072 0 01.029-.062l4.848-2.8a4.518 4.518 0 016.7 4.672zm-12.68 4.166l-2.026-1.17a.072.072 0 01-.04-.056V7.1a4.518 4.518 0 017.398-3.466l-.143.083-4.795 2.768a.778.778 0 00-.393.676l-.001 6.76zm1.1-2.375l2.608-1.506 2.608 1.506v3.012l-2.608 1.506-2.608-1.506V11.545z" />
       </svg>
     ),
   },
   {
     name: "VS Code",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#007ACC" />
-        <path d="M28 10L16 20L28 30V10Z" fill="white" fillOpacity="0.9" />
-        <path d="M16 20L11 16V24L16 20Z" fill="white" fillOpacity="0.6" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#007ACC">
+        <path d="M23.15 2.587L18.21.21a1.166 1.166 0 00-1.33.231l-8.97 8.183-3.91-2.97a.779.779 0 00-.996.054L.874 7.632a.779.779 0 00-.003 1.108l3.398 3.108-3.398 3.108a.779.779 0 00.003 1.108l2.13 1.924a.779.779 0 00.996.054l3.91-2.97 8.97 8.183a1.163 1.163 0 001.33.231l4.94-2.377A1.166 1.166 0 0024 19.777V3.945a1.166 1.166 0 00-.85-1.358zM18.5 16.21L11.682 11.848 18.5 7.513v8.696z" />
       </svg>
     ),
   },
   {
     name: "Canva",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#00C4CC" />
-        <text x="20" y="27" textAnchor="middle" fill="white" fontWeight="800" fontSize="20" fontFamily="Inter, sans-serif">C</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="11" fill="#7D2AE7" />
+        <circle cx="12" cy="12" r="7" fill="#00C4CC" />
+        <circle cx="12" cy="12" r="3.5" fill="white" />
+        <circle cx="13.5" cy="10.5" r="1.2" fill="#7D2AE7" />
+      </svg>
+    ),
+  },
+  {
+    name: "Notion",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#000">
+        <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466l1.823 1.447zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.84-.046.933-.56.933-1.167V6.354c0-.606-.233-.933-.746-.886l-15.177.886c-.56.047-.747.327-.747.934zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.747 0-.933-.234-1.493-.933l-4.577-7.186v6.952l1.46.327s0 .84-1.167.84l-3.219.187c-.093-.187 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.452-.233 4.764 7.279v-6.44l-1.214-.14c-.093-.514.28-.886.746-.933l3.226-.186z" />
+      </svg>
+    ),
+  },
+  {
+    name: "ClickUp",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M3.986 17.248l2.97-2.267a5.545 5.545 0 005.044 3.14 5.545 5.545 0 005.044-3.14l2.97 2.267C18.42 20.088 15.42 21.88 12 21.88s-6.42-1.792-8.014-4.632z" fill="#7B68EE" />
+        <path d="M12 7.428l-5.26 4.56-2.655-3.064L12 2.12l7.915 6.804-2.655 3.064L12 7.428z" fill="#49CCF9" />
+      </svg>
+    ),
+  },
+  {
+    name: "Google Meet",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M12.29 7.66h4.79v8.68h-4.79z" fill="#00832D" />
+        <path d="M3.18 17.93c0 .83.67 1.5 1.5 1.5h2.83V7.66H4.68c-.83 0-1.5.67-1.5 1.5v8.77z" fill="#0066DA" />
+        <path d="M17.08 12l3.63-3.63a.75.75 0 011.28.53v6.2a.75.75 0 01-1.28.53L17.08 12z" fill="#00AC47" />
+        <path d="M7.51 7.66v11.77h5.57c.83 0 1.5-.67 1.5-1.5V7.66H7.51z" fill="#00832D" fillOpacity="0.5" />
+        <path d="M14.58 4.57H4.68c-.83 0-1.5.67-1.5 1.5v1.59h11.4V4.57z" fill="#2684FC" />
+      </svg>
+    ),
+  },
+  {
+    name: "Brave",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#FB542B">
+        <path d="M20.468 6.636l.612-1.427-.893-1.03a3.164 3.164 0 00-.525-2.01L18.16.606 15.416 2.15h-1.183L12 1.1l-2.233 1.05H8.584L5.84.606 4.338 2.169a3.164 3.164 0 00-.525 2.01l-.893 1.03.612 1.427-.852 3.07c-.02.068-.032.14-.032.211 0 .115.024.223.067.322l2.782 6.474a1.77 1.77 0 00.615.754l4.938 3.594a1.77 1.77 0 002.1 0l4.938-3.594a1.77 1.77 0 00.615-.754l2.782-6.474a.847.847 0 00.035-.533l-.852-3.07zm-5.022 7.878L12 16.727l-3.446-2.213L7.34 11.34l.822-2.775 1.6-1.023L12 6.49l2.238 1.052 1.6 1.023.822 2.775-1.214 3.174z" />
       </svg>
     ),
   },
@@ -86,16 +120,17 @@ export function ToolkitMarquee() {
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-[#08060e] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-[#08060e] to-transparent" />
 
-        <div className="flex marquee-scroll gap-6 whitespace-nowrap">
+        <div className="flex marquee-scroll gap-5 whitespace-nowrap">
           {tripled.map((item, i) => (
             <div
               key={`${item.name}-${i}`}
-              className="flex items-center gap-4 shrink-0 rounded-2xl px-7 py-4
-                bg-white/[0.04] backdrop-blur-sm border border-white/[0.07]
-                transition-all hover:bg-white/[0.08] hover:border-white/[0.12]"
+              className="flex items-center gap-3 shrink-0 rounded-xl px-5 py-3
+                bg-white border border-gray-200
+                shadow-[0_2px_8px_rgba(0,0,0,0.06)]
+                transition-all hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]"
             >
               {item.logo}
-              <span className="text-base font-bold text-white/60">{item.name}</span>
+              <span className="text-sm font-semibold text-gray-700">{item.name}</span>
             </div>
           ))}
         </div>

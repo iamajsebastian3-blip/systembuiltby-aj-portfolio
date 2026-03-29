@@ -1,142 +1,165 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-
 /* ------------------------------------------------------------------ */
-/*  GLASSMORPHISM PREVIEW v4                                           */
-/*  Fixes: spacing, carousel size, hero layout, stats in profile card  */
-/* ------------------------------------------------------------------ */
-
-/* ------------------------------------------------------------------ */
-/*  DATA                                                               */
-/* ------------------------------------------------------------------ */
-
-const badges = ["GHL Expert", "Google Ads", "Local SEO", "CRM Automation", "Funnel Builder"];
-
-const metrics = [
-  { value: "60%", label: "Avg conversion lift" },
-  { value: "2.5\u00D7", label: "Revenue multiplier" },
-  { value: "48h", label: "Avg turnaround" },
-  { value: "100%", label: "Client retention" },
-];
-
-const profileStats = [
-  { value: "5+", label: "Years freelancing" },
-  { value: "12mo", label: "Deep automation focus" },
-  { value: "GHL", label: "Certified expert" },
-];
-
-const philosophyModules = [
-  { id: "MOD_01", title: "Structure Before Scale", body: "I build the foundation first so growth doesn\u2019t break your business architecture." },
-  { id: "MOD_02", title: "Systems Over Tools", body: "Tools change. Logic doesn\u2019t. I build the infrastructure layer, not the software dependency." },
-  { id: "MOD_03", title: "Clarity and Execution", body: "Every trigger, tag, and transition serves a measurable function. No wasted motion." },
-  { id: "MOD_04", title: "Intentional Automation", body: "Automation should feel human \u2014 not mechanical. Scale without sacrificing experience." },
-];
-
-const services = [
-  { rank: "01", icon: "\uD83D\uDD25", title: "Funnel & Website Systems", items: ["GHL funnels", "Landing pages", "Conversion optimization"] },
-  { rank: "02", icon: "\uD83D\uDD25", title: "CRM & Pipeline Systems", items: ["Pipeline setup", "Lead tracking", "Segmentation"] },
-  { rank: "03", icon: "\uD83D\uDD25", title: "Automation & Workflows", items: ["Email/SMS sequences", "Lead nurturing", "Re-engagement"] },
-  { rank: "04", icon: "\uD83D\uDCC5", title: "Booking Systems", items: ["Calendars", "Reminders", "No-show reduction"] },
-  { rank: "05", icon: "\uD83D\uDCF2", title: "A2P 10DLC Setup", items: ["Registration", "Compliance", "Deliverability"], isNew: true },
-  { rank: "06", icon: "\uD83E\uDD16", title: "AI Chatbot Systems", items: ["AI conversation setup", "Lead qualification", "Booking bots"], isNew: true },
-];
-
-const testimonials = [
-  { name: "Claire Montero", role: "7-Figure Service Brand", initials: "CM", quote: "AJ didn\u2019t just \u2018set up\u2019 our HighLevel. He rebuilt the entire logic behind how our leads move." },
-  { name: "Marcus Delgado", role: "Consulting Firm", initials: "MD", quote: "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure." },
-  { name: "Ethel Navarro", role: "B2B Service Company", initials: "EN", quote: "Most people know the tools. AJ understands the system behind them. He thinks in infrastructure." },
-];
-
-const faqs = [
-  { q: "How fast will I start getting leads?", a: "Most clients see automated leads within 7\u201314 days post-launch." },
-  { q: "Will this work for my industry?", a: "Systems are industry-agnostic. The infrastructure adapts to your sales process." },
-  { q: "What do you need from me to start?", a: "Access to your tools, a 30-minute kickoff call, and your current offer details." },
-  { q: "How long does the build take?", a: "Starter systems go live in 5\u20137 business days. Complex builds take 10\u201314 days." },
-];
-
-/* ------------------------------------------------------------------ */
-/*  TOOLKIT LOGOS                                                      */
+/*  PREVIEW — Toolkit Marquee with real brand SVG paths                */
 /* ------------------------------------------------------------------ */
 
 const toolkitItems = [
   {
     name: "GoHighLevel",
+    color: "#1CA44E",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#00C853" />
-        <text x="20" y="26" textAnchor="middle" fill="white" fontWeight="900" fontSize="18" fontFamily="Inter, sans-serif">G</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M5 18V6h3v12H5z" fill="#FF6B35" />
+        <path d="M10 18V10h3v8h-3z" fill="#FFB800" />
+        <path d="M15 18V3h3v15h-3z" fill="#1CA44E" />
       </svg>
     ),
   },
   {
     name: "Zapier",
+    color: "#FF4A00",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#FF4A00" />
-        <path d="M20 10L30 20L20 30L10 20L20 10Z" fill="white" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF4A00">
+        <path d="M15.477 12.89l2.645-2.645a.61.61 0 000-.862l-.708-.708a.61.61 0 00-.862 0L12 13.228 7.448 8.675a.61.61 0 00-.862 0l-.708.708a.61.61 0 000 .862L8.523 12.89l-2.645 2.645a.61.61 0 000 .862l.708.708a.61.61 0 00.862 0L12 12.552l4.552 4.553a.61.61 0 00.862 0l.708-.708a.61.61 0 000-.862L15.477 12.89zM12 18a6 6 0 110-12 6 6 0 010 12z" />
       </svg>
     ),
   },
   {
     name: "Figma",
+    color: "#A259FF",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#1e1e1e" />
-        <circle cx="16" cy="14" r="3.5" fill="#F24E1E" />
-        <circle cx="24" cy="14" r="3.5" fill="#FF7262" />
-        <circle cx="16" cy="22" r="3.5" fill="#A259FF" />
-        <circle cx="24" cy="22" r="3.5" fill="#1ABCFE" />
-        <circle cx="16" cy="30" r="3.5" fill="#0ACF83" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z" fill="#0ACF83" />
+        <path d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z" fill="#A259FF" />
+        <path d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z" fill="#F24E1E" />
+        <path d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z" fill="#FF7262" />
+        <path d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z" fill="#1ABCFE" />
       </svg>
     ),
   },
   {
     name: "Claude",
+    color: "#D4A574",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#D4A574" />
-        <text x="20" y="27" textAnchor="middle" fill="white" fontWeight="800" fontSize="20" fontFamily="Georgia, serif">C</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#D4A574">
+        <path d="M4.709 15.955l4.397-11.91h1.592l-4.378 11.91H4.709zm5.903 0L15.01 4.045h1.573l-4.378 11.91h-1.593zm5.884 0l4.397-11.91h1.592l-4.378 11.91h-1.611z" />
       </svg>
     ),
   },
   {
     name: "ChatGPT",
+    color: "#10A37F",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#10A37F" />
-        <text x="20" y="26" textAnchor="middle" fill="white" fontWeight="800" fontSize="16" fontFamily="Inter, sans-serif">AI</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#10A37F">
+        <path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.708.2 6.046 6.046 0 005.12 2.575a5.985 5.985 0 00-3.998 2.9 6.046 6.046 0 00.743 7.097 5.98 5.98 0 00.51 4.911 6.051 6.051 0 006.515 2.9A5.985 5.985 0 0013.293 23.8a6.046 6.046 0 006.587-2.375 5.985 5.985 0 003.998-2.9 6.046 6.046 0 00-.743-7.097 5.98 5.98 0 00.147-1.607zM13.293 21.95a4.494 4.494 0 01-2.887-1.05l.144-.083 4.794-2.768a.778.778 0 00.393-.676v-6.756l2.026 1.17a.072.072 0 01.04.055v5.594a4.518 4.518 0 01-4.51 4.514zm-9.69-4.143a4.49 4.49 0 01-.538-3.023l.144.084 4.794 2.768a.778.778 0 00.786 0l5.854-3.381v2.34a.072.072 0 01-.029.062l-4.848 2.8a4.518 4.518 0 01-6.163-1.65zm-1.262-10.48A4.49 4.49 0 014.698 5.1l-.002.158v5.536a.778.778 0 00.393.676l5.854 3.381-2.026 1.17a.072.072 0 01-.067.006l-4.848-2.8a4.518 4.518 0 01-1.66-6.163zM19.063 12.79l-5.854-3.382 2.026-1.17a.072.072 0 01.067-.005l4.848 2.8a4.518 4.518 0 01-.697 8.142v-5.709a.778.778 0 00-.39-.676zm2.015-3.036l-.144-.083-4.794-2.768a.778.778 0 00-.786 0l-5.854 3.381V7.944a.072.072 0 01.029-.062l4.848-2.8a4.518 4.518 0 016.7 4.672zm-12.68 4.166l-2.026-1.17a.072.072 0 01-.04-.056V7.1a4.518 4.518 0 017.398-3.466l-.143.083-4.795 2.768a.778.778 0 00-.393.676l-.001 6.76zm1.1-2.375l2.608-1.506 2.608 1.506v3.012l-2.608 1.506-2.608-1.506V11.545z" />
       </svg>
     ),
   },
   {
     name: "VS Code",
+    color: "#007ACC",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#007ACC" />
-        <path d="M28 10L16 20L28 30V10Z" fill="white" fillOpacity="0.9" />
-        <path d="M16 20L11 16V24L16 20Z" fill="white" fillOpacity="0.6" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#007ACC">
+        <path d="M23.15 2.587L18.21.21a1.166 1.166 0 00-1.33.231l-8.97 8.183-3.91-2.97a.779.779 0 00-.996.054L.874 7.632a.779.779 0 00-.003 1.108l3.398 3.108-3.398 3.108a.779.779 0 00.003 1.108l2.13 1.924a.779.779 0 00.996.054l3.91-2.97 8.97 8.183a1.163 1.163 0 001.33.231l4.94-2.377A1.166 1.166 0 0024 19.777V3.945a1.166 1.166 0 00-.85-1.358zM18.5 16.21L11.682 11.848 18.5 7.513v8.696z" />
       </svg>
     ),
   },
   {
     name: "Canva",
+    color: "#00C4CC",
     logo: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#00C4CC" />
-        <text x="20" y="27" textAnchor="middle" fill="white" fontWeight="800" fontSize="20" fontFamily="Inter, sans-serif">C</text>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="11" fill="#7D2AE7" />
+        <circle cx="12" cy="12" r="7" fill="#00C4CC" />
+        <circle cx="12" cy="12" r="3.5" fill="white" />
+        <circle cx="13.5" cy="10.5" r="1.2" fill="#7D2AE7" />
+      </svg>
+    ),
+  },
+  {
+    name: "Notion",
+    color: "#000000",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#000">
+        <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466l1.823 1.447zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.84-.046.933-.56.933-1.167V6.354c0-.606-.233-.933-.746-.886l-15.177.886c-.56.047-.747.327-.747.934zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.747 0-.933-.234-1.493-.933l-4.577-7.186v6.952l1.46.327s0 .84-1.167.84l-3.219.187c-.093-.187 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.452-.233 4.764 7.279v-6.44l-1.214-.14c-.093-.514.28-.886.746-.933l3.226-.186z" />
+      </svg>
+    ),
+  },
+  {
+    name: "ClickUp",
+    color: "#7B68EE",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M3.986 17.248l2.97-2.267a5.545 5.545 0 005.044 3.14 5.545 5.545 0 005.044-3.14l2.97 2.267C18.42 20.088 15.42 21.88 12 21.88s-6.42-1.792-8.014-4.632z" fill="#7B68EE" />
+        <path d="M12 7.428l-5.26 4.56-2.655-3.064L12 2.12l7.915 6.804-2.655 3.064L12 7.428z" fill="#49CCF9" />
+      </svg>
+    ),
+  },
+  {
+    name: "Google Meet",
+    color: "#00897B",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M12.29 7.66h4.79v8.68h-4.79z" fill="#00832D" />
+        <path d="M3.18 17.93c0 .83.67 1.5 1.5 1.5h2.83V7.66H4.68c-.83 0-1.5.67-1.5 1.5v8.77z" fill="#0066DA" />
+        <path d="M17.08 12l3.63-3.63a.75.75 0 011.28.53v6.2a.75.75 0 01-1.28.53L17.08 12z" fill="#00AC47" />
+        <path d="M7.51 7.66v11.77h5.57c.83 0 1.5-.67 1.5-1.5V7.66H7.51z" fill="#00832D" fillOpacity="0.5" />
+        <path d="M14.58 4.57H4.68c-.83 0-1.5.67-1.5 1.5v1.59h11.4V4.57z" fill="#2684FC" />
+      </svg>
+    ),
+  },
+  {
+    name: "Brave",
+    color: "#FB542B",
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#FB542B">
+        <path d="M20.468 6.636l.612-1.427-.893-1.03a3.164 3.164 0 00-.525-2.01L18.16.606 15.416 2.15h-1.183L12 1.1l-2.233 1.05H8.584L5.84.606 4.338 2.169a3.164 3.164 0 00-.525 2.01l-.893 1.03.612 1.427-.852 3.07c-.02.068-.032.14-.032.211 0 .115.024.223.067.322l2.782 6.474a1.77 1.77 0 00.615.754l4.938 3.594a1.77 1.77 0 002.1 0l4.938-3.594a1.77 1.77 0 00.615-.754l2.782-6.474a.847.847 0 00.035-.533l-.852-3.07zm-5.022 7.878L12 16.727l-3.446-2.213L7.34 11.34l.822-2.775 1.6-1.023L12 6.49l2.238 1.052 1.6 1.023.822 2.775-1.214 3.174z" />
       </svg>
     ),
   },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  TOOLKIT MARQUEE — bigger cards, fills space                        */
-/* ------------------------------------------------------------------ */
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/Ajbactad29/",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/aj_automate.co/",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+      </svg>
+    ),
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/ajbactad29/",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Threads",
+    href: "https://www.threads.com/@aj_automate.co",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.2 1.478-.755 2.633-1.657 3.436-1.005.893-2.37 1.364-4.062 1.4-1.243-.028-2.336-.387-3.154-1.036-.869-.69-1.349-1.632-1.349-2.652 0-1.924 1.506-3.393 3.5-3.56 1.303-.11 2.477.158 3.394.77.166.11.32.233.46.364.023-.24.035-.484.035-.733 0-.508-.063-.973-.188-1.386-.257-.85-.737-1.472-1.424-1.847-.747-.408-1.712-.615-2.868-.615l-.076.002c-1.932.046-3.385.86-4.198 2.354l-1.747-.974c1.08-1.983 3.058-3.08 5.572-3.097h.093c1.47 0 2.735.284 3.762.845 1.005.548 1.744 1.363 2.146 2.363a6.78 6.78 0 01.39 2.352c.007.396-.014.79-.063 1.17.558.39 1.026.873 1.378 1.432.748 1.186 1.022 2.608.773 4.008-.37 2.086-1.508 3.756-3.387 4.969-1.648 1.063-3.74 1.633-6.226 1.694z" />
+      </svg>
+    ),
+  },
+];
 
-function ToolkitMarquee() {
+function PreviewMarquee() {
   const tripled = [...toolkitItems, ...toolkitItems, ...toolkitItems];
 
   return (
@@ -148,639 +171,89 @@ function ToolkitMarquee() {
       </div>
 
       <div className="relative">
-        {/* Fade edges */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-[#08060e] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-[#08060e] to-transparent" />
 
-        {/* Track */}
-        <div className="flex animate-marquee gap-6 whitespace-nowrap">
+        <div className="flex marquee-scroll gap-5 whitespace-nowrap">
           {tripled.map((item, i) => (
             <div
               key={`${item.name}-${i}`}
-              className="flex items-center gap-4 shrink-0 rounded-2xl px-7 py-4
-                bg-white/[0.04] backdrop-blur-sm
-                border border-white/[0.07]
-                transition-all hover:bg-white/[0.08] hover:border-white/[0.12]"
+              className="flex items-center gap-3 shrink-0 rounded-xl px-5 py-3
+                bg-white border border-gray-200
+                shadow-[0_2px_8px_rgba(0,0,0,0.06)]
+                transition-all hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]"
             >
               {item.logo}
-              <span className="text-base font-bold text-white/60">{item.name}</span>
+              <span className="text-sm font-semibold text-gray-700">{item.name}</span>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  BACKGROUND                                                         */
-/* ------------------------------------------------------------------ */
-
-function DarkBg({ children }: { children: React.ReactNode }) {
+function SocialLinks() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#08060e]">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] rounded-full bg-[#2a0a5e]/60 blur-[180px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#1a0640]/70 blur-[160px]" />
-        <div className="absolute top-[40%] left-[30%] w-[500px] h-[500px] rounded-full bg-[#1e0a50]/40 blur-[140px]" />
-        <div className="absolute bottom-[30%] right-[10%] w-[300px] h-[300px] rounded-full bg-[#3a0f7a]/25 blur-[100px]" />
-      </div>
-      <div className="relative z-10">{children}</div>
+    <div className="flex items-center gap-3">
+      {socialLinks.map((social) => (
+        <a
+          key={social.name}
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.name}
+          className="flex items-center justify-center w-9 h-9 rounded-lg
+            bg-white/[0.05] border border-white/[0.08]
+            text-white/40 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15]
+            transition-all duration-200"
+        >
+          {social.icon}
+        </a>
+      ))}
     </div>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  HERO — redesigned layout                                           */
-/*  Left: text + CTAs  |  Right: placeholder image + profile card      */
-/* ------------------------------------------------------------------ */
-
-function GlassHero() {
+export default function PreviewPage() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 py-24 lg:grid-cols-[1fr_440px] lg:py-28">
-        {/* LEFT — Text */}
-        <div className="flex flex-col gap-6 pt-8">
-          {/* Eyebrow */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm
-              bg-white/[0.05] backdrop-blur-sm border border-white/[0.08] text-white/70">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-yellow" />
-              </span>
-              Available for new clients
-            </span>
-          </motion.div>
-
-          {/* Title — proper spacing */}
-          <h1 className="text-4xl font-black leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}>
-              I DON&apos;T CHASE
-            </motion.span>
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.3 }}>
-              GROWTH. I{" "}
-              <span className="text-yellow">ENGINEER</span>
-            </motion.span>
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}>
-              THE SYSTEM
-            </motion.span>
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.5 }}>
-              BEHIND IT.
-            </motion.span>
-          </h1>
-
-          {/* Subtitle — GHL focused */}
-          <motion.p className="max-w-lg text-lg text-white/50" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
-            I build HighLevel systems that capture, nurture, and close &mdash; on autopilot. Your CRM, funnels, and automations, engineered to run without you.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div className="flex flex-wrap gap-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}>
-            <Link
-              href="#"
-              className="inline-flex items-center rounded-xl bg-persian px-6 py-3 font-semibold text-white transition-all border border-persian/60 hover:shadow-[0_0_30px_rgba(94,23,235,0.35)] hover:bg-persian-dark"
-            >
-              Book Free Consultation &rarr;
-            </Link>
-            <Link
-              href="#"
-              className="inline-flex items-center rounded-xl px-6 py-3 font-semibold transition-all
-                bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] text-white/80
-                hover:bg-white/[0.07]"
-            >
-              Check My Portfolio
-            </Link>
-          </motion.div>
-        </div>
-
-        {/* RIGHT — Placeholder image + Profile card stacked */}
-        <div className="flex flex-col gap-5">
-          {/* Placeholder image */}
-          <motion.div
-            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden
-              bg-white/[0.04] backdrop-blur-sm border border-white/[0.08]
-              shadow-[0_16px_64px_rgba(0,0,0,0.4)]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.4 }}
-          >
-            {/* Gradient placeholder */}
-            <div className="absolute inset-0 bg-gradient-to-br from-persian/20 via-[#1a0845]/40 to-persian/10" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-white/[0.08] border border-white/[0.12] flex items-center justify-center">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                    <circle cx="8.5" cy="8.5" r="1.5" />
-                    <path d="M21 15l-5-5L5 21" />
-                  </svg>
-                </div>
-                <p className="text-xs text-white/20 uppercase tracking-widest font-semibold">Your Image Here</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Profile Card — contains stats now */}
-          <motion.div
-            className="flex flex-col gap-5 rounded-2xl p-6
-              bg-white/[0.05] backdrop-blur-xl border border-white/[0.10]
-              shadow-[0_16px_64px_rgba(0,0,0,0.5)]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.6 }}
-          >
-            <span className="text-xs font-semibold uppercase tracking-widest text-white/30">
-              Growth Systems Consultant
-            </span>
-
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-persian/40 border border-persian/30 text-sm font-bold text-white">
-                AJ
-              </div>
-              <div>
-                <p className="font-bold text-white">Allen Bactad</p>
-                <p className="text-sm text-white/40">Automation Builder</p>
-              </div>
-            </div>
-
-            {/* Badges */}
-            <div className="flex flex-wrap gap-2">
-              {badges.map((badge) => (
-                <span key={badge} className="px-3 py-1 text-xs font-medium rounded-full
-                  bg-white/[0.05] border border-white/[0.08] text-persian-light">
-                  {badge}
-                </span>
-              ))}
-            </div>
-
-            {/* Metrics 2x2 */}
-            <div className="grid grid-cols-2 gap-2.5">
-              {metrics.map((metric) => (
-                <div key={metric.label} className="flex flex-col items-center rounded-xl p-3
-                  bg-white/[0.035] border border-white/[0.06]">
-                  <span className="text-xl font-extrabold text-white">{metric.value}</span>
-                  <span className="text-center text-[10px] text-white/35">{metric.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Divider */}
-            <div className="h-px bg-white/[0.06]" />
-
-            {/* Stats row — moved here from hero left */}
-            <div className="flex justify-between">
-              {profileStats.map((stat) => (
-                <div key={stat.label} className="flex flex-col items-center text-center">
-                  <span className="text-lg font-extrabold text-white">{stat.value}</span>
-                  <span className="text-[10px] text-white/30">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+    <div className="min-h-screen bg-[#08060e] relative overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] rounded-full bg-[#2a0a5e]/60 blur-[180px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#1a0640]/70 blur-[160px]" />
       </div>
-    </section>
-  );
-}
 
-/* ------------------------------------------------------------------ */
-/*  VAULT                                                              */
-/* ------------------------------------------------------------------ */
-
-function GlassVault() {
-  const operationalItems = [
-    "Funnels are underperforming against expected conversion benchmarks",
-    "Automations are fragmented or improperly triggered",
-    "Leads are leaking between pipeline stages",
-    "The system feels complex, not controlled",
-  ];
-  const engineeringItems = [
-    "You\u2019re unsure how to structure your lead flow",
-    "You don\u2019t want to build a system twice",
-    "You need automation done correctly the first time",
-    "You want growth without operational chaos",
-  ];
-
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-white/30">
-            Is This You?
-          </span>
-          <h2 className="text-3xl font-black leading-tight text-white md:text-4xl lg:text-5xl">
-            Whether Your System Exists Or Needs to Be Built.
-          </h2>
+      <div className="relative z-10">
+        <div className="fixed top-16 left-0 right-0 z-40 bg-yellow text-black text-center py-2 text-xs font-bold uppercase tracking-widest">
+          Preview — White Marquee Cards + Real Logos + Social Links
         </div>
 
-        <div className="rounded-2xl p-5 md:p-8
-          bg-white/[0.03] backdrop-blur-md border border-white/[0.06]
-          shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <div className="p-6 rounded-xl transition-all duration-300
-              bg-white/[0.04] backdrop-blur-sm border border-white/[0.07]
-              hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/[0.035] border border-white/[0.06]">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5 10l3 3 7-7" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-white">System Operational</h3>
-              </div>
-              <ul className="flex flex-col gap-3">
-                {operationalItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-persian-light shrink-0" />
-                    <span className="text-sm text-white/50">{item}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Hero CTA + Social links preview */}
+        <section className="pt-32 pb-8 px-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-black text-white mb-6">Hero CTA + Social Links</h2>
+          <div className="flex flex-col gap-4 mb-6">
+            <div className="flex flex-wrap gap-4">
+              <a href="#" className="inline-flex items-center rounded-xl bg-persian px-6 py-3 font-semibold text-white border border-persian/60">
+                Book Free Consultation &rarr;
+              </a>
+              <a href="#" className="inline-flex items-center rounded-xl px-6 py-3 font-semibold bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] text-white/80">
+                Check My Portfolio
+              </a>
             </div>
-
-            <div className="p-6 rounded-xl transition-all duration-300
-              bg-white/[0.04] backdrop-blur-sm border border-white/[0.07]
-              hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/10 border border-red-500/15">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M6 6l8 8M14 6l-8 8" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-white">System Needs Engineering</h3>
-              </div>
-              <ul className="flex flex-col gap-3">
-                {engineeringItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex-shrink-0 text-sm font-bold text-red-400/70">!</span>
-                    <span className="text-sm text-white/50">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <SocialLinks />
           </div>
-        </div>
+        </section>
+
+        <div className="h-px bg-white/[0.06] max-w-3xl mx-auto" />
+
+        {/* Marquee preview */}
+        <section className="pt-12 pb-4 px-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-black text-white mb-2">Toolkit Marquee</h2>
+          <p className="text-sm text-white/40 mb-8">White cards with brand-colored SVG logos — 11 tools</p>
+        </section>
+
+        <PreviewMarquee />
       </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  PHILOSOPHY                                                         */
-/* ------------------------------------------------------------------ */
-
-function GlassPhilosophy() {
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-yellow">
-            Methodology
-          </span>
-          <h2 className="text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
-            The System-First Philosophy
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {philosophyModules.map((mod) => (
-            <motion.div
-              key={mod.id}
-              whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="p-7 rounded-xl transition-all duration-300
-                bg-white/[0.04] backdrop-blur-sm border border-white/[0.07]
-                hover:bg-white/[0.07] hover:border-white/[0.12]
-                hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
-            >
-              <span className="mb-3 inline-block text-xs font-semibold tracking-widest text-yellow/80">
-                {mod.id}
-              </span>
-              <h3 className="mb-2 text-lg font-extrabold text-white">{mod.title}</h3>
-              <p className="text-sm leading-relaxed text-white/40">{mod.body}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  SERVICES                                                           */
-/* ------------------------------------------------------------------ */
-
-function GlassServices() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="pointer-events-none absolute top-1/2 left-[-5%] w-[400px] h-[400px] bg-[#2a0a5e]/30 blur-[120px] rounded-full -translate-y-1/2" />
-
-      <div className="relative mx-auto max-w-[1100px] px-8">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.14em] uppercase text-yellow justify-center">
-            <span className="w-4 h-0.5 bg-yellow rounded-full" />
-            Services
-          </div>
-          <h2 className="text-[clamp(1.8rem,4vw,2.8rem)] font-black tracking-[-0.02em] text-white uppercase mt-2">
-            HighLevel Setup &amp;<br />Optimization
-          </h2>
-          <p className="text-sm text-white/35 italic mt-2 max-w-[520px] mx-auto">
-            8 core service areas engineered for your sales operations.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {services.map((service, i) => {
-            const isExpanded = expandedIndex === i;
-            return (
-              <motion.div
-                key={service.title}
-                layout
-                onClick={() => setExpandedIndex(isExpanded ? null : i)}
-                className={`relative p-6 cursor-pointer transition-all duration-300 overflow-hidden rounded-xl backdrop-blur-sm ${
-                  isExpanded
-                    ? "bg-white/[0.06] border border-persian/20 shadow-[0_8px_32px_rgba(94,23,235,0.1)]"
-                    : "bg-white/[0.025] border border-white/[0.05] hover:bg-white/[0.05] hover:border-white/[0.08]"
-                }`}
-              >
-                {isExpanded && (
-                  <div className="absolute -top-16 -right-16 w-40 h-40 bg-[radial-gradient(circle,rgba(94,23,235,0.15),transparent_70%)] pointer-events-none" />
-                )}
-
-                <div className="flex items-center gap-3 relative z-10">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-lg text-xs font-bold
-                    bg-white/[0.035] border border-white/[0.06] text-white/40">
-                    {service.rank}
-                  </span>
-                  <span className="text-xl shrink-0">{service.icon}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h3 className="text-sm font-extrabold text-white tracking-tight">{service.title}</h3>
-                      {service.isNew && (
-                        <span className="shrink-0 rounded-full bg-yellow px-2 py-0.5 text-[0.55rem] font-extrabold text-black uppercase tracking-wider">
-                          NEW
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <motion.div
-                    animate={{ rotate: isExpanded ? 45 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white/25"
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <line x1="6" y1="1" x2="6" y2="11" />
-                      <line x1="1" y1="6" x2="11" y2="6" />
-                    </svg>
-                  </motion.div>
-                </div>
-
-                <AnimatePresence>
-                  {isExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-4 pl-[52px] relative z-10 flex flex-col gap-2">
-                        {service.items.map((item, j) => (
-                          <motion.div
-                            key={item}
-                            initial={{ opacity: 0, x: -8 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: j * 0.06 }}
-                            className="flex items-center gap-2.5 text-[0.8rem] text-white/45"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-persian-light/60 shrink-0" />
-                            {item}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  TESTIMONIALS                                                       */
-/* ------------------------------------------------------------------ */
-
-function GlassTestimonials() {
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-yellow">
-            System Feedback
-          </span>
-          <h2 className="text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
-            What Clients Say
-          </h2>
-        </div>
-
-        <div className="rounded-2xl p-5 md:p-7
-          bg-white/[0.03] backdrop-blur-md border border-white/[0.06]">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <motion.div
-                key={t.name}
-                whileHover={{ y: -2 }}
-                className="flex flex-col p-6 rounded-xl transition-all duration-300
-                  bg-white/[0.04] backdrop-blur-sm border border-white/[0.07]
-                  hover:bg-white/[0.07] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
-              >
-                <p className="mb-4 text-xs tracking-[3px] text-yellow/80">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
-                <p className="mb-6 flex-1 text-[0.8rem] leading-relaxed text-white/45">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="h-px bg-white/[0.06] mb-4" />
-                <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-persian/25 border border-persian/20 text-xs font-bold text-white/80">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-persian-light">{t.name}</p>
-                    <p className="text-xs text-white/30">{t.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  HL BANNER                                                          */
-/* ------------------------------------------------------------------ */
-
-function GlassHLBanner() {
-  return (
-    <section className="py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="relative mx-auto max-w-[800px] overflow-hidden rounded-2xl text-center
-          bg-gradient-to-br from-[#1a0845]/80 via-persian/20 to-[#2a0f6a]/60
-          backdrop-blur-xl border border-white/[0.08]
-          px-12 py-9
-          shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(94,23,235,0.12)_0%,transparent_70%)]" />
-          <div className="relative z-10">
-            <h2 className="mb-4 text-2xl font-black uppercase leading-tight text-white md:text-3xl lg:text-4xl">
-              NEW TO <span className="text-yellow">HIGHLEVEL?</span>
-            </h2>
-            <p className="mx-auto mb-6 max-w-[520px] text-sm leading-relaxed text-white/50">
-              I onboard 3&ndash;5 new clients monthly onto HighLevel with a done-for-you setup. Sign up through my link and get{" "}
-              <span className="font-semibold text-white/80">15% off</span> your first build package.
-            </p>
-            <a href="#" className="inline-block rounded-full bg-yellow px-8 py-3 text-xs font-bold uppercase tracking-widest text-black transition-all hover:shadow-[0_0_24px_rgba(246,203,31,0.25)]">
-              Get Started With HighLevel
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  FAQ                                                                */
-/* ------------------------------------------------------------------ */
-
-function GlassFAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-persian-light/70">
-            FAQ
-          </span>
-          <h2 className="text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
-            System Inquiries
-          </h2>
-        </div>
-
-        <div className="mx-auto max-w-[720px] flex flex-col gap-2">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div key={index} className={`overflow-hidden rounded-xl transition-all duration-300
-                bg-white/[0.04] backdrop-blur-sm border border-white/[0.07]
-                ${isOpen ? "bg-white/[0.06] border-white/[0.12]" : ""}`}>
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-center justify-between px-6 py-5 text-left"
-                >
-                  <span className="text-sm font-bold uppercase tracking-wide text-persian-light/80">
-                    {faq.q}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="ml-4 shrink-0 text-persian-light/60"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <path d="M5 8l5 5 5-5" />
-                    </svg>
-                  </motion.span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-white/40">{faq.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  FINAL CTA                                                          */
-/* ------------------------------------------------------------------ */
-
-function GlassFinalCTA() {
-  return (
-    <section className="relative py-24 lg:py-32">
-      <div className="relative mx-auto max-w-[700px] px-6 text-center">
-        <h2 className="mb-6 text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
-          IF YOUR GROWTH<br />FEELS FORCED<br />YOUR <span className="text-yellow">SYSTEM</span><br />IS BROKEN!
-        </h2>
-        <p className="mb-10 text-sm italic text-white/35">
-          Stop duct-taping tools together and hoping they work. Engineer a system that scales with you.
-        </p>
-        <a
-          href="#"
-          className="inline-block rounded-full bg-yellow px-10 py-4 text-xs font-bold uppercase tracking-widest text-black transition-all hover:shadow-[0_0_32px_rgba(246,203,31,0.25)]"
-        >
-          Book a System Strategy Call &rarr;
-        </a>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  PREVIEW PAGE                                                       */
-/* ------------------------------------------------------------------ */
-
-export default function GlassmorphismPreview() {
-  return (
-    <DarkBg>
-      {/* Preview banner */}
-      <div className="fixed top-16 left-0 right-0 z-40 bg-yellow text-black text-center py-2 text-xs font-bold uppercase tracking-widest">
-        Glassmorphism Preview v4
-      </div>
-
-      <div className="pt-8">
-        <GlassHero />
-        <ToolkitMarquee />
-        <GlassVault />
-        <GlassPhilosophy />
-        <GlassServices />
-        <GlassTestimonials />
-        <GlassHLBanner />
-        <GlassFAQ />
-        <GlassFinalCTA />
-      </div>
-    </DarkBg>
+    </div>
   );
 }
