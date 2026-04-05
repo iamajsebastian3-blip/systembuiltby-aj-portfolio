@@ -454,7 +454,7 @@ function FunnelCard({
                 src={url}
                 title={`${title} preview`}
                 className="w-[1280px] h-[800px] origin-top-left border-0"
-                style={{ transform: "scale(0.28)", transformOrigin: "top left" }}
+                style={{ transform: "scale(0.25)", transformOrigin: "top left" }}
                 loading="lazy"
                 sandbox="allow-scripts allow-same-origin"
                 tabIndex={-1}

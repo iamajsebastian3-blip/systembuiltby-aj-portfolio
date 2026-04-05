@@ -18,7 +18,9 @@ const menuLinks = [
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
   { label: "Revenue Tools", href: "/revenue" },
-  { label: "Featured Work", href: "/portfolio" },
+  { label: "GHL Funnel", href: "https://ajautomate.co/system-builtby-aj", external: true },
+  { label: "Featured Funnel", href: "https://convert.ajautomate.co/", external: true },
+  { label: "Featured Website", href: "https://webstudio.ajautomate.co/index.html", external: true },
 ];
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
@@ -79,20 +81,36 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             <nav className="flex flex-col gap-1 p-4">
-              {menuLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={onClose}
-                  className={`px-3 py-2.5 rounded-md text-sm transition-colors ${
-                    pathname === link.href
-                      ? "bg-persian/15 text-persian-light font-medium"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {menuLinks.map((link) =>
+                "external" in link && link.external ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={onClose}
+                    className="px-3 py-2.5 rounded-md text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors flex items-center justify-between"
+                  >
+                    {link.label}
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/30">
+                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                    </svg>
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={onClose}
+                    className={`px-3 py-2.5 rounded-md text-sm transition-colors ${
+                      pathname === link.href
+                        ? "bg-persian/15 text-persian-light font-medium"
+                        : "text-white/70 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
 
               <div className="my-3 border-t border-white/10" />
 
