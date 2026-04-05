@@ -73,7 +73,7 @@ export function ConsultContent() {
                   Book a Free Call &rarr;
                 </Link>
                 <a
-                  href="https://connect.ajautomate.co/qr/irC9bosLTsm4"
+                  href="https://wa.me/639100809837?text=Hi%20AJ%2C%20I%27m%20interested%20in%20your%20automation%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl px-8 py-3.5 font-bold transition-all bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] text-white/80 hover:bg-white/[0.07]"

@@ -203,22 +203,68 @@ const funnels = [
 
 const websites = [
   {
-    title: "Service Business",
-    subtitle: "Auto Detailing Homepage",
-    tech: "GHL \u00B7 Custom CSS overrides",
-    light: true,
-  },
-  {
-    title: "Agency",
-    subtitle: "Solution13 Agency Site",
-    tech: "GHL + Vercel embed",
+    title: "Hotel",
+    subtitle: "Casa Lume Hotel",
+    tech: "Next.js \u00B7 Vercel",
     light: false,
+    url: "https://casa-lume-hotel.vercel.app/",
+    isLive: true,
   },
   {
-    title: "Local Business",
-    subtitle: "Dental Clinic Website",
-    tech: "GHL \u00B7 Booking integration",
+    title: "Skin Clinic",
+    subtitle: "DermaGlow Clinic",
+    tech: "Next.js \u00B7 Vercel",
     light: true,
+    url: "https://dermaglow-clinic.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Caf\u00E9",
+    subtitle: "The Cozy Cup",
+    tech: "Next.js \u00B7 Vercel",
+    light: true,
+    url: "https://the-cozy-cup-one.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Skin Clinic",
+    subtitle: "Lumi\u00E8re Skin Clinic",
+    tech: "Next.js \u00B7 Vercel",
+    light: false,
+    url: "https://lumiere-skin-clinic.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Gym / Fitness",
+    subtitle: "Coach Gym Funnel",
+    tech: "Next.js \u00B7 Vercel",
+    light: false,
+    url: "https://coach-gym-funnel.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Resort",
+    subtitle: "Merbau Beach Resort",
+    tech: "Next.js \u00B7 Vercel",
+    light: true,
+    url: "https://merbau-beach-resort.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Caf\u00E9",
+    subtitle: "AmberBrew Caf\u00E9",
+    tech: "Next.js \u00B7 Vercel",
+    light: true,
+    url: "https://amberbrew-cafe.vercel.app/",
+    isLive: true,
+  },
+  {
+    title: "Dental Clinic",
+    subtitle: "SmileCraft Dental",
+    tech: "Next.js \u00B7 Vercel",
+    light: false,
+    url: "https://smilecraft-dental-ten.vercel.app/",
+    isLive: true,
   },
   {
     title: "E-commerce",
@@ -228,18 +274,6 @@ const websites = [
     url: "https://aj-bactad-ecommerce-4793kbr8a-aj29.vercel.app/",
     isLive: true,
     thumbnail: "/ecommerce-thumbnail.png",
-  },
-  {
-    title: "Professional Services",
-    subtitle: "Real Estate Agent Site",
-    tech: "GHL \u00B7 CRM integrated",
-    light: true,
-  },
-  {
-    title: "Restaurant",
-    subtitle: "Sundowners Resort Site",
-    tech: "Custom HTML \u00B7 SimplyBook",
-    light: false,
   },
 ];
 
@@ -527,7 +561,17 @@ function WebsiteCard({
             {thumbnail ? (
               <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
             ) : (
-              <div className="h-full bg-gradient-to-br from-persian/15 via-[#1a0845]/30 to-persian/10" />
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <iframe
+                  src={url}
+                  title={`${title} preview`}
+                  className="w-[1280px] h-[800px] origin-top-left border-0"
+                  style={{ transform: "scale(0.25)", transformOrigin: "top left" }}
+                  loading="lazy"
+                  sandbox="allow-scripts allow-same-origin"
+                  tabIndex={-1}
+                />
+              </div>
             )}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
