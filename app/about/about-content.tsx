@@ -157,6 +157,18 @@ export function AboutContent() {
               </div>
             </ScrollReveal>
 
+            {/* Resume CTA */}
+            <ScrollReveal delay={0.52}>
+              <a
+                href="/ghl-resume.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-xl bg-yellow px-8 py-5 text-center text-lg font-black uppercase tracking-wider text-black transition-all hover:bg-yellow/85 hover:shadow-[0_12px_40px_rgba(234,179,8,0.3)] hover:-translate-y-[2px]"
+              >
+                Check My Resume &rarr;
+              </a>
+            </ScrollReveal>
+
             {/* Systems + AI */}
             <ScrollReveal delay={0.55}>
               <SectionLabel>Systems + AI (New Edge)</SectionLabel>
