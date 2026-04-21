@@ -113,7 +113,8 @@ export function ChatBubble() {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setOpen(true)}
             aria-label="Chat with AJ"
-            className="fixed bottom-5 right-5 z-[60] h-14 w-14 rounded-full overflow-hidden ring-2 ring-persian/60 shadow-[0_8px_28px_rgba(94,23,235,0.5)] transition-all hover:ring-persian hover:scale-105"
+            className="fixed right-5 z-[60] h-14 w-14 rounded-full overflow-hidden ring-2 ring-persian/60 shadow-[0_8px_28px_rgba(94,23,235,0.5)] transition-all hover:ring-persian hover:scale-105"
+            style={{ bottom: "max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem))" }}
           >
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-persian/30" />
             <Image
@@ -138,10 +139,13 @@ export function ChatBubble() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ duration: 0.25, ease: [0.2, 0, 0.2, 1] }}
-            className="fixed inset-0 z-[60] sm:inset-auto sm:bottom-5 sm:right-5 sm:h-[640px] sm:max-h-[calc(100vh-2.5rem)] sm:w-[400px] flex flex-col rounded-none sm:rounded-2xl border border-white/[0.1] bg-[#0a0517] shadow-[0_24px_64px_rgba(0,0,0,0.6)] overflow-hidden"
+            className="fixed left-0 right-0 top-0 bottom-0 z-[60] h-[100dvh] w-screen sm:left-auto sm:top-auto sm:bottom-5 sm:right-5 sm:h-[640px] sm:max-h-[calc(100vh-2.5rem)] sm:w-[400px] flex flex-col rounded-none sm:rounded-2xl border border-white/[0.1] bg-[#0a0517] shadow-[0_24px_64px_rgba(0,0,0,0.6)] overflow-hidden"
           >
             {/* Header */}
-            <header className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-gradient-to-r from-persian/30 via-persian/15 to-transparent backdrop-blur-md shrink-0">
+            <header
+              className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-gradient-to-r from-persian/30 via-persian/15 to-transparent backdrop-blur-md shrink-0"
+              style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}
+            >
               <div className="flex items-center gap-3 min-w-0">
                 <div className="relative shrink-0">
                   <div className="relative h-10 w-10 rounded-full overflow-hidden border border-persian/40 bg-persian/20">
@@ -185,7 +189,10 @@ export function ChatBubble() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-white/[0.08] p-3 bg-white/[0.02] shrink-0">
+            <div
+              className="border-t border-white/[0.08] px-3 pt-3 bg-white/[0.02] shrink-0"
+              style={{ paddingBottom: "max(0.75rem, calc(env(safe-area-inset-bottom) + 0.5rem))" }}
+            >
               <div className="flex items-end gap-2 rounded-2xl border border-white/[0.1] bg-white/[0.04] px-3 py-2 focus-within:border-persian/50 transition-colors">
                 <textarea
                   ref={inputRef}
@@ -195,7 +202,7 @@ export function ChatBubble() {
                   placeholder="Ask me anything…"
                   rows={1}
                   disabled={sending}
-                  className="flex-1 resize-none bg-transparent text-sm text-white placeholder:text-white/30 focus:outline-none disabled:opacity-50 max-h-32"
+                  className="flex-1 resize-none bg-transparent text-white placeholder:text-white/30 focus:outline-none disabled:opacity-50 max-h-32 text-base sm:text-sm"
                   style={{ minHeight: "20px" }}
                 />
                 <button
