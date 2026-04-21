@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { NameRevealIntro } from "@/components/intro/name-reveal-intro";
+import { ChatBubble } from "@/components/chat/chat-bubble";
 import "./globals.css";
 
 const inter = Inter({
@@ -48,6 +49,7 @@ export default function RootLayout({
           <main className="pt-16">{children}</main>
           <Footer />
         </div>
+        <ChatBubble />
       </body>
     </html>
   );
