@@ -9,41 +9,53 @@ const packages = [
   {
     phase: "PHASE ONE",
     name: "STARTER",
-    price: 297,
+    price: 697,
+    tagline: "Foundation system for solo operators ready to stop losing leads.",
     features: [
-      "1-page funnel build",
-      "Mobile-optimized design",
-      "Contact form integration",
-      "Basic SEO setup",
-      "1 round of revisions",
+      "1 high-converting GHL funnel (up to 3 pages)",
+      "Mobile-first responsive design + custom branding",
+      "Lead capture form → CRM tagging + auto-assignment",
+      "1 automated workflow (instant SMS + email confirmation)",
+      "1 sales pipeline (up to 5 stages) with status automation",
+      "Calendar integration with reminders & no-show recovery",
+      "Domain, SSL & analytics tracking setup",
+      "1 round of revisions + 7-day post-launch support",
     ],
   },
   {
     phase: "PHASE TWO",
     name: "GROWTH",
-    price: 697,
+    price: 1197,
     isPopular: true,
+    tagline: "Engineered automation stack for businesses serious about scale.",
     features: [
-      "Multi-step funnel build",
-      "GHL CRM setup & automation",
-      "Email / SMS follow-up sequences",
-      "Google Business Profile optimization",
-      "Analytics & tracking setup",
-      "2 rounds of revisions",
+      "Multi-step GHL funnel (up to 5 pages, A/B test ready)",
+      "Full CRM architecture: pipelines, tags, custom fields, smart lists",
+      "3 multi-channel workflows (email + SMS, up to 30 steps total)",
+      "Lead scoring + smart segmentation logic",
+      "A2P 10DLC registration & SMS deliverability setup",
+      "Missed-call text-back + booking reminders + rebooking flow",
+      "Google Business Profile optimization + review request automation",
+      "Conversion tracking, GA4 + Meta Pixel + GHL reporting dashboard",
+      "2 rounds of revisions + 14-day post-launch optimization",
     ],
   },
   {
     phase: "PHASE THREE",
     name: "SCALE",
-    price: 1897,
+    price: 1997,
+    tagline: "End-to-end revenue infrastructure built to run without you.",
     features: [
-      "Full website + funnel system",
-      "Advanced GHL automation workflows",
-      "Google Ads setup & management",
-      "Local SEO campaign",
-      "CRM pipeline + lead scoring",
-      "Monthly performance reporting",
-      "Priority support & unlimited revisions",
+      "Full website + multi-funnel system (unlimited pages)",
+      "Advanced workflow architecture: 5+ workflows with conditional branching",
+      "AI chatbot for 24/7 lead qualification & booking",
+      "Multi-channel automation: email, SMS, voicemail drops, Messenger",
+      "Custom integrations (Stripe, Zapier, Make, third-party APIs)",
+      "Advanced lead scoring + intent-based routing",
+      "A2P 10DLC + email deliverability + warming setup",
+      "Local SEO + ongoing GBP management (3 months)",
+      "Monthly performance audits & optimization (3 months included)",
+      "Priority Slack/WhatsApp support + 30-day post-launch training",
     ],
   },
 ];
@@ -93,13 +105,17 @@ export function PackagesContent() {
                   )}
                 </p>
 
-                <div className="mb-6">
+                <div className="mb-3">
                   <Counter
                     target={pkg.price}
                     prefix="$"
                     className="text-4xl font-black text-white"
                   />
                 </div>
+
+                <p className="mb-6 text-[13px] leading-relaxed text-white/55 italic">
+                  {pkg.tagline}
+                </p>
 
                 <ul className="space-y-3 mb-8 flex-1">
                   {pkg.features.map((feature) => (
