@@ -14,6 +14,14 @@ const revenueTools = [
       "Three-part audit — calculate your revenue leak, see typical ROI multipliers, and benchmark against the most common audit findings.",
     cta: "Run Revenue Audit",
   },
+  {
+    href: "/tools/email-health",
+    icon: "📧",
+    title: "Email Health Tools",
+    description:
+      "Free curated tools to check your domain health, sender reputation, and deliverability score before launching any email campaign.",
+    cta: "Check Email Health",
+  },
 ];
 
 export function ToolsContent() {
@@ -41,7 +49,7 @@ export function ToolsContent() {
       <section className="py-12 px-6">
         <div className="mx-auto max-w-[1100px]">
           <p className="mb-4 text-xs font-bold uppercase tracking-widest text-yellow/80">
-            Featured Tool
+            GHL Full Audit
           </p>
           <ScrollReveal>
             <Link

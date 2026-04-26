@@ -38,6 +38,17 @@ const workDropdown: NavDropdown = {
   ],
 };
 
+const toolsDropdown: NavDropdown = {
+  label: "Tools",
+  items: [
+    { label: "All Tools", emoji: "\u{1F9F0}", href: "/tools", description: "Browse every free tool" },
+    { label: "GHL Full Audit", emoji: "\u{1F525}", href: "/tools/ghl-audit", description: "Health-scan any GHL sub-account" },
+    { label: "Revenue Audit", emoji: "\u{1F4CA}", href: "/tools/revenue-audit", description: "Find the leaks. Quantify the upside." },
+    { label: "Email Health Tools", emoji: "\u{1F4E7}", href: "/tools/email-health", description: "Domain, sender & deliverability checks" },
+  ],
+  dividerAfter: 0,
+};
+
 const routeToActiveNav: Record<string, string> = {
   "/": "Home",
   "/about": "Gallery",
@@ -45,6 +56,9 @@ const routeToActiveNav: Record<string, string> = {
   "/packages": "Gallery",
   "/services": "Gallery",
   "/tools": "Tools",
+  "/tools/ghl-audit": "Tools",
+  "/tools/revenue-audit": "Tools",
+  "/tools/email-health": "Tools",
   "/consult": "Home",
   "/portfolio": "Link",
 };
@@ -161,6 +175,7 @@ export function Navbar() {
 
   const solutionsRef = useRef<HTMLDivElement>(null);
   const workRef = useRef<HTMLDivElement>(null);
+  const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -176,7 +191,8 @@ export function Navbar() {
       if (
         openDropdown &&
         !solutionsRef.current?.contains(target) &&
-        !workRef.current?.contains(target)
+        !workRef.current?.contains(target) &&
+        !toolsRef.current?.contains(target)
       ) {
         setOpenDropdown(null);
       }
@@ -237,16 +253,12 @@ export function Navbar() {
               dropdownRef={solutionsRef}
             />
 
-            <Link
-              href="/tools"
-              className={`text-sm transition-colors ${
-                activeNav === "Tools"
-                  ? "text-persian-light font-medium"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              Tools
-            </Link>
+            <DropdownMenu
+              dropdown={toolsDropdown}
+              isOpen={openDropdown === "Tools"}
+              onToggle={() => toggleDropdown("Tools")}
+              dropdownRef={toolsRef}
+            />
 
             <DropdownMenu
               dropdown={workDropdown}
