@@ -17,7 +17,7 @@ const menuLinks = [
   { label: "Portfolio", href: "/projects" },
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
-  { label: "Revenue Tools", href: "/revenue" },
+  { label: "Tools", href: "/tools" },
   { label: "GHL Funnel", href: "https://ajautomate.co/system-builtby-aj", external: true },
   { label: "Featured Funnel", href: "https://convert.ajautomate.co/", external: true },
   { label: "Featured Website", href: "https://webstudio.ajautomate.co/index.html", external: true },

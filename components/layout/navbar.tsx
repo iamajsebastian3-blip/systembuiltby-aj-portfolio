@@ -44,7 +44,7 @@ const routeToActiveNav: Record<string, string> = {
   "/projects": "Gallery",
   "/packages": "Gallery",
   "/services": "Gallery",
-  "/revenue": "Revenue Tools",
+  "/tools": "Tools",
   "/consult": "Home",
   "/portfolio": "Link",
 };
@@ -238,14 +238,14 @@ export function Navbar() {
             />
 
             <Link
-              href="/revenue"
+              href="/tools"
               className={`text-sm transition-colors ${
-                activeNav === "Revenue Tools"
+                activeNav === "Tools"
                   ? "text-persian-light font-medium"
                   : "text-white/70 hover:text-white"
               }`}
             >
-              Revenue Tools
+              Tools
             </Link>
 
             <DropdownMenu
