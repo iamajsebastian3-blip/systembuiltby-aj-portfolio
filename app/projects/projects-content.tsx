@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "@/components/motion/page-transition";
 import {
@@ -312,6 +312,41 @@ const apps = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Lazy-mount hook — only render iframes after the card enters view   */
+/* ------------------------------------------------------------------ */
+
+function useInViewOnce<T extends HTMLElement>(rootMargin = "200px") {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (inView) return;
+    const node = ref.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [inView, rootMargin]);
+
+  return { ref, inView };
+}
+
+/* ------------------------------------------------------------------ */
 /*  Animation variants                                                 */
 /* ------------------------------------------------------------------ */
 
@@ -471,10 +506,13 @@ function FunnelCard({
         <div className={className}>{children}</div>
       );
 
+  const { ref: thumbRef, inView } = useInViewOnce<HTMLDivElement>();
+
   return (
     <Wrapper className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       {/* Thumbnail */}
       <div
+        ref={thumbRef}
         className="relative h-48 overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`,
@@ -482,17 +520,23 @@ function FunnelCard({
       >
         {isLive && url ? (
           <>
-            {/* Live site preview via iframe */}
+            {/* Live site preview via iframe — mounted only when scrolled into view */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <iframe
-                src={url}
-                title={`${title} preview`}
-                className="w-[1280px] h-[800px] origin-top-left border-0"
-                style={{ transform: "scale(0.25)", transformOrigin: "top left" }}
-                loading="lazy"
-                sandbox="allow-scripts allow-same-origin"
-                tabIndex={-1}
-              />
+              {inView ? (
+                <iframe
+                  src={url}
+                  title={`${title} preview`}
+                  className="w-[1280px] h-[800px] origin-top-left border-0"
+                  style={{ transform: "scale(0.25)", transformOrigin: "top left" }}
+                  loading="lazy"
+                  sandbox="allow-scripts allow-same-origin"
+                  tabIndex={-1}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-5xl opacity-40">{emoji}</span>
+                </div>
+              )}
             </div>
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
@@ -552,15 +596,17 @@ function WebsiteCard({
         <div className={className}>{children}</div>
       );
 
+  const { ref: thumbRef, inView } = useInViewOnce<HTMLDivElement>();
+
   return (
     <Wrapper className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       {/* Thumbnail */}
-      <div className={`relative h-[170px] overflow-hidden ${isLive ? "" : thumbBg}`}>
+      <div ref={thumbRef} className={`relative h-[170px] overflow-hidden ${isLive ? "" : thumbBg}`}>
         {isLive && url ? (
           <div className="relative h-full overflow-hidden">
             {thumbnail ? (
-              <img src={thumbnail} alt={title} className="w-full h-full object-cover" />
-            ) : (
+              <img src={thumbnail} alt={title} loading="lazy" className="w-full h-full object-cover" />
+            ) : inView ? (
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <iframe
                   src={url}
@@ -572,6 +618,8 @@ function WebsiteCard({
                   tabIndex={-1}
                 />
               </div>
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-persian/10 to-transparent" />
             )}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
