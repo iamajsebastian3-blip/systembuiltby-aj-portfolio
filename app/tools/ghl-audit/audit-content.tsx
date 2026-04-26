@@ -3,8 +3,15 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "@/components/motion/page-transition";
+import { AuditChat } from "./audit-chat";
 
 type Severity = "pass" | "warning" | "critical" | "unknown";
+
+interface CheckItem {
+  id?: string;
+  name: string;
+  meta?: Record<string, string | number | boolean>;
+}
 
 interface CheckResult {
   key: string;
@@ -13,6 +20,7 @@ interface CheckResult {
   count?: number | string;
   status: Severity;
   detail?: string;
+  items?: CheckItem[];
 }
 
 interface AuditResponse {
@@ -25,6 +33,11 @@ interface AuditResponse {
   scannedAt: string;
   recommendations: string[];
   checks: CheckResult[];
+}
+
+interface AuditCredentials {
+  locationId: string;
+  pit: string;
 }
 
 type Phase = "input" | "scanning" | "results" | "error";
@@ -72,6 +85,7 @@ export function GhlAuditContent() {
   const [pit, setPit] = useState("");
   const [showPit, setShowPit] = useState(false);
   const [result, setResult] = useState<AuditResponse | null>(null);
+  const [creds, setCreds] = useState<AuditCredentials | null>(null);
   const [error, setError] = useState("");
   const [progress, setProgress] = useState(0);
 
@@ -102,6 +116,7 @@ export function GhlAuditContent() {
       setProgress(100);
       setTimeout(() => {
         setResult(json);
+        setCreds({ locationId: locationId.trim(), pit: pit.trim() });
         setPhase("results");
       }, 400);
     } catch (err) {
@@ -113,6 +128,7 @@ export function GhlAuditContent() {
   const reset = () => {
     setPhase("input");
     setResult(null);
+    setCreds(null);
     setError("");
     setProgress(0);
   };
@@ -291,6 +307,19 @@ export function GhlAuditContent() {
                 <ScoreCard result={result} />
                 {result.recommendations.length > 0 && <RecommendationsCard recs={result.recommendations} />}
                 <ChecksList checks={result.checks} />
+                {creds && (
+                  <AuditChat
+                    audit={{
+                      score: result.score,
+                      grade: result.grade,
+                      status: result.status,
+                      scannedAt: result.scannedAt,
+                      checks: result.checks,
+                    }}
+                    locationId={creds.locationId}
+                    pit={creds.pit}
+                  />
+                )}
                 <div className="text-center pt-2">
                   <button
                     onClick={reset}
@@ -447,12 +476,53 @@ function CheckRow({ check }: { check: CheckResult }) {
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="px-4 pb-4 pt-1 text-sm text-white/55 border-t border-white/[0.04]">
-              {check.detail ?? (check.status === "pass" ? "Looks good — no issues detected." : check.status === "unknown" ? "Couldn't reach this endpoint. Verify your token has the right scope." : "Action recommended.")}
+            <div className="px-4 pb-4 pt-2 border-t border-white/[0.04]">
+              <p className="text-sm text-white/55 mb-3">
+                {check.detail ?? (check.status === "pass" ? "Looks good — no issues detected." : check.status === "unknown" ? "Couldn't reach this endpoint. Verify your token has the right scope." : "Action recommended.")}
+              </p>
+              {check.items && check.items.length > 0 && (
+                <ItemsList items={check.items} />
+              )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+function ItemsList({ items }: { items: CheckItem[] }) {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? items : items.slice(0, 8);
+  const hiddenCount = items.length - visible.length;
+
+  return (
+    <div className="rounded-lg border border-white/[0.06] bg-black/30 divide-y divide-white/[0.04]">
+      {visible.map((item, i) => (
+        <div key={item.id ?? `${item.name}-${i}`} className="flex items-center justify-between gap-3 px-3 py-2 text-xs">
+          <div className="min-w-0 flex-1">
+            <p className="text-white/85 font-medium truncate">{item.name}</p>
+            {item.meta && Object.keys(item.meta).length > 0 && (
+              <p className="text-white/35 truncate mt-0.5">
+                {Object.entries(item.meta)
+                  .map(([k, v]) => `${k}: ${typeof v === "boolean" ? (v ? "yes" : "no") : v}`)
+                  .join(" · ")}
+              </p>
+            )}
+          </div>
+          {item.id && (
+            <code className="shrink-0 text-[0.62rem] text-white/30 font-mono">{item.id.slice(-6)}</code>
+          )}
+        </div>
+      ))}
+      {hiddenCount > 0 && (
+        <button
+          onClick={() => setShowAll(true)}
+          className="w-full px-3 py-2 text-xs text-yellow hover:text-yellow-dark text-center font-bold transition-colors"
+        >
+          Show {hiddenCount} more
+        </button>
+      )}
     </div>
   );
 }
