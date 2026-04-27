@@ -45,6 +45,7 @@ const toolsDropdown: NavDropdown = {
     { label: "GHL Full Audit", emoji: "\u{1F525}", href: "/tools/ghl-audit", description: "Health-scan any GHL sub-account" },
     { label: "Revenue Audit", emoji: "\u{1F4CA}", href: "/tools/revenue-audit", description: "Find the leaks. Quantify the upside." },
     { label: "Email Health Tools", emoji: "\u{1F4E7}", href: "/tools/email-health", description: "Domain, sender & deliverability checks" },
+    { label: "Process Map", emoji: "\u{1F5FA}\u{FE0F}", href: "/tools/process-map", description: "Render GHL workflow diagrams from Mermaid" },
   ],
   dividerAfter: 0,
 };
@@ -59,6 +60,7 @@ const routeToActiveNav: Record<string, string> = {
   "/tools/ghl-audit": "Tools",
   "/tools/revenue-audit": "Tools",
   "/tools/email-health": "Tools",
+  "/tools/process-map": "Tools",
   "/consult": "Home",
   "/portfolio": "Link",
 };

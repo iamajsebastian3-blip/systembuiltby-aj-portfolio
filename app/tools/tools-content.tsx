@@ -22,6 +22,14 @@ const revenueTools = [
       "Free curated tools to check your domain health, sender reputation, and deliverability score before launching any email campaign.",
     cta: "Check Email Health",
   },
+  {
+    href: "/tools/process-map",
+    icon: "🗺️",
+    title: "Process Map",
+    description:
+      "Paste Mermaid code (from Pedro V3 or any source) and render an interactive workflow diagram of your GHL automation in seconds.",
+    cta: "Open Process Map",
+  },
 ];
 
 export function ToolsContent() {

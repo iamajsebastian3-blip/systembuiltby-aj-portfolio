@@ -21,6 +21,7 @@ const menuLinks = [
   { label: "↳ GHL Full Audit", href: "/tools/ghl-audit" },
   { label: "↳ Revenue Audit", href: "/tools/revenue-audit" },
   { label: "↳ Email Health Tools", href: "/tools/email-health" },
+  { label: "↳ Process Map", href: "/tools/process-map" },
   { label: "GHL Funnel", href: "https://ajautomate.co/system-builtby-aj", external: true },
   { label: "Featured Funnel", href: "https://convert.ajautomate.co/", external: true },
   { label: "Featured Website", href: "https://webstudio.ajautomate.co/index.html", external: true },
