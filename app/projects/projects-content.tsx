@@ -194,6 +194,7 @@ const funnels = [
     emoji: "\uD83D\uDE80",
     url: "https://product-launch-funnel.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/product-launch-funnel.png",
   },
 ];
 
@@ -503,7 +504,8 @@ function FunnelCard({
   emoji,
   url,
   isLive,
-}: (typeof funnels)[number] & { url?: string; isLive?: boolean }) {
+  thumbnail,
+}: (typeof funnels)[number] & { url?: string; isLive?: boolean; thumbnail?: string }) {
   const Wrapper = url
     ? ({ children, className }: { children: React.ReactNode; className: string }) => (
         <a href={url} target="_blank" rel="noopener noreferrer" className={className}>
@@ -528,24 +530,32 @@ function FunnelCard({
       >
         {isLive && url ? (
           <>
-            {/* Live site preview via iframe — mounted only when scrolled into view */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {inView ? (
-                <iframe
-                  src={url}
-                  title={`${title} preview`}
-                  className="w-[1280px] h-[800px] origin-top-left border-0"
-                  style={{ transform: "scale(0.25)", transformOrigin: "top left" }}
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin"
-                  tabIndex={-1}
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-5xl opacity-40">{emoji}</span>
-                </div>
-              )}
-            </div>
+            {thumbnail ? (
+              <img
+                src={thumbnail}
+                alt={title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+            ) : (
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {inView ? (
+                  <iframe
+                    src={url}
+                    title={`${title} preview`}
+                    className="w-[1280px] h-[800px] origin-top-left border-0"
+                    style={{ transform: "scale(0.25)", transformOrigin: "top left" }}
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                    tabIndex={-1}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-5xl opacity-40">{emoji}</span>
+                  </div>
+                )}
+              </div>
+            )}
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">

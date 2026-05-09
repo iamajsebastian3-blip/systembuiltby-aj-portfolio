@@ -15,6 +15,7 @@ const sites = [
   { name: "merbau-beach-resort", url: "https://merbau-beach-resort.vercel.app/" },
   { name: "amberbrew-cafe",      url: "https://amberbrew-cafe.vercel.app/" },
   { name: "smilecraft-dental",   url: "https://smilecraft-dental-ten.vercel.app/" },
+  { name: "product-launch-funnel", url: "https://product-launch-funnel.vercel.app/" },
 ];
 
 if (!fs.existsSync(OUT)) fs.mkdirSync(OUT, { recursive: true });
