@@ -156,18 +156,30 @@ export function Hero() {
 
           {/* Profile Card */}
           <motion.div
-            className="flex flex-col gap-5 rounded-2xl p-6 bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] shadow-[0_16px_64px_rgba(0,0,0,0.5)]"
+            className="relative flex flex-col gap-5 rounded-2xl p-6 bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] shadow-[0_16px_64px_rgba(0,0,0,0.5)] overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.6 }}
           >
-            <span className="text-xs font-semibold uppercase tracking-widest text-white/30">
+            {/* Soft yellow glow in the corner for depth */}
+            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-yellow/15 blur-[60px]" />
+            {/* Persian accent strip on the top edge */}
+            <div className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-persian/60 to-transparent" />
+
+            <span className="relative text-xs font-bold uppercase tracking-widest text-persian-light">
               Growth Systems Consultant
             </span>
 
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-persian/40 border border-persian/30 text-sm font-bold text-white">
-                AJ
+            <div className="relative flex items-center gap-3">
+              <div className="relative h-20 w-20 shrink-0 flex items-center justify-center">
+                <div className="pointer-events-none absolute inset-0 rounded-full bg-persian/15 blur-[16px]" />
+                <Image
+                  src="/aj-logo.png"
+                  alt="System-Built By AJ"
+                  width={120}
+                  height={120}
+                  className="relative object-contain"
+                />
               </div>
               <div>
                 <p className="font-bold text-white">Allen Bactad</p>
@@ -175,42 +187,42 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="relative flex flex-wrap gap-2">
               {badges.map((badge) => (
                 <span
                   key={badge}
-                  className="px-3 py-1 text-xs font-medium rounded-full bg-white/[0.05] border border-white/[0.08] text-persian-light"
+                  className="px-3 py-1 text-xs font-medium rounded-full bg-persian/10 border border-persian/25 text-persian-light"
                 >
                   {badge}
                 </span>
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="relative grid grid-cols-2 gap-2.5">
               {metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="flex flex-col items-center rounded-xl p-3 bg-white/[0.035] border border-white/[0.06]"
+                  className="flex flex-col items-center rounded-xl p-3 bg-white/[0.04] border border-white/[0.07] hover:border-persian/30 transition-colors"
                 >
                   <Counter
                     target={metric.target}
                     suffix={metric.suffix}
                     className="text-xl font-extrabold text-white"
                   />
-                  <span className="text-center text-[10px] text-white/35">
+                  <span className="text-center text-[10px] text-white/45">
                     {metric.label}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="h-px bg-white/[0.06]" />
+            <div className="relative h-px bg-gradient-to-r from-transparent via-white/[0.10] to-transparent" />
 
-            <div className="flex justify-between">
+            <div className="relative flex justify-between">
               {profileStats.map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center text-center">
-                  <span className="text-lg font-extrabold text-white">{stat.value}</span>
-                  <span className="text-[10px] text-white/30">{stat.label}</span>
+                  <span className="text-lg font-extrabold text-yellow">{stat.value}</span>
+                  <span className="text-[10px] text-white/35">{stat.label}</span>
                 </div>
               ))}
             </div>

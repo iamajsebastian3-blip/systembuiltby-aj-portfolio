@@ -9,31 +9,27 @@ import {
 const testimonials: {
   name: string;
   role: string;
-  initials: string;
-  avatarBg?: string;
+  avatar: string;
   quote: string;
 }[] = [
   {
     name: "Claire Montero",
     role: "7-Figure Service Brand",
-    initials: "CM",
-    avatarBg: "#e8d5c4",
+    avatar: "/avatars/claire.jpg",
     quote:
       "AJ didn\u2019t just \u2018set up\u2019 our HighLevel. He rebuilt the entire logic behind how our leads move. Before him, we had automations but no structure. Now everything flows perfectly.",
   },
   {
     name: "Marcus Delgado",
     role: "Consulting Firm",
-    initials: "MD",
-    avatarBg: "#c9a882",
+    avatar: "/avatars/marcus.jpg",
     quote:
       "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
   },
   {
     name: "Ethel Navarro",
     role: "B2B Service Company",
-    initials: "EN",
-    avatarBg: "#d4a97a",
+    avatar: "/avatars/ethel.jpg",
     quote:
       "Most people know the tools. AJ understands the system behind them. He thinks in infrastructure \u2014 how data flows, how stages connect, how automations actually behave at scale.",
   },
@@ -88,12 +84,12 @@ export function Testimonials() {
                     </p>
                     <div className="h-px bg-white/[0.06] mb-4" />
                     <div className="flex items-center gap-3">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white overflow-hidden"
-                        style={{ backgroundColor: t.avatarBg || "rgba(255,255,255,0.08)" }}
-                      >
-                        {t.initials}
-                      </div>
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        loading="lazy"
+                        className="h-10 w-10 shrink-0 rounded-full object-cover ring-2 ring-white/[0.08]"
+                      />
                       <div>
                         <p className="text-sm font-bold text-persian-light">
                           {t.name}

@@ -12,8 +12,7 @@ export function HLBanner() {
 
             <div className="relative z-10">
               <h2 className="mb-4 text-2xl font-black uppercase leading-tight text-white md:text-3xl lg:text-4xl">
-                NEW TO{" "}
-                <span className="text-yellow">HIGHLEVEL?</span>
+                NEW TO <span className="text-yellow">HIGHLEVEL?</span>
               </h2>
               <p className="mx-auto mb-6 max-w-[520px] text-sm leading-relaxed text-white/50">
                 I onboard 3&ndash;5 new clients monthly onto HighLevel with a

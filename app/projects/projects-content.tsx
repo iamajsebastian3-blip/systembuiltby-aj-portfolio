@@ -196,6 +196,39 @@ const funnels = [
     isLive: true,
     thumbnail: "/showcase/product-launch-funnel.png",
   },
+  {
+    title: "Coaching Funnel",
+    subtitle: "Fitness Transformation Offer",
+    pages: "1 page \u00B7 Long-Form Sales (10P Framework)",
+    gradientFrom: "#0b1f2a",
+    gradientTo: "#27187E",
+    emoji: "\uD83D\uDCAA",
+    url: "https://primebody-10p.vercel.app/",
+    isLive: true,
+    thumbnail: "/showcase/primebody-10p.png",
+  },
+  {
+    title: "Course Funnel",
+    subtitle: "Online Certification Offer",
+    pages: "1 page \u00B7 Long-Form Sales (10P Framework)",
+    gradientFrom: "#0f2a1f",
+    gradientTo: "#27187E",
+    emoji: "\uD83C\uDF93",
+    url: "https://funnelmastery-10p.vercel.app/",
+    isLive: true,
+    thumbnail: "/showcase/funnelmastery-10p.png",
+  },
+  {
+    title: "Ecommerce Funnel",
+    subtitle: "Skincare Product Offer",
+    pages: "1 page \u00B7 Long-Form Sales (10P Framework)",
+    gradientFrom: "#3a1a2a",
+    gradientTo: "#27187E",
+    emoji: "\uD83C\uDF38",
+    url: "https://bloom-10p.vercel.app/",
+    isLive: true,
+    thumbnail: "/showcase/bloom-10p.png",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -803,7 +836,7 @@ export function ProjectsContent() {
         </section>
 
         {/* ---- Sticky tabs ---- */}
-        <div className="sticky top-16 z-30 border-b border-white/[0.06] bg-white/[0.03] backdrop-blur-md">
+        <div className="sticky top-20 z-30 border-b border-white/[0.06] bg-white/[0.03] backdrop-blur-md">
           <div className="mx-auto flex max-w-[1100px] gap-2 overflow-x-auto px-8 py-3">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;

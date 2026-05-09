@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/hero";
+import { IntroVideo } from "@/components/sections/intro-video";
 import { ToolkitMarquee } from "@/components/sections/toolkit-marquee";
 import { Vault } from "@/components/sections/vault";
 import { Philosophy } from "@/components/sections/philosophy";
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <IntroVideo />
       <ToolkitMarquee />
       <Vault />
       <Philosophy />

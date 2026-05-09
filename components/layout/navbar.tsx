@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Moon, Sun, ChevronDown } from "lucide-react";
@@ -71,35 +72,16 @@ function getActiveNav(pathname: string): string {
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-3 shrink-0">
-      <div className="w-[42px] h-[42px] bg-yellow rounded-md flex items-center justify-center overflow-hidden">
-        <svg width="28" height="32" viewBox="0 0 28 32" fill="none">
-          <text
-            x="14"
-            y="12"
-            textAnchor="middle"
-            fontFamily="Georgia, serif"
-            fontStyle="italic"
-            fontWeight="bold"
-            fontSize="12"
-            fill="black"
-          >
-            01
-          </text>
-          <line x1="4" y1="16" x2="24" y2="16" stroke="black" strokeWidth="1.5" />
-          <text
-            x="14"
-            y="28"
-            textAnchor="middle"
-            fontFamily="Georgia, serif"
-            fontStyle="italic"
-            fontWeight="bold"
-            fontSize="12"
-            fill="black"
-          >
-            10
-          </text>
-        </svg>
+    <Link href="/" className="flex items-center gap-2 shrink-0">
+      <div className="relative w-20 h-20 flex items-center justify-center">
+        <Image
+          src="/aj-logo.png"
+          alt="System-Built By AJ"
+          width={120}
+          height={120}
+          className="object-contain"
+          priority
+        />
       </div>
       <span className="font-black uppercase text-sm tracking-wide">
         <span className="text-white">SYSTEM-BUILT </span>
@@ -232,7 +214,7 @@ export function Navbar() {
           scrolled ? "shadow-[0_4px_32px_rgba(94,23,235,0.15)]" : ""
         }`}
       >
-        <nav className="mx-auto max-w-[1280px] px-4 sm:px-6 h-16 flex items-center justify-between">
+        <nav className="mx-auto max-w-[1280px] px-4 sm:px-6 h-20 flex items-center justify-between">
           <Logo />
 
           {/* Desktop nav */}

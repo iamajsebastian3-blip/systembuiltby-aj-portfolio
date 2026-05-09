@@ -53,7 +53,7 @@ export default function RootLayout({
         </div>
         <div className="relative z-10">
           <Navbar />
-          <main className="pt-16">{children}</main>
+          <main className="pt-20">{children}</main>
           <Footer />
         </div>
         <DeferredChatBubble />
