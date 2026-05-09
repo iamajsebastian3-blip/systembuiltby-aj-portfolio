@@ -209,6 +209,7 @@ const websites = [
     light: false,
     url: "https://casa-lume-hotel.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/casa-lume-hotel.png",
   },
   {
     title: "Skin Clinic",
@@ -217,6 +218,7 @@ const websites = [
     light: true,
     url: "https://dermaglow-clinic.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/dermaglow-clinic.png",
   },
   {
     title: "Caf\u00E9",
@@ -225,6 +227,7 @@ const websites = [
     light: true,
     url: "https://the-cozy-cup-one.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/the-cozy-cup.png",
   },
   {
     title: "Skin Clinic",
@@ -233,6 +236,7 @@ const websites = [
     light: false,
     url: "https://lumiere-skin-clinic.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/lumiere-skin-clinic.png",
   },
   {
     title: "Gym / Fitness",
@@ -241,6 +245,7 @@ const websites = [
     light: false,
     url: "https://coach-gym-funnel.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/coach-gym-funnel.png",
   },
   {
     title: "Resort",
@@ -249,6 +254,7 @@ const websites = [
     light: true,
     url: "https://merbau-beach-resort.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/merbau-beach-resort.png",
   },
   {
     title: "Caf\u00E9",
@@ -257,6 +263,7 @@ const websites = [
     light: true,
     url: "https://amberbrew-cafe.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/amberbrew-cafe.png",
   },
   {
     title: "Dental Clinic",
@@ -265,6 +272,7 @@ const websites = [
     light: false,
     url: "https://smilecraft-dental-ten.vercel.app/",
     isLive: true,
+    thumbnail: "/showcase/smilecraft-dental.png",
   },
   {
     title: "E-commerce",
