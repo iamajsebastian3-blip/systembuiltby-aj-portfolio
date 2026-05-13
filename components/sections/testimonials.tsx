@@ -52,20 +52,17 @@ export function Testimonials() {
           </div>
         </ScrollReveal>
 
-        {/* Video testimonial placeholder */}
+        {/* Video testimonial */}
         <ScrollReveal>
-          <div className="mb-10 mx-auto max-w-[800px] aspect-video rounded-2xl overflow-hidden bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex items-center justify-center relative group cursor-pointer">
-            <div className="absolute inset-0 bg-gradient-to-br from-persian/10 via-transparent to-persian/5" />
-            <div className="relative z-10 text-center">
-              {/* Play button */}
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-white/[0.08] border border-white/[0.15] flex items-center justify-center group-hover:bg-persian/30 group-hover:border-persian/40 transition-all duration-300">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="white" fillOpacity="0.6" className="ml-1 group-hover:fill-opacity-100 transition-all">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <p className="text-sm font-semibold text-white/40 uppercase tracking-widest">Client Testimonials</p>
-              <p className="text-xs text-white/20 mt-1">YouTube video coming soon</p>
-            </div>
+          <div className="mb-10 mx-auto w-full max-w-[360px] aspect-[9/16] rounded-2xl overflow-hidden bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <iframe
+              src="https://www.youtube.com/embed/VAuLfl_P5ms"
+              title="Client testimonial"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full border-0"
+            />
           </div>
         </ScrollReveal>
 
