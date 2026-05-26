@@ -21,6 +21,7 @@ export function ChatBubble() {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [streaming, setStreaming] = useState("");
+  const [scrolling, setScrolling] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -33,6 +34,21 @@ export function ChatBubble() {
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 250);
   }, [open]);
+
+  // Dim the launcher while the user is actively scrolling (mobile only via CSS)
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const handler = () => {
+      setScrolling(true);
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => setScrolling(false), 600);
+    };
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handler);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
 
   // Lock body scroll when open on mobile
   useEffect(() => {
@@ -113,8 +129,12 @@ export function ChatBubble() {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setOpen(true)}
             aria-label="Chat with AJ"
-            className="fixed right-5 z-[60] h-14 w-14 rounded-full overflow-hidden ring-2 ring-persian/60 shadow-[0_8px_28px_rgba(94,23,235,0.5)] transition-all hover:ring-persian hover:scale-105"
-            style={{ bottom: "max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem))" }}
+            className={`fixed right-4 sm:right-5 z-[60] h-11 w-11 sm:h-14 sm:w-14 rounded-full overflow-hidden ring-2 ring-persian/60 shadow-[0_8px_28px_rgba(94,23,235,0.5)] transition-all duration-300 hover:ring-persian hover:scale-105 ${
+              scrolling
+                ? "opacity-40 scale-90 sm:opacity-100 sm:scale-100"
+                : "opacity-100 scale-100"
+            }`}
+            style={{ bottom: "max(1.5rem, calc(env(safe-area-inset-bottom) + 0.75rem))" }}
           >
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-persian/30" />
             <Image
@@ -122,7 +142,7 @@ export function ChatBubble() {
               alt="Chat with AJ"
               fill
               className="object-cover relative z-10"
-              sizes="56px"
+              sizes="(max-width: 640px) 44px, 56px"
               priority
             />
             <span className="absolute bottom-0.5 right-0.5 z-20 h-3 w-3 rounded-full bg-green-400 border-2 border-[#0a0517]" />
