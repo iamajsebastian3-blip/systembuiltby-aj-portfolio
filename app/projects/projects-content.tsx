@@ -823,14 +823,14 @@ export function ProjectsContent() {
         <section className="bg-persian/20 backdrop-blur-xl px-8 py-16 pb-12">
           <div className="mx-auto max-w-[1100px]">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/50">
-              Portfolio
+              Funnels &amp; Websites
             </p>
             <h1 className="mb-3 text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
               Work I&apos;ve Built.
             </h1>
             <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
-              Automations, funnels, websites, and apps &mdash; all engineered for
-              real business outcomes.
+              Live funnels and websites &mdash; every build engineered for real
+              business outcomes.
             </p>
           </div>
         </section>

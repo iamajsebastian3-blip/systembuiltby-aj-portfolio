@@ -11,7 +11,7 @@ export function PortfolioContent() {
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="text-white/60 text-sm uppercase tracking-widest mb-4">
-              Portfolio
+              Funnels &amp; Websites
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Built for Results

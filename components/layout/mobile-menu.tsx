@@ -14,7 +14,8 @@ interface MobileMenuProps {
 const menuLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/projects" },
+  { label: "System Builds", href: "/system-builds" },
+  { label: "Funnels & Websites", href: "/projects" },
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
   { label: "Tools", href: "/tools" },

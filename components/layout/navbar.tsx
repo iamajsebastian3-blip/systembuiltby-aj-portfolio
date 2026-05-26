@@ -24,7 +24,8 @@ const solutionsDropdown: NavDropdown = {
   label: "Gallery",
   items: [
     { label: "About", emoji: "\u{1F91D}", href: "/about", description: "Who I am & how I work" },
-    { label: "Portfolio", emoji: "\u{1F4C1}", href: "/projects", description: "Automations, funnels, websites, apps" },
+    { label: "System Builds", emoji: "\u{1F3AC}", href: "/system-builds", description: "Recorded walkthroughs of every build" },
+    { label: "Funnels & Websites", emoji: "\u{1F680}", href: "/projects", description: "Live funnel & website builds" },
     { label: "Services", emoji: "\u{1F9E9}", href: "/services", description: "All 8 service categories" },
     { label: "Packages", emoji: "\u{1F4E6}", href: "/packages", description: "Starter \u00B7 Growth \u00B7 Scale" },
   ],
@@ -54,6 +55,7 @@ const toolsDropdown: NavDropdown = {
 const routeToActiveNav: Record<string, string> = {
   "/": "Home",
   "/about": "Gallery",
+  "/system-builds": "Gallery",
   "/projects": "Gallery",
   "/packages": "Gallery",
   "/services": "Gallery",
