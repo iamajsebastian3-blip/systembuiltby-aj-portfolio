@@ -12,19 +12,18 @@ export function HLBanner() {
 
             <div className="relative z-10">
               <h2 className="mb-4 text-2xl font-black uppercase leading-tight text-white md:text-3xl lg:text-4xl">
-                NEW TO <span className="text-yellow">HIGHLEVEL?</span>
+                WANT TO SEE MY <span className="text-yellow">SYSTEM BUILDS?</span>
               </h2>
-              <p className="mx-auto mb-6 max-w-[520px] text-sm leading-relaxed text-white/50">
-                I onboard 3&ndash;5 new clients monthly onto HighLevel with a
-                done-for-you setup. If you sign up through my link, you get{" "}
-                <span className="font-semibold text-white/80">15% off</span> your
-                first build package.
+              <p className="mx-auto mb-6 max-w-[560px] text-sm leading-relaxed text-white/50">
+                I screen-record every system I build &mdash; workflows,
+                pipelines, funnels, automations. Watch the actual logic behind
+                each one, step by step.
               </p>
               <a
-                href="/consult"
+                href="/system-builds"
                 className="inline-block rounded-full bg-yellow px-8 py-3 text-xs font-bold uppercase tracking-widest text-black transition-all hover:shadow-[0_0_24px_rgba(246,203,31,0.25)]"
               >
-                Get Started With HighLevel
+                Watch System Builds
               </a>
             </div>
           </div>
