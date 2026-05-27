@@ -1,9 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import { lock } from "./actions";
 
-type SectionId = "hero" | "nav" | "about" | "feat" | "price" | "social" | "cta" | "footer";
+type SectionId =
+  | "hero"
+  | "empathy"
+  | "opportunity"
+  | "compare"
+  | "usp"
+  | "offer"
+  | "social"
+  | "risk"
+  | "authority"
+  | "urgency"
+  | "faq"
+  | "footer"
+  | "nav";
 type TabId = "all" | SectionId | "gpt";
 
 type Section = {
@@ -13,470 +27,1180 @@ type Section = {
   title: string;
   description: string;
   labelClass: string;
-  preview: ReactNode;
-  prompt: string;
+  preview?: ReactNode;
+  basePrompt: string;
+  varsPrompt: string;
 };
 
 const labelClasses: Record<SectionId, string> = {
   hero: "text-[#F5C842]",
-  nav: "text-[#5ED9D1]",
-  about: "text-[#9B7FFF]",
-  feat: "text-[#FF9C6E]",
-  price: "text-[#6BCB77]",
+  empathy: "text-[#FF6BA3]",
+  opportunity: "text-[#9B7FFF]",
+  compare: "text-[#5ED9D1]",
+  usp: "text-[#FF9C6E]",
+  offer: "text-[#6BCB77]",
   social: "text-[#FFB84D]",
-  cta: "text-[#FF6BA3]",
-  footer: "text-[#90CAF9]",
+  risk: "text-[#90CAF9]",
+  authority: "text-[#C896FF]",
+  urgency: "text-[#FF8585]",
+  faq: "text-[#B8D8E0]",
+  footer: "text-[#94A3B8]",
+  nav: "text-[#A09AB8]",
 };
 
 const sections: Section[] = [
   {
     id: "hero",
-    number: "01",
-    label: "HERO",
-    title: "Hero Section",
+    number: "01a",
+    label: "HERO VARIATION 1",
+    title: "Hero Variation 1",
     description:
-      "Full-width headline, subtext, primary CTA. First impression — clarity beats cleverness here.",
+      "Tony Robbins-inspired full-width centered hero. BG image + headline + CTA + video block. Built as a GHL custom code block.",
     labelClass: labelClasses.hero,
     preview: (
-      <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="210" fill="#0B091A" rx="6" />
-        <ellipse cx="210" cy="90" rx="200" ry="80" fill="rgba(124,92,252,0.07)" />
-        <rect x="150" y="22" width="120" height="12" rx="6" fill="#1E1A3C" />
-        <rect x="158" y="25" width="104" height="6" rx="3" fill="#3A3070" />
-        <rect x="55" y="46" width="310" height="20" rx="5" fill="#2A2460" />
-        <rect x="140" y="46" width="140" height="20" rx="5" fill="rgba(245,200,66,0.22)" />
-        <rect x="85" y="72" width="250" height="20" rx="5" fill="#2A2460" />
-        <rect x="80" y="104" width="260" height="7" rx="3" fill="#1E1A3C" />
-        <rect x="105" y="116" width="210" height="7" rx="3" fill="#1E1A3C" />
-        <rect x="145" y="135" width="130" height="32" rx="7" fill="#F5C842" />
-        <rect x="153" y="141" width="114" height="10" rx="4" fill="rgba(13,11,31,0.45)" />
-        <rect x="172" y="178" width="76" height="6" rx="3" fill="#2A2460" />
-        <circle cx="28" cy="40" r="3.5" fill="rgba(124,92,252,0.35)" />
-        <circle cx="393" cy="150" r="5" fill="rgba(245,200,66,0.18)" />
-        <circle cx="18" cy="170" r="2.5" fill="rgba(124,92,252,0.25)" />
-        <circle cx="400" cy="55" r="3" fill="rgba(245,200,66,0.14)" />
-        <circle cx="55" cy="185" r="4" fill="rgba(124,92,252,0.15)" />
-      </svg>
+      <div className="relative w-full aspect-[2/1] overflow-hidden rounded-md">
+        <Image
+          src="/private/hero-v1-bg.webp"
+          alt="Hero Variation 1 background reference"
+          fill
+          sizes="(max-width: 768px) 100vw, 380px"
+          className="object-cover"
+        />
+      </div>
     ),
-    prompt: `You are an expert funnel copywriter and UI designer. Build a complete hero section for a high-converting sales funnel page.
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-OFFER: [e.g. "Done-for-you GHL automation systems for coaches"]
-TARGET AUDIENCE: [e.g. "Online coaches doing $5k–$20k/month"]
-CORE PROMISE: [The transformation you deliver]
-TONE: [Bold / Professional / Conversational]
+Build a reusable hero section component inspired by TonyRobbins.com for use inside GoHighLevel (GHL) as a custom code block.
 
-OUTPUT THE FOLLOWING:
-1. Eyebrow label — 6–8 words, uppercase, category tag style
-2. Headline — 2 lines max. One phrase highlighted in accent color. Lead with outcome.
-3. Subheadline — 1–2 sentences, specific and outcome-focused
-4. Primary CTA button copy — 5 words max, action verb first
-5. Secondary link text — "no commitment" reassurance style (optional)
-6. Background direction — dark glow / full image / gradient / solid
+=== OUTPUT ===
+Single file: 02-hero.html
+All CSS in <style> tags
+All JS in <script> tags
+Google Fonts only — no other dependencies
+GHL-ready standalone custom code block
 
-LAYOUT SPEC:
-- Full-width section, vertically centered
-- Max content width: 800px, centered
-- CTA button: gold fill, dark text, min-width 180px
-- Background: dark with subtle radial purple glow from top-center
-- Hero image (if used): right-aligned, partially cropped at edge
+=== LAYOUT ===
+Full-width centered layout (NOT split)
 
-DESIGN RULE: Every word must earn its place. Cut anything that doesn't directly serve the conversion.`,
+=== NAVIGATION ===
+- Logo text left (or swap to img)
+- Nav links center: About | Mission | Events | Programs | Coaching | Shop | Blog
+- Search icon right
+- Sticky, transparent → dark blur on scroll
+- Height: var(--nav-height) (70px)
+- Mobile: hamburger menu
+
+=== HERO CONTENT (centered, above video) ===
+1. Headline
+   - Large bold centered
+   - 2 lines
+   - Pure white
+2. Subheadline
+   - Centered, muted color
+   - 1 line
+3. CTA Button
+   - Background: var(--accent) (teal/cyan)
+   - Dark bold uppercase text
+   - Hover: glow + scale up
+
+=== VIDEO BLOCK (below CTA) ===
+- Rounded rectangle container
+- Video thumbnail image as background
+- Centered play button (teal circle + white triangle)
+- On click: open VIDEO_URL in lightbox or new tab
+- Subtle border: 1px rgba(255,255,255,0.1)
+- Box shadow: soft glow
+
+=== BACKGROUND ===
+- Full-width BG_IMAGE behind everything
+- Dark overlay: rgba(0,0,0,0.6) on top of image
+- Subtle blue/teal gradient overlay for mood
+
+=== ANIMATIONS ===
+- Headline + sub: fade in + slide up on load
+- CTA button: fade in delayed
+- Video block: fade in + scale up delayed
+- Background: very subtle slow zoom (Ken Burns)
+- Play button: pulse animation
+
+=== MOBILE RESPONSIVE ===
+- Breakpoint: 768px
+- Nav collapses to hamburger
+- Text scales down
+- Video block full width on mobile
+- Padding adjusts for small screens
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, and asset paths driven by the CLIENT VARIABLES block at the top of the file
+- Comment block at top with numbered steps so client knows exactly what to edit
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 1 (Tony Robbins-style) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+   ============================================
+   STEP 1: Replace background image URL
+   STEP 2: Replace video thumbnail URL
+   STEP 3: Set countdown date
+   STEP 4: Update all copy below
+   STEP 5: Replace logo text or image
+   ============================================ */
+
+— COLORS (CSS custom properties at top of <style>) —
+--bg:           #0A0A0F
+--accent:       #00E5CC
+--text:         #FFFFFF
+--muted:        #A0A0B0
+--nav-height:   70px
+
+— JS CONSTS (top of <script>) —
+const LOGO            = "TONY ROBBINS";
+const COUNTDOWN_DATE  = "2026-08-01T00:00:00";
+const BG_IMAGE        = "/private/hero-v1-bg.webp";          ← swap for client image
+const VIDEO_THUMB     = "/private/hero-v1-video-thumb.webp"; ← swap for client thumbnail
+const VIDEO_URL       = "______";                            ← YouTube / Vimeo / Wistia URL
+
+— COPY —
+Headline Line 1:     Unlock The Power Within
+Headline Line 2:     And Achieve Your Dreams
+Subheadline:         Proven Techniques For Personal And Professional Growth
+CTA Button Text:     GET STARTED
+CTA Button URL:      ______
+
+— NAVIGATION LINKS —
+About | Mission | Events | Programs | Coaching | Shop | Blog
+(Edit array at top of <script>)`,
   },
   {
-    id: "nav",
-    number: "02",
-    label: "NAVIGATION",
-    title: "Navigation Bar",
-    description: "Logo, nav links, CTA. Sticky on scroll — dark, clean, contrast-forward.",
-    labelClass: labelClasses.nav,
-    preview: (
-      <svg viewBox="0 0 420 80" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="80" fill="#0B091A" rx="6" />
-        <rect width="420" height="80" fill="rgba(22,19,48,0.92)" />
-        <circle cx="36" cy="40" r="14" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-        <rect x="34" y="35" width="4" height="4" rx="1" fill="#7C5CFC" />
-        <rect x="40" y="33" width="4" height="8" rx="1" fill="#F5C842" />
-        <rect x="56" y="35" width="72" height="10" rx="3" fill="#2A2460" />
-        <rect x="168" y="36" width="34" height="8" rx="3" fill="#2A2250" />
-        <rect x="212" y="36" width="40" height="8" rx="3" fill="#2A2250" />
-        <rect x="263" y="36" width="34" height="8" rx="3" fill="#2A2250" />
-        <rect x="308" y="36" width="28" height="8" rx="3" fill="#2A2250" />
-        <rect x="352" y="26" width="52" height="28" rx="6" fill="#F5C842" />
-        <rect x="358" y="30" width="40" height="10" rx="3" fill="rgba(13,11,31,0.4)" />
-        <rect width="420" height="1" fill="#2A2250" />
-      </svg>
-    ),
-    prompt: `You are a UI/UX developer. Build a navigation bar for a premium funnel/marketing website.
+    id: "hero",
+    number: "01b",
+    label: "HERO VARIATION 2",
+    title: "Hero Variation 2",
+    description:
+      "Split layout with countdown timer, floating stat cards, and animated reveal. Built as a GHL custom code block.",
+    labelClass: labelClasses.hero,
+    basePrompt: `You are an expert frontend developer and funnel designer.
+Build a reusable hero section component for use across multiple client projects inside GoHighLevel (GHL) as a custom code block.
 
-BRAND NAME: [Your brand name]
-LOGO: [Text-based / Icon + Text / Image — specify]
-NAV LINKS: [e.g. Home, Gallery, Tools, About]
-PRIMARY CTA: [e.g. "Free Consultation" / "Book a Call"]
+=== OUTPUT REQUIREMENTS ===
+- Single HTML file: 02-hero.html
+- All CSS inside <style> tags
+- All JS inside <script> tags
+- No external dependencies except Google Fonts
+- Must work as standalone GHL custom code block
 
-OUTPUT:
-1. Full semantic HTML for the navbar
-2. CSS including:
-   - Sticky: position fixed at top, z-index 100
-   - Scroll behavior: transparent at top → dark bg on scroll (JS class toggle)
-   - Hover: link underline slide-in or color shift to gold
-   - CTA button: gold bg, dark text, subtle pulse or scale hover
-   - Mobile: hamburger menu at ≤768px with slide-down nav
-   - Active link indicator: small dot or bottom border
-3. JS: scroll listener to add .scrolled class to nav
+=== LAYOUT ===
+Split layout — left 50% text, right 50% person photo
 
-PALETTE: bg #0D0B1F on scroll, accent #F5C842, links #A09AB8 → #FFFFFF on hover
-HEIGHT: 70px desktop / 60px mobile
-FONT: Space Grotesk for brand name, Inter for links`,
+=== COLORS (declare as CSS custom properties at top of <style>, inside CLIENT VARIABLES block) ===
+--bg, --gold, --purple, --text, --muted
+
+=== FONTS ===
+Heading font + body font, both loaded via Google Fonts
+
+=== LEFT SIDE (top to bottom) ===
+1. Eyebrow badge — small uppercase label, pill shape, gold accent border
+2. Headline — large bold, 2–3 lines, one phrase wrapped in gold accent
+3. Subheadline — 1–2 sentences, muted color
+4. Countdown Timer
+   - Label line above
+   - 4 boxes: DAYS | HOURS | MINS | SECS
+   - Dark box bg, gold number, muted label
+   - Driven by single JS const at top of script: const COUNTDOWN_DATE = "YYYY-MM-DDTHH:MM:SS";
+5. CTA Button — gold bg, dark text, uppercase bold, arrow icon right →. Hover: slight scale + glow
+
+=== RIGHT SIDE ===
+- Person photo placeholder: <img src="[PHOTO]" class="person-photo"> (bottom-anchored, full height of hero)
+- Behind photo: radial purple glow (CSS only, no image)
+- Floor fade at bottom (gradient to bg color)
+- 2 floating stat cards (absolute positioned):
+   Card 1 — top-right area
+   Card 2 — bottom-right area
+   Both with continuous subtle float up/down CSS animation
+
+=== NAVIGATION (above hero) ===
+- Logo left: <img src="[LOGO]" class="nav-logo">
+- Optional countdown timer label right (same COUNTDOWN_DATE)
+- Sticky navbar, transparent → dark bg on scroll
+- Height: 70px
+
+=== ANIMATIONS ===
+- Navbar: transparent to dark on scroll
+- Left content: fade in + slide up on page load (staggered)
+- Stat cards: continuous subtle float
+- CTA button: pulse glow on hover
+- Countdown: live ticking every second
+
+=== MOBILE RESPONSIVE ===
+- Stack to single column ≤768px
+- Photo below text on mobile
+- Countdown boxes shrink gracefully
+
+=== OUTPUT RULES ===
+- All copy, dates, colors, and asset paths driven by the CLIENT VARIABLES block at top
+- Comment block: /* === CLIENT VARIABLES — EDIT HERE === */
+- One file, no frameworks`,
+    varsPrompt: `Apply these client values to the Hero Variation 2 base component.
+
+/* === CLIENT VARIABLES === */
+
+— BRAND COLORS —
+--bg:                #0D0B1F
+--gold:              #F5C842
+--purple:            #7C5CFC
+--text:              #FFFFFF
+--muted:             #A09AB8
+
+— FONTS —
+Heading Font:        Space Grotesk
+Body Font:           Inter
+
+— LOGO & PHOTO —
+Logo File:           ______   ← path to logo image
+Hero Photo File:     ______   ← path to person photo (transparent PNG recommended)
+
+— EYEBROW —
+Eyebrow Text:        TRUSTED BY 16,358+ FILIPINOS
+
+— HEADLINE —
+Line 1:              The Learning Hub for Filipinos Ready to Build
+Line 2 (gold):       Future-Proof Skills
+Line 3:              and Better Lives
+
+— SUBHEADLINE —
+Subheadline:         Explore programs in digital careers, health, mindset, and life development.
+
+— COUNTDOWN —
+Label:               Event Starts In:
+COUNTDOWN_DATE:      2026-08-01T00:00:00
+
+— CTA BUTTON —
+Button Text:         YES, I WANT TO SAVE MY SEAT!
+Button URL:          ______
+
+— FLOATING STAT CARDS —
+Card 1 (top-right):     16,358+ Lives Changed
+Card 2 (bottom-right):  Worldwide — Work from anywhere
+
+— NAVIGATION —
+Show Countdown in Nav:   [ yes / no ]`,
   },
   {
-    id: "about",
-    number: "03",
-    label: "ABOUT",
-    title: "About / Story Section",
-    description: "Photo + origin story + credibility stats. Build trust before the ask.",
-    labelClass: labelClasses.about,
-    preview: (
-      <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="220" fill="#0B091A" rx="6" />
-        <rect x="20" y="20" width="168" height="180" rx="12" fill="#161330" stroke="#2A2250" strokeWidth="1" />
-        <circle cx="104" cy="85" r="34" fill="#1E1A3C" />
-        <circle cx="104" cy="68" r="16" fill="#2A2250" />
-        <ellipse cx="104" cy="104" rx="24" ry="15" fill="#2A2250" />
-        <rect x="44" y="128" width="120" height="8" rx="4" fill="#2A2460" />
-        <rect x="60" y="142" width="88" height="6" rx="3" fill="#2A2250" />
-        <rect x="32" y="164" width="36" height="26" rx="6" fill="#0D0B24" stroke="#2A2250" strokeWidth="1" />
-        <rect x="76" y="164" width="36" height="26" rx="6" fill="#0D0B24" stroke="#2A2250" strokeWidth="1" />
-        <rect x="120" y="164" width="36" height="26" rx="6" fill="#0D0B24" stroke="#2A2250" strokeWidth="1" />
-        <rect x="36" y="168" width="28" height="8" rx="3" fill="#3A3070" />
-        <rect x="80" y="168" width="28" height="8" rx="3" fill="#3A3070" />
-        <rect x="124" y="168" width="28" height="8" rx="3" fill="#3A3070" />
-        <rect x="208" y="28" width="70" height="9" rx="4" fill="rgba(124,92,252,0.4)" />
-        <rect x="208" y="46" width="190" height="16" rx="4" fill="#2A2460" />
-        <rect x="208" y="68" width="160" height="16" rx="4" fill="#2A2460" />
-        <rect x="208" y="94" width="192" height="6" rx="3" fill="#2A2250" />
-        <rect x="208" y="106" width="176" height="6" rx="3" fill="#2A2250" />
-        <rect x="208" y="118" width="185" height="6" rx="3" fill="#2A2250" />
-        <rect x="208" y="130" width="165" height="6" rx="3" fill="#2A2250" />
-        <rect x="208" y="142" width="178" height="6" rx="3" fill="#2A2250" />
-        <rect x="208" y="164" width="110" height="28" rx="6" fill="transparent" stroke="#F5C842" strokeWidth="1" />
-        <rect x="218" y="170" width="90" height="8" rx="3" fill="rgba(245,200,66,0.3)" />
-      </svg>
-    ),
-    prompt: `You are a conversion copywriter specializing in personal brand storytelling. Write the About / Story section for a funnel page.
+    id: "hero",
+    number: "01c",
+    label: "HERO VARIATION 3",
+    title: "Hero Variation 3",
+    description:
+      "Big Promise / Above-the-fold. What will I get and is it for me?",
+    labelClass: labelClasses.hero,
+    basePrompt: `Coming soon.
 
-PERSON / BRAND: [Name or brand]
-BEFORE STATE: [Who you were / what you struggled with before]
-TURNING POINT: [The moment or discovery that changed everything]
-WHAT YOU DO NOW: [Your offer / who you help / how]
-CREDENTIALS: [Certs, results, years of exp, client count]
-3 STATS: [e.g. "50+ Clients Built", "$2M+ in Client Revenue", "3 Years GHL Expert"]
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-OUTPUT:
-1. Section eyebrow label (e.g. "MEET YOUR SYSTEM BUILDER")
-2. Section headline — authority + relatability in one line
-3. Story copy — 3 paragraphs max:
-   Para 1: Relatable start (pain/struggle)
-   Para 2: Turning point + discovery
-   Para 3: Who you help now + your unique method
-4. 3 stat blocks: [Big Number] + [Short Label]
-5. Optional closing quote — 1 italic sentence, mission-statement style
-
-LAYOUT: Photo left (with rounded corners + subtle glow border), text right. Stat blocks inline below text. Desktop 50/50 split. Mobile: photo on top, text below.`,
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
   {
-    id: "feat",
-    number: "04",
-    label: "FEATURES",
-    title: "Features / Benefits Section",
-    description: "3-column icon cards. What they get — and why it matters to them.",
-    labelClass: labelClasses.feat,
-    preview: (
-      <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="220" fill="#0B091A" rx="6" />
-        <rect x="155" y="16" width="110" height="10" rx="5" fill="#3A3070" />
-        <rect x="130" y="32" width="160" height="8" rx="4" fill="#2A2250" />
-        <rect x="14" y="56" width="118" height="148" rx="9" fill="#161330" stroke="#2A2250" strokeWidth="1" />
-        <rect x="28" y="70" width="28" height="28" rx="7" fill="#1E1A3C" />
-        <rect x="32" y="74" width="20" height="20" rx="5" fill="rgba(124,92,252,0.5)" />
-        <rect x="28" y="107" width="88" height="8" rx="4" fill="#2A2460" />
-        <rect x="28" y="122" width="80" height="5" rx="2" fill="#2A2250" />
-        <rect x="28" y="132" width="72" height="5" rx="2" fill="#2A2250" />
-        <rect x="28" y="142" width="78" height="5" rx="2" fill="#2A2250" />
-        <rect x="28" y="174" width="88" height="20" rx="5" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-        <rect x="151" y="44" width="118" height="160" rx="9" fill="#1C1840" stroke="#7C5CFC" strokeWidth="1.5" />
-        <rect x="167" y="34" width="86" height="16" rx="8" fill="#F5C842" />
-        <rect x="172" y="36" width="76" height="8" rx="4" fill="rgba(13,11,31,0.5)" />
-        <rect x="165" y="58" width="28" height="28" rx="7" fill="#221A50" />
-        <rect x="169" y="62" width="20" height="20" rx="5" fill="rgba(245,200,66,0.6)" />
-        <rect x="165" y="95" width="88" height="8" rx="4" fill="#3A3070" />
-        <rect x="165" y="110" width="80" height="5" rx="2" fill="#3A3070" />
-        <rect x="165" y="120" width="72" height="5" rx="2" fill="#3A3070" />
-        <rect x="165" y="130" width="78" height="5" rx="2" fill="#3A3070" />
-        <rect x="165" y="140" width="64" height="5" rx="2" fill="#3A3070" />
-        <rect x="165" y="174" width="88" height="20" rx="5" fill="#F5C842" />
-        <rect x="174" y="178" width="70" height="8" rx="4" fill="rgba(13,11,31,0.45)" />
-        <rect x="288" y="56" width="118" height="148" rx="9" fill="#161330" stroke="#2A2250" strokeWidth="1" />
-        <rect x="302" y="70" width="28" height="28" rx="7" fill="#1E1A3C" />
-        <rect x="306" y="74" width="20" height="20" rx="5" fill="rgba(255,156,110,0.5)" />
-        <rect x="302" y="107" width="88" height="8" rx="4" fill="#2A2460" />
-        <rect x="302" y="122" width="80" height="5" rx="2" fill="#2A2250" />
-        <rect x="302" y="132" width="72" height="5" rx="2" fill="#2A2250" />
-        <rect x="302" y="142" width="78" height="5" rx="2" fill="#2A2250" />
-        <rect x="302" y="174" width="88" height="20" rx="5" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-      </svg>
-    ),
-    prompt: `You are a conversion-focused copywriter. Build a Features/Benefits section for a funnel page.
+    id: "hero",
+    number: "01d",
+    label: "HERO VARIATION 4",
+    title: "Hero Variation 4",
+    description:
+      "Big Promise / Above-the-fold. What will I get and is it for me?",
+    labelClass: labelClasses.hero,
+    basePrompt: `Coming soon.
 
-OFFER: [What you're selling]
-TOP PAIN POINTS SOLVED: [List 3–5 problems your offer fixes]
-TONE: [Professional / Bold / Conversational]
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-OUTPUT:
-1. Section headline — outcome-focused, not feature-focused (e.g. not "Our Features" but "Everything You Need to Go From Leads to Clients — On Autopilot")
-2. Section subheadline — 1 sentence, specificity over vagueness
-3. 6 feature/benefit cards, each containing:
-   - Icon: emoji or icon name (e.g. 🔁 or "ArrowsClockwise")
-   - Title: 3–5 words (completes the sentence "You get ___")
-   - Description: 2 sentences max — Sentence 1: the benefit. Sentence 2: the mechanism.
-4. Layout: 3-column grid desktop, 2-col tablet, 1-col mobile
-5. One "featured" card (center or any): different border color (use purple #7C5CFC), subtle bg tint, badge "Most Used" or "Core Feature"
-
-DESIGN NOTE: Each card: icon top-left, title bold, description muted. Hover: slight lift + border glow. Match dark palette.`,
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
   {
-    id: "price",
-    number: "05",
-    label: "PRICING",
-    title: "Pricing Section",
-    description: "3-tier pricing table. Featured middle plan with visual hierarchy that converts.",
-    labelClass: labelClasses.price,
-    preview: (
-      <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="220" fill="#0B091A" rx="6" />
-        <rect x="150" y="12" width="120" height="10" rx="5" fill="#3A3070" />
-        <rect x="165" y="28" width="90" height="7" rx="3" fill="#2A2250" />
-        <rect x="10" y="50" width="120" height="156" rx="9" fill="#161330" stroke="#2A2250" strokeWidth="1" />
-        <rect x="20" y="62" width="56" height="8" rx="3" fill="#2A2250" />
-        <rect x="20" y="76" width="44" height="16" rx="4" fill="#2A2460" />
-        <rect x="20" y="96" width="100" height="1" fill="#2A2250" />
-        <rect x="20" y="104" width="88" height="5" rx="2" fill="#2A2250" />
-        <rect x="20" y="114" width="78" height="5" rx="2" fill="#2A2250" />
-        <rect x="20" y="124" width="84" height="5" rx="2" fill="#2A2250" />
-        <rect x="20" y="134" width="72" height="5" rx="2" fill="#2A2250" />
-        <rect x="20" y="178" width="100" height="22" rx="5" fill="#2A2250" />
-        <rect x="150" y="34" width="120" height="172" rx="9" fill="#1C1840" stroke="#7C5CFC" strokeWidth="1.5" />
-        <rect x="168" y="24" width="84" height="16" rx="8" fill="#F5C842" />
-        <rect x="174" y="27" width="72" height="7" rx="3" fill="rgba(13,11,31,0.5)" />
-        <rect x="160" y="48" width="60" height="8" rx="3" fill="#3A3070" />
-        <rect x="160" y="62" width="52" height="18" rx="4" fill="rgba(245,200,66,0.28)" />
-        <rect x="160" y="85" width="100" height="1" fill="#3A3070" />
-        <rect x="160" y="93" width="92" height="5" rx="2" fill="#3A3070" />
-        <rect x="160" y="103" width="82" height="5" rx="2" fill="#3A3070" />
-        <rect x="160" y="113" width="88" height="5" rx="2" fill="#3A3070" />
-        <rect x="160" y="123" width="76" height="5" rx="2" fill="#3A3070" />
-        <rect x="160" y="133" width="84" height="5" rx="2" fill="#3A3070" />
-        <rect x="160" y="143" width="70" height="5" rx="2" fill="#3A3070" />
-        <rect x="160" y="184" width="100" height="22" rx="5" fill="#F5C842" />
-        <rect x="170" y="188" width="80" height="10" rx="4" fill="rgba(13,11,31,0.45)" />
-        <rect x="290" y="50" width="120" height="156" rx="9" fill="#161330" stroke="#2A2250" strokeWidth="1" />
-        <rect x="300" y="62" width="56" height="8" rx="3" fill="#2A2250" />
-        <rect x="300" y="76" width="44" height="16" rx="4" fill="#2A2460" />
-        <rect x="300" y="96" width="100" height="1" fill="#2A2250" />
-        <rect x="300" y="104" width="88" height="5" rx="2" fill="#2A2250" />
-        <rect x="300" y="114" width="78" height="5" rx="2" fill="#2A2250" />
-        <rect x="300" y="124" width="84" height="5" rx="2" fill="#2A2250" />
-        <rect x="300" y="134" width="72" height="5" rx="2" fill="#2A2250" />
-        <rect x="300" y="144" width="80" height="5" rx="2" fill="#2A2250" />
-        <rect x="300" y="178" width="100" height="22" rx="5" fill="#2A2250" />
-      </svg>
-    ),
-    prompt: `You are a pricing strategist and funnel copywriter. Build a pricing section.
+    id: "hero",
+    number: "01e",
+    label: "HERO VARIATION 5",
+    title: "Hero Variation 5",
+    description:
+      "Big Promise / Above-the-fold. What will I get and is it for me?",
+    labelClass: labelClasses.hero,
+    basePrompt: `Coming soon.
 
-OFFER: [Your service or product]
-TIERS: [3 recommended — e.g. Starter / Pro / Elite]
-PRICING MODEL: [One-time / Monthly retainer / Annual / Application only]
-GOAL: [Push toward middle tier / sell top tier / generate leads]
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-FOR EACH TIER OUTPUT:
-1. Tier name + 1-line positioning subtitle
-2. Price (+ billing frequency note)
-3. 4–6 bullet inclusions — each starts with ✓ and leads with the benefit
-4. 1 "not included" item for lower tiers (builds desire for upgrade)
-5. CTA button copy — unique per tier
-6. "Most Popular" badge on featured tier
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "hero",
+    number: "01f",
+    label: "HERO VARIATION 6",
+    title: "Hero Variation 6",
+    description:
+      "Big Promise / Above-the-fold. What will I get and is it for me?",
+    labelClass: labelClasses.hero,
+    basePrompt: `Coming soon.
 
-BELOW THE TABLE:
-7. Guarantee or risk-reversal line (1 sentence)
-8. Optional: FAQ-style objection block (2–3 micro-objections answered inline)
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-DESIGN NOTE:
-- Outer tiers: standard card, muted border
-- Middle tier: elevated card (slightly taller), purple border #7C5CFC, gold badge at top
-- All cards: same width on desktop, stacked on mobile with featured card first`,
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "empathy",
+    number: "02a",
+    label: "EMPATHY VARIATION 1",
+    title: "Empathy (Pain Connection) Variation 1",
+    description:
+      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+    labelClass: labelClasses.empathy,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "empathy",
+    number: "02b",
+    label: "EMPATHY VARIATION 2",
+    title: "Empathy (Pain Connection) Variation 2",
+    description:
+      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+    labelClass: labelClasses.empathy,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "empathy",
+    number: "02c",
+    label: "EMPATHY VARIATION 3",
+    title: "Empathy (Pain Connection) Variation 3",
+    description:
+      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+    labelClass: labelClasses.empathy,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "empathy",
+    number: "02d",
+    label: "EMPATHY VARIATION 4",
+    title: "Empathy (Pain Connection) Variation 4",
+    description:
+      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+    labelClass: labelClasses.empathy,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "empathy",
+    number: "02e",
+    label: "EMPATHY VARIATION 5",
+    title: "Empathy (Pain Connection) Variation 5",
+    description:
+      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+    labelClass: labelClasses.empathy,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "empathy",
+    number: "02f",
+    label: "EMPATHY VARIATION 6",
+    title: "Empathy (Pain Connection) Variation 6",
+    description:
+      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+    labelClass: labelClasses.empathy,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "opportunity",
+    number: "03a",
+    label: "OPPORTUNITY VEHICLE VARIATION 1",
+    title: "Opportunity Vehicle Variation 1",
+    description:
+      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+    labelClass: labelClasses.opportunity,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "opportunity",
+    number: "03b",
+    label: "OPPORTUNITY VEHICLE VARIATION 2",
+    title: "Opportunity Vehicle Variation 2",
+    description:
+      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+    labelClass: labelClasses.opportunity,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "opportunity",
+    number: "03c",
+    label: "OPPORTUNITY VEHICLE VARIATION 3",
+    title: "Opportunity Vehicle Variation 3",
+    description:
+      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+    labelClass: labelClasses.opportunity,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "opportunity",
+    number: "03d",
+    label: "OPPORTUNITY VEHICLE VARIATION 4",
+    title: "Opportunity Vehicle Variation 4",
+    description:
+      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+    labelClass: labelClasses.opportunity,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "opportunity",
+    number: "03e",
+    label: "OPPORTUNITY VEHICLE VARIATION 5",
+    title: "Opportunity Vehicle Variation 5",
+    description:
+      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+    labelClass: labelClasses.opportunity,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "opportunity",
+    number: "03f",
+    label: "OPPORTUNITY VEHICLE VARIATION 6",
+    title: "Opportunity Vehicle Variation 6",
+    description:
+      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+    labelClass: labelClasses.opportunity,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "compare",
+    number: "04a",
+    label: "BEFORE VS AFTER VARIATION 1",
+    title: "Before vs After Variation 1",
+    description:
+      "Why is your way better? — Old way, new way, side-by-side comparison.",
+    labelClass: labelClasses.compare,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "compare",
+    number: "04b",
+    label: "BEFORE VS AFTER VARIATION 2",
+    title: "Before vs After Variation 2",
+    description:
+      "Why is your way better? — Old way, new way, side-by-side comparison.",
+    labelClass: labelClasses.compare,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "compare",
+    number: "04c",
+    label: "BEFORE VS AFTER VARIATION 3",
+    title: "Before vs After Variation 3",
+    description:
+      "Why is your way better? — Old way, new way, side-by-side comparison.",
+    labelClass: labelClasses.compare,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "compare",
+    number: "04d",
+    label: "BEFORE VS AFTER VARIATION 4",
+    title: "Before vs After Variation 4",
+    description:
+      "Why is your way better? — Old way, new way, side-by-side comparison.",
+    labelClass: labelClasses.compare,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "compare",
+    number: "04e",
+    label: "BEFORE VS AFTER VARIATION 5",
+    title: "Before vs After Variation 5",
+    description:
+      "Why is your way better? — Old way, new way, side-by-side comparison.",
+    labelClass: labelClasses.compare,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "compare",
+    number: "04f",
+    label: "BEFORE VS AFTER VARIATION 6",
+    title: "Before vs After Variation 6",
+    description:
+      "Why is your way better? — Old way, new way, side-by-side comparison.",
+    labelClass: labelClasses.compare,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "usp",
+    number: "05a",
+    label: "USP VARIATION 1",
+    title: "Unique Selling Proposition Variation 1",
+    description:
+      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+    labelClass: labelClasses.usp,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "usp",
+    number: "05b",
+    label: "USP VARIATION 2",
+    title: "Unique Selling Proposition Variation 2",
+    description:
+      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+    labelClass: labelClasses.usp,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "usp",
+    number: "05c",
+    label: "USP VARIATION 3",
+    title: "Unique Selling Proposition Variation 3",
+    description:
+      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+    labelClass: labelClasses.usp,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "usp",
+    number: "05d",
+    label: "USP VARIATION 4",
+    title: "Unique Selling Proposition Variation 4",
+    description:
+      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+    labelClass: labelClasses.usp,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "usp",
+    number: "05e",
+    label: "USP VARIATION 5",
+    title: "Unique Selling Proposition Variation 5",
+    description:
+      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+    labelClass: labelClasses.usp,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "usp",
+    number: "05f",
+    label: "USP VARIATION 6",
+    title: "Unique Selling Proposition Variation 6",
+    description:
+      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+    labelClass: labelClasses.usp,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "offer",
+    number: "06a",
+    label: "OFFER POSITIONING VARIATION 1",
+    title: "Offer Positioning Variation 1",
+    description:
+      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+    labelClass: labelClasses.offer,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "offer",
+    number: "06b",
+    label: "OFFER POSITIONING VARIATION 2",
+    title: "Offer Positioning Variation 2",
+    description:
+      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+    labelClass: labelClasses.offer,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "offer",
+    number: "06c",
+    label: "OFFER POSITIONING VARIATION 3",
+    title: "Offer Positioning Variation 3",
+    description:
+      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+    labelClass: labelClasses.offer,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "offer",
+    number: "06d",
+    label: "OFFER POSITIONING VARIATION 4",
+    title: "Offer Positioning Variation 4",
+    description:
+      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+    labelClass: labelClasses.offer,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "offer",
+    number: "06e",
+    label: "OFFER POSITIONING VARIATION 5",
+    title: "Offer Positioning Variation 5",
+    description:
+      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+    labelClass: labelClasses.offer,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "offer",
+    number: "06f",
+    label: "OFFER POSITIONING VARIATION 6",
+    title: "Offer Positioning Variation 6",
+    description:
+      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+    labelClass: labelClasses.offer,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
   {
     id: "social",
-    number: "06",
-    label: "SOCIAL PROOF",
-    title: "Testimonials Section",
-    description: "Result-first quote cards with avatars, stars, and outcome badges.",
+    number: "07a",
+    label: "SOCIAL PROOF VARIATION 1",
+    title: "Social Proof Variation 1",
+    description:
+      "Who else has this worked for? — Testimonials, ratings, authority by association.",
     labelClass: labelClasses.social,
-    preview: (
-      <svg viewBox="0 0 420 210" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="210" fill="#0B091A" rx="6" />
-        <rect x="150" y="14" width="120" height="10" rx="5" fill="#3A3070" />
-        <rect x="12" y="40" width="188" height="156" rx="10" fill="#161330" stroke="#2A2250" strokeWidth="1" />
-        <text x="22" y="66" fontSize="32" fill="rgba(124,92,252,0.35)" fontFamily="serif">
-          &quot;
-        </text>
-        <rect x="22" y="72" width="160" height="5" rx="2" fill="#2A2250" />
-        <rect x="22" y="83" width="150" height="5" rx="2" fill="#2A2250" />
-        <rect x="22" y="94" width="155" height="5" rx="2" fill="#2A2250" />
-        <rect x="22" y="105" width="130" height="5" rx="2" fill="#2A2250" />
-        <rect x="22" y="116" width="140" height="5" rx="2" fill="#2A2250" />
-        <rect x="22" y="132" width="80" height="7" rx="3" fill="rgba(245,200,66,0.45)" />
-        <rect x="114" y="130" width="76" height="12" rx="6" fill="rgba(107,203,119,0.15)" stroke="rgba(107,203,119,0.3)" strokeWidth="1" />
-        <rect x="120" y="133" width="64" height="6" rx="3" fill="rgba(107,203,119,0.5)" />
-        <circle cx="34" cy="164" r="15" fill="#2A2250" />
-        <circle cx="34" cy="158" r="7" fill="#1E1A3C" />
-        <ellipse cx="34" cy="174" rx="10" ry="7" fill="#1E1A3C" />
-        <rect x="56" y="155" width="66" height="8" rx="3" fill="#3A3070" />
-        <rect x="56" y="168" width="90" height="6" rx="3" fill="#2A2250" />
-        <rect x="220" y="40" width="188" height="156" rx="10" fill="#161330" stroke="#7C5CFC" strokeWidth="1" />
-        <text x="230" y="66" fontSize="32" fill="rgba(245,200,66,0.3)" fontFamily="serif">
-          &quot;
-        </text>
-        <rect x="230" y="72" width="160" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="83" width="150" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="94" width="155" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="105" width="130" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="116" width="140" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="132" width="80" height="7" rx="3" fill="rgba(245,200,66,0.45)" />
-        <rect x="322" y="130" width="76" height="12" rx="6" fill="rgba(245,200,66,0.1)" stroke="rgba(245,200,66,0.25)" strokeWidth="1" />
-        <rect x="328" y="133" width="64" height="6" rx="3" fill="rgba(245,200,66,0.4)" />
-        <circle cx="242" cy="164" r="15" fill="#2A2250" />
-        <circle cx="242" cy="158" r="7" fill="#1E1A3C" />
-        <ellipse cx="242" cy="174" rx="10" ry="7" fill="#1E1A3C" />
-        <rect x="264" y="155" width="66" height="8" rx="3" fill="#3A3070" />
-        <rect x="264" y="168" width="90" height="6" rx="3" fill="#2A2250" />
-      </svg>
-    ),
-    prompt: `You are a social proof copywriter. Build a testimonials section for a funnel page.
+    basePrompt: `Coming soon.
 
-OFFER: [Your service/product]
-REAL RESULTS TO REFERENCE: [Specific client outcomes — be as specific as possible]
-NUMBER NEEDED: [2–4 for above-fold, 4–6 for dedicated section]
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-FOR EACH TESTIMONIAL OUTPUT:
-1. Quote (3–5 sentences, first person)
-   Structure: Before state → What changed → Specific measurable result → Recommendation
-   Example: "Before working with AJ, I was spending 3 hours a day manually following up with leads. After he built our GHL system, that's now fully automated. We went from 2 bookings a week to 11 in the first month. If you're serious about systemizing your business, hire him."
-2. Client name (or placeholder: "Sarah M.")
-3. Client title + context (e.g. "Fitness Coach · Austin, TX")
-4. Star rating (5/5)
-5. Result badge (short, bold — e.g. "🗓️ 11 Bookings in 30 Days")
-
-LAYOUT: 2-col grid desktop, 1-col mobile
-DESIGN: Large opening quote mark (top-left, muted accent color). Alternating border colors (purple / gold / purple). Avatar circle left, name + title right of avatar.`,
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
   {
-    id: "cta",
-    number: "07",
-    label: "CALL TO ACTION",
-    title: "CTA Section",
-    description: "Mid-page or end-of-page conversion block. Urgency without dishonesty.",
-    labelClass: labelClasses.cta,
-    preview: (
-      <svg viewBox="0 0 420 170" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="170" fill="#0B091A" rx="6" />
-        <rect x="14" y="14" width="392" height="142" rx="12" fill="#161330" stroke="rgba(245,200,66,0.2)" strokeWidth="1" />
-        <ellipse cx="210" cy="85" rx="170" ry="55" fill="rgba(245,200,66,0.04)" />
-        <rect x="158" y="26" width="104" height="10" rx="5" fill="rgba(124,92,252,0.3)" />
-        <rect x="164" y="28" width="92" height="6" rx="3" fill="rgba(124,92,252,0.4)" />
-        <rect x="80" y="46" width="260" height="16" rx="4" fill="#3A3070" />
-        <rect x="148" y="46" width="124" height="16" rx="4" fill="rgba(245,200,66,0.18)" />
-        <rect x="105" y="68" width="210" height="16" rx="4" fill="#3A3070" />
-        <rect x="115" y="95" width="190" height="6" rx="3" fill="#2A2250" />
-        <rect x="148" y="113" width="124" height="28" rx="7" fill="#F5C842" />
-        <rect x="160" y="119" width="100" height="10" rx="4" fill="rgba(13,11,31,0.45)" />
-        <rect x="158" y="149" width="104" height="5" rx="2" fill="#2A2250" />
-      </svg>
-    ),
-    prompt: `You are a direct-response copywriter. Build a CTA (Call to Action) section for a funnel page.
+    id: "social",
+    number: "07b",
+    label: "SOCIAL PROOF VARIATION 2",
+    title: "Social Proof Variation 2",
+    description:
+      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+    labelClass: labelClasses.social,
+    basePrompt: `Coming soon.
 
-OFFER: [Your offer]
-DESIRED ACTION: [Book a call / Purchase / Download / Register]
-PRIMARY OBJECTION TO REMOVE: [e.g. "I don't have time" / "It's too expensive" / "Will this work for me?"]
-URGENCY (if real): [Limited spots / Bonus deadline / Price increase date — only if true]
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-OUTPUT:
-1. Eyebrow line — short, inviting (e.g. "READY TO GET STARTED?" or "THE NEXT STEP IS SIMPLE")
-2. Headline — action-oriented, outcome-first (2 lines max)
-3. Subheadline — 1 sentence that removes the main objection without being defensive
-4. CTA button copy — 4–6 words, action verb first (e.g. "Book Your Free Strategy Call")
-5. Trust micro-copy below button — (e.g. "No contracts. No pressure. Just clarity.")
-6. Optional urgency element — honest, specific (e.g. "Only 3 spots left this month")
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "social",
+    number: "07c",
+    label: "SOCIAL PROOF VARIATION 3",
+    title: "Social Proof Variation 3",
+    description:
+      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+    labelClass: labelClasses.social,
+    basePrompt: `Coming soon.
 
-DESIGN NOTE: Full-width dark card (#161330), subtle gold glow radial background, top border gold at 20% opacity. Center-aligned content. Max content width 680px. Button: gold fill, large (min 200px wide).`,
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "social",
+    number: "07d",
+    label: "SOCIAL PROOF VARIATION 4",
+    title: "Social Proof Variation 4",
+    description:
+      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+    labelClass: labelClasses.social,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "social",
+    number: "07e",
+    label: "SOCIAL PROOF VARIATION 5",
+    title: "Social Proof Variation 5",
+    description:
+      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+    labelClass: labelClasses.social,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "social",
+    number: "07f",
+    label: "SOCIAL PROOF VARIATION 6",
+    title: "Social Proof Variation 6",
+    description:
+      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+    labelClass: labelClasses.social,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "risk",
+    number: "08a",
+    label: "RISK REVERSAL VARIATION 1",
+    title: "Risk Reversal Variation 1",
+    description:
+      "What if it doesn't work? — Guarantee, payment plan, trial.",
+    labelClass: labelClasses.risk,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "risk",
+    number: "08b",
+    label: "RISK REVERSAL VARIATION 2",
+    title: "Risk Reversal Variation 2",
+    description:
+      "What if it doesn't work? — Guarantee, payment plan, trial.",
+    labelClass: labelClasses.risk,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "risk",
+    number: "08c",
+    label: "RISK REVERSAL VARIATION 3",
+    title: "Risk Reversal Variation 3",
+    description:
+      "What if it doesn't work? — Guarantee, payment plan, trial.",
+    labelClass: labelClasses.risk,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "risk",
+    number: "08d",
+    label: "RISK REVERSAL VARIATION 4",
+    title: "Risk Reversal Variation 4",
+    description:
+      "What if it doesn't work? — Guarantee, payment plan, trial.",
+    labelClass: labelClasses.risk,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "risk",
+    number: "08e",
+    label: "RISK REVERSAL VARIATION 5",
+    title: "Risk Reversal Variation 5",
+    description:
+      "What if it doesn't work? — Guarantee, payment plan, trial.",
+    labelClass: labelClasses.risk,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "risk",
+    number: "08f",
+    label: "RISK REVERSAL VARIATION 6",
+    title: "Risk Reversal Variation 6",
+    description:
+      "What if it doesn't work? — Guarantee, payment plan, trial.",
+    labelClass: labelClasses.risk,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "authority",
+    number: "09a",
+    label: "AUTHORITY VARIATION 1",
+    title: "Authority Variation 1",
+    description:
+      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+    labelClass: labelClasses.authority,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "authority",
+    number: "09b",
+    label: "AUTHORITY VARIATION 2",
+    title: "Authority Variation 2",
+    description:
+      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+    labelClass: labelClasses.authority,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "authority",
+    number: "09c",
+    label: "AUTHORITY VARIATION 3",
+    title: "Authority Variation 3",
+    description:
+      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+    labelClass: labelClasses.authority,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "authority",
+    number: "09d",
+    label: "AUTHORITY VARIATION 4",
+    title: "Authority Variation 4",
+    description:
+      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+    labelClass: labelClasses.authority,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "authority",
+    number: "09e",
+    label: "AUTHORITY VARIATION 5",
+    title: "Authority Variation 5",
+    description:
+      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+    labelClass: labelClasses.authority,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "authority",
+    number: "09f",
+    label: "AUTHORITY VARIATION 6",
+    title: "Authority Variation 6",
+    description:
+      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+    labelClass: labelClasses.authority,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "urgency",
+    number: "10a",
+    label: "URGENCY VARIATION 1",
+    title: "Urgency Variation 1",
+    description:
+      "Why act today? — Price scarcity, countdown timer, FOMO.",
+    labelClass: labelClasses.urgency,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "urgency",
+    number: "10b",
+    label: "URGENCY VARIATION 2",
+    title: "Urgency Variation 2",
+    description:
+      "Why act today? — Price scarcity, countdown timer, FOMO.",
+    labelClass: labelClasses.urgency,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "urgency",
+    number: "10c",
+    label: "URGENCY VARIATION 3",
+    title: "Urgency Variation 3",
+    description:
+      "Why act today? — Price scarcity, countdown timer, FOMO.",
+    labelClass: labelClasses.urgency,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "urgency",
+    number: "10d",
+    label: "URGENCY VARIATION 4",
+    title: "Urgency Variation 4",
+    description:
+      "Why act today? — Price scarcity, countdown timer, FOMO.",
+    labelClass: labelClasses.urgency,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "urgency",
+    number: "10e",
+    label: "URGENCY VARIATION 5",
+    title: "Urgency Variation 5",
+    description:
+      "Why act today? — Price scarcity, countdown timer, FOMO.",
+    labelClass: labelClasses.urgency,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "urgency",
+    number: "10f",
+    label: "URGENCY VARIATION 6",
+    title: "Urgency Variation 6",
+    description:
+      "Why act today? — Price scarcity, countdown timer, FOMO.",
+    labelClass: labelClasses.urgency,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "faq",
+    number: "11",
+    label: "FAQ",
+    title: "FAQ",
+    description:
+      "4–7 objection handlers: Who's this for? What exactly do I get? What about support? What's the guarantee?",
+    labelClass: labelClasses.faq,
+    basePrompt: `Coming soon.
+
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
   {
     id: "footer",
-    number: "08",
+    number: "12",
     label: "FOOTER",
     title: "Footer",
-    description: "Logo, links, social icons, legal. Clean and minimal — nothing unnecessary.",
+    description:
+      "Logo + Privacy / Terms / Disclaimer / Contact. Minimal, intentional whitespace.",
     labelClass: labelClasses.footer,
-    preview: (
-      <svg viewBox="0 0 420 170" xmlns="http://www.w3.org/2000/svg">
-        <rect width="420" height="170" fill="#060415" rx="6" />
-        <rect width="420" height="1" fill="#2A2250" />
-        <circle cx="38" cy="36" r="12" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-        <rect x="38" y="30" width="5" height="5" rx="1" fill="#7C5CFC" />
-        <rect x="44" y="28" width="5" height="9" rx="1" fill="#F5C842" />
-        <rect x="56" y="32" width="72" height="10" rx="3" fill="#3A3070" />
-        <rect x="24" y="54" width="148" height="5" rx="2" fill="#2A2250" />
-        <rect x="24" y="64" width="128" height="5" rx="2" fill="#2A2250" />
-        <rect x="24" y="74" width="136" height="5" rx="2" fill="#2A2250" />
-        <circle cx="34" cy="98" r="9" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-        <circle cx="56" cy="98" r="9" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-        <circle cx="78" cy="98" r="9" fill="#1E1A3C" stroke="#2A2250" strokeWidth="1" />
-        <rect x="230" y="24" width="60" height="8" rx="3" fill="#3A3070" />
-        <rect x="230" y="38" width="44" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="49" width="50" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="60" width="40" height="5" rx="2" fill="#2A2250" />
-        <rect x="230" y="71" width="46" height="5" rx="2" fill="#2A2250" />
-        <rect x="330" y="24" width="60" height="8" rx="3" fill="#3A3070" />
-        <rect x="330" y="38" width="44" height="5" rx="2" fill="#2A2250" />
-        <rect x="330" y="49" width="50" height="5" rx="2" fill="#2A2250" />
-        <rect x="330" y="60" width="40" height="5" rx="2" fill="#2A2250" />
-        <rect x="24" y="120" width="372" height="1" fill="#2A2250" />
-        <rect x="24" y="134" width="150" height="6" rx="3" fill="#2A2250" />
-        <rect x="292" y="134" width="50" height="6" rx="3" fill="#2A2250" />
-        <rect x="350" y="134" width="46" height="6" rx="3" fill="#2A2250" />
-      </svg>
-    ),
-    prompt: `You are a frontend developer. Build a footer for a premium marketing/funnel website.
+    basePrompt: `Coming soon.
 
-BRAND NAME: [Your brand]
-TAGLINE / DESCRIPTION (1 line): [e.g. "Building automated systems for coaches and consultants."]
-SOCIAL LINKS: [Instagram, LinkedIn, YouTube, Facebook — specify which to include]
-FOOTER COLUMNS (2 columns):
-  Col 1 — [e.g. Pages: Home, Gallery, Tools, Blog]
-  Col 2 — [e.g. Legal: Privacy Policy, Terms of Service, Contact]
-COPYRIGHT: [© 2025 [Brand]. All rights reserved.]
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
 
-OUTPUT:
-1. Full semantic HTML footer
-2. CSS:
-   - Background: #060415 (near-black, slightly different from main bg)
-   - Top border: 1px solid #2A2250
-   - Logo area: left (30% width), Link columns: right (70% width) in 2-col grid
-   - Social icons: simple circles with hover gold fill transition
-   - Bottom bar: copyright left, legal links right, separated by thin horizontal rule
-   - Mobile: full single-column stack, all centered, 20px gap between sections
-3. No heavy visuals. Intentional whitespace. Muted link colors #6A6488 → #FFFFFF hover.
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+  },
+  {
+    id: "nav",
+    number: "—",
+    label: "NAVIGATION (UTILITY)",
+    title: "Navigation Bar",
+    description:
+      "Optional utility component — not part of the 10P sequence. Use only when a sales page needs a full nav bar.",
+    labelClass: labelClasses.nav,
+    basePrompt: `Coming soon.
 
-FONT: Space Grotesk brand name, Inter for links and body text.`,
+The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
+    varsPrompt: `Coming soon.
+
+The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
 ];
 
@@ -553,13 +1277,18 @@ PRO TIP: Always generate 3–4 variations and pick the one with the cleanest neg
 const tabs: { id: TabId; label: string }[] = [
   { id: "all", label: "All Sections" },
   { id: "hero", label: "🏠 Hero" },
-  { id: "nav", label: "🔗 Navigation" },
-  { id: "about", label: "👤 About" },
-  { id: "feat", label: "⚡ Features" },
-  { id: "price", label: "💰 Pricing" },
-  { id: "social", label: "💬 Testimonials" },
-  { id: "cta", label: "🎯 CTA" },
+  { id: "empathy", label: "💗 Empathy" },
+  { id: "opportunity", label: "🔓 Opportunity" },
+  { id: "compare", label: "⚖️ Before/After" },
+  { id: "usp", label: "✨ USP" },
+  { id: "offer", label: "🎁 Offer" },
+  { id: "social", label: "💬 Social Proof" },
+  { id: "risk", label: "🛡️ Risk Reversal" },
+  { id: "authority", label: "👑 Authority" },
+  { id: "urgency", label: "⏰ Urgency" },
+  { id: "faq", label: "❓ FAQ" },
   { id: "footer", label: "📄 Footer" },
+  { id: "nav", label: "🔗 Nav" },
   { id: "gpt", label: "🎨 GPT Image" },
 ];
 
@@ -615,6 +1344,48 @@ function PromptBlock({ text }: { text: string }) {
           {open ? "Collapse ↑" : "Expand ↓"}
         </button>
       </div>
+    </>
+  );
+}
+
+function SectionPromptTabs({ base, vars }: { base: string; vars: string }) {
+  const [active, setActive] = useState<"base" | "vars">("base");
+  const text = active === "base" ? base : vars;
+  return (
+    <>
+      <div
+        role="tablist"
+        aria-label="Prompt type"
+        className="inline-flex rounded-lg border border-[#2A2250] bg-[#0B091A] p-1 mb-3 self-start"
+      >
+        <button
+          type="button"
+          role="tab"
+          aria-selected={active === "base"}
+          onClick={() => setActive("base")}
+          className={`px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] rounded-md transition ${
+            active === "base"
+              ? "bg-[#7C5CFC] text-white"
+              : "text-[#A09AB8] hover:text-white"
+          }`}
+        >
+          Base Prompt
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={active === "vars"}
+          onClick={() => setActive("vars")}
+          className={`px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] rounded-md transition ${
+            active === "vars"
+              ? "bg-[#F5C842] text-[#0D0B1F]"
+              : "text-[#A09AB8] hover:text-white"
+          }`}
+        >
+          Client Variables
+        </button>
+      </div>
+      <PromptBlock key={active} text={text} />
     </>
   );
 }
@@ -679,14 +1450,16 @@ export function PrivateContent() {
         <div className="grid gap-[22px] px-6 pb-14 max-w-[1180px] mx-auto" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))" }}>
           {visibleSections.map((s) => (
             <article
-              key={s.id}
+              key={`${s.id}-${s.number}`}
               className="flex flex-col overflow-hidden rounded-[14px] border border-[#2A2250] bg-[#161330] transition-all hover:border-[#4A3A8A] hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
             >
-              <div className="border-b border-[#2A2250] bg-[#0B091A] p-[18px_20px]">
-                <div className="[&_svg]:w-full [&_svg]:h-auto [&_svg]:block [&_svg]:rounded-md">
-                  {s.preview}
+              {s.preview && (
+                <div className="border-b border-[#2A2250] bg-[#0B091A] p-[18px_20px]">
+                  <div className="[&_svg]:w-full [&_svg]:h-auto [&_svg]:block [&_svg]:rounded-md">
+                    {s.preview}
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="p-5 flex flex-col flex-1">
                 <div className={`text-[10px] font-semibold uppercase tracking-[0.13em] mb-1.5 ${s.labelClass}`}>
                   SECTION {s.number} · {s.label}
@@ -698,7 +1471,7 @@ export function PrivateContent() {
                   {s.title}
                 </h3>
                 <p className="text-[12.5px] text-[#A09AB8] leading-[1.55] mb-3.5">{s.description}</p>
-                <PromptBlock text={s.prompt} />
+                <SectionPromptTabs base={s.basePrompt} vars={s.varsPrompt} />
               </div>
             </article>
           ))}
