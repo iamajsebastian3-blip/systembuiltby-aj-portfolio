@@ -1022,6 +1022,276 @@ const FEATURED_NAMES = [
 ];`,
   },
   {
+    id: "hero",
+    number: "01h",
+    label: "HERO",
+    title: "Hero Variation 8",
+    description:
+      "Dark business coach split: stacked 2-line logo + nav + bold 2-line headline + electric-blue CTA + testimonial (no avatar) + bottom-anchored person right + featured-in dark bar.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v8-thumb.webp",
+    funnelTypes: ["Business Coaching", "1-on-1", "High-Ticket"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium dark business-coach hero section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 02-hero-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background
+- BG_IMAGE fills entire section (dark stage / crowd photo)
+- Dark overlay var(--overlay) on top
+- Extra dark gradient on left side for text readability
+- Subtle Ken Burns slow zoom
+
+LAYER 2 — Navigation
+- Stacked 2-line logo top-left: LOGO_LINE1 + LOGO_LINE2, both bold + large
+- NAV_LINKS top-right: small uppercase, letter-spaced, white-on-hover-blue
+- No CTA button in nav
+- Transparent, no scroll behavior
+
+LAYER 3 — Hero Split
+
+CONTAINER:
+- Wrap grid in centered container: max-width 1600px, padding 0 64px 140px, margin 0 auto
+- Grid: grid-template-columns: minmax(0, 640px) auto, align-items: end, justify-content: center, gap: 80px
+
+LEFT COLUMN (anchored to grid):
+- max-width 640px, padding-bottom 50px
+- HEADLINE (2 lines) — very large bold white, clamp(46px, 6.6vw, 88px), line-height 1.02
+- SUBHEAD (2 lines) — medium muted, clamp(15px, 1.2vw, 18px), line-height 1.55, max-width 480px
+- CTA BUTTON — electric blue var(--accent) pill, white bold uppercase, padding 18px 36px, font-size 14px, letter-spacing 0.16em. Hover: glow + scale up + var(--accent-hover)
+- TESTIMONIAL BLOCK (margin-top 32px) — no avatar, no border
+  Italic quote in muted, font-size 14.5px, line-height 1.5
+  NAME bold white below (13.5px)
+  TITLE small muted below name (12px)
+
+RIGHT COLUMN (sized to image):
+- PERSON_IMG width clamp(380px, 42vw, 620px), bottom-anchored, max-height calc(100vh - 200px)
+- object-fit: contain, object-position: center bottom
+- Slight fade at very bottom (80px gradient)
+
+LAYER 4 — Featured In Bar (bottom, full width)
+- Dark charcoal bg (#111) or rgba(0,0,0,0.7) with backdrop blur
+- FEATURED_LABEL tiny uppercase muted center, letter-spacing 0.26em
+- FEATURED_NAMES inline row, mixed serif/sans weights, grayscale opacity hover-unfade
+
+=== ANIMATIONS ===
+- BG: subtle slow Ken Burns
+- Headline: staggered fade up (0.3s, 0.4s)
+- Subhead: fade up (0.5s)
+- CTA: fade up + pulse glow (0.6s)
+- Testimonial: fade up (0.8s)
+- Person: fade in + slide right (0.5s)
+- Featured: fade up (1.0s)
+
+=== MOBILE (768px) ===
+- Person becomes top half bg, dark gradient fades into bg color on bottom half
+- Text + CTA + testimonial centered in bottom half
+- Featured wrap 2 per row
+- Nav: hamburger replaces nav links
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets, nav, and featured names driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 8 (Dark Business Coach) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+   ============================================ */
+
+— BRAND COLORS —
+--bg:            #050505
+--accent:        #2962FF
+--accent-hover:  #1E4BD8
+--text:          #FFFFFF
+--muted:         #8A8A9A
+--overlay:       rgba(0,0,0,0.65)
+--nav-height:    70px
+
+— ASSETS (local first, Unsplash fallback) —
+const LOGO_LINE1 = "______";
+const LOGO_LINE2 = "______";
+const BG_IMAGE   = "/private/hero-v8-bg.webp";        ← AB/Background 3.png
+const PERSON_IMG = "/private/hero-v8-person.webp";    ← AB/Man AI.png
+
+— NAVIGATION LINKS —
+const NAV_LINKS = [
+  { label: "COURSES",      url: "#courses"      },
+  { label: "COACHING",     url: "#coaching"     },
+  { label: "DOWNLOAD",     url: "#download"     },
+  { label: "TESTIMONIALS", url: "#testimonials" },
+  { label: "CONTACT",      url: "#contact"      }
+];
+
+— COPY —
+const HEADLINE_1 = "______";
+const HEADLINE_2 = "______";
+const SUBHEAD_1  = "______";
+const SUBHEAD_2  = "______";
+const CTA_TEXT   = "FREE STRATEGY SESSION";
+
+— TESTIMONIAL —
+const TEST_QUOTE = "______";
+const TEST_NAME  = "______";
+const TEST_TITLE = "______";
+
+— FEATURED IN —
+const FEATURED_LABEL = "______ Has Been Featured In:";
+const FEATURED_NAMES = [
+  { name: "Forbes",  style: "serif font-weight:700" },
+  { name: "FORTUNE", style: "serif font-weight:400" },
+  { name: "SUCCESS", style: "sans  font-weight:600" },
+  { name: "Inc.",    style: "serif font-weight:800 italic" }
+];`,
+  },
+  {
+    id: "hero",
+    number: "01i",
+    label: "HERO",
+    title: "Hero Variation 9",
+    description:
+      "Fitness brand neon energy: full-bleed person BG + magenta neon glow + 3-line headline with accent color + pink CTA + 4 student avatars + floating coach card bottom-right + infinite-scroll ticker at the very bottom.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v9-thumb.webp",
+    funnelTypes: ["Fitness", "Course Launch", "Personal Brand"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium fitness brand neon-energy hero section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 02-hero-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background
+- BG_IMAGE fills entire section (dark gym / training environment)
+- Dark overlay with pink/magenta tint on left for text readability
+- Radial neon glow behind person on right (CSS only, var(--neon-glow))
+
+LAYER 2 — Navigation
+- LOGO_IMG + LOGO_TEXT left (or text-only logo with neon accent letter)
+- NAV_LINKS right — small uppercase, hover pink
+- Transparent always
+- Mobile: hamburger menu
+
+LAYER 3 — Hero Split
+
+CONTAINER: max-width 1600px, padding 0 64px 140px, margin 0 auto, grid-template-columns: minmax(0, 640px) auto, align-items: end, gap: 80px
+
+LEFT COLUMN:
+- max-width 640px, padding-bottom 60px
+- HEADLINE (3 lines) — large bold white, font-size clamp(44px, 6.2vw, 80px), line-height 1.02. The final phrase or last word in var(--accent) pink for emphasis
+- SUBHEADLINE — muted, clamp(15px, 1.2vw, 18px), line-height 1.55, max-width 460px
+- CTA BUTTON — var(--accent) pink background, white bold text + arrow, rounded pill, padding 18px 36px. Hover: neon glow box-shadow expand + scale
+- STUDENT AVATARS ROW (margin-top 28px):
+  4 small overlapping circular avatars (40px each, -8px overlap)
+  CSS-generated colored circles as fallback (gradient backgrounds)
+  + count label beside them ("Xk+ students enrolled")
+
+RIGHT COLUMN — Person:
+- PERSON_IMG full height, bottom-anchored
+- Pink/magenta neon radial glow behind via CSS (positioned absolute, z-index below person)
+- No overlay on person itself
+- Width clamp(380px, 42vw, 620px)
+
+LAYER 4 — Floating Coach Card (bottom-right, absolute)
+- Position: right 60px, bottom 100px (above the ticker)
+- Glass card: bg rgba(255,255,255,0.06), backdrop-filter blur, border 1px rgba(255,255,255,0.08), border-radius 14px, padding 14px 18px
+- Inside: 44px circular coach avatar + name bold white + title small muted
+- Subtle continuous float up/down animation (4s loop)
+
+LAYER 5 — Ticker Bar (very bottom, full width)
+- Full-width dark bar, height 50px, bg #0A0008 with top border accent pink at 30% opacity
+- Scrolling marquee: "TICKER_TEXT · TICKER_TEXT · TICKER_TEXT" (repeat 5–8 times)
+- Infinite loop left-to-right scroll (translateX animation 30s linear infinite)
+- Text: var(--accent) pink, uppercase, bold, letter-spacing 0.2em, font-size 14px
+
+=== ANIMATIONS ===
+- Person: fade in (0.3s)
+- Neon glow: pulse 2s loop (scale 1 → 1.05 → 1)
+- Headlines: staggered fade up from left
+- CTA: fade up + neon glow (0.6s)
+- Avatars: fade up (0.7s)
+- Float card: gentle float up/down loop (4s)
+- Ticker: infinite scroll left (30s)
+
+=== MOBILE (768px) ===
+- Person stays as full bg (top portion visible)
+- Heavy dark overlay on bottom half
+- Content centered in bottom half (text + CTA + avatars)
+- Float coach card: centered above ticker, smaller (compact)
+- Ticker stays full width at the very bottom
+- Nav: hamburger
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets, nav, and ticker text driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 9 (Fitness Brand Neon) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+   ============================================ */
+
+— BRAND COLORS —
+--bg:            #0A0008
+--accent:        #E8185A
+--accent-2:      #FF2D6B
+--text:          #FFFFFF
+--muted:         #C0A0B0
+--neon-glow:     rgba(232,24,90,0.4)
+--nav-height:    65px
+
+— ASSETS (local first, Unsplash fallback) —
+const LOGO_IMG   = "______";
+const LOGO_TEXT  = "______";
+const PERSON_IMG = "/private/hero-v9-person.webp";   ← Unsplash fitness (no local match)
+const BG_IMAGE   = "/private/hero-v9-bg.webp";       ← AB/Background 5.png
+
+— NAVIGATION —
+const NAV_LINKS = [
+  { label: "Metodologia", url: "#method"   },
+  { label: "Resultados",  url: "#results"  },
+  { label: "Sobre",       url: "#about"    },
+  { label: "Contato",     url: "#contact"  }
+];
+
+— COPY —
+const HEADLINE_1  = "______";
+const HEADLINE_2  = "______";
+const HEADLINE_3  = "______";   ← key phrase / accent color
+const SUBHEADLINE = "______";
+const CTA_TEXT    = "Join the team →";
+
+— STUDENT AVATARS —
+const STUDENTS = {
+  avatars: 4,
+  label:   "______k+ students enrolled"
+};
+
+— FLOATING COACH CARD —
+const FLOAT_CARD = {
+  avatar: "/private/hero-v9-coach-avatar.webp",   ← AB/Woman AI.png (scaled)
+  name:   "______",
+  title:  "______"
+};
+
+— TICKER —
+const TICKER_TEXT = "______";`,
+  },
+  {
     id: "empathy",
     number: "02a",
     label: "EMPATHY",
