@@ -567,6 +567,461 @@ const QUOTE_NAME   = "______";   ← person's name
 const QUOTE_TITLE  = "______";   ← person's title / role`,
   },
   {
+    id: "hero",
+    number: "01e",
+    label: "HERO",
+    title: "Hero Variation 5",
+    description:
+      "Person-as-background fullscreen hero: full-bleed portrait + left-side overlay + bottom-left copy block (eyebrow + 3-line headline + subheadline + dual CTAs). Premium gold accent.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v5-thumb.webp",
+    funnelTypes: ["Luxury Coaching", "Personal Brand", "Authority"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium fullscreen hero section with person-as-background layout. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 02-hero-person-bg.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background
+- PERSON_IMG fills hero section
+- background-size: auto 100% (fits to height, preserves face — do NOT use cover which crops vertically)
+- background-position: right center (anchors person to right edge)
+- background-color: var(--bg) fills any leftover space on the left
+- Left gradient overlay heavy: dark 95% at far left → 35% at midpoint → fades to var(--overlay-right) (subtle) on the right where the person is visible
+- Dark vignette on all edges via radial gradient
+- Mobile: switch to background-size cover + background-position center top (face visible at top, content stacks below)
+
+LAYER 2 — Navigation (var(--nav-height))
+- LOGO_IMG + LOGO_TEXT — top left
+- NAV_LINKS — center
+- SOCIAL_LINKS icons — top right (circle bordered icons, small)
+- Transparent background always
+- Mobile: hamburger replaces nav + social
+
+LAYER 3 — Hero Content (bottom left)
+Positioned bottom-left, above bottom padding
+
+- EYEBROW
+  Small uppercase, var(--accent) color
+  Letter-spaced, bold
+
+- HEADLINE (3 lines)
+  Large bold white
+  Tight line height
+  Max width: 55% of screen
+
+- SUBHEADLINE
+  Small muted text
+  Max width: 45% of screen
+  Light weight
+
+- TWO BUTTONS (side by side)
+  Button 1 (Primary):
+  - var(--accent) background
+  - Dark bold text
+  - Rounded pill shape
+  - CTA_PRIMARY text
+  - Hover: var(--accent-hover) + scale
+
+  Button 2 (Secondary):
+  - Transparent background
+  - White border
+  - White text
+  - CTA_SECOND text
+  - Hover: white bg + dark text
+
+=== MOBILE LAYOUT ===
+- Person photo stays as bg (top portion visible)
+- Dark gradient heavier on bottom half
+- Content moves to bottom center (not left)
+- Text becomes center-aligned
+- Buttons stack vertically, full width
+- Nav → hamburger menu
+- Social icons hidden on mobile
+
+=== ANIMATIONS ===
+- Background photo: very subtle slow zoom (Ken Burns)
+- Eyebrow: fade in (0.3s)
+- Headlines: staggered fade up (0.4s, 0.5s, 0.6s)
+- Subheadline: fade up (0.7s)
+- Buttons: fade up side by side (0.8s)
+- Nav items: fade in from top (0.2s)
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets, nav, and social links driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 5 (Person-as-Background) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+
+   1. PERSON_IMG    → person/avatar photo URL
+   2. LOGO_IMG      → logo image URL
+   3. LOGO_TEXT     → brand name text
+   4. Update COLORS → match client brand kit
+   5. Update NAV_LINKS
+   6. Update SOCIAL_LINKS
+   7. Update all COPY
+   ============================================ */
+
+— BRAND COLORS (CSS custom properties) —
+--bg:             #0D0D0D
+--accent:         #C9922A
+--accent-hover:   #E0A830
+--text:           #FFFFFF
+--muted:          #B0B0B0
+--overlay-left:   rgba(0, 0, 0, 0.75)
+--overlay-right:  rgba(0, 0, 0, 0.15)
+--nav-height:     65px
+
+— ASSETS —
+const PERSON_IMG  = "/private/hero-v5-person.webp";   ← swap for client photo
+const LOGO_IMG    = "______";                         ← logo image URL (optional)
+const LOGO_TEXT   = "______";                         ← brand name
+
+— COPY —
+const EYEBROW     = "______";   ← short eyebrow text
+const HEADLINE_1  = "______";   ← first line of headline
+const HEADLINE_2  = "______";   ← second line of headline
+const HEADLINE_3  = "______";   ← third line of headline
+const SUBHEADLINE = "______";   ← short supporting description
+const CTA_PRIMARY = "______";   ← primary button text
+const CTA_SECOND  = "______";   ← secondary button text
+
+— NAVIGATION LINKS —
+const NAV_LINKS = [
+  { label: "About",     url: "#about"     },
+  { label: "Programs",  url: "#programs"  },
+  { label: "Results",   url: "#results"   },
+  { label: "Resources", url: "#resources" },
+  { label: "Contact",   url: "#contact"   }
+];
+
+— SOCIAL ICONS —
+const SOCIAL_LINKS = [
+  { icon: "facebook",  url: "______" },
+  { icon: "linkedin",  url: "______" },
+  { icon: "youtube",   url: "______" },
+  { icon: "twitter",   url: "______" }
+];`,
+  },
+  {
+    id: "hero",
+    number: "01f",
+    label: "HERO",
+    title: "Hero Variation 6",
+    description:
+      "Executive split-layout: dark texture BG + text-left (eyebrow + 3-line headline + dual CTA) + person-right (no overlay) + featured-in serif logo bar at bottom.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v6-thumb.webp",
+    funnelTypes: ["Executive Brand", "Consulting", "High-Ticket"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium personal brand hero section with split text-left person-right layout. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 02-hero-executive.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background
+- BG_IMAGE fills entire section
+- var(--overlay) dark layer on top
+- Extra dark gradient left side for text readability
+- Person photo has NO background overlay (sits cleanly on right side)
+
+LAYER 2 — Navigation (var(--nav-height))
+- LOGO_IMG + LOGO_TEXT — top left
+- NAV_LINKS — top right
+- No social icons
+- Transparent, no scroll behavior
+- Mobile: hamburger menu
+
+LAYER 3 — Hero Split Layout
+
+CONTAINER:
+- Wrap the grid in a centered container: max-width 1600px, margin 0 auto, padding 0 64px 140px
+- Grid: display grid, grid-template-columns: minmax(0, 640px) auto, align-items: end, justify-content: center, gap: 80px
+- This keeps the text + person photo close together as a unit, no wasted dead space
+
+LEFT COLUMN (anchored to grid):
+- max-width: 640px, padding-bottom: 50px (aligns with image bottom)
+- EYEBROW — small uppercase, var(--accent), 13px, letter-spacing 0.32em
+- HEADLINE (3 lines) — bold white, font-size clamp(44px, 6.4vw, 84px), line-height 1.02. The middle line uses var(--accent) for the highlight word
+- SUBHEADLINE — muted, font-size clamp(15px, 1.2vw, 18px), light weight, line-height 1.65, max-width 480px
+- TWO BUTTONS (side by side, gap 22px)
+  Button 1 (Primary):
+  - var(--accent) background, white bold text
+  - Rounded pill shape, padding 16px 30px
+  - Box-shadow drop with accent color tint
+  - Hover: brighter + scale up
+  Button 2 (Watch):
+  - Transparent background, no border
+  - Small play circle icon left (outlined 36px circle + filled triangle)
+  - White text: CTA_WATCH, uppercase, letter-spaced
+  - Hover: slight opacity change
+  - On click: open VIDEO_URL in lightbox
+
+RIGHT COLUMN (sized to image, not fixed 50%):
+- PERSON_IMG width: clamp(380px, 42vw, 620px), max-height calc(100vh - 180px)
+- object-fit: contain, object-position: center bottom
+- No overlay, no border
+- Slight fade at very bottom only (80px gradient)
+
+LAYER 4 — Featured In Bar (bottom)
+- Full width dark bar
+- Semi-transparent dark background
+- FEATURED_LABEL — tiny muted uppercase center
+- FEATURED_NAMES — large serif font, inline row, white, spaced evenly
+- Mix of font weights for visual variety
+
+=== ANIMATIONS ===
+- Background: static (no zoom — executive feel)
+- Nav: fade in (0.2s)
+- Eyebrow: fade up (0.3s)
+- Headlines: staggered fade up (0.4s, 0.5s, 0.6s)
+- Subheadline: fade up (0.7s)
+- Buttons: fade up (0.8s)
+- Person photo: fade in + slight slide right (0.5s)
+- Featured bar: fade up (1.0s)
+
+=== MOBILE (768px) ===
+- Layout stacks: text on top, person below
+- Person photo: centered, max-height 400px
+- Text becomes center-aligned
+- Buttons stack vertically, full width
+- Featured names wrap to 2 rows
+- Nav: hamburger menu
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets, nav, and featured names driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 6 (Executive Split) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+
+   1. BG_IMAGE      → dark background texture URL
+   2. PERSON_IMG    → person/avatar photo URL
+   3. LOGO_IMG      → logo image URL
+   4. LOGO_TEXT     → brand name text
+   5. Update COLORS → match client brand kit
+   6. Update NAV_LINKS
+   7. Update all COPY
+   8. Update FEATURED logos
+   ============================================ */
+
+— BRAND COLORS (CSS custom properties) —
+--bg:             #0A0A0A
+--accent:         #3B9EE8
+--text:           #FFFFFF
+--muted:          #9A9A9A
+--overlay:        rgba(0, 0, 0, 0.65)
+--nav-height:     65px
+
+— ASSETS —
+const BG_IMAGE    = "/private/hero-v6-bg.webp";       ← swap for client background
+const PERSON_IMG  = "/private/hero-v6-person.webp";   ← swap for client person photo
+const LOGO_IMG    = "______";                         ← logo image URL (optional)
+const LOGO_TEXT   = "______";                         ← brand name
+const VIDEO_URL   = "______";                         ← YouTube / Vimeo / Wistia URL
+
+— COPY —
+const EYEBROW     = "______";   ← short eyebrow text
+const HEADLINE_1  = "______";   ← first line of headline
+const HEADLINE_2  = "______";   ← second line of headline
+const HEADLINE_3  = "______";   ← third line of headline
+const SUBHEADLINE = "______";   ← short supporting description
+const CTA_PRIMARY = "______";   ← primary CTA button text
+const CTA_WATCH   = "Watch";
+
+— NAVIGATION LINKS —
+const NAV_LINKS = [
+  { label: "About",     url: "#about"     },
+  { label: "Programs",  url: "#programs"  },
+  { label: "Results",   url: "#results"   },
+  { label: "Resources", url: "#resources" },
+  { label: "Contact",   url: "#contact"   }
+];
+
+— FEATURED IN —
+const FEATURED_LABEL = "______ Has Been Featured In:";
+const FEATURED_NAMES = [
+  "Forbes",
+  "Entrepreneur",
+  "TIME",
+  "Inc.",
+  "SUCCESS",
+  "Fortune"
+];`,
+  },
+  {
+    id: "hero",
+    number: "01g",
+    label: "HERO",
+    title: "Hero Variation 7",
+    description:
+      "Masterclass funnel hero: dark BG + minimal logo nav + 4-line headline + full-width gold CTA + inline testimonial block (avatar + quote) + person photo right + featured-in mixed-weight logo bar.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v7-thumb.webp",
+    funnelTypes: ["Masterclass", "Webinar Registration", "Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium masterclass funnel hero section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 02-hero-masterclass.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background
+- BG_IMAGE fills entire section
+- var(--overlay) dark layer on top
+- Extra dark gradient left side
+- Heavy dark vignette on all edges
+
+LAYER 2 — Minimal Navigation
+- LOGO_TEXT top left only
+- No nav links, no hamburger
+- Transparent, static
+
+LAYER 3 — Hero Split Layout
+
+CONTAINER:
+- Wrap the grid in a centered container: max-width 1600px, margin 0 auto, padding 40px 64px 140px
+- Grid: display grid, grid-template-columns: minmax(0, 680px) auto, align-items: end, justify-content: center, gap: 80px
+- Keeps text + person close together as a unit, no wasted dead space
+
+LEFT COLUMN (anchored to grid):
+- max-width: 680px, padding-bottom: 40px
+- EYEBROW — uppercase, var(--accent), 13px, letter-spacing 0.34em, no border
+- HEADLINE (4 lines) — font-family Inter, font-weight 800, font-size clamp(42px, 5.6vw, 72px), line-height 1.04, letter-spacing -0.01em. Line 3 uses var(--accent) + italic for the highlight phrase
+- CTA BUTTON
+  - Full width of text column (width: 100%)
+  - var(--accent) background, dark bold uppercase text
+  - Rounded corners (border-radius 12px, not pill)
+  - Padding 24px 32px, font-size 15px, letter-spacing 0.16em
+  - Box-shadow drop with accent tint + subtle pulse animation loop
+  - Hover: var(--accent-hover) + scale up + brighter shadow
+- TESTIMONIAL BLOCK (margin-top 32px)
+  - Side by side: avatar + text, gap 16px
+  - Avatar: circle 58px, subtle white border at 12% opacity
+  - Quote: italic, 15px, white at 92% opacity
+  - Name: 13.5px, bold white
+  - Title: 12px, muted
+  - No left border
+
+RIGHT COLUMN (sized to image, not fixed 45%):
+- PERSON_IMG width: clamp(360px, 40vw, 580px), max-height calc(100vh - 200px)
+- object-fit: contain, object-position: center bottom
+- Slight fade at very bottom (80px gradient)
+- No overlay
+
+LAYER 4 — Featured In Bar (very bottom)
+- Full width, dark semi-transparent bg
+- FEATURED_LABEL — tiny muted center
+- FEATURED_NAMES — mixed font weights, inline row, white/muted, spaced, grayscale opacity look
+
+=== ANIMATIONS ===
+- Background: subtle slow zoom (Ken Burns)
+- Eyebrow: fade up (0.2s)
+- Headlines: staggered fade up (0.3s, 0.4s, 0.5s, 0.6s)
+- CTA: fade up + slight pulse (0.7s)
+- Testimonial: fade up (0.8s)
+- Person: fade in + slide right (0.5s)
+- Featured bar: fade up (1.0s)
+
+=== MOBILE (768px) ===
+- Person photo: top half background
+- Heavy dark gradient bottom half
+- All text: centered, bottom half
+- CTA: full width
+- Testimonial: centered
+- Featured: wrap 3 per row
+- Nav: logo only, centered
+
+=== IMAGE PLACEHOLDER RULES ===
+- Every image URL in CLIENT VARIABLES must be pre-filled with a relevant Unsplash URL so the design renders immediately
+- Logo and featured-in items use CSS text with mixed font weights — no image files
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets, testimonial, and featured names driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 7 (Masterclass) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+
+   1. BG_IMAGE       → dark arena background URL
+   2. PERSON_IMG     → person/avatar photo URL
+   3. LOGO_TEXT      → client name or brand
+   4. Update COLORS  → match client brand kit
+   5. Update all COPY
+   6. Update TESTIMONIAL
+   7. Update FEATURED logos
+   ============================================ */
+
+— BRAND COLORS (CSS custom properties) —
+--bg:             #050505
+--accent:         #C8A84B
+--accent-hover:   #E0BF6A
+--text:           #FFFFFF
+--muted:          #9A9A9A
+--overlay:        rgba(0, 0, 0, 0.70)
+--nav-height:     60px
+
+— ASSETS (Unsplash URLs pre-filled — swap for client photos when ready) —
+const BG_IMAGE          = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80";
+const PERSON_IMG        = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80";
+const TESTIMONIAL_AVATAR = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80";
+
+— COPY —
+const LOGO_TEXT   = "______";   ← client brand name
+const EYEBROW     = "FREE LIVE MASTERCLASS";
+const HEADLINE_1  = "______";   ← line 1
+const HEADLINE_2  = "______";   ← line 2
+const HEADLINE_3  = "______";   ← line 3
+const HEADLINE_4  = "______";   ← line 4
+const CTA_TEXT    = "YES, RESERVE MY SPOT NOW";
+
+— TESTIMONIAL —
+const TEST_QUOTE  = "______";   ← short powerful quote about client
+const TEST_NAME   = "______";   ← testimonial person name
+const TEST_TITLE  = "______";   ← person title / authority
+
+— FEATURED IN —
+const FEATURED_LABEL = "Also Featured In:";
+const FEATURED_NAMES = [
+  { name: "Forbes",       weight: "800" },
+  { name: "MSNBC",        weight: "400" },
+  { name: "CBS",          weight: "700" },
+  { name: "amazon",       weight: "400" },
+  { name: "USA TODAY",    weight: "700" },
+  { name: "FOX",          weight: "800" },
+  { name: "TEDx",         weight: "400" },
+  { name: "YPO",          weight: "700" },
+  { name: "Entrepreneur", weight: "400" }
+];`,
+  },
+  {
     id: "empathy",
     number: "02a",
     label: "EMPATHY",
