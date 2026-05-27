@@ -13,6 +13,7 @@ const revenueTools = [
     description:
       "Three-part audit — calculate your revenue leak, see typical ROI multipliers, and benchmark against the most common audit findings.",
     cta: "Run Revenue Audit",
+    badge: null as string | null,
   },
   {
     href: "/tools/email-health",
@@ -21,6 +22,7 @@ const revenueTools = [
     description:
       "Free curated tools to check your domain health, sender reputation, and deliverability score before launching any email campaign.",
     cta: "Check Email Health",
+    badge: null as string | null,
   },
   {
     href: "/tools/process-map",
@@ -29,6 +31,16 @@ const revenueTools = [
     description:
       "Paste Mermaid code (from Pedro V3 or any source) and render an interactive workflow diagram of your GHL automation in seconds.",
     cta: "Open Process Map",
+    badge: null as string | null,
+  },
+  {
+    href: "/tools/private",
+    icon: "🔒",
+    title: "Funnel Section Builder",
+    description:
+      "Internal tool — wireframe reference + copy-ready AI prompts for every funnel section. Passcode required to enter.",
+    cta: "Enter Passcode",
+    badge: "PRIVATE",
   },
 ];
 
@@ -113,7 +125,14 @@ export function ToolsContent() {
                       {t.icon}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <h3 className="mb-1 text-xl font-black text-white">{t.title}</h3>
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <h3 className="text-xl font-black text-white">{t.title}</h3>
+                        {t.badge && (
+                          <span className="rounded-full bg-white/10 px-2 py-0.5 text-[0.55rem] font-extrabold text-white/70 uppercase tracking-wider border border-white/15">
+                            🔒 {t.badge}
+                          </span>
+                        )}
+                      </div>
                       <p className="text-sm text-white/65 leading-relaxed mb-4">{t.description}</p>
                       <span className="inline-flex items-center gap-1.5 text-sm font-bold text-yellow group-hover:text-yellow-dark transition-colors">
                         {t.cta}
