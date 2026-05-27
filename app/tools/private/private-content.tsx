@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { lock } from "./actions";
 
 type SectionId =
@@ -28,6 +28,8 @@ type Section = {
   description: string;
   labelClass: string;
   preview?: ReactNode;
+  previewSrc?: string;
+  funnelTypes?: string[];
   basePrompt: string;
   varsPrompt: string;
 };
@@ -52,22 +54,13 @@ const sections: Section[] = [
   {
     id: "hero",
     number: "01a",
-    label: "HERO VARIATION 1",
+    label: "HERO",
     title: "Hero Variation 1",
     description:
       "Tony Robbins-inspired full-width centered hero. BG image + headline + CTA + video block. Built as a GHL custom code block.",
     labelClass: labelClasses.hero,
-    preview: (
-      <div className="relative w-full aspect-[2/1] overflow-hidden rounded-md">
-        <Image
-          src="/private/hero-v1-bg.webp"
-          alt="Hero Variation 1 background reference"
-          fill
-          sizes="(max-width: 768px) 100vw, 380px"
-          className="object-cover"
-        />
-      </div>
-    ),
+    previewSrc: "/private/hero-v1-thumb.webp",
+    funnelTypes: ["VSL", "Webinar", "Lead Funnel"],
     basePrompt: `You are an expert frontend developer and funnel designer.
 
 Build a reusable hero section component inspired by TonyRobbins.com for use inside GoHighLevel (GHL) as a custom code block.
@@ -176,121 +169,127 @@ About | Mission | Events | Programs | Coaching | Shop | Blog
   {
     id: "hero",
     number: "01b",
-    label: "HERO VARIATION 2",
+    label: "HERO",
     title: "Hero Variation 2",
     description:
-      "Split layout with countdown timer, floating stat cards, and animated reveal. Built as a GHL custom code block.",
+      "Full-bleed event/stage background with pre-headline + bold headline + CTA + featured-in logo strip. No video block — clean and content-forward.",
     labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v2-thumb.webp",
+    funnelTypes: ["VSL", "Webinar", "Personal Brand"],
     basePrompt: `You are an expert frontend developer and funnel designer.
-Build a reusable hero section component for use across multiple client projects inside GoHighLevel (GHL) as a custom code block.
 
-=== OUTPUT REQUIREMENTS ===
-- Single HTML file: 02-hero.html
-- All CSS inside <style> tags
-- All JS inside <script> tags
-- No external dependencies except Google Fonts
-- Must work as standalone GHL custom code block
+Build a reusable hero section component for use inside GoHighLevel (GHL) as a custom code block. This variation is inspired by event/keynote-style personal brand pages (Tony Robbins, Brendon Burchard, Grant Cardone) — clean and copy-focused, no video block.
+
+=== OUTPUT ===
+Single file: 02-hero.html
+All CSS in <style> tags
+All JS in <script> tags
+Google Fonts only — no other dependencies
+GHL-ready standalone custom code block
 
 === LAYOUT ===
-Split layout — left 50% text, right 50% person photo
+Full-width centered layout (NOT split). Full-bleed BG image extends behind everything.
+Vertical order inside hero (top → bottom, all centered):
+  1. Nav (sticky, transparent)
+  2. Pre-headline (small)
+  3. Main headline (large, 2 lines)
+  4. CTA button
+  5. "Featured In" logo strip (bottom of hero)
 
-=== COLORS (declare as CSS custom properties at top of <style>, inside CLIENT VARIABLES block) ===
---bg, --gold, --purple, --text, --muted
+=== NAVIGATION ===
+- Logo text left (or swap to <img>)
+- Nav links center: About | Mission | Events | Programs | Coaching | Shop | Blog
+- Search icon right
+- Sticky, transparent → dark blur on scroll
+- Height: var(--nav-height) (70px)
+- Mobile: hamburger menu
 
-=== FONTS ===
-Heading font + body font, both loaded via Google Fonts
+=== HERO CONTENT ===
+1. Pre-headline
+   - Small uppercase or sentence-case, centered
+   - White or muted color
+   - 1 line max
+2. Main Headline
+   - Large bold, centered, 2 lines
+   - Pure white
+3. CTA Button
+   - Background: var(--accent) (teal/cyan)
+   - Dark bold uppercase text
+   - Rounded pill shape
+   - Hover: scale up + glow
+4. Featured In Strip (bottom of hero)
+   - Small muted label above logos: "[Name] Has Been Featured In:"
+   - Row of 4 monochrome media logos (white/muted), evenly spaced
+   - Logos passed via JS array — easy client swap
 
-=== LEFT SIDE (top to bottom) ===
-1. Eyebrow badge — small uppercase label, pill shape, gold accent border
-2. Headline — large bold, 2–3 lines, one phrase wrapped in gold accent
-3. Subheadline — 1–2 sentences, muted color
-4. Countdown Timer
-   - Label line above
-   - 4 boxes: DAYS | HOURS | MINS | SECS
-   - Dark box bg, gold number, muted label
-   - Driven by single JS const at top of script: const COUNTDOWN_DATE = "YYYY-MM-DDTHH:MM:SS";
-5. CTA Button — gold bg, dark text, uppercase bold, arrow icon right →. Hover: slight scale + glow
-
-=== RIGHT SIDE ===
-- Person photo placeholder: <img src="[PHOTO]" class="person-photo"> (bottom-anchored, full height of hero)
-- Behind photo: radial purple glow (CSS only, no image)
-- Floor fade at bottom (gradient to bg color)
-- 2 floating stat cards (absolute positioned):
-   Card 1 — top-right area
-   Card 2 — bottom-right area
-   Both with continuous subtle float up/down CSS animation
-
-=== NAVIGATION (above hero) ===
-- Logo left: <img src="[LOGO]" class="nav-logo">
-- Optional countdown timer label right (same COUNTDOWN_DATE)
-- Sticky navbar, transparent → dark bg on scroll
-- Height: 70px
+=== BACKGROUND ===
+- Full-width BG_IMAGE behind everything
+- Dark gradient overlay: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.75) 100%)
+- Optional teal radial glow from center
 
 === ANIMATIONS ===
-- Navbar: transparent to dark on scroll
-- Left content: fade in + slide up on page load (staggered)
-- Stat cards: continuous subtle float
-- CTA button: pulse glow on hover
-- Countdown: live ticking every second
+- Pre-headline + headline: fade in + slide up (staggered)
+- CTA button: fade in delayed
+- Featured-in strip: fade in last
+- Background: subtle slow zoom (Ken Burns)
 
 === MOBILE RESPONSIVE ===
-- Stack to single column ≤768px
-- Photo below text on mobile
-- Countdown boxes shrink gracefully
+- Breakpoint: 768px
+- Nav collapses to hamburger
+- Text scales down (headline ~32px on mobile)
+- Featured-in logos wrap to 2x2 grid on mobile
 
 === OUTPUT RULES ===
-- All copy, dates, colors, and asset paths driven by the CLIENT VARIABLES block at top
-- Comment block: /* === CLIENT VARIABLES — EDIT HERE === */
-- One file, no frameworks`,
-    varsPrompt: `Apply these client values to the Hero Variation 2 base component.
+- All colors, fonts, copy, asset paths, and nav links driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered steps for the client
+- One file, no frameworks, no build step
 
-/* === CLIENT VARIABLES === */
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 2 (Event/Keynote-style, no video block) base component.
 
-— BRAND COLORS —
---bg:                #0D0B1F
---gold:              #F5C842
---purple:            #7C5CFC
---text:              #FFFFFF
---muted:             #A09AB8
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+   ============================================
+   STEP 1: Replace background image URL
+   STEP 2: Replace featured-in logo files (or use styled text)
+   STEP 3: Update all copy below
+   STEP 4: Replace logo text or image
+   STEP 5: Update nav links
+   ============================================ */
 
-— FONTS —
-Heading Font:        Space Grotesk
-Body Font:           Inter
+— COLORS (CSS custom properties at top of <style>) —
+--bg:           #0A0A0F
+--accent:       #00E5CC
+--text:         #FFFFFF
+--muted:        #A0A0B0
+--nav-height:   70px
 
-— LOGO & PHOTO —
-Logo File:           ______   ← path to logo image
-Hero Photo File:     ______   ← path to person photo (transparent PNG recommended)
+— JS CONSTS (top of <script>) —
+const LOGO            = "TONY ROBBINS";
+const BG_IMAGE        = "/private/hero-v2-thumb.webp";   ← swap for client image
+const FEATURED_IN     = [
+  { name: "Success", logo: "______" },
+  { name: "Inc.",    logo: "______" },
+  { name: "Forbes",  logo: "______" },
+  { name: "Fortune", logo: "______" },
+];
 
-— EYEBROW —
-Eyebrow Text:        TRUSTED BY 16,358+ FILIPINOS
+— COPY —
+Pre-headline:        Unlock The Power Within And Achieve Your Dreams
+Headline Line 1:     Proven Techniques For Personal
+Headline Line 2:     And Professional Growth
+CTA Button Text:     GET STARTED
+CTA Button URL:      ______
+Featured-In Label:   TONY HAS BEEN FEATURED IN:
 
-— HEADLINE —
-Line 1:              The Learning Hub for Filipinos Ready to Build
-Line 2 (gold):       Future-Proof Skills
-Line 3:              and Better Lives
-
-— SUBHEADLINE —
-Subheadline:         Explore programs in digital careers, health, mindset, and life development.
-
-— COUNTDOWN —
-Label:               Event Starts In:
-COUNTDOWN_DATE:      2026-08-01T00:00:00
-
-— CTA BUTTON —
-Button Text:         YES, I WANT TO SAVE MY SEAT!
-Button URL:          ______
-
-— FLOATING STAT CARDS —
-Card 1 (top-right):     16,358+ Lives Changed
-Card 2 (bottom-right):  Worldwide — Work from anywhere
-
-— NAVIGATION —
-Show Countdown in Nav:   [ yes / no ]`,
+— NAVIGATION LINKS —
+About | Mission | Events | Programs | Coaching | Shop | Blog
+(Edit array at top of <script>)`,
   },
   {
     id: "hero",
     number: "01c",
-    label: "HERO VARIATION 3",
+    label: "HERO",
     title: "Hero Variation 3",
     description:
       "Big Promise / Above-the-fold. What will I get and is it for me?",
@@ -305,22 +304,133 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "hero",
     number: "01d",
-    label: "HERO VARIATION 4",
+    label: "HERO",
     title: "Hero Variation 4",
     description:
-      "Big Promise / Above-the-fold. What will I get and is it for me?",
+      "5-layer premium hero: full BG + sticky nav + centered copy + person silhouette with overlay play button + featured-in logo bar.",
     labelClass: labelClasses.hero,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/hero-v4-thumb.webp",
+    funnelTypes: ["VSL", "Speaker Page", "Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium funnel hero section based on the exact structured layout below. Production-ready, GHL-ready.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 02-hero-centered.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background
+- BG_IMAGE fills entire section
+- var(--overlay) dark layer on top
+- Subtle blue radial glow center for depth
+
+LAYER 2 — Sticky Nav (var(--nav-height))
+- LOGO left
+- NAV_LINKS center
+- Search icon right
+- Transparent → dark blur on scroll
+- Mobile: hamburger
+
+LAYER 3 — Hero Content (centered)
+- EYEBROW — small, muted, uppercase
+- HEADLINE_1 + HEADLINE_2 — large bold white
+- CTA button — var(--accent), dark text, uppercase
+
+LAYER 4 — Person + Play Button
+- PERSON_IMG centered below CTA
+- Overlapping hero and featured section
+- Play button circle on chest area of person
+- On click: open VIDEO_URL in lightbox
+
+LAYER 5 — Featured In Bar
+- Dark semi-transparent bg
+- FEATURED_LABEL — small muted uppercase text
+- FEATURED_LOGOS — grayscale, inline row
+
+=== ANIMATIONS ===
+- Background: slow Ken Burns zoom
+- Eyebrow: fade up (0.2s)
+- Headlines: fade up staggered (0.3s, 0.4s)
+- CTA: fade up (0.5s)
+- Person: fade in + slight scale (0.7s)
+- Play button: pulse glow loop
+- Featured logos: fade in (1s)
+
+=== MOBILE ===
+- Breakpoint: 768px
+- Nav → hamburger
+- Text scales down
+- Person image scales down
+- Featured logos wrap to 2 rows
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, asset paths driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 4 (5-layer premium hero) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+
+   1. BG_IMAGE      → hero background photo URL
+   2. PERSON_IMG    → silhouette/person photo URL
+   3. VIDEO_URL     → video link (opens on play click)
+   4. LOGO_TEXT     → client name or brand
+   5. Update COLORS to match client brand kit
+   6. Update all COPY
+   7. Update FEATURED_IN logos/names
+   ============================================ */
+
+— BRAND COLORS (CSS custom properties) —
+--bg:           #050A14
+--accent:       #00E5CC
+--text:         #FFFFFF
+--muted:        #A0B0C0
+--overlay:      rgba(0, 0, 0, 0.55)
+--nav-height:   60px
+
+— ASSETS —
+const BG_IMAGE      = "/private/hero-v4-thumb.webp";   ← swap for client image
+const PERSON_IMG    = "______";                        ← transparent PNG silhouette of speaker
+const VIDEO_URL     = "______";                        ← YouTube / Vimeo / Wistia URL
+const LOGO_TEXT     = "______";                        ← client brand name
+const LOGO_IMG      = "______";                        ← optional logo image
+
+— COPY —
+const EYEBROW       = "______";                        ← short eyebrow line
+const HEADLINE_1    = "______";                        ← first line of big headline
+const HEADLINE_2    = "______";                        ← second line of big headline
+const CTA_TEXT      = "______";                        ← CTA button text
+
+— NAVIGATION LINKS —
+const NAV_LINKS = [
+  { label: "About",     url: "#about"    },
+  { label: "Mission",   url: "#mission"  },
+  { label: "Events",    url: "#events"   },
+  { label: "Programs",  url: "#programs" },
+  { label: "Coaching",  url: "#coaching" },
+  { label: "Shop",      url: "#shop"     },
+  { label: "Blog",      url: "#blog"     }
+];
+
+— FEATURED IN —
+const FEATURED_LABEL = "______ Has Been Featured In:";
+const FEATURED_LOGOS = [
+  { name: "SUCCESS", url: "______" },
+  { name: "Inc.",    url: "______" },
+  { name: "Forbes",  url: "______" },
+  { name: "Fortune", url: "______" }
+];`,
   },
   {
     id: "hero",
     number: "01e",
-    label: "HERO VARIATION 5",
+    label: "HERO",
     title: "Hero Variation 5",
     description:
       "Big Promise / Above-the-fold. What will I get and is it for me?",
@@ -335,7 +445,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "hero",
     number: "01f",
-    label: "HERO VARIATION 6",
+    label: "HERO",
     title: "Hero Variation 6",
     description:
       "Big Promise / Above-the-fold. What will I get and is it for me?",
@@ -350,7 +460,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "empathy",
     number: "02a",
-    label: "EMPATHY VARIATION 1",
+    label: "EMPATHY",
     title: "Empathy (Pain Connection) Variation 1",
     description:
       "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
@@ -365,7 +475,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "empathy",
     number: "02b",
-    label: "EMPATHY VARIATION 2",
+    label: "EMPATHY",
     title: "Empathy (Pain Connection) Variation 2",
     description:
       "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
@@ -380,7 +490,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "empathy",
     number: "02c",
-    label: "EMPATHY VARIATION 3",
+    label: "EMPATHY",
     title: "Empathy (Pain Connection) Variation 3",
     description:
       "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
@@ -395,7 +505,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "empathy",
     number: "02d",
-    label: "EMPATHY VARIATION 4",
+    label: "EMPATHY",
     title: "Empathy (Pain Connection) Variation 4",
     description:
       "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
@@ -410,7 +520,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "empathy",
     number: "02e",
-    label: "EMPATHY VARIATION 5",
+    label: "EMPATHY",
     title: "Empathy (Pain Connection) Variation 5",
     description:
       "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
@@ -425,7 +535,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "empathy",
     number: "02f",
-    label: "EMPATHY VARIATION 6",
+    label: "EMPATHY",
     title: "Empathy (Pain Connection) Variation 6",
     description:
       "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
@@ -440,7 +550,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "opportunity",
     number: "03a",
-    label: "OPPORTUNITY VEHICLE VARIATION 1",
+    label: "OPPORTUNITY VEHICLE",
     title: "Opportunity Vehicle Variation 1",
     description:
       "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
@@ -455,7 +565,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "opportunity",
     number: "03b",
-    label: "OPPORTUNITY VEHICLE VARIATION 2",
+    label: "OPPORTUNITY VEHICLE",
     title: "Opportunity Vehicle Variation 2",
     description:
       "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
@@ -470,7 +580,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "opportunity",
     number: "03c",
-    label: "OPPORTUNITY VEHICLE VARIATION 3",
+    label: "OPPORTUNITY VEHICLE",
     title: "Opportunity Vehicle Variation 3",
     description:
       "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
@@ -485,7 +595,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "opportunity",
     number: "03d",
-    label: "OPPORTUNITY VEHICLE VARIATION 4",
+    label: "OPPORTUNITY VEHICLE",
     title: "Opportunity Vehicle Variation 4",
     description:
       "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
@@ -500,7 +610,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "opportunity",
     number: "03e",
-    label: "OPPORTUNITY VEHICLE VARIATION 5",
+    label: "OPPORTUNITY VEHICLE",
     title: "Opportunity Vehicle Variation 5",
     description:
       "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
@@ -515,7 +625,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "opportunity",
     number: "03f",
-    label: "OPPORTUNITY VEHICLE VARIATION 6",
+    label: "OPPORTUNITY VEHICLE",
     title: "Opportunity Vehicle Variation 6",
     description:
       "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
@@ -530,7 +640,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "compare",
     number: "04a",
-    label: "BEFORE VS AFTER VARIATION 1",
+    label: "BEFORE VS AFTER",
     title: "Before vs After Variation 1",
     description:
       "Why is your way better? — Old way, new way, side-by-side comparison.",
@@ -545,7 +655,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "compare",
     number: "04b",
-    label: "BEFORE VS AFTER VARIATION 2",
+    label: "BEFORE VS AFTER",
     title: "Before vs After Variation 2",
     description:
       "Why is your way better? — Old way, new way, side-by-side comparison.",
@@ -560,7 +670,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "compare",
     number: "04c",
-    label: "BEFORE VS AFTER VARIATION 3",
+    label: "BEFORE VS AFTER",
     title: "Before vs After Variation 3",
     description:
       "Why is your way better? — Old way, new way, side-by-side comparison.",
@@ -575,7 +685,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "compare",
     number: "04d",
-    label: "BEFORE VS AFTER VARIATION 4",
+    label: "BEFORE VS AFTER",
     title: "Before vs After Variation 4",
     description:
       "Why is your way better? — Old way, new way, side-by-side comparison.",
@@ -590,7 +700,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "compare",
     number: "04e",
-    label: "BEFORE VS AFTER VARIATION 5",
+    label: "BEFORE VS AFTER",
     title: "Before vs After Variation 5",
     description:
       "Why is your way better? — Old way, new way, side-by-side comparison.",
@@ -605,7 +715,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "compare",
     number: "04f",
-    label: "BEFORE VS AFTER VARIATION 6",
+    label: "BEFORE VS AFTER",
     title: "Before vs After Variation 6",
     description:
       "Why is your way better? — Old way, new way, side-by-side comparison.",
@@ -620,7 +730,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "usp",
     number: "05a",
-    label: "USP VARIATION 1",
+    label: "USP",
     title: "Unique Selling Proposition Variation 1",
     description:
       "Why you and not someone else? — Positioning, uniqueness, benefits.",
@@ -635,7 +745,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "usp",
     number: "05b",
-    label: "USP VARIATION 2",
+    label: "USP",
     title: "Unique Selling Proposition Variation 2",
     description:
       "Why you and not someone else? — Positioning, uniqueness, benefits.",
@@ -650,7 +760,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "usp",
     number: "05c",
-    label: "USP VARIATION 3",
+    label: "USP",
     title: "Unique Selling Proposition Variation 3",
     description:
       "Why you and not someone else? — Positioning, uniqueness, benefits.",
@@ -665,7 +775,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "usp",
     number: "05d",
-    label: "USP VARIATION 4",
+    label: "USP",
     title: "Unique Selling Proposition Variation 4",
     description:
       "Why you and not someone else? — Positioning, uniqueness, benefits.",
@@ -680,7 +790,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "usp",
     number: "05e",
-    label: "USP VARIATION 5",
+    label: "USP",
     title: "Unique Selling Proposition Variation 5",
     description:
       "Why you and not someone else? — Positioning, uniqueness, benefits.",
@@ -695,7 +805,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "usp",
     number: "05f",
-    label: "USP VARIATION 6",
+    label: "USP",
     title: "Unique Selling Proposition Variation 6",
     description:
       "Why you and not someone else? — Positioning, uniqueness, benefits.",
@@ -710,7 +820,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "offer",
     number: "06a",
-    label: "OFFER POSITIONING VARIATION 1",
+    label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 1",
     description:
       "What exactly do I get? — Packaging, offer stack, price anchoring.",
@@ -725,7 +835,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "offer",
     number: "06b",
-    label: "OFFER POSITIONING VARIATION 2",
+    label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 2",
     description:
       "What exactly do I get? — Packaging, offer stack, price anchoring.",
@@ -740,7 +850,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "offer",
     number: "06c",
-    label: "OFFER POSITIONING VARIATION 3",
+    label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 3",
     description:
       "What exactly do I get? — Packaging, offer stack, price anchoring.",
@@ -755,7 +865,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "offer",
     number: "06d",
-    label: "OFFER POSITIONING VARIATION 4",
+    label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 4",
     description:
       "What exactly do I get? — Packaging, offer stack, price anchoring.",
@@ -770,7 +880,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "offer",
     number: "06e",
-    label: "OFFER POSITIONING VARIATION 5",
+    label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 5",
     description:
       "What exactly do I get? — Packaging, offer stack, price anchoring.",
@@ -785,7 +895,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "offer",
     number: "06f",
-    label: "OFFER POSITIONING VARIATION 6",
+    label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 6",
     description:
       "What exactly do I get? — Packaging, offer stack, price anchoring.",
@@ -800,7 +910,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "social",
     number: "07a",
-    label: "SOCIAL PROOF VARIATION 1",
+    label: "SOCIAL PROOF",
     title: "Social Proof Variation 1",
     description:
       "Who else has this worked for? — Testimonials, ratings, authority by association.",
@@ -815,7 +925,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "social",
     number: "07b",
-    label: "SOCIAL PROOF VARIATION 2",
+    label: "SOCIAL PROOF",
     title: "Social Proof Variation 2",
     description:
       "Who else has this worked for? — Testimonials, ratings, authority by association.",
@@ -830,7 +940,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "social",
     number: "07c",
-    label: "SOCIAL PROOF VARIATION 3",
+    label: "SOCIAL PROOF",
     title: "Social Proof Variation 3",
     description:
       "Who else has this worked for? — Testimonials, ratings, authority by association.",
@@ -845,7 +955,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "social",
     number: "07d",
-    label: "SOCIAL PROOF VARIATION 4",
+    label: "SOCIAL PROOF",
     title: "Social Proof Variation 4",
     description:
       "Who else has this worked for? — Testimonials, ratings, authority by association.",
@@ -860,7 +970,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "social",
     number: "07e",
-    label: "SOCIAL PROOF VARIATION 5",
+    label: "SOCIAL PROOF",
     title: "Social Proof Variation 5",
     description:
       "Who else has this worked for? — Testimonials, ratings, authority by association.",
@@ -875,7 +985,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "social",
     number: "07f",
-    label: "SOCIAL PROOF VARIATION 6",
+    label: "SOCIAL PROOF",
     title: "Social Proof Variation 6",
     description:
       "Who else has this worked for? — Testimonials, ratings, authority by association.",
@@ -890,7 +1000,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "risk",
     number: "08a",
-    label: "RISK REVERSAL VARIATION 1",
+    label: "RISK REVERSAL",
     title: "Risk Reversal Variation 1",
     description:
       "What if it doesn't work? — Guarantee, payment plan, trial.",
@@ -905,7 +1015,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "risk",
     number: "08b",
-    label: "RISK REVERSAL VARIATION 2",
+    label: "RISK REVERSAL",
     title: "Risk Reversal Variation 2",
     description:
       "What if it doesn't work? — Guarantee, payment plan, trial.",
@@ -920,7 +1030,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "risk",
     number: "08c",
-    label: "RISK REVERSAL VARIATION 3",
+    label: "RISK REVERSAL",
     title: "Risk Reversal Variation 3",
     description:
       "What if it doesn't work? — Guarantee, payment plan, trial.",
@@ -935,7 +1045,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "risk",
     number: "08d",
-    label: "RISK REVERSAL VARIATION 4",
+    label: "RISK REVERSAL",
     title: "Risk Reversal Variation 4",
     description:
       "What if it doesn't work? — Guarantee, payment plan, trial.",
@@ -950,7 +1060,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "risk",
     number: "08e",
-    label: "RISK REVERSAL VARIATION 5",
+    label: "RISK REVERSAL",
     title: "Risk Reversal Variation 5",
     description:
       "What if it doesn't work? — Guarantee, payment plan, trial.",
@@ -965,7 +1075,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "risk",
     number: "08f",
-    label: "RISK REVERSAL VARIATION 6",
+    label: "RISK REVERSAL",
     title: "Risk Reversal Variation 6",
     description:
       "What if it doesn't work? — Guarantee, payment plan, trial.",
@@ -980,7 +1090,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "authority",
     number: "09a",
-    label: "AUTHORITY VARIATION 1",
+    label: "AUTHORITY",
     title: "Authority Variation 1",
     description:
       "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
@@ -995,7 +1105,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "authority",
     number: "09b",
-    label: "AUTHORITY VARIATION 2",
+    label: "AUTHORITY",
     title: "Authority Variation 2",
     description:
       "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
@@ -1010,7 +1120,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "authority",
     number: "09c",
-    label: "AUTHORITY VARIATION 3",
+    label: "AUTHORITY",
     title: "Authority Variation 3",
     description:
       "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
@@ -1025,7 +1135,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "authority",
     number: "09d",
-    label: "AUTHORITY VARIATION 4",
+    label: "AUTHORITY",
     title: "Authority Variation 4",
     description:
       "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
@@ -1040,7 +1150,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "authority",
     number: "09e",
-    label: "AUTHORITY VARIATION 5",
+    label: "AUTHORITY",
     title: "Authority Variation 5",
     description:
       "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
@@ -1055,7 +1165,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "authority",
     number: "09f",
-    label: "AUTHORITY VARIATION 6",
+    label: "AUTHORITY",
     title: "Authority Variation 6",
     description:
       "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
@@ -1070,7 +1180,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "urgency",
     number: "10a",
-    label: "URGENCY VARIATION 1",
+    label: "URGENCY",
     title: "Urgency Variation 1",
     description:
       "Why act today? — Price scarcity, countdown timer, FOMO.",
@@ -1085,7 +1195,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "urgency",
     number: "10b",
-    label: "URGENCY VARIATION 2",
+    label: "URGENCY",
     title: "Urgency Variation 2",
     description:
       "Why act today? — Price scarcity, countdown timer, FOMO.",
@@ -1100,7 +1210,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "urgency",
     number: "10c",
-    label: "URGENCY VARIATION 3",
+    label: "URGENCY",
     title: "Urgency Variation 3",
     description:
       "Why act today? — Price scarcity, countdown timer, FOMO.",
@@ -1115,7 +1225,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "urgency",
     number: "10d",
-    label: "URGENCY VARIATION 4",
+    label: "URGENCY",
     title: "Urgency Variation 4",
     description:
       "Why act today? — Price scarcity, countdown timer, FOMO.",
@@ -1130,7 +1240,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "urgency",
     number: "10e",
-    label: "URGENCY VARIATION 5",
+    label: "URGENCY",
     title: "Urgency Variation 5",
     description:
       "Why act today? — Price scarcity, countdown timer, FOMO.",
@@ -1145,7 +1255,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
   {
     id: "urgency",
     number: "10f",
-    label: "URGENCY VARIATION 6",
+    label: "URGENCY",
     title: "Urgency Variation 6",
     description:
       "Why act today? — Price scarcity, countdown timer, FOMO.",
@@ -1390,8 +1500,56 @@ function SectionPromptTabs({ base, vars }: { base: string; vars: string }) {
   );
 }
 
+function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt}
+      onClick={onClose}
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 cursor-zoom-out animate-[fadeIn_.18s_ease]"
+      style={{
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ["--tw-fade" as any]: "0",
+      }}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close preview"
+        className="absolute top-4 right-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white transition"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <line x1="6" y1="6" x2="18" y2="18" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+        </svg>
+      </button>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-[1400px] max-h-[90vh] aspect-video rounded-xl overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.6)] cursor-default"
+      >
+        <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" priority />
+      </div>
+    </div>
+  );
+}
+
 export function PrivateContent() {
   const [tab, setTab] = useState<TabId>("all");
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const showGpt = tab === "all" || tab === "gpt";
   const visibleSections = sections.filter((s) => tab === "all" || tab === s.id);
@@ -1453,16 +1611,45 @@ export function PrivateContent() {
               key={`${s.id}-${s.number}`}
               className="flex flex-col overflow-hidden rounded-[14px] border border-[#2A2250] bg-[#161330] transition-all hover:border-[#4A3A8A] hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
             >
-              {s.preview && (
+              {(s.preview || s.previewSrc) && (
                 <div className="border-b border-[#2A2250] bg-[#0B091A] p-[18px_20px]">
-                  <div className="[&_svg]:w-full [&_svg]:h-auto [&_svg]:block [&_svg]:rounded-md">
-                    {s.preview}
-                  </div>
+                  {s.previewSrc ? (
+                    <button
+                      type="button"
+                      onClick={() => setLightbox({ src: s.previewSrc!, alt: s.title })}
+                      aria-label={`Open ${s.title} preview full screen`}
+                      className="group relative block w-full aspect-[2/1] overflow-hidden rounded-md cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC]"
+                    >
+                      <Image
+                        src={s.previewSrc}
+                        alt={`${s.title} thumbnail`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 380px"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                      <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-200 group-hover:bg-black/20" />
+                      <span className="pointer-events-none absolute top-2 right-2 inline-flex items-center gap-1 rounded-md bg-black/55 backdrop-blur px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <polyline points="15 3 21 3 21 9" />
+                          <polyline points="9 21 3 21 3 15" />
+                          <line x1="21" y1="3" x2="14" y2="10" />
+                          <line x1="3" y1="21" x2="10" y2="14" />
+                        </svg>
+                        Expand
+                      </span>
+                    </button>
+                  ) : (
+                    <div className="[&_svg]:w-full [&_svg]:h-auto [&_svg]:block [&_svg]:rounded-md">
+                      {s.preview}
+                    </div>
+                  )}
                 </div>
               )}
               <div className="p-5 flex flex-col flex-1">
                 <div className={`text-[10px] font-semibold uppercase tracking-[0.13em] mb-1.5 ${s.labelClass}`}>
-                  SECTION {s.number} · {s.label}
+                  {s.funnelTypes
+                    ? s.funnelTypes.join(" · ").toUpperCase()
+                    : `${s.number} · ${s.label}`}
                 </div>
                 <h3
                   className="text-[17px] font-bold mb-1.5"
@@ -1531,6 +1718,10 @@ export function PrivateContent() {
           </form>
         </footer>
       </div>
+
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
     </div>
   );
 }
