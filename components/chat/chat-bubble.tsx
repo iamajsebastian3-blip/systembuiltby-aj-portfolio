@@ -138,7 +138,7 @@ export function ChatBubble() {
           >
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-persian/30" />
             <Image
-              src="/aj-profile.png"
+              src="/aj-profile.webp"
               alt="Chat with AJ"
               fill
               className="object-cover relative z-10"
@@ -170,7 +170,7 @@ export function ChatBubble() {
                 <div className="relative shrink-0">
                   <div className="relative h-10 w-10 rounded-full overflow-hidden border border-persian/40 bg-persian/20">
                     <Image
-                      src="/aj-profile.png"
+                      src="/aj-profile.webp"
                       alt="AJ"
                       fill
                       className="object-cover"

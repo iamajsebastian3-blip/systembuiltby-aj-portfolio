@@ -33,7 +33,7 @@ const builds: SystemBuild[] = [
     description:
       "Calendar sync, multi-touch reminders, no-show recovery, and post-appointment follow-up — built from scratch for myoldretirement.com.",
     emoji: "📅",
-    image: "/system-builds/appointment-booking.png",
+    image: "/system-builds/appointment-booking.webp",
     videoId: "9FOymB9sZEs",
   },
   {

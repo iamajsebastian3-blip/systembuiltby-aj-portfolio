@@ -229,7 +229,7 @@ export function AboutContent() {
               <ScrollReveal delay={0.1}>
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[14px] border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm">
                   <Image
-                    src="/aj-about.png"
+                    src="/aj-about.webp"
                     alt="Allen Bactad"
                     fill
                     className="object-cover"

@@ -19,28 +19,28 @@ const slides: Slide[] = [
     brand: "About",
     title: "About AJ",
     cta: "Read My Story",
-    image: "/showcase/about.png",
+    image: "/showcase/about.webp",
   },
   {
     href: "/projects",
     brand: "Portfolio",
     title: "Work I've Built",
     cta: "Browse Projects",
-    image: "/showcase/portfolio.png",
+    image: "/showcase/portfolio.webp",
   },
   {
     href: "/services",
     brand: "Services",
     title: "What I Build",
     cta: "See Services",
-    image: "/showcase/services.png",
+    image: "/showcase/services.webp",
   },
   {
     href: "/packages",
     brand: "Pricing",
     title: "Pick Your Phase",
     cta: "View Pricing",
-    image: "/showcase/packages.png",
+    image: "/showcase/packages.webp",
   },
 ];
 

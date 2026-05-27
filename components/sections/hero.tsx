@@ -146,7 +146,7 @@ export function Hero() {
             transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.4 }}
           >
             <Image
-              src="/aj-profile.png"
+              src="/aj-profile.webp"
               alt="Allen Bactad — Growth Systems Consultant"
               fill
               className="object-cover"
@@ -174,7 +174,7 @@ export function Hero() {
               <div className="relative h-20 w-20 shrink-0 flex items-center justify-center">
                 <div className="pointer-events-none absolute inset-0 rounded-full bg-persian/15 blur-[16px]" />
                 <Image
-                  src="/aj-logo.png"
+                  src="/aj-logo.webp"
                   alt="System-Built By AJ"
                   width={120}
                   height={120}

@@ -33,7 +33,7 @@ const automations = [
     description:
       "Captures leads from forms, ads, and landing pages \u2014 then moves them through qualification, nurture, and conversion stages automatically.",
     chips: ["Form Trigger", "Auto-Tag", "SMS + Email", "Pipeline Stages", "Conversion Tracking"],
-    image: "/pipeline-lead-capture.png",
+    image: "/pipeline-lead-capture.webp",
   },
   {
     icon: "\uD83D\uDCC5",
@@ -42,7 +42,7 @@ const automations = [
     description:
       "Automates the entire booking flow \u2014 from calendar scheduling to reminders, no-show recovery, and post-appointment follow-up.",
     chips: ["Calendar Sync", "48h/24h/2h Reminders", "No-Show Branch", "Rebooking", "Review Ask"],
-    image: "/pipeline-app-booking.png",
+    image: "/pipeline-app-booking.webp",
   },
   {
     icon: "\uD83D\uDCB0",
@@ -51,7 +51,7 @@ const automations = [
     description:
       "Engineered for high-ticket offers \u2014 moves qualified leads through discovery, proposal, negotiation, and close stages with automated follow-ups.",
     chips: ["Lead Scoring", "Discovery Call", "Proposal Stage", "Follow-Up Sequence", "Won/Lost Tracking"],
-    image: "/pipeline-sales.png",
+    image: "/pipeline-sales.webp",
   },
   {
     icon: "\uD83D\uDED2",
@@ -60,7 +60,7 @@ const automations = [
     description:
       "Tracks orders from purchase to fulfillment \u2014 with abandoned cart recovery, order confirmations, and post-purchase upsell sequences.",
     chips: ["Order Trigger", "Cart Recovery", "Confirmation SMS", "Upsell Sequence", "Review Request"],
-    image: "/pipeline-order.png",
+    image: "/pipeline-order.webp",
   },
   {
     icon: "\uD83D\uDD01",
@@ -69,7 +69,7 @@ const automations = [
     description:
       "Wakes up cold leads and past clients with multi-touch nurture sequences \u2014 SMS, email, and value-driven content over 14\u201330 days.",
     chips: ["Inactivity Trigger", "Drip Sequence", "Offer Nudge", "Reply Detection", "Re-qualification"],
-    image: "/pipeline-nurture.png",
+    image: "/pipeline-nurture.webp",
   },
   {
     icon: "\uD83C\uDFDD\uFE0F",
@@ -78,7 +78,7 @@ const automations = [
     description:
       "Built for resorts, hotels, and service-based businesses \u2014 handles reservation requests, confirmations, pre-arrival sequences, and feedback.",
     chips: ["Reservation Form", "Confirmation Flow", "Pre-Arrival SMS", "Check-In Reminder", "Feedback Loop"],
-    image: "/pipeline-reservation.png",
+    image: "/pipeline-reservation.webp",
   },
   {
     icon: "\uD83E\uDDD1\u200D\uD83C\uDFEB",
@@ -87,7 +87,7 @@ const automations = [
     description:
       "Designed for coaches, consultants, and agencies \u2014 moves prospects through application, vetting, strategy call, and onboarding stages.",
     chips: ["Application Form", "Vetting Stage", "Strategy Call", "Contract/Payment", "Onboarding"],
-    image: "/pipeline-high-ticket.png",
+    image: "/pipeline-high-ticket.webp",
   },
   {
     icon: "\uD83C\uDFC6",
@@ -96,7 +96,7 @@ const automations = [
     description:
       "Automates post-sale delivery \u2014 welcome sequences, kickoff scheduling, milestone tracking, and project completion with review requests.",
     chips: ["Welcome Sequence", "Kickoff Call", "Milestone Tracking", "Delivery Complete", "Testimonial Ask"],
-    image: "/pipeline-client-onboarding.png",
+    image: "/pipeline-client-onboarding.webp",
   },
 ];
 
@@ -194,7 +194,7 @@ const funnels = [
     emoji: "\uD83D\uDE80",
     url: "https://product-launch-funnel.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/product-launch-funnel.png",
+    thumbnail: "/showcase/product-launch-funnel.webp",
   },
   {
     title: "Coaching Funnel",
@@ -205,7 +205,7 @@ const funnels = [
     emoji: "\uD83D\uDCAA",
     url: "https://primebody-10p.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/primebody-10p.png",
+    thumbnail: "/showcase/primebody-10p.webp",
   },
   {
     title: "Course Funnel",
@@ -216,7 +216,7 @@ const funnels = [
     emoji: "\uD83C\uDF93",
     url: "https://funnelmastery-10p.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/funnelmastery-10p.png",
+    thumbnail: "/showcase/funnelmastery-10p.webp",
   },
   {
     title: "Ecommerce Funnel",
@@ -227,7 +227,7 @@ const funnels = [
     emoji: "\uD83C\uDF38",
     url: "https://bloom-10p.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/bloom-10p.png",
+    thumbnail: "/showcase/bloom-10p.webp",
   },
 ];
 
@@ -243,7 +243,7 @@ const websites = [
     light: false,
     url: "https://casa-lume-hotel.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/casa-lume-hotel.png",
+    thumbnail: "/showcase/casa-lume-hotel.webp",
   },
   {
     title: "Skin Clinic",
@@ -252,7 +252,7 @@ const websites = [
     light: true,
     url: "https://dermaglow-clinic.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/dermaglow-clinic.png",
+    thumbnail: "/showcase/dermaglow-clinic.webp",
   },
   {
     title: "Caf\u00E9",
@@ -261,7 +261,7 @@ const websites = [
     light: true,
     url: "https://the-cozy-cup-one.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/the-cozy-cup.png",
+    thumbnail: "/showcase/the-cozy-cup.webp",
   },
   {
     title: "Skin Clinic",
@@ -270,7 +270,7 @@ const websites = [
     light: false,
     url: "https://lumiere-skin-clinic.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/lumiere-skin-clinic.png",
+    thumbnail: "/showcase/lumiere-skin-clinic.webp",
   },
   {
     title: "Gym / Fitness",
@@ -279,7 +279,7 @@ const websites = [
     light: false,
     url: "https://coach-gym-funnel.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/coach-gym-funnel.png",
+    thumbnail: "/showcase/coach-gym-funnel.webp",
   },
   {
     title: "Resort",
@@ -288,7 +288,7 @@ const websites = [
     light: true,
     url: "https://merbau-beach-resort.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/merbau-beach-resort.png",
+    thumbnail: "/showcase/merbau-beach-resort.webp",
   },
   {
     title: "Caf\u00E9",
@@ -297,7 +297,7 @@ const websites = [
     light: true,
     url: "https://amberbrew-cafe.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/amberbrew-cafe.png",
+    thumbnail: "/showcase/amberbrew-cafe.webp",
   },
   {
     title: "Dental Clinic",
@@ -306,7 +306,7 @@ const websites = [
     light: false,
     url: "https://smilecraft-dental-ten.vercel.app/",
     isLive: true,
-    thumbnail: "/showcase/smilecraft-dental.png",
+    thumbnail: "/showcase/smilecraft-dental.webp",
   },
   {
     title: "E-commerce",
@@ -315,7 +315,7 @@ const websites = [
     light: false,
     url: "https://aj-bactad-ecommerce-4793kbr8a-aj29.vercel.app/",
     isLive: true,
-    thumbnail: "/ecommerce-thumbnail.png",
+    thumbnail: "/ecommerce-thumbnail.webp",
   },
 ];
 
