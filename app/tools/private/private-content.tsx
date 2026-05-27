@@ -292,14 +292,149 @@ About | Mission | Events | Programs | Coaching | Shop | Blog
     label: "HERO",
     title: "Hero Variation 3",
     description:
-      "Big Promise / Above-the-fold. What will I get and is it for me?",
+      "Split layout: big hero photo + dual CTA on the left, 2×2 program card grid on the right. Built for multi-offer pages.",
     labelClass: labelClasses.hero,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/hero-v3-thumb.webp",
+    funnelTypes: ["Course Hub", "Coaching", "Multi-Offer"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium funnel hero section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 02-hero-split-cards.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Dark Background
+- var(--bg) color fills entire section
+- Subtle dark teal radial glow (center right)
+
+LAYER 2 — Sticky Nav (var(--nav-height))
+- LOGO left
+- NAV_LINKS center
+- Search icon right
+- Transparent → dark blur on scroll
+- Mobile: hamburger menu
+
+LAYER 3 — Main Hero (2 column)
+
+LEFT COLUMN (55% width):
+- BG_IMAGE — large photo, rounded corners
+- Dark gradient overlay bottom-left
+- EYEBROW — small muted uppercase (bottom left)
+- HEADLINE — large bold white (bottom left, 3 lines)
+- Two buttons side by side:
+  Button 1: var(--accent) bg — CTA_TEXT
+  Button 2: transparent — "▶ Watch Video"
+            (opens VIDEO_URL on click)
+
+RIGHT COLUMN (45% width):
+- 2x2 grid of CARDS
+- Each card:
+  - Background photo (card.image)
+  - Dark gradient overlay bottom
+  - category label — small, var(--accent), top left
+  - title — bold white, bottom left
+  - Hover: scale up slightly + brighter overlay
+  - On click: go to card.url
+
+=== ANIMATIONS ===
+- Nav: fade in on load
+- Left photo: fade in + slight scale (0.3s)
+- Eyebrow: fade up (0.4s)
+- Headlines: staggered fade up (0.5s, 0.6s, 0.7s)
+- Buttons: fade up (0.8s)
+- Cards: staggered fade in (0.4s each)
+- Card hover: smooth scale transition
+
+=== MOBILE (768px) ===
+- Nav → hamburger
+- Layout stacks: left column on top
+- Cards grid: 2x2 stays but smaller
+- Below 480px: cards go 1 column
+- Text scales down gracefully
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, asset paths, nav links, and CARDS driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 3 (Split + 2x2 Cards) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+
+   1. BG_IMAGE        → main hero background URL
+   2. CARD images     → 4 program card photo URLs
+   3. LOGO_TEXT       → client name or brand
+   4. LOGO_IMG        → logo image URL
+   5. Update COLORS   → match client brand kit
+   6. Update all COPY
+   7. Update CARD content (label, title, url)
+   ============================================ */
+
+— BRAND COLORS (CSS custom properties) —
+--bg:           #050A0F
+--accent:       #00E5CC
+--text:         #FFFFFF
+--muted:        #A0B0C0
+--card-overlay: rgba(0, 0, 0, 0.4)
+--nav-height:   65px
+
+— ASSETS —
+const BG_IMAGE   = "/private/hero-v3-thumb.webp";   ← swap for client image
+const LOGO_TEXT  = "______";                        ← client brand name
+const LOGO_IMG   = "______";                        ← optional logo image
+const VIDEO_URL  = "______";                        ← YouTube / Vimeo / Wistia URL
+
+— COPY —
+const EYEBROW    = "______";                        ← short eyebrow line
+const HEADLINE_1 = "______";                        ← first line of headline
+const HEADLINE_2 = "______";                        ← second line of headline
+const HEADLINE_3 = "______";                        ← third line of headline
+const CTA_TEXT   = "______";                        ← primary CTA button text
+
+— NAVIGATION LINKS —
+const NAV_LINKS = [
+  { label: "About",     url: "#about"    },
+  { label: "Mission",   url: "#mission"  },
+  { label: "Events",    url: "#events"   },
+  { label: "Programs",  url: "#programs" },
+  { label: "Coaching",  url: "#coaching" },
+  { label: "Shop",      url: "#shop"     },
+  { label: "Blog",      url: "#blog"     }
+];
+
+— PROGRAM CARDS (2x2 grid, right side) —
+const CARDS = [
+  {
+    image:    "______",
+    category: "______",   ← e.g. "Mindset"
+    title:    "______",   ← short program title
+    url:      "#program-1"
+  },
+  {
+    image:    "______",
+    category: "______",
+    title:    "______",
+    url:      "#program-2"
+  },
+  {
+    image:    "______",
+    category: "______",
+    title:    "______",
+    url:      "#program-3"
+  },
+  {
+    image:    "______",
+    category: "______",
+    title:    "______",
+    url:      "#program-4"
+  }
+];`,
   },
   {
     id: "hero",
@@ -433,14 +568,129 @@ const FEATURED_LOGOS = [
     label: "HERO",
     title: "Hero Variation 5",
     description:
-      "Big Promise / Above-the-fold. What will I get and is it for me?",
+      "Fullscreen split-photo hero: left half + right half BG, massive 3-line headline centered, minimal nav, 3-column footer bar (scroll arrow · featured-in · testimonial quote).",
     labelClass: labelClasses.hero,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/hero-v5-thumb.webp",
+    funnelTypes: ["Personal Brand", "Speaker", "Premium Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium fullscreen hero section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 02-hero-fullscreen.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+
+LAYER 1 — Full Background (split image)
+- Left 50%: BG_LEFT photo
+- Right 50%: BG_RIGHT photo
+- Both images fill their half seamlessly
+- Left overlay: var(--overlay-left)
+- Right overlay: var(--overlay-right)
+- Subtle dark vignette on all edges
+
+LAYER 2 — Minimal Navigation
+- LOGO top left (text or img)
+- Hamburger menu icon top right only
+- Transparent background
+- No sticky behavior — stays transparent
+
+LAYER 3 — Headline (centered over both images)
+- PRE_WORD — small italic script font, positioned before HEADLINE_2, slightly left
+- HEADLINE_1 — massive bold white, line 1
+- HEADLINE_2 — massive bold white, line 2
+- HEADLINE_3 — massive bold white, line 3
+- Headlines centered, large enough to span almost full width
+- Font: Mix of serif weight and bold sans
+
+LAYER 4 — Bottom Bar (full width, absolute bottom)
+Three columns side by side:
+
+LEFT:
+- Circular bordered button with ↓ arrow
+- var(--accent) border and arrow color
+- On click: smooth scroll to next section
+
+CENTER:
+- FEATURED_LABEL — tiny uppercase muted text
+- FEATURED_LOGOS — grayscale inline logos row
+
+RIGHT:
+- Italic quote: "QUOTE_TEXT"
+- QUOTE_NAME — bold white
+- QUOTE_TITLE — small muted
+
+=== ANIMATIONS ===
+- BG images: subtle slow zoom opposite directions (left zooms in, right zooms out — Ken Burns)
+- PRE_WORD: fade in (0.3s)
+- Headlines: staggered fade up (0.4s, 0.5s, 0.6s)
+- Bottom bar: fade up all at once (0.8s)
+- Down arrow: gentle bounce loop
+
+=== MOBILE (768px) ===
+- BG: single stacked image (BG_LEFT on top)
+- Nav: hamburger stays
+- Headlines scale down, stay centered
+- Bottom bar stacks vertically: Arrow → Featured → Quote
+- Quote hides on very small screens (480px)
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, asset paths, featured-in logos, and quote driven by the CLIENT VARIABLES block at the top
+- Comment block at top with numbered edit steps
+- One file, no frameworks, no build step
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Hero Variation 5 (Fullscreen Split-Photo) base component.
+
+/* ============================================
+   CLIENT VARIABLES — EDIT BEFORE LAUNCH
+
+   1. BG_LEFT       → left background photo URL
+   2. BG_RIGHT      → right background photo URL
+   3. LOGO_TEXT     → client name or brand
+   4. LOGO_IMG      → logo image URL (optional)
+   5. Update COLORS → match client brand kit
+   6. Update all COPY
+   7. Update FEATURED logos
+   8. Update QUOTE block
+   ============================================ */
+
+— BRAND COLORS (CSS custom properties) —
+--bg:            #050A0F
+--accent:        #00E5CC
+--text:          #FFFFFF
+--muted:         #A0B0C0
+--overlay-left:  rgba(0, 0, 0, 0.35)
+--overlay-right: rgba(0, 0, 0, 0.50)
+--nav-height:    70px
+
+— ASSETS —
+const BG_LEFT    = "/private/hero-v5-bg-left.webp";    ← swap for client image
+const BG_RIGHT   = "/private/hero-v5-bg-right.webp";   ← swap for client image
+const LOGO_TEXT  = "______";                           ← client brand name
+const LOGO_IMG   = "______";                           ← optional logo image
+
+— HEADLINE COPY —
+const PRE_WORD   = "______";   ← small italic script word (e.g. "the")
+const HEADLINE_1 = "______";   ← line 1
+const HEADLINE_2 = "______";   ← line 2
+const HEADLINE_3 = "______";   ← line 3
+
+— FEATURED IN —
+const FEATURED_LABEL = "______ Has Been Featured In:";
+const FEATURED_LOGOS = [
+  { name: "SUCCESS", url: "______" },
+  { name: "Inc.",    url: "______" },
+  { name: "Forbes",  url: "______" },
+  { name: "Fortune", url: "______" }
+];
+
+— QUOTE BLOCK —
+const QUOTE_TEXT   = "______";   ← testimonial quote
+const QUOTE_NAME   = "______";   ← person's name
+const QUOTE_TITLE  = "______";   ← person's title / role`,
   },
   {
     id: "hero",
@@ -450,6 +700,7 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     description:
       "Big Promise / Above-the-fold. What will I get and is it for me?",
     labelClass: labelClasses.hero,
+    previewSrc: "/private/hero-v6-thumb.webp",
     basePrompt: `Coming soon.
 
 The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
