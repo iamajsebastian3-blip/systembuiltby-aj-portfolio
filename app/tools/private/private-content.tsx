@@ -18,7 +18,7 @@ type SectionId =
   | "faq"
   | "footer"
   | "nav";
-type TabId = "all" | SectionId | "gpt";
+type TabId = SectionId | "gpt";
 
 type Section = {
   id: SectionId;
@@ -1295,91 +1295,632 @@ const TICKER_TEXT = "______";`,
     id: "empathy",
     number: "02a",
     label: "EMPATHY",
-    title: "Empathy (Pain Connection) Variation 1",
+    title: "Empathy Variation 1",
     description:
-      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+      "3-column horizontal cards (clean corporate). Stakes · Connection · Way Out. Light bg, Inter, scroll-triggered staggered fade-up.",
     labelClass: labelClasses.empathy,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/empathy-v1-thumb.webp",
+    funnelTypes: ["Corporate","B2B","SaaS"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Empathy section variation (Section 02 of the 10P Sales Page Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Do you actually understand me?" via three structured cards:
+  - Stakes: what happens if nothing changes
+  - Connection: "I've been there" moment
+  - Way Out: relief and solution teaser
+
+=== OUTPUT ===
+File: 03-empathy-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Light section bg (white) with subtle gray pattern
+- Container: max-width 1140px centered, padding 96px 24px
+- Header (centered): small uppercase label · H2 · sub
+- 3 equal cards in a row (grid-template-columns: repeat(3, 1fr), gap 24px)
+- Each card: padding 32px, border 1px var(--border), border-radius 16px, bg white
+- Card content: 44px rounded icon block (12px radius) at top + title + body paragraph
+- Card 1 — Stakes: red accent icon block
+- Card 2 — Connection: blue accent icon block
+- Card 3 — Way Out: green accent icon block
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade up + translate-y 16px → 0
+- Staggered 0.15s per card
+- Triggers when section enters viewport
+- prefers-reduced-motion: animations skipped, content visible
+
+=== MOBILE (≤768px) ===
+- Cards stack to single column
+- Padding reduces to 48px 18px
+- Font sizes scale down gracefully
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V1 (3-Column Clean Corporate) base component.
+
+— BRAND COLORS —
+--bg:        #FFFFFF
+--bg-alt:    #F7F8FA
+--accent:    #2563EB
+--text:      #0E1116
+--muted:     #4A5160
+--card-bg:   #F0F4FF
+--border:    #E4E7EB
+
+— FONTS —
+Heading & Body Font: Inter (Google Fonts)
+
+— COPY —
+Label:    DOES THIS SOUND FAMILIAR?
+H2:       You're Working Hard. But Something Still Feels Off.
+Sub:      If any of these hit close to home, you're exactly who we built this for.
+
+— CARD 1 (Stakes — red accent) —
+Icon:  flame
+Title: The Clock Is Running Out
+Body:  Every month you wait is another month of missed revenue, missed opportunities, and watching competitors pull ahead. The cost of staying stuck is higher than you think.
+
+— CARD 2 (Connection — blue accent) —
+Icon:  heart
+Title: I Know This Feeling Personally
+Body:  I spent 3 years doing everything "right" and still hitting the same ceiling. Not because I lacked effort — but because I was missing one critical piece of the puzzle.
+
+— CARD 3 (Way Out — green accent) —
+Icon:  arrow-up-right
+Title: There's a Smarter Path Forward
+Body:  Once I found the right system, everything changed in 90 days. Not overnight — but faster than I ever thought possible. That's exactly what you'll build here.`,
   },
   {
     id: "empathy",
     number: "02b",
     label: "EMPATHY",
-    title: "Empathy (Pain Connection) Variation 2",
+    title: "Empathy Variation 2",
     description:
-      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+      "Big numbered rows (dark premium). Gold/amber/green accent per row. Stakes · Connection · Way Out. Slide-in from left animations.",
     labelClass: labelClasses.empathy,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/empathy-v2-thumb.webp",
+    funnelTypes: ["High-Ticket Coaching","Mastermind","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 03-empathy-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Dark section bg (#0D0D0D)
+- Container: max-width 1100px centered, padding 100px 24px
+- Header (left-aligned or centered): uppercase label · H2 · sub
+- Subtle gold horizontal rule (1px var(--accent) at 30% opacity) below header
+- 3 stacked rows, each:
+  - Large number left (48px bold, var(--accent) gold, fixed width ~80px)
+  - Vertical divider line
+  - Title + body right
+  - Row bg: var(--bg-card), left border 3px accent color, border-radius 12px
+  - Row 1 — Stakes: red/gold left border
+  - Row 2 — Connection: amber left border
+  - Row 3 — Way Out: green left border
+  - Gap between rows: 16px
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Each row slides in from left (translateX -24px → 0) + fade
+- Staggered 0.2s per row
+- prefers-reduced-motion: skip animations
+
+=== MOBILE (≤768px) ===
+- Number scales to 36px
+- Row padding reduces
+- Title + body stack tighter
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V2 (Big Numbers · Dark Premium) base component.
+
+— BRAND COLORS —
+--bg:        #0D0D0D
+--bg-card:   #1A1A1A
+--accent:    #F5C842
+--text:      #FFFFFF
+--muted:     #9A9A9A
+--border:    #2A2A2A
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— COPY —
+Label: THE HARD TRUTH
+H2:    Most People Stay Stuck for Years.
+Sub:   Not because they lack talent. Because no one showed them how to play the game differently.
+
+— ROW 01 (gold) — Stakes —
+Title: You're Solving the Wrong Problems
+Body:  Working harder on tactics that don't move the needle. Busy calendar, flat results.
+
+— ROW 02 (amber) — Connection —
+Title: You've Tried Everything. Nothing Sticks.
+Body:  Courses, coaches, YouTube rabbit holes. Each one promised results. You're still here.
+
+— ROW 03 (green) — Way Out —
+Title: The Right System Changes Everything
+Body:  One framework. Proven results. People just like you crossing $50k months within 90 days.`,
   },
   {
     id: "empathy",
     number: "02c",
     label: "EMPATHY",
-    title: "Empathy (Pain Connection) Variation 3",
+    title: "Empathy Variation 3",
     description:
-      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+      "Zigzag alternating icon/text (editorial magazine). Lavender bg, Playfair Display + Source Serif. Alternating slide-in animations.",
     labelClass: labelClasses.empathy,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/empathy-v3-thumb.webp",
+    funnelTypes: ["Editorial Brand","Premium Coaching","Author"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 03-empathy-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Light lavender section bg (#F8F6FF)
+- Container: max-width 1080px centered, padding 96px 24px
+- Header (centered): small uppercase label · H2 (Playfair serif)
+- 3 zigzag rows, alternating:
+  Row 1 — text left, icon right
+  Row 2 — icon left, text right
+  Row 3 — text left, icon right
+- Each row: 2-column grid, align-items center, gap 48px
+- Icon block: 80×80px, border-radius 16px, soft colored bg
+- Border-bottom between rows: 1px dashed var(--border)
+- Row 1+3 icon color: purple var(--accent)
+- Row 2 icon color: cyan var(--accent-2)
+- Title: Playfair serif, bold
+- Body: Source Serif body, muted, line-height 1.6
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Odd rows: fade-in from left (translateX -20px → 0)
+- Even rows: fade-in from right (translateX 20px → 0)
+- prefers-reduced-motion: skip animations
+
+=== MOBILE (≤768px) ===
+- All rows stack to single column (icon on top, text below)
+- Center-align text on mobile
+- Reduce icon size to 64px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V3 (Zigzag Editorial) base component.
+
+— BRAND COLORS —
+--bg:        #F8F6FF
+--accent:    #7C3AED
+--accent-2:  #06B6D4
+--text:      #1E1B4B
+--muted:     #6B7280
+--border:    #E5E7EB
+
+— FONTS —
+Heading Font: Playfair Display (Google Fonts)
+Body Font:    Source Serif 4 (Google Fonts)
+
+— COPY —
+Label: WE SEE YOU
+H2:    The Struggle Is Real. And It's Not Your Fault.
+
+— ROW 1 (text left, purple mood-sad icon right) —
+Title: You Feel Like You're Running Out of Time
+Body:  You see peers landing breakthroughs and wonder what they know that you don't. The gap feels wider every quarter.
+
+— ROW 2 (cyan hand-stop icon left, text right) —
+Title: I Hit That Same Wall at Year Three
+Body:  I remember the exact moment I realized effort alone wasn't going to get me there. That moment became the foundation of everything I now teach.
+
+— ROW 3 (text left, purple star icon right) —
+Title: The Shift Happens Faster Than You Think
+Body:  When you stop fighting the current and learn to read it, progress stops being a grind and starts feeling inevitable.`,
   },
   {
     id: "empathy",
     number: "02d",
     label: "EMPATHY",
-    title: "Empathy (Pain Connection) Variation 4",
+    title: "Empathy Variation 4",
     description:
-      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+      "Split layout — coach photo left + stacked pain/hope bullets right. Warm cream bg, Plus Jakarta Sans, approachable personal-brand vibe.",
     labelClass: labelClasses.empathy,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/empathy-v4-thumb.webp",
+    funnelTypes: ["Personal Brand","Coach","Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 03-empathy-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Warm cream section bg (#FFF8F3)
+- Container: max-width 1180px centered, padding 96px 24px
+- Grid: grid-template-columns 45% 55%, gap 56px, align-items center
+- LEFT: photo column (Unsplash speaker/coach), aspect-ratio 4:5, border-radius 20px, warm gradient overlay at bottom (transparent → warm cream)
+- RIGHT: content column
+  - Eyebrow label uppercase, var(--accent) orange
+  - H2: large bold, dark
+  - Sub paragraph muted
+  - Pain bullets (red dots): "Putting in 60-hour weeks…", "Following advice that worked for others…"
+  - Solution bullet (green dot, last): "Until I stopped copying and built…"
+  - CTA: outlined orange pill with arrow
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Photo slides in from left (translateX -24px → 0) + fade
+- Content fades in from right (translateX 16px → 0)
+- Stagger: photo first (0s), content (0.15s)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid collapses to single column
+- Photo on top (max-height 420px), content below
+- Center-align bullets on mobile
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V4 (Split Photo · Warm Personal) base component.
+
+— BRAND COLORS —
+--bg:        #FFF8F3
+--accent:    #EA580C
+--text:      #1C1917
+--muted:     #78716C
+--border:    #E7E5E4
+--photo-bg:  #FED7AA
+
+— FONTS —
+Heading & Body Font: Plus Jakarta Sans (Google Fonts)
+
+— PHOTO (Unsplash placeholder) —
+PHOTO_URL: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80
+(confident coach/speaker, warm tone)
+
+— COPY —
+Label: I'VE BEEN WHERE YOU ARE
+H2:    Three Years Ago, I Was Exactly in Your Shoes.
+
+Sub:   I had the drive, the ideas, and the work ethic. What I was missing was a proven system that connected all the dots. Here's what I kept running into:
+
+— PAIN BULLETS (red dots) —
+• Putting in 60-hour weeks with inconsistent revenue to show for it
+• Following advice that worked for others but never quite landed for me
+
+— SOLUTION BULLET (green dot, last) —
+• Until I stopped copying and built a system designed for my strengths
+
+— CTA —
+Text: See How I Did It →`,
   },
   {
     id: "empathy",
     number: "02e",
     label: "EMPATHY",
-    title: "Empathy (Pain Connection) Variation 5",
+    title: "Empathy Variation 5",
     description:
-      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+      "Horizontal journey timeline — 3 stages with circle icons + connecting arrows. Minimal SaaS feel, DM Sans, red/amber/green progression.",
     labelClass: labelClasses.empathy,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/empathy-v5-thumb.webp",
+    funnelTypes: ["SaaS","Tech Coaching","Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 03-empathy-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Light gray section bg (#FAFAFA)
+- Container: max-width 1180px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 · sub paragraph
+- 3 stages in a horizontal row (flex, justify-between, align-items start, gap 32px)
+- Each stage:
+  - 56px circle icon (background tinted with stage color at ~12% opacity, icon stroke at full color)
+  - LABEL uppercase 11px letter-spaced
+  - Stage text body, 2 lines max
+  - Max-width 260px per stage
+- Connector between stages: animated horizontal line (1px) drawing left-to-right when section enters viewport
+- Stage 1 — mood-sad icon, danger red color
+- Stage 2 — heart icon, warning amber color
+- Stage 3 — rocket icon, success green color
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Stages fade up + scale 0.96 → 1, staggered 0.2s
+- Connector line: scaleX 0 → 1 over 1.2s after stage 1 + 2 appear
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stages stack vertically, centered
+- Connector becomes vertical line between stages
+- Reduce circle to 48px, stage text centered
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V5 (Journey Timeline) base component.
+
+— BRAND COLORS —
+--bg:        #FAFAFA
+--accent:    #8B5CF6
+--accent-2:  #10B981
+--danger:    #EF4444
+--warning:   #F59E0B
+--text:      #111827
+--muted:     #6B7280
+
+— FONTS —
+Heading & Body Font: DM Sans (Google Fonts)
+
+— COPY —
+Label: YOUR JOURNEY SO FAR
+H2:    Most People Get Stuck at Step Two.
+Sub:   Here's the path we've watched hundreds of clients take — and where the real breakthrough happens.
+
+— STAGE 1 (danger red, mood-sad icon) —
+Label: WHERE YOU ARE NOW
+Text:  Grinding without a clear system. Results feel random.
+
+— STAGE 2 (warning amber, heart icon) —
+Label: THE TURNING POINT
+Text:  You find the right framework. Clarity replaces confusion.
+
+— STAGE 3 (success green, rocket icon) —
+Label: WHERE YOU'RE GOING
+Text:  Predictable results. Scalable momentum. Freedom.`,
   },
   {
     id: "empathy",
     number: "02f",
     label: "EMPATHY",
-    title: "Empathy (Pain Connection) Variation 6",
+    title: "Empathy Variation 6",
     description:
-      "Do you actually understand me? — Stakes, connection, support. Show readers you've been where they are.",
+      "Fullscreen dark BG (gym/arena) + glass-morphism overlay cards. Bebas Neue + Inter, cinematic fitness/performance vibe. Ken Burns slow zoom.",
     labelClass: labelClasses.empathy,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/empathy-v6-thumb.webp",
+    funnelTypes: ["Fitness","Performance Coaching","Brand"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 03-empathy-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Full-width section, min-height 100vh
+- Full-width background image fills entire section
+- Dark overlay var(--overlay) on top + subtle radial vignette
+- Background has Ken Burns slow zoom (28s ease-in-out alternate)
+- Content layered above bg (z-index 1+)
+- Content layout:
+  - Center-bottom positioning (text-align: center)
+  - LABEL uppercase, white at 70% opacity, letter-spaced
+  - H2: Bebas Neue, massive (clamp 60px → 120px), all caps, line-height 0.95
+  - Sub paragraph, white at 80% opacity, max-width 720px centered
+  - 3 mini glass cards in a row at the bottom (margin-top 56px)
+    - Each card: bg var(--card-bg) (rgba white 0.07) + backdrop-filter blur(12px)
+    - Border: 1px rgba(255,255,255,0.10), border-radius 14px, padding 22px
+    - Body text Inter, line-height 1.5, white
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Content rises from bottom (translateY 24px → 0) + fade
+- Staggered: label · H2 · sub · cards
+- Ken Burns runs always
+- prefers-reduced-motion: skip rise animations
+
+=== MOBILE (≤768px) ===
+- Cards stack to single column
+- H2 scales to clamp 40px → 60px
+- Reduce padding
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V6 (Cinematic Fullscreen) base component.
+
+— BRAND COLORS —
+--bg:        #050505
+--accent:    #DC2626
+--text:      #FFFFFF
+--muted:     #A3A3A3
+--overlay:   rgba(0,0,0,0.72)
+--card-bg:   rgba(255,255,255,0.07)
+
+— FONTS —
+Heading Font: Bebas Neue (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— BACKGROUND IMAGE (Unsplash) —
+BG_IMAGE: https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80
+(dark gym/arena atmosphere)
+
+— COPY —
+Label: DOES THIS SOUND LIKE YOU?
+H2:    You're Capable of So Much More.
+Sub:   But something keeps getting in the way.
+
+— CARD 1 (Stakes — pain) —
+Working hard every day but the scoreboard doesn't reflect it.
+
+— CARD 2 (Stakes — pain) —
+Watching others level up while you feel stuck in neutral.
+
+— CARD 3 (Way Out) —
+Ready to finally close the gap — for good.`,
+  },
+  {
+    id: "empathy",
+    number: "02g",
+    label: "EMPATHY",
+    title: "Empathy Variation 7",
+    description:
+      "Two-column 'fork in the road': red-tinted pain checklist left + green-tinted solution checklist right. Outfit font, Without/With contrast, centered CTA below.",
+    labelClass: labelClasses.empathy,
+    previewSrc: "/private/empathy-v7-thumb.webp",
+    funnelTypes: ["Business Coaching","Consulting","B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 03-empathy-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Light section bg, container max-width 1180px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 · sub
+- Two-column grid below header: 50/50 split, gap 0 (with vertical divider)
+- LEFT column: bg var(--bg-left) (very light red tint), padding 40px, border-radius 20px 0 0 20px
+  - Header: uppercase danger color, "Without the right system"
+  - 4 items, each: ✗ icon red + text
+- RIGHT column: bg var(--bg-right) (very light green tint), padding 40px, border-radius 0 20px 20px 0
+  - Header: uppercase success color, "With the right system"
+  - 4 items, each: ✓ checkmark green + text
+- Center divider: vertical 1px dashed var(--border)
+- CTA below (centered, margin-top 48px): solid green pill button "I Want the Right System →"
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left column slides in from left
+- Right column slides in from right
+- Stagger items inside each column (0.08s each)
+- CTA fades up last
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid stacks to single column
+- Both columns get same rounded corners + margin between
+- Hide center divider on mobile
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V7 (Pain vs Solution Checklist) base component.
+
+— BRAND COLORS —
+--bg:        #F0FDF4
+--bg-left:   #FEF2F2
+--bg-right:  #F0FDF4
+--accent:    #16A34A
+--danger:    #DC2626
+--text:      #111827
+--muted:     #6B7280
+--border:    #E5E7EB
+
+— FONTS —
+Heading & Body Font: Outfit (Google Fonts)
+
+— COPY —
+Label: THE FORK IN THE ROAD
+H2:    Two Paths. One Decision.
+Sub:   Where you end up depends entirely on the choice you make today.
+
+— LEFT COLUMN — "Without the right system" (danger color, ✗ items) —
+• Still trading time for inconsistent money
+• Chasing clients who don't value your work
+• Copying strategies built for someone else
+• 6 months from now — same spot, more tired
+
+— RIGHT COLUMN — "With the right system" (success color, ✓ items) —
+• A predictable pipeline that works while you sleep
+• Premium clients who seek YOU out
+• A method built around your unique strengths
+• 6 months from now — transformed business
+
+— CTA —
+Text: I Want the Right System →`,
+  },
+  {
+    id: "empathy",
+    number: "02h",
+    label: "EMPATHY",
+    title: "Empathy Variation 8",
+    description:
+      "Dark navy 2-column layout: left CTA-anchored copy + right 3 vertical accent-bar cards (red, amber, green). Syne + Inter, typographic-forward agency feel.",
+    labelClass: labelClasses.empathy,
+    previewSrc: "/private/empathy-v8-thumb.webp",
+    funnelTypes: ["Agency","Consulting","Premium Brand"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Empathy section variation. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 03-empathy-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Dark navy section bg (#0F172A), container max-width 1280px centered, padding 100px 32px
+- Two-column grid: 40% left / 60% right, gap 56px, align-items start
+- LEFT 40%:
+  - Eyebrow uppercase, var(--muted)
+  - H2 (Syne): large bold white, 2 lines
+  - Accent H2 line: var(--accent) amber italic — "It Never Was."
+  - Body paragraph: muted
+  - CTA: solid amber pill with arrow
+- Vertical dashed divider between columns: 1px dashed var(--border)
+- RIGHT 60%:
+  - 3 stacked bars (gap 16px)
+  - Each bar: bg slightly lighter than section (rgba white 0.03) + 3px solid left border (no border-radius on left edge)
+  - Padding 22px 28px
+  - Bar 1: red left border (Wrong Foundation)
+  - Bar 2: amber left border (Isolated Effort)
+  - Bar 3: green left border (Pattern Break)
+  - Each: bold title white + body muted
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left content fades up (staggered: eyebrow · H2 · body · CTA)
+- Right bars slide in from right (translateX 24px → 0) staggered 0.12s each
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid collapses to single column
+- Hide vertical divider
+- Bars retain colored left border
+- CTA full-width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V8 (Dark Agency Bars) base component.
+
+— BRAND COLORS —
+--bg:        #0F172A
+--accent:    #F59E0B
+--accent-2:  #3B82F6
+--text:      #F8FAFC
+--muted:     #94A3B8
+--border:    #1E293B
+--bar-1:     #EF4444
+--bar-2:     #F59E0B
+--bar-3:     #22C55E
+
+— FONTS —
+Heading Font: Syne (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— LEFT COLUMN —
+Label:       WHY MOST PEOPLE FAIL
+H2 Line 1:   It's Not About Working Harder.
+H2 Line 2:   It Never Was.   ← amber italic accent
+Body:        The professionals who break through don't outwork everyone else. They out-think everyone else. They use a system. You're about to get that system.
+CTA:         Show Me the System →
+
+— RIGHT COLUMN — 3 accent bars —
+Bar 1 (red left border):
+  Title: Wrong Foundation
+  Body:  Building on tactics instead of strategy. Every result becomes temporary.
+
+Bar 2 (amber left border):
+  Title: Isolated Effort
+  Body:  Going it alone with no proven framework to accelerate the learning curve.
+
+Bar 3 (green left border):
+  Title: The Pattern Break
+  Body:  One shift in approach creates a compounding effect across every area.`,
   },
   {
     id: "opportunity",
@@ -2219,7 +2760,6 @@ PRO TIP: Always generate 3–4 variations and pick the one with the cleanest neg
 ];
 
 const tabs: { id: TabId; label: string }[] = [
-  { id: "all", label: "All Sections" },
   { id: "hero", label: "🏠 Hero" },
   { id: "empathy", label: "💗 Empathy" },
   { id: "opportunity", label: "🔓 Opportunity" },
@@ -2382,11 +2922,11 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
 }
 
 export function PrivateContent() {
-  const [tab, setTab] = useState<TabId>("all");
+  const [tab, setTab] = useState<TabId>("hero");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
-  const showGpt = tab === "all" || tab === "gpt";
-  const visibleSections = sections.filter((s) => tab === "all" || tab === s.id);
+  const showGpt = tab === "gpt";
+  const visibleSections = sections.filter((s) => tab === s.id);
 
   return (
     <div className="relative min-h-[100dvh] bg-[#0D0B1F] text-white overflow-x-hidden">
