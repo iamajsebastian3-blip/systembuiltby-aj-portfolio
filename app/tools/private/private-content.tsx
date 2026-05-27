@@ -442,135 +442,9 @@ const CARDS = [
     label: "HERO",
     title: "Hero Variation 4",
     description:
-      "5-layer premium hero: full BG + sticky nav + centered copy + person silhouette with overlay play button + featured-in logo bar.",
-    labelClass: labelClasses.hero,
-    previewSrc: "/private/hero-v4-thumb.webp",
-    funnelTypes: ["VSL", "Speaker Page", "Coaching"],
-    basePrompt: `You are an expert frontend developer and funnel designer.
-
-Build a premium funnel hero section based on the exact structured layout below. Production-ready, GHL-ready.
-
-=== OUTPUT ===
-File: 02-hero-centered.html
-All CSS in <style> | All JS in <script>
-Google Fonts only | GHL standalone custom code block
-
-=== FIXED LAYOUT STRUCTURE ===
-
-LAYER 1 — Full Background
-- BG_IMAGE fills entire section
-- var(--overlay) dark layer on top
-- Subtle blue radial glow center for depth
-
-LAYER 2 — Sticky Nav (var(--nav-height))
-- LOGO left
-- NAV_LINKS center
-- Search icon right
-- Transparent → dark blur on scroll
-- Mobile: hamburger
-
-LAYER 3 — Hero Content (centered)
-- EYEBROW — small, muted, uppercase
-- HEADLINE_1 + HEADLINE_2 — large bold white
-- CTA button — var(--accent), dark text, uppercase
-
-LAYER 4 — Person + Play Button
-- PERSON_IMG centered below CTA
-- Overlapping hero and featured section
-- Play button circle on chest area of person
-- On click: open VIDEO_URL in lightbox
-
-LAYER 5 — Featured In Bar
-- Dark semi-transparent bg
-- FEATURED_LABEL — small muted uppercase text
-- FEATURED_LOGOS — grayscale, inline row
-
-=== ANIMATIONS ===
-- Background: slow Ken Burns zoom
-- Eyebrow: fade up (0.2s)
-- Headlines: fade up staggered (0.3s, 0.4s)
-- CTA: fade up (0.5s)
-- Person: fade in + slight scale (0.7s)
-- Play button: pulse glow loop
-- Featured logos: fade in (1s)
-
-=== MOBILE ===
-- Breakpoint: 768px
-- Nav → hamburger
-- Text scales down
-- Person image scales down
-- Featured logos wrap to 2 rows
-
-=== OUTPUT RULES ===
-- All colors, fonts, copy, asset paths driven by the CLIENT VARIABLES block at the top
-- Comment block at top with numbered edit steps
-- One file, no frameworks, no build step
-
-Build the complete file now.`,
-    varsPrompt: `Apply these client values to the Hero Variation 4 (5-layer premium hero) base component.
-
-/* ============================================
-   CLIENT VARIABLES — EDIT BEFORE LAUNCH
-
-   1. BG_IMAGE      → hero background photo URL
-   2. PERSON_IMG    → silhouette/person photo URL
-   3. VIDEO_URL     → video link (opens on play click)
-   4. LOGO_TEXT     → client name or brand
-   5. Update COLORS to match client brand kit
-   6. Update all COPY
-   7. Update FEATURED_IN logos/names
-   ============================================ */
-
-— BRAND COLORS (CSS custom properties) —
---bg:           #050A14
---accent:       #00E5CC
---text:         #FFFFFF
---muted:        #A0B0C0
---overlay:      rgba(0, 0, 0, 0.55)
---nav-height:   60px
-
-— ASSETS —
-const BG_IMAGE      = "/private/hero-v4-thumb.webp";   ← swap for client image
-const PERSON_IMG    = "______";                        ← transparent PNG silhouette of speaker
-const VIDEO_URL     = "______";                        ← YouTube / Vimeo / Wistia URL
-const LOGO_TEXT     = "______";                        ← client brand name
-const LOGO_IMG      = "______";                        ← optional logo image
-
-— COPY —
-const EYEBROW       = "______";                        ← short eyebrow line
-const HEADLINE_1    = "______";                        ← first line of big headline
-const HEADLINE_2    = "______";                        ← second line of big headline
-const CTA_TEXT      = "______";                        ← CTA button text
-
-— NAVIGATION LINKS —
-const NAV_LINKS = [
-  { label: "About",     url: "#about"    },
-  { label: "Mission",   url: "#mission"  },
-  { label: "Events",    url: "#events"   },
-  { label: "Programs",  url: "#programs" },
-  { label: "Coaching",  url: "#coaching" },
-  { label: "Shop",      url: "#shop"     },
-  { label: "Blog",      url: "#blog"     }
-];
-
-— FEATURED IN —
-const FEATURED_LABEL = "______ Has Been Featured In:";
-const FEATURED_LOGOS = [
-  { name: "SUCCESS", url: "______" },
-  { name: "Inc.",    url: "______" },
-  { name: "Forbes",  url: "______" },
-  { name: "Fortune", url: "______" }
-];`,
-  },
-  {
-    id: "hero",
-    number: "01e",
-    label: "HERO",
-    title: "Hero Variation 5",
-    description:
       "Fullscreen split-photo hero: left half + right half BG, massive 3-line headline centered, minimal nav, 3-column footer bar (scroll arrow · featured-in · testimonial quote).",
     labelClass: labelClasses.hero,
-    previewSrc: "/private/hero-v5-thumb.webp",
+    previewSrc: "/private/hero-v4-thumb.webp",
     funnelTypes: ["Personal Brand", "Speaker", "Premium Coaching"],
     basePrompt: `You are an expert frontend developer and funnel designer.
 
@@ -642,7 +516,7 @@ RIGHT:
 - One file, no frameworks, no build step
 
 Build the complete file now.`,
-    varsPrompt: `Apply these client values to the Hero Variation 5 (Fullscreen Split-Photo) base component.
+    varsPrompt: `Apply these client values to the Hero Variation 4 (Fullscreen Split-Photo) base component.
 
 /* ============================================
    CLIENT VARIABLES — EDIT BEFORE LAUNCH
@@ -667,8 +541,8 @@ Build the complete file now.`,
 --nav-height:    70px
 
 — ASSETS —
-const BG_LEFT    = "/private/hero-v5-bg-left.webp";    ← swap for client image
-const BG_RIGHT   = "/private/hero-v5-bg-right.webp";   ← swap for client image
+const BG_LEFT    = "/private/hero-v4-bg-left.webp";    ← swap for client image
+const BG_RIGHT   = "/private/hero-v4-bg-right.webp";   ← swap for client image
 const LOGO_TEXT  = "______";                           ← client brand name
 const LOGO_IMG   = "______";                           ← optional logo image
 
@@ -691,22 +565,6 @@ const FEATURED_LOGOS = [
 const QUOTE_TEXT   = "______";   ← testimonial quote
 const QUOTE_NAME   = "______";   ← person's name
 const QUOTE_TITLE  = "______";   ← person's title / role`,
-  },
-  {
-    id: "hero",
-    number: "01f",
-    label: "HERO",
-    title: "Hero Variation 6",
-    description:
-      "Big Promise / Above-the-fold. What will I get and is it for me?",
-    labelClass: labelClasses.hero,
-    previewSrc: "/private/hero-v6-thumb.webp",
-    basePrompt: `Coming soon.
-
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
-
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
   },
   {
     id: "empathy",
