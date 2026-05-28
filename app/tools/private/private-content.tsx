@@ -5895,14 +5895,60 @@ FAQ Q3: "How does the free coaching work?" — A3: "We schedule weekly calls unt
     label: "AUTHORITY",
     title: "Authority Variation 1",
     description:
-      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+      "Classic split — coach photo left + bio right (label, transformation H2, epiphany, 4 ✓ credentials, CTA). Inter, clean corporate.",
     labelClass: labelClasses.authority,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/authority-v1-thumb.webp",
+    funnelTypes: ["Corporate", "Coaching", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo (portrait, ~1:1.4)
+- Label "Meet Your Coach"
+- H2 = transformation arc ("From [old] → [new]")
+- Epiphany paragraph (personal story, not just credentials)
+- 4 ✓ credentials: quantified achievement · client count · media features · created/owns the method
+- CTA button · min section height 500px
+
+=== LAYOUT ===
+- White bg, 2-col grid
+- LEFT 40%: coach photo (tall, bottom-anchored, rounded, light-blue photo bg, blue gradient tint at bottom)
+- RIGHT 60%: label → H2 (arc, accent color on the "→ new state") → epiphany → 4 green-✓ credentials → CTA
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Photo slides in from left · right content fades up staggered
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Photo top (16:9), content below
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V1 (Classic Split · Clean Corporate).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #2563EB · --text: #0E1116 · --muted: #4A5160 · --border: #E4E7EB · --check: #16A34A · --photo-bg: #EFF6FF · --cta-bg: #2563EB
+
+— FONTS —
+Inter (Google Fonts)
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80
+
+— COPY (same coach, same story across all Authority variations) —
+Label: Meet Your Coach
+Coach: Alex Rivera
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days   (accent the "→ $248K TC…" half)
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. I wasn't even the most experienced. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+CTA: Watch My Full Story →`,
   },
   {
     id: "authority",
@@ -5910,14 +5956,58 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "AUTHORITY",
     title: "Authority Variation 2",
     description:
-      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+      "Dark bio + 4 count-up credential stats. Space Grotesk, high-ticket premium, gold accent.",
     labelClass: labelClasses.authority,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/authority-v2-thumb.webp",
+    funnelTypes: ["High-Ticket", "Mastermind", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo · Label "Meet Your Coach"
+- H2 = transformation arc (gold accent on key phrase)
+- Epiphany paragraph · 4 ✓ credentials (achievement · client count · media · method)
+- CTA button · min section height 500px
+
+=== LAYOUT ===
+- Full dark bg
+- TOP 2-col: LEFT label + H2 + epiphany + green-✓ credentials + gold CTA · RIGHT coach photo (rounded, dark tinted)
+- BOTTOM: 4 stat cards in a row (colored number + label) — count up on scroll entry
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left slides up · right photo fades in · stats count up on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack (photo top, bio below) · stats 2×2
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V2 (Dark Bio + Stats · Premium).
+
+— BRAND COLORS —
+--bg: #0A0A0A · --bg-card: #141414 · --accent: #F5C842 · --text: #FFFFFF · --muted: #9A9A9A · --border: #222222 · --check: #22C55E · stat-1: #3B82F6 · stat-2: #F59E0B · stat-3: #22C55E · stat-4: #A855F7 · --cta-bg: #F5C842 · --cta-text: #0A0A0A
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. I wasn't even the most experienced. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+Stats (count-up): 500+ Clients Coached · $2M+ Client Revenue Generated · 10yr Years Experience · 4.9★ Average Rating
+CTA: Apply to Work With Me →`,
   },
   {
     id: "authority",
@@ -5925,14 +6015,56 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "AUTHORITY",
     title: "Authority Variation 3",
     description:
-      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+      "Transformation-arc serif headline (centered) + 2-col story/photo. DM Serif Display + DM Sans, editorial story-forward.",
     labelClass: labelClasses.authority,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/authority-v3-thumb.webp",
+    funnelTypes: ["Personal Brand", "Coach", "Editorial"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo · Label "Meet Your Coach"
+- H2 = transformation arc as a large serif headline (accent on "→ new state")
+- Epiphany paragraph · 4 ✓ credentials · CTA · min section height 500px
+
+=== LAYOUT ===
+- Light gray bg
+- Centered header: small uppercase label + large serif H2 (transformation arc, 2–3 lines, dramatic)
+- Below: 2-col — LEFT 60% epiphany + green-✓ credentials + CTA · RIGHT 40% coach photo (portrait, tall, rounded, purple gradient overlay)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Header fades up · left content slides right · photo slides in from right
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Photo below header, content below
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V3 (Transformation Arc Headline · Editorial).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #7C3AED · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --check: #16A34A · --arc-color: #7C3AED · --cta-bg: #7C3AED
+
+— FONTS —
+DM Serif Display (headings) + DM Sans (body) — Google Fonts
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera
+H2 (arc, serif): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. I wasn't even the most experienced. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+CTA: Learn My Full Story →`,
   },
   {
     id: "authority",
@@ -5940,14 +6072,57 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "AUTHORITY",
     title: "Authority Variation 4",
     description:
-      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+      "Story left + photo right (reversed) with floating stat badges. Plus Jakarta Sans, warm personal brand.",
     labelClass: labelClasses.authority,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/authority-v4-thumb.webp",
+    funnelTypes: ["Personal Brand", "Coach", "Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo · Label "Meet Your Coach"
+- H2 = transformation arc · Epiphany paragraph
+- 4 ✓ credentials · CTA · min section height 500px
+
+=== LAYOUT ===
+- Warm cream bg, 2-col
+- LEFT 60%: label → H2 → epiphany → green-✓ credentials → CTA
+- RIGHT 40%: coach photo (rounded, warm overlay) with two floating stat badges absolutely positioned on the photo: "500+ clients" (bottom-left) and "$2M+ generated" (top-right)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left fades up staggered · photo slides in from right · stat badges float up after the photo
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Photo top, story below
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V4 (Story + Photo Reversed · Warm).
+
+— BRAND COLORS —
+--bg: #FFF8F3 · --accent: #EA580C · --text: #1C1917 · --muted: #78716C · --border: #FED7AA · --check: #16A34A · --photo-bg: #FFF1E8 · --cta-bg: #EA580C
+
+— FONTS —
+Plus Jakarta Sans (Google Fonts)
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. I wasn't even the most experienced. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+Floating badges: "500+ clients" · "$2M+ generated"
+CTA: My Full Transformation →`,
   },
   {
     id: "authority",
@@ -5955,14 +6130,57 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "AUTHORITY",
     title: "Authority Variation 5",
     description:
-      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+      "Full-bleed coach-on-stage background + transparent coach cutout (right) + content left with glass pill credentials. Outfit + Inter, cinematic.",
     labelClass: labelClasses.authority,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/authority-v5-thumb.webp",
+    funnelTypes: ["High-Ticket", "Event", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Full-bleed coach background photo · Label "Meet Your Coach"
+- H2 = transformation arc · short epiphany (2–3 sentences)
+- 4 credentials rendered as glass pill badges · CTA · min section height 500px
+
+=== LAYOUT ===
+- Full-width BG photo behind everything, dark overlay (heavier on the left for text legibility)
+- Content positioned in the left ~55%: label → H2 → short epiphany → credential glass pills (white rgba bg) → CTA
+- Transparent coach cutout (background-removed PNG/WebP) anchored bottom-right, standing in front of the bg; lighten the overlay on the right so the cutout reads clearly
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Ken Burns slow zoom on bg · content fades up staggered · coach cutout fades/slides up on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Single column, full width, overlay shifts to vertical gradient; hide the coach cutout
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V5 (Full BG Photo + Overlay · Cinematic).
+
+— BRAND COLORS —
+--bg: #050505 · --overlay: rgba(0,0,0,0.65) · --overlay-left: rgba(0,0,0,0.8) · --accent: #00E5CC · --text: #FFFFFF · --muted: #A0B0B0 · --check: #22C55E · --badge-bg: rgba(255,255,255,0.1) · --cta-bg: #00E5CC · --cta-text: #050505
+
+— FONTS —
+Outfit (headings) + Inter (body) — Google Fonts
+
+— IMAGES —
+BG photo (coach on stage — portable Unsplash placeholder): https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80
+Coach cutout (transparent-background PNG/WebP, bottom-right — swap for the real coach): /private/authority-v5-coach.webp
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany (short): "I wasn't the smartest or most connected person in the room. What I had was a willingness to reverse-engineer the system everyone else was guessing at. Three years of failures, one breakthrough — and everything you'll learn here is what I wish I'd had at the start."
+Credential pills (✓): "$0 → $2M client results in 36 months" · "500+ clients coached" · "Featured in Forbes, Inc. & Entrepreneur" · "Creator of The Revenue Architecture Framework™"
+CTA: Watch My Story →`,
   },
   {
     id: "authority",
@@ -5970,14 +6188,231 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "AUTHORITY",
     title: "Authority Variation 6",
     description:
-      "Why should I believe you? — Credential highlights, epiphany moment, transformation result.",
+      "Coach journey timeline (Struggle → Discovery → Today) — large coach portrait + credentials left, story + timeline right. Manrope, transformation-focused.",
     labelClass: labelClasses.authority,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/authority-v6-thumb.webp",
+    funnelTypes: ["Coaching", "Consulting", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Large coach portrait photo (not a small avatar) · Label "Meet Your Coach"
+- H2 = transformation arc · Epiphany paragraph
+- 4 ✓ credentials · CTA · min section height 500px
+- Personal transformation shown explicitly via a 3-stage journey timeline
+
+=== LAYOUT ===
+- White bg, 2-col
+- LEFT 38%: large coach portrait (tall, rounded, name + title caption over a bottom gradient) + 4 green-✓ credentials below it
+- RIGHT 62%: label → H2 → epiphany → vertical timeline (3 stages, colored circles + dashed connectors: Stage 1 red · Stage 2 amber · Stage 3 green) → CTA
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left fades up · timeline stages pop in sequentially (~0.3s between each)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Timeline goes full width below content
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V6 (Journey Timeline · Transformation).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #0F766E · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --check: #16A34A · --struggle: #DC2626 · --discovery: #D97706 · --today: #16A34A · --cta-bg: #0F766E
+
+— FONTS —
+Manrope (Google Fonts)
+
+— IMAGE —
+Large coach portrait (swap for the real coach photo): /private/authority-v6-coach.webp · caption "Alex Rivera — Founder & Head Coach"
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera (Founder & Head Coach)
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+Timeline — Stage 1 "The Struggle" (Years 1–3): "1,400 job rejections. $97K salary. Grinding and getting nowhere." · Stage 2 "The Discovery" (Year 4): "Found the pattern every top earner used. Reverse-engineered it completely." · Stage 3 "Today" (Year 5–Now): "$248K TC at Meta. 500+ clients coached. System proven worldwide."
+CTA: Start Your Transformation →`,
+  },
+  {
+    id: "authority",
+    number: "09g",
+    label: "AUTHORITY",
+    title: "Authority Variation 7",
+    description:
+      "Magazine editorial — full-height coach photo + caption (left), amber-accented bio (right). Syne + Inter, dark premium.",
+    labelClass: labelClasses.authority,
+    previewSrc: "/private/authority-v7-thumb.webp",
+    funnelTypes: ["Premium", "Personal Brand", "Agency"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo (tall editorial crop) · Label "Meet Your Coach"
+- H2 = transformation arc (amber accent on key phrase)
+- Epiphany paragraph · 4 ✓ credentials · CTA · min section height 500px
+
+=== LAYOUT ===
+- Dark bg, 2-col (50/50), full-bleed
+- LEFT 50%: coach photo full height (bottom-anchored) with a semi-transparent caption bar: coach name bold + title muted
+- RIGHT 50%: label → H2 (Syne, amber accent) → epiphany → 4 green-✓ credentials → amber CTA; subtle 2px amber left border on the panel
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Photo slides up · right content staggered fade up
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Photo top (16:9), content below
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V7 (Magazine Editorial · Dark Premium).
+
+— BRAND COLORS —
+--bg: #0F0F1A · --overlay: rgba(0,0,0,0.5) · --accent: #F59E0B · --text: #FFFFFF · --muted: #9AA0B0 · --border: rgba(255,255,255,0.08) · --check: #22C55E · --photo-caption-bg: rgba(0,0,0,0.6) · --cta-bg: #F59E0B · --cta-text: #0F0F1A
+
+— FONTS —
+Syne (headings) + Inter (body) — Google Fonts
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80
+
+— COPY —
+Label: Meet Your Coach · Caption: Alex Rivera — Founder · The Revenue Architecture Framework™
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. I wasn't even the most experienced. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+CTA: Read My Full Story →`,
+  },
+  {
+    id: "authority",
+    number: "09h",
+    label: "AUTHORITY",
+    title: "Authority Variation 8",
+    description:
+      "3-column — photo (verified badge + rating caption) | bio card (mini-stats + signature) | icon credential tiles. DM Sans + Caveat, modern structured SaaS/consulting.",
+    labelClass: labelClasses.authority,
+    previewSrc: "/private/authority-v8-thumb.webp",
+    funnelTypes: ["SaaS", "Consulting", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo · Label "Meet Your Coach"
+- H2 = transformation arc · Epiphany paragraph
+- 4 credentials (each: colored SVG icon tile + bold title + muted body) · CTA · min section height 500px
+
+=== LAYOUT ===
+- Light gray bg, 3-col grid (30% | 1fr | 30%)
+- LEFT: coach photo full height — "Verified Coach" pill (top-left) + bottom gradient caption with name + title + ★★★★★ 4.9 · 500+ coached
+- MIDDLE: white bio card (subtle shadow) — eyebrow label → H2 (arc, 2 lines) → epiphany → mini-stat row (500+ · $2M+ · 10yr, divided) → handwritten signature + role → CTA at the bottom
+- RIGHT: credentials column (nudged down ~34px to align with the bio) — label "Why Trust Alex" + 4 credential cards (colored SVG icon tile [trophy / users / newspaper / award] + bold title + muted body, hover-lift)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- 3 columns fade in staggered (~0.1s each)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack vertically (photo 16:9 top, bio mid, credentials bottom)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V8 (3-Column · Structured SaaS).
+
+— BRAND COLORS —
+--bg: #F7F8FA · --accent: #4F46E5 · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --check: #16A34A · --mid-bg: #FFFFFF · --cta-bg: #4F46E5 · --star: #F59E0B · icon tiles: #4F46E5 / #2563EB / #D97706 / #16A34A
+
+— FONTS —
+DM Sans (body/headings) + Caveat (signature) — Google Fonts
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (right col — bold title + muted body): "$0 → $2M in 36 months" / "Client results generated from a standing start" · "500+ clients coached" / "Professionals and business owners to their income goals" · "Featured in major media" / "Forbes, Entrepreneur, and Inc. Magazine" · "Created the method" / "The Revenue Architecture Framework™ — used in 12 countries"
+CTA: Work With Alex →`,
+  },
+  {
+    id: "authority",
+    number: "09i",
+    label: "AUTHORITY",
+    title: "Authority Variation 9",
+    description:
+      "Bio (photo + story) over a full-width as-seen-in media bar. Nunito, warm community-driven health/life coaching.",
+    labelClass: labelClasses.authority,
+    previewSrc: "/private/authority-v9-thumb.webp",
+    funnelTypes: ["Wellness", "Life Coaching", "Community"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Authority section (Section 09 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Why should I believe you?"
+
+=== OUTPUT ===
+File: 10-authority-12.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Coach photo · Label "Meet Your Coach"
+- H2 = transformation arc · Epiphany paragraph
+- 4 ✓ credentials · CTA · min section height 500px
+- Media credibility row ("As Seen In")
+
+=== LAYOUT ===
+- White bg, TOP 2-col: LEFT 38% coach photo (tall, rounded, warm tint) · RIGHT 62% label → H2 → epiphany → green-✓ credentials → CTA
+- BOTTOM full-width gray band: centered "As Seen In" label + media logos row (CSS text, mixed weights, grayscale)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Bio fades up · media logos fade in staggered left → right
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Photo top (16:9), bio below, media logos wrap
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Authority V9 (Bio + As-Seen-In Media · Warm Community).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #16A34A · --text: #0E1116 · --muted: #4A5160 · --border: #E4E7EB · --check: #16A34A · --media-bg: #F7F8FA · --cta-bg: #16A34A
+
+— FONTS —
+Nunito (Google Fonts)
+
+— IMAGE —
+Coach photo (portable Unsplash placeholder — swap real coach photo): https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80
+
+— COPY —
+Label: Meet Your Coach · Coach: Alex Rivera
+H2 (arc): From $97K and 1,400 Rejected Applications → $248K TC at Meta in 87 Days
+Epiphany: "I wasn't the smartest person in the room. I wasn't the most connected. I wasn't even the most experienced. What I had was a willingness to reverse-engineer every part of the system everyone else was guessing at. Three years of failures. One breakthrough. Everything you'll learn in this program is exactly what I wish I'd had at the start."
+Credentials (✓): "Grew from $0 to $2M in client results inside 36 months" · "Coached 500+ professionals and business owners to their income goals" · "Featured in Forbes, Entrepreneur, and Inc. Magazine" · "Creator of The Revenue Architecture Framework™ — used in 12 countries"
+As Seen In: Forbes | Entrepreneur | Inc. | Business Insider | Fast Company
+CTA: Start My Journey →`,
   },
   {
     id: "urgency",
