@@ -8026,6 +8026,12 @@ function FunnelBuilder() {
   const [results, setResults] = useState<
     { id: string; heading: string; sub: string; text: string }[] | null
   >(null);
+  const [mode, setMode] = useState<"analyze" | "manual">("analyze");
+  const [fullCopy, setFullCopy] = useState("");
+  const [analyzing, setAnalyzing] = useState(false);
+  const [analyzeErr, setAnalyzeErr] = useState<string | null>(null);
+  const [reasons, setReasons] = useState<Record<string, string>>({});
+  const [meta, setMeta] = useState<{ niche: string; vibe: string } | null>(null);
 
   const fieldCls =
     "w-full rounded-lg border border-[#2A2250] bg-[#0B091A] px-3 py-2.5 text-[13px] text-[#E8E4F5] placeholder-[#5A5478] focus:border-[#7C5CFC] focus:outline-none resize-y leading-[1.55]";
@@ -8065,22 +8071,141 @@ function FunnelBuilder() {
     setResults(blocks);
   };
 
+  const analyze = async () => {
+    setAnalyzing(true);
+    setAnalyzeErr(null);
+    try {
+      const catalog = builderGroups.map((g) => ({
+        id: g.id,
+        label: g.label,
+        variations: g.variations.map((v) => ({
+          number: v.number,
+          title: v.title,
+          description: v.description,
+          funnelTypes: v.funnelTypes ?? [],
+        })),
+      }));
+      const res = await fetch("/api/funnel-analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ copy: fullCopy, catalog }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error || "Analysis failed.");
+      const next = freshSelections();
+      const nextReasons: Record<string, string> = {};
+      for (const s of (data.sections || []) as {
+        sectionId: string;
+        recommendedVariation: string;
+        reason: string;
+        copy: string;
+      }[]) {
+        if (!next[s.sectionId]) continue;
+        const group = builderGroups.find((g) => g.id === s.sectionId);
+        const variation = group?.variations.some((v) => v.number === s.recommendedVariation)
+          ? s.recommendedVariation
+          : group?.variations[0].number ?? "";
+        next[s.sectionId] = { enabled: true, variation, copy: s.copy || "" };
+        nextReasons[s.sectionId] = s.reason || "";
+      }
+      setSel(next);
+      setReasons(nextReasons);
+      setMeta({ niche: data.niche || "", vibe: data.vibe || "" });
+      setResults(null);
+    } catch (e) {
+      setAnalyzeErr(e instanceof Error ? e.message : "Analysis failed.");
+    } finally {
+      setAnalyzing(false);
+    }
+  };
+
   const reset = () => {
     setColors("");
     setFonts("");
     setImages("");
     setSel(freshSelections());
     setResults(null);
+    setFullCopy("");
+    setReasons({});
+    setMeta(null);
+    setAnalyzeErr(null);
   };
 
   const combined = results ? results.map((r) => r.text).join("\n\n\n") : "";
 
   return (
     <div className="max-w-[920px] mx-auto px-6 pb-16">
+      {/* Mode toggle */}
+      <div className="flex justify-center mb-5">
+        <div className="inline-flex rounded-lg border border-[#2A2250] bg-[#0B091A] p-1">
+          <button
+            type="button"
+            onClick={() => setMode("analyze")}
+            className={`px-4 py-1.5 text-[12.5px] font-semibold rounded-md transition ${
+              mode === "analyze" ? "bg-[#7C5CFC] text-white" : "text-[#A09AB8] hover:text-white"
+            }`}
+          >
+            ✨ Analyze Copy (AI)
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode("manual")}
+            className={`px-4 py-1.5 text-[12.5px] font-semibold rounded-md transition ${
+              mode === "manual" ? "bg-[#7C5CFC] text-white" : "text-[#A09AB8] hover:text-white"
+            }`}
+          >
+            ✍️ Manual
+          </button>
+        </div>
+      </div>
+
       <p className="text-[13px] text-[#A09AB8] leading-[1.6] mb-6 text-center">
-        Pick a variation per section, drop in your brand + copy, and generate one ready-to-paste
-        prompt for each section. Pure assembly — no AI, nothing leaves your browser.
+        {mode === "analyze"
+          ? "Paste the client's full funnel copy. AI splits it into the 10P sections, recommends the best-fit variation for each, and fills your copy in — review, tweak, then generate."
+          : "Pick a variation per section, drop in your brand + copy, and generate one ready-to-paste prompt for each section. Pure assembly — nothing leaves your browser."}
       </p>
+
+      {/* 0 · Analyze (AI) */}
+      {mode === "analyze" && (
+        <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
+          <h2
+            className="text-[15px] font-bold mb-1"
+            style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+          >
+            <span className="text-[#7C5CFC]">1 ·</span> Paste Full Funnel Copy
+          </h2>
+          <p className="text-[12px] text-[#A09AB8] mb-4">
+            The whole thing — headlines, body, testimonials, offer, FAQ. AI maps it onto the 10P framework.
+          </p>
+          <textarea
+            value={fullCopy}
+            onChange={(e) => setFullCopy(e.target.value)}
+            rows={9}
+            placeholder="Paste the client's full sales-page / funnel copy here..."
+            className={fieldCls}
+          />
+          <div className="flex flex-wrap items-center gap-3 mt-4">
+            <span className="text-[11.5px] text-[#5A5478]">{fullCopy.trim().length.toLocaleString()} chars</span>
+            {meta && (meta.niche || meta.vibe) && (
+              <span className="text-[11.5px] text-[#A09AB8]">
+                Detected: <span className="text-[#C0B8E0]">{[meta.niche, meta.vibe].filter(Boolean).join(" · ")}</span>
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={analyze}
+              disabled={analyzing || fullCopy.trim().length < 40}
+              className="ml-auto rounded-md bg-[#7C5CFC] text-white text-[12.5px] font-bold px-5 py-2.5 transition hover:brightness-110 active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed"
+              style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+            >
+              {analyzing ? "Analyzing…" : "✨ Analyze & Recommend"}
+            </button>
+          </div>
+          {analyzeErr && (
+            <p className="text-[12.5px] text-[#F87171] mt-3">{analyzeErr}</p>
+          )}
+        </section>
+      )}
 
       {/* 1 · Brand guidelines */}
       <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
@@ -8088,7 +8213,7 @@ function FunnelBuilder() {
           className="text-[15px] font-bold mb-1"
           style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
         >
-          <span className="text-[#7C5CFC]">1 ·</span> Brand Guidelines
+          <span className="text-[#7C5CFC]">{mode === "analyze" ? "2 ·" : "1 ·"}</span> Brand Guidelines
         </h2>
         <p className="text-[12px] text-[#A09AB8] mb-4">
           Applied to every section. Leave any field blank to fill in later (it becomes a{" "}
@@ -8135,7 +8260,8 @@ function FunnelBuilder() {
             className="text-[15px] font-bold"
             style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
           >
-            <span className="text-[#7C5CFC]">2 ·</span> Pick Sections &amp; Copy
+            <span className="text-[#7C5CFC]">{mode === "analyze" ? "3 ·" : "2 ·"}</span>{" "}
+            {mode === "analyze" ? "Review AI Picks & Copy" : "Pick Sections & Copy"}
           </h2>
           <span className="text-[11.5px] font-semibold text-[#A09AB8]">
             {enabledCount} selected
@@ -8180,6 +8306,12 @@ function FunnelBuilder() {
                     </select>
                   )}
                 </div>
+                {s.enabled && reasons[g.id] && (
+                  <div className="mt-2.5 text-[11.5px] leading-[1.5] flex gap-1.5">
+                    <span className="font-bold text-[#9B82FF] shrink-0">★ AI pick:</span>
+                    <span className="text-[#A09AB8]">{reasons[g.id]}</span>
+                  </div>
+                )}
                 {s.enabled && (
                   <textarea
                     value={s.copy}
