@@ -18,7 +18,7 @@ type SectionId =
   | "faq"
   | "footer"
   | "nav";
-type TabId = SectionId | "gpt";
+type TabId = SectionId | "gpt" | "builder";
 
 type Section = {
   id: SectionId;
@@ -5787,6 +5787,7 @@ PRO TIP: Always generate 3–4 variations and pick the one with the cleanest neg
 ];
 
 const tabs: { id: TabId; label: string }[] = [
+  { id: "builder", label: "🧩 Funnel Builder" },
   { id: "hero", label: "🏠 Hero" },
   { id: "empathy", label: "💗 Empathy" },
   { id: "opportunity", label: "🔓 Opportunity" },
@@ -5803,7 +5804,15 @@ const tabs: { id: TabId; label: string }[] = [
   { id: "gpt", label: "🎨 GPT Image" },
 ];
 
-function CopyButton({ text, className = "" }: { text: string; className?: string }) {
+function CopyButton({
+  text,
+  className = "",
+  label = "📋 Copy Prompt",
+}: {
+  text: string;
+  className?: string;
+  label?: string;
+}) {
   const [copied, setCopied] = useState(false);
   return (
     <button
@@ -5822,7 +5831,7 @@ function CopyButton({ text, className = "" }: { text: string; className?: string
       } ${className}`}
       style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
     >
-      {copied ? "✓ Copied" : "📋 Copy Prompt"}
+      {copied ? "✓ Copied" : label}
     </button>
   );
 }
@@ -5948,11 +5957,289 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
   );
 }
 
+type BuilderGroup = { id: SectionId; label: string; variations: Section[] };
+
+const builderGroups: BuilderGroup[] = (() => {
+  const order: SectionId[] = [];
+  const byId = new Map<SectionId, Section[]>();
+  for (const s of sections) {
+    if (s.basePrompt.trim().toLowerCase().startsWith("coming soon")) continue;
+    if (!byId.has(s.id)) {
+      byId.set(s.id, []);
+      order.push(s.id);
+    }
+    byId.get(s.id)!.push(s);
+  }
+  return order.map((id) => ({ id, label: byId.get(id)![0].label, variations: byId.get(id)! }));
+})();
+
+type BuilderSelection = { enabled: boolean; variation: string; copy: string };
+
+function variationShortName(title: string) {
+  const m = title.match(/Variation\s*\d+/i);
+  return m ? m[0] : title;
+}
+
+const freshSelections = (): Record<string, BuilderSelection> =>
+  Object.fromEntries(
+    builderGroups.map((g) => [g.id, { enabled: false, variation: g.variations[0].number, copy: "" }])
+  );
+
+function FunnelBuilder() {
+  const [colors, setColors] = useState("");
+  const [fonts, setFonts] = useState("");
+  const [images, setImages] = useState("");
+  const [includeRef, setIncludeRef] = useState(true);
+  const [sel, setSel] = useState<Record<string, BuilderSelection>>(freshSelections);
+  const [results, setResults] = useState<
+    { id: string; heading: string; sub: string; text: string }[] | null
+  >(null);
+
+  const fieldCls =
+    "w-full rounded-lg border border-[#2A2250] bg-[#0B091A] px-3 py-2.5 text-[13px] text-[#E8E4F5] placeholder-[#5A5478] focus:border-[#7C5CFC] focus:outline-none resize-y leading-[1.55]";
+  const labelCls = "block text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A09AB8] mb-1.5";
+
+  const enabledCount = builderGroups.filter((g) => sel[g.id]?.enabled).length;
+
+  const update = (id: string, patch: Partial<BuilderSelection>) =>
+    setSel((prev) => ({ ...prev, [id]: { ...prev[id], ...patch } }));
+
+  const generate = () => {
+    const bar = "=".repeat(60);
+    const blocks: { id: string; heading: string; sub: string; text: string }[] = [];
+    for (const g of builderGroups) {
+      const s = sel[g.id];
+      if (!s?.enabled) continue;
+      const v = g.variations.find((x) => x.number === s.variation) ?? g.variations[0];
+      const secNum = (v.number.match(/^\d+/) || ["?"])[0];
+      const vName = variationShortName(v.title);
+      const heading = `SECTION ${secNum} · ${g.label} — ${vName}`;
+      const clientVars =
+        `=== CLIENT VARIABLES — USE THESE (override any example values in the spec above) ===\n\n` +
+        `— BRAND COLORS —\n${colors.trim() || "______"}\n\n` +
+        `— FONTS —\n${fonts.trim() || "______"}\n\n` +
+        `— IMAGES —\nUse placeholder images first, then swap for the real assets.\n${
+          images.trim() || "(no image notes — keep the section's built-in placeholder images)"
+        }\n\n` +
+        `— COPY —\n${s.copy.trim() || "______"}`;
+      let text = `${bar}\n${heading}\n${v.description}\n${bar}\n\n${v.basePrompt}\n\n${clientVars}`;
+      if (includeRef) {
+        text +=
+          `\n\n──────── REFERENCE · original variation example (format guide only — your values above win) ────────\n` +
+          v.varsPrompt;
+      }
+      blocks.push({ id: g.id, heading, sub: v.description, text });
+    }
+    setResults(blocks);
+  };
+
+  const reset = () => {
+    setColors("");
+    setFonts("");
+    setImages("");
+    setSel(freshSelections());
+    setResults(null);
+  };
+
+  const combined = results ? results.map((r) => r.text).join("\n\n\n") : "";
+
+  return (
+    <div className="max-w-[920px] mx-auto px-6 pb-16">
+      <p className="text-[13px] text-[#A09AB8] leading-[1.6] mb-6 text-center">
+        Pick a variation per section, drop in your brand + copy, and generate one ready-to-paste
+        prompt for each section. Pure assembly — no AI, nothing leaves your browser.
+      </p>
+
+      {/* 1 · Brand guidelines */}
+      <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
+        <h2
+          className="text-[15px] font-bold mb-1"
+          style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+        >
+          <span className="text-[#7C5CFC]">1 ·</span> Brand Guidelines
+        </h2>
+        <p className="text-[12px] text-[#A09AB8] mb-4">
+          Applied to every section. Leave any field blank to fill in later (it becomes a{" "}
+          <code className="text-[#C0B8E0]">______</code> placeholder).
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label className={labelCls}>Colors</label>
+            <textarea
+              value={colors}
+              onChange={(e) => setColors(e.target.value)}
+              rows={3}
+              placeholder="--accent: #2563EB · --bg: #FFFFFF · --text: #0F172A ..."
+              className={fieldCls}
+            />
+          </div>
+          <div>
+            <label className={labelCls}>Fonts</label>
+            <textarea
+              value={fonts}
+              onChange={(e) => setFonts(e.target.value)}
+              rows={3}
+              placeholder="Headings: Space Grotesk · Body: Inter (Google Fonts)"
+              className={fieldCls}
+            />
+          </div>
+        </div>
+        <div className="mt-4">
+          <label className={labelCls}>Images / Logo</label>
+          <textarea
+            value={images}
+            onChange={(e) => setImages(e.target.value)}
+            rows={2}
+            placeholder="Placeholder-first. Add URLs/notes if you have them, e.g. Logo: ____ · Hero photo: ____"
+            className={fieldCls}
+          />
+        </div>
+      </section>
+
+      {/* 2 · Sections */}
+      <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
+        <div className="flex items-center justify-between mb-4">
+          <h2
+            className="text-[15px] font-bold"
+            style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+          >
+            <span className="text-[#7C5CFC]">2 ·</span> Pick Sections &amp; Copy
+          </h2>
+          <span className="text-[11.5px] font-semibold text-[#A09AB8]">
+            {enabledCount} selected
+          </span>
+        </div>
+        <div className="flex flex-col gap-2.5">
+          {builderGroups.map((g) => {
+            const s = sel[g.id];
+            return (
+              <div
+                key={g.id}
+                className={`rounded-lg border p-3.5 transition ${
+                  s.enabled
+                    ? "border-[#7C5CFC] bg-[#1A1540]"
+                    : "border-[#2A2250] bg-[#0B091A]"
+                }`}
+              >
+                <div className="flex items-center gap-3 flex-wrap">
+                  <label className="flex items-center gap-2.5 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      checked={s.enabled}
+                      onChange={(e) => update(g.id, { enabled: e.target.checked })}
+                      className="h-4 w-4 accent-[#7C5CFC] cursor-pointer"
+                    />
+                    <span className="text-[13.5px] font-semibold">{g.label}</span>
+                  </label>
+                  <span className="text-[11px] text-[#5A5478]">
+                    {g.variations.length} variation{g.variations.length > 1 ? "s" : ""}
+                  </span>
+                  {s.enabled && (
+                    <select
+                      value={s.variation}
+                      onChange={(e) => update(g.id, { variation: e.target.value })}
+                      className="ml-auto max-w-[60%] rounded-md border border-[#2A2250] bg-[#0B091A] px-2.5 py-1.5 text-[12px] text-[#E8E4F5] focus:border-[#7C5CFC] focus:outline-none"
+                    >
+                      {g.variations.map((v) => (
+                        <option key={v.number} value={v.number}>
+                          {variationShortName(v.title)} — {v.description.slice(0, 56)}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+                {s.enabled && (
+                  <textarea
+                    value={s.copy}
+                    onChange={(e) => update(g.id, { copy: e.target.value })}
+                    rows={3}
+                    placeholder={`Copy for ${g.label} — headline, subhead, CTA, body, names...`}
+                    className={`${fieldCls} mt-3`}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Options + generate */}
+      <div className="flex flex-wrap items-center gap-3 mb-7">
+        <label className="flex items-center gap-2 text-[12.5px] text-[#A09AB8] cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={includeRef}
+            onChange={(e) => setIncludeRef(e.target.checked)}
+            className="h-4 w-4 accent-[#7C5CFC] cursor-pointer"
+          />
+          Include template reference in each block
+        </label>
+        <div className="ml-auto flex gap-2">
+          <button
+            type="button"
+            onClick={reset}
+            className="rounded-md border border-[#2A2250] text-[#A09AB8] text-[12.5px] px-4 py-2.5 transition hover:border-[#F87171] hover:text-[#F87171]"
+          >
+            Reset
+          </button>
+          <button
+            type="button"
+            onClick={generate}
+            disabled={enabledCount === 0}
+            className="rounded-md bg-[#7C5CFC] text-white text-[12.5px] font-bold px-5 py-2.5 transition hover:brightness-110 active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed"
+            style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+          >
+            ⚡ Generate Prompts
+          </button>
+        </div>
+      </div>
+
+      {/* Results */}
+      {results && results.length === 0 && (
+        <p className="text-center text-[13px] text-[#A09AB8]">
+          Select at least one section above, then generate.
+        </p>
+      )}
+      {results && results.length > 0 && (
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <h2
+              className="text-[15px] font-bold"
+              style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+            >
+              Generated · {results.length} section{results.length > 1 ? "s" : ""}
+            </h2>
+            <CopyButton text={combined} label="📋 Copy All" />
+          </div>
+          {results.map((r) => (
+            <div
+              key={r.id}
+              className="rounded-[14px] border border-[#2A2250] bg-[#161330] mb-4 overflow-hidden"
+            >
+              <div className="flex items-center justify-between gap-3 px-5 py-3 border-b border-[#2A2250]">
+                <div className="min-w-0">
+                  <div className="text-[13px] font-bold truncate">{r.heading}</div>
+                  <div className="text-[11.5px] text-[#A09AB8] truncate">{r.sub}</div>
+                </div>
+                <CopyButton text={r.text} className="shrink-0" />
+              </div>
+              <pre className="font-mono text-[11px] text-[#C0B8E0] leading-[1.7] whitespace-pre-wrap px-5 py-4 max-h-[340px] overflow-auto">
+                {r.text}
+              </pre>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function PrivateContent() {
-  const [tab, setTab] = useState<TabId>("hero");
+  const [tab, setTab] = useState<TabId>("builder");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const showGpt = tab === "gpt";
+  const showBuilder = tab === "builder";
   const visibleSections = sections.filter((s) => tab === s.id);
 
   return (
@@ -5981,9 +6268,9 @@ export function PrivateContent() {
           >
             Funnel <em className="not-italic text-[#F5C842]">Section Builder</em>
           </h1>
-          <p className="text-[15px] text-[#A09AB8] leading-[1.65] max-w-[520px] mx-auto">
-            Wireframe reference + copy-ready prompts for every funnel section. Pick a section, copy
-            the prompt, build with confidence.
+          <p className="text-[15px] text-[#A09AB8] leading-[1.65] max-w-[540px] mx-auto">
+            Compose a full funnel section-by-section in the builder, or browse every variation&apos;s
+            wireframe + copy-ready prompts.
           </p>
         </section>
 
@@ -6005,7 +6292,11 @@ export function PrivateContent() {
           ))}
         </div>
 
+        {/* Funnel Builder */}
+        {showBuilder && <FunnelBuilder />}
+
         {/* Grid */}
+        {!showBuilder && (
         <div className="grid gap-[22px] px-6 pb-14 max-w-[1180px] mx-auto" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))" }}>
           {visibleSections.map((s) => (
             <article
@@ -6106,6 +6397,7 @@ export function PrivateContent() {
             </article>
           )}
         </div>
+        )}
 
         {/* Footer */}
         <footer className="border-t border-[#2A2250] text-center py-9 px-6 text-[12.5px] text-[#4A4468]">
