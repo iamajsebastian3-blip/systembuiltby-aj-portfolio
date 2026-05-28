@@ -2690,14 +2690,87 @@ Outcome (teal · OUTCOME, flag icon):
     label: "BEFORE VS AFTER",
     title: "Before vs After Variation 1",
     description:
-      "Why is your way better? — Old way, new way, side-by-side comparison.",
+      "Classic 2-column comparison cards (clean corporate). Red ✗ card left, green ✓ card right with mirrored pairs. Inter, light bg.",
     labelClass: labelClasses.compare,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/before-after-v1-thumb.webp",
+    funnelTypes: ["Corporate","B2B","Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Before vs After section (Section 04 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why is your way better than what I'm doing now?"
+
+=== OUTPUT ===
+File: 05-before-after-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light white section bg
+- Container: max-width 1140px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 · sub
+- Two equal cards side-by-side, gap 24px
+- Old card: red tint bg (--bg-old) + 1px solid red border, padding 32px, rounded 16px
+- New card: green tint bg (--bg-new) + 1px solid green border, padding 32px, rounded 16px, subtle green gradient bottom
+- Card header: colored uppercase label bold (16px)
+- 5 items per card, each: ✗ or ✓ icon (24px circle) + text (15px)
+- Items in identical order so each pair mirrors on same axis
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Old card slides in from left, new card slides in from right
+- Triggered when section enters viewport
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Cards stack: old on top, new below
+- Reduce padding to 24px
+
+=== RULE ===
+Every old item and new item must mirror the same axis (same topic, flipped outcome). Example: "60-hour weeks" ↔ "22-hour weeks".
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V1 (Classic 2-Column · Clean Corporate) base component.
+
+— BRAND COLORS —
+--bg:         #FFFFFF
+--bg-old:     rgba(220,38,38,0.03)
+--bg-new:     rgba(22,163,74,0.04)
+--accent:     #2563EB
+--old-color:  #DC2626
+--new-color:  #16A34A
+--text:       #0E1116
+--muted:      #4A5160
+--border:     #E4E7EB
+--old-border: rgba(220,38,38,0.3)
+--new-border: rgba(22,163,74,0.3)
+
+— FONTS —
+Heading & Body Font: Inter (Google Fonts)
+
+— COPY —
+Label: THE OLD WAY VS THE NEW WAY
+H2:    Stop Fighting Your Business. Start Scaling It.
+Sub:   Everything you've been taught about growing a coaching business is designed for a different era. Here's what actually works now.
+
+OLD WAY header: ✗ Without a System
+NEW WAY header: ✓ With The Method™
+
+— MIRRORED PAIRS (same axis, flipped result) —
+Pair 1:
+  Old: 60-hour weeks chasing inconsistent $8K months
+  New: 22-hour weeks running a predictable $50K business
+Pair 2:
+  Old: Cold outreach to unqualified leads who ghost you
+  New: Warm inbound prospects who already want to buy
+Pair 3:
+  Old: Discounting your prices just to close the deal
+  New: Premium pricing clients respect and pay in full
+Pair 4:
+  Old: Reinventing your offer every time it doesn't sell
+  New: One proven offer that sells itself on repeat
+Pair 5:
+  Old: Burning out and questioning if this is worth it
+  New: Energized, focused, and building something real`,
   },
   {
     id: "compare",
@@ -2705,14 +2778,80 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "BEFORE VS AFTER",
     title: "Before vs After Variation 2",
     description:
-      "Why is your way better? — Old way, new way, side-by-side comparison.",
+      "Row-by-row mirrored table with axis labels in center (dark premium). Old vs New columns with center 'axis' pill. Space Grotesk.",
     labelClass: labelClasses.compare,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/before-after-v2-thumb.webp",
+    funnelTypes: ["High-Ticket Coaching","Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Before vs After section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 05-before-after-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark section bg (#0D0D0D)
+- Container: max-width 1180px centered, padding 100px 24px
+- Header (centered): uppercase label · H2 · sub
+- Comparison table:
+  - Header row: 3 cells — "OLD WAY ✗" (red), "THE AXIS" (muted center), "NEW WAY ✓" (green)
+  - 5 data rows, each with 3 cells: old text (red tint) · axis pill badge center · new text (green tint)
+  - Alternating row bg (slight lighten on odd)
+  - Hover: row brightens
+- Rounded 14px on table, border 1px var(--border)
+- Axis pill: small bg, bold center-aligned text, muted
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Rows fade in staggered top to bottom (0.08s each)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Each row becomes 3-row stack: old / axis / new
+- Maintain colored backgrounds
+- Padding reduces
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V2 (Mirrored Table · Dark Premium) base component.
+
+— BRAND COLORS —
+--bg:         #0D0D0D
+--bg-table:   #111111
+--bg-header:  #1A1A1A
+--accent:     #F5C842
+--old-color:  #EF4444
+--new-color:  #22C55E
+--text:       #FFFFFF
+--muted:      #9A9A9A
+--border:     #222222
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— COPY —
+Label: THE HONEST COMPARISON
+H2:    Two Paths. Same Starting Point.
+Sub:   The only difference between where you are and where you want to be is the system you're using.
+
+Headers: OLD WAY ✗   ·   THE AXIS   ·   NEW WAY ✓
+
+— MIRRORED ROWS (axis label center) —
+Row 1 — Axis: Monthly Income
+  Old: Inconsistent $5K–$12K months
+  New: Predictable $30K–$50K months
+Row 2 — Axis: Work Hours
+  Old: 55–65 hours a week, always on
+  New: 20–25 hours with clear boundaries
+Row 3 — Axis: Lead Source
+  Old: Cold DMs, referrals, hope
+  New: Evergreen content + warm pipeline
+Row 4 — Axis: Sales Process
+  Old: Winging it on every discovery call
+  New: 6-step framework, 1-in-3 close rate
+Row 5 — Axis: Team
+  Old: Solo operator doing everything
+  New: Lean VA team handling operations`,
   },
   {
     id: "compare",
@@ -2720,14 +2859,82 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "BEFORE VS AFTER",
     title: "Before vs After Variation 3",
     description:
-      "Why is your way better? — Old way, new way, side-by-side comparison.",
+      "Full-bleed dark split (deep red BEFORE / deep green AFTER) with glowing center divider + VS badge. Outfit, dramatic high-energy.",
     labelClass: labelClasses.compare,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/before-after-v3-thumb.webp",
+    funnelTypes: ["Premium Coaching","Personal Brand"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Before vs After section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 05-before-after-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Full-width 2-column split (no padding between halves)
+- LEFT half (BEFORE): bg #0D0505 (very dark red), padding 80px 64px
+- RIGHT half (AFTER): bg #030D05 (very dark green), padding 80px 64px
+- Min-height 600px
+- Each half: uppercase label (red/green) · big header (Outfit bold) · italic muted sub · 5 items list
+- Items: colored ✗/✓ icon + white text, padding 12px, hover gets tinted bg
+- Center divider: 2px vertical line with glowing box-shadow (red on left side, green on right side)
+- "VS" badge centered (circle, dark bg, white bold text, 60px) with subtle pulse animation
+- Single section header above split: centered label + H2
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left half slides in from left + fade
+- Right half slides in from right + fade
+- VS badge pulses gently (continuous)
+- prefers-reduced-motion: skip slides, keep pulse subtle
+
+=== MOBILE (≤768px) ===
+- Halves stack vertically (BEFORE top, AFTER bottom)
+- VS badge becomes horizontal divider with badge in middle
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V3 (Dramatic Dark Split) base component.
+
+— BRAND COLORS —
+--bg-old:     #0D0505
+--bg-new:     #030D05
+--accent:     #A855F7
+--old-color:  #EF4444
+--new-color:  #22C55E
+--text:       #FFFFFF
+--muted:      #9A9A9A
+--divider:    rgba(255,255,255,0.1)
+
+— FONTS —
+Heading & Body Font: Outfit (Google Fonts)
+
+— COPY (top section header) —
+Label: TWO REALITIES
+H2:    Which One Are You Living Right Now?
+
+— LEFT (BEFORE) —
+Header: BEFORE
+Sub:    The story most coaches know too well.
+Items:
+  ✗ Grinding 12-hour days for client scraps
+  ✗ Saying yes to work you hate for the money
+  ✗ Plateaued at $10K/mo for the last 18 months
+  ✗ No system, no team, no time to think
+  ✗ Secretly wondering if you made the right call
+
+— RIGHT (AFTER) —
+Header: AFTER
+Sub:    What's waiting on the other side.
+Items:
+  ✓ Premium clients, premium fees, premium life
+  ✓ Selective with projects. Picky by design.
+  ✓ Crossed $50K/mo in month 9 of the program
+  ✓ System runs itself. You run the vision.
+  ✓ 100% certain you made the right call.
+
+— CENTER —
+VS badge with subtle pulse glow.`,
   },
   {
     id: "compare",
@@ -2735,14 +2942,107 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "BEFORE VS AFTER",
     title: "Before vs After Variation 4",
     description:
-      "Why is your way better? — Old way, new way, side-by-side comparison.",
+      "Stacked rows with axis label on TOP + side-by-side Without (left) / With (right) below + Overall Shift summary block at the bottom with 3 count-up stats. DM Sans, modern SaaS.",
     labelClass: labelClasses.compare,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/before-after-v4-thumb.webp",
+    funnelTypes: ["SaaS","Tech Coaching","Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Before vs After section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 05-before-after-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light section bg (#F8FAFC)
+- Container: max-width 1180px centered, padding 96px 24px
+- Section header (centered): uppercase label · H2 · sub
+- table-wrap: max-width 960px centered
+
+COLUMN HEADERS (2 columns above the rows):
+- Grid-template-columns: 1fr 1fr, gap 24px, padding 0 24px 20px, border-bottom 1px var(--border)
+- LEFT: "✗ Without the Method" — red bold uppercase, left-aligned
+- RIGHT: "With the Method ✓" — green bold uppercase, right-aligned
+
+ROWS — vertical stack (NOT 3-column grid). Each row is a card:
+- background var(--bg-card), 1px border var(--border), border-radius 14px, padding 18px 24px 20px
+- Hover: indigo border tint + subtle lift
+- Inside each row, two vertical zones:
+  1. AXIS PILL (top, centered):
+     - var(--accent) indigo bg, white text, 11px bold uppercase, letter-spacing 0.2em
+     - padding 7px 16px, rounded 999px, box-shadow indigo glow
+     - Subtle continuous pulse animation (2.6s loop, shadow expand)
+     - On scroll entry: scale 0.85 → 1 + fade
+  2. COMPARISON (below pill):
+     - Grid: 1fr | 1px divider | 1fr
+     - LEFT cell: old text, red-tinted, left-aligned (slides in from left)
+     - DIVIDER: 1px high (28px tall) var(--border) vertical line
+     - RIGHT cell: new text, green-tinted, right-aligned, font-weight 500 (slides in from right)
+
+SUMMARY BLOCK (bottom, full width within table-wrap):
+- max-width 960px centered, margin-top 56px
+- padding 36px 32px, border 1px var(--border), border-radius 18px
+- Background: subtle gradient from indigo-tint to green-tint (linear-gradient 135deg, accent at 6% to new-color at 6%)
+- Centered content:
+  - Small accent uppercase label: "THE OVERALL SHIFT"
+  - H3 summary statement
+  - 3-column grid of big count-up stats — each with massive number (clamp 32-48px, font-weight 800) + small muted label below
+- Stats use count-up animation when visible (data-count attribute, eased over 1.4s)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Rows staggered (0.1s each): axis pill scales in, old slides from left, new slides from right
+- Summary block: fade up
+- Stats: count from 0 to target on entry (1.4s ease)
+- Axis pill: continuous gentle shadow pulse
+- prefers-reduced-motion: skip slides + scale, content visible
+
+=== MOBILE (≤768px) ===
+- Hide column headers
+- Each row: axis pill stays on top, then comparison stacks vertically (no divider)
+- Old text → red bg-tint pill (centered), new text → green bg-tint pill (centered)
+- Summary stats stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V4 (Stacked Rows + Overall Shift Summary · Modern SaaS) base component.
+
+— BRAND COLORS —
+--bg:         #F8FAFC
+--bg-card:    #FFFFFF
+--accent:     #4F46E5
+--old-color:  #DC2626
+--new-color:  #16A34A
+--axis-bg:    #F1F5F9
+--text:       #0F172A
+--muted:      #64748B
+--border:     #E2E8F0
+
+— FONTS —
+Heading & Body Font: DM Sans (Google Fonts)
+
+— COPY —
+Label: THE SHIFT IN APPROACH
+H2:    Same Goal. Completely Different Path.
+Sub:   Here's exactly what changes when you stop guessing and start using a system that's already been proven 400+ times.
+
+Column headers:
+  Left:  ✗ Without the Method
+  Right: With the Method ✓
+
+— ROWS (axis on TOP, then old/new side-by-side) —
+Row 1 — Axis: Revenue/mo       · Old: Stuck at $8K–$12K       · New: Hitting $30K–$50K
+Row 2 — Axis: Hours worked     · Old: 60+ exhausting hours    · New: Under 25 focused hours
+Row 3 — Axis: Close rate       · Old: 1 in 10 calls convert   · New: 1 in 3 calls close
+Row 4 — Axis: Lead quality     · Old: Chasing cold prospects  · New: Attracting warm buyers
+Row 5 — Axis: Confidence       · Old: Doubting every decision · New: Executing with certainty
+
+— OVERALL SHIFT SUMMARY (3 count-up stats) —
+Eyebrow:    THE OVERALL SHIFT
+Title:      In 90 days, the numbers tell the whole story.
+Stat 1:     +275% · Monthly Revenue
+Stat 2:     −63%  · Hours Worked
+Stat 3:     +200% · Close Rate`,
   },
   {
     id: "compare",
@@ -2750,14 +3050,69 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "BEFORE VS AFTER",
     title: "Before vs After Variation 5",
     description:
-      "Why is your way better? — Old way, new way, side-by-side comparison.",
+      "Progress-bar visual comparison (data-driven). 5 metrics with red/green animated bars + change% badge + before/after labels. Plus Jakarta Sans.",
     labelClass: labelClasses.compare,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/before-after-v5-thumb.webp",
+    funnelTypes: ["Wellness","Data-Driven Coaching","Fitness"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Before vs After section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 05-before-after-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light fresh-green section bg (#F0FDF4)
+- Container: max-width 1100px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 · sub
+- 5 progress-bar items stacked, gap 36px
+- Each item structure:
+  - Top row: metric label (bold left) + change% badge (right, green bg)
+  - Old bar row: red bar (width set per data) + "Before: X" label after
+  - New bar row: green bar (width set per data) + "After: Y" label after
+- Bars: height 14px, rounded 999px, bg lightly tinted (track), foreground colored
+- Bar widths animate from 0% to target on scroll entry
+- Width values come from CSS custom properties on each bar
+
+=== ANIMATIONS (IntersectionObserver) ===
+- On entry: each bar's width animates (transition .9s ease, with stagger 0.15s per item)
+- Triggers via .visible class adding width
+- prefers-reduced-motion: bars appear at final width instantly
+
+=== MOBILE (≤768px) ===
+- Item layout stays the same but smaller text
+- Labels can wrap below bars
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V5 (Progress Bars · Data-Driven) base component.
+
+— BRAND COLORS —
+--bg:        #F0FDF4
+--accent:    #16A34A
+--old-color: #DC2626
+--new-color: #16A34A
+--bar-old:   rgba(220,38,38,0.35)
+--bar-new:   rgba(22,163,74,0.55)
+--text:      #14532D
+--muted:     #4B5563
+--border:    #D1FAE5
+
+— FONTS —
+Heading & Body Font: Plus Jakarta Sans (Google Fonts)
+
+— COPY —
+Label: THE NUMBERS DON'T LIE
+H2:    Here's What the Data Shows.
+Sub:   Across 500+ clients, the difference between those who used a system and those who didn't is staggering.
+
+— PROGRESS BARS (Label · Change% · Before · After · old% · new%) —
+Bar 1: Monthly Revenue           · +525% · $8K/mo     · $50K/mo  · 16%  · 100%
+Bar 2: Weekly Hours Worked       · -63%  · 60 hrs/wk  · 22 hrs/wk · 100% · 37%
+Bar 3: Sales Close Rate          · +200% · 1 in 10    · 1 in 3    · 10%  · 33%
+Bar 4: Time to First $30K Month  · -78%  · 18+ months · 90 days   · 100% · 22%
+Bar 5: Client Satisfaction Score · +94%  · 3.1 / 5.0  · 4.9 / 5.0 · 62%  · 98%`,
   },
   {
     id: "compare",
@@ -2765,14 +3120,165 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "BEFORE VS AFTER",
     title: "Before vs After Variation 6",
     description:
-      "Why is your way better? — Old way, new way, side-by-side comparison.",
+      "Single transform timeline — old card → arrow → new card per pair (warm agency). 4 transformation rows. Syne + Inter.",
     labelClass: labelClasses.compare,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/before-after-v6-thumb.webp",
+    funnelTypes: ["Agency","Brand Coaching","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Before vs After section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 05-before-after-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Warm cream bg (#FFF7ED)
+- Container: max-width 1240px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 (Syne) · sub
+- 4 transform rows stacked, gap 28px
+- Each row: 3-cell grid (1fr auto 1fr, gap 24px, align-items center)
+  - Old card: bg --old-bg, border 1px var(--old-border), rounded 14px, padding 22px
+  - Arrow cell: bold → icon (24px, --arrow-color)
+  - New card: bg --new-bg, border 1px var(--new-border), rounded 14px, padding 22px
+- Card text: 16px line-height 1.55
+- Old card text: muted dark
+- New card text: emphasized dark
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Old card slides from left, arrow fades, new card slides from right
+- Staggered 0.15s per row
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Per row: old card on top, arrow rotated 90° centered, new card below
+- Stack with smaller padding
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V6 (Transform Timeline · Warm Agency) base component.
+
+— BRAND COLORS —
+--bg:           #FFF7ED
+--accent:       #EA580C
+--old-color:    #DC2626
+--new-color:    #16A34A
+--arrow-color:  #EA580C
+--text:         #1C1917
+--muted:        #78716C
+--border:       #FED7AA
+--old-bg:       rgba(220,38,38,0.05)
+--new-bg:       rgba(22,163,74,0.05)
+--old-border:   rgba(220,38,38,0.25)
+--new-border:   rgba(22,163,74,0.25)
+
+— FONTS —
+Heading Font: Syne (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— COPY —
+Label: THE TRANSFORMATION
+H2:    Every Single Point of Pain Has a Flip Side.
+Sub:   This is what the shift looks like in practice.
+
+— TRANSFORM PAIRS (old → arrow → new) —
+Pair 1:
+  Old: Waking up dreading your inbox full of client demands
+  New: Waking up excited to work with people you actually chose
+Pair 2:
+  Old: Saying yes to low-ticket clients because you need the money
+  New: Turning down bad-fit clients because your pipeline is full
+Pair 3:
+  Old: Your revenue depending entirely on how hard you hustle
+  New: Your revenue tied to a system that works whether you do or not
+Pair 4:
+  Old: Feeling like a fraud charging more than $2K for anything
+  New: Confidently charging $10K–$25K and getting paid in full`,
+  },
+  {
+    id: "compare",
+    number: "04h",
+    label: "BEFORE VS AFTER",
+    title: "Before vs After Variation 8",
+    description:
+      "Full-width alternating row pairs (corporate). Sticky red/green column headers + 5 mirrored rows with subtle colored left borders. Manrope.",
+    labelClass: labelClasses.compare,
+    previewSrc: "/private/before-after-v8-thumb.webp",
+    funnelTypes: ["Consulting","B2B","Executive Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Before vs After section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 05-before-after-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Clean white section bg
+- Container: max-width 1180px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 · sub
+- Comparison block:
+  - Header row (sticky on scroll within section): 2 cells — "✗ Without the System" (red bold uppercase) | "✓ With the System" (green bold uppercase)
+  - Header bg: --header-bg light gray with bottom border
+  - 5 row pairs, each: 2-column grid 1fr/1fr, gap 0
+  - LEFT cell: subtle red left border (3px), bg --old-row-bg, padding 22px 24px, text 16px
+  - RIGHT cell: subtle green left border (3px), bg --new-row-bg, padding 22px 24px, text 16px
+  - Alternating row bg (white / very light gray) for visual separation
+  - Row hover: both cells highlight together (slightly stronger tint)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Rows fade in sequentially top to bottom (0.08s stagger)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Each row pair becomes a 2-line block: old item on top with red left border, new item below with green left border
+- Thin horizontal line between old/new within the same pair
+- Sticky header: hide on mobile, just inline at top
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Before vs After V8 (Alternating Rows · Corporate) base component.
+
+— BRAND COLORS —
+--bg:         #FFFFFF
+--header-bg:  #F8FAFC
+--old-row-bg: rgba(220,38,38,0.02)
+--new-row-bg: rgba(22,163,74,0.02)
+--old-color:  #DC2626
+--new-color:  #16A34A
+--accent:     #0F766E
+--text:       #0F172A
+--muted:      #64748B
+--border:     #E2E8F0
+
+— FONTS —
+Heading & Body Font: Manrope (Google Fonts)
+
+— COPY —
+Label: A TALE OF TWO APPROACHES
+H2:    The Gap Between Average and Exceptional Is Smaller Than You Think.
+Sub:   It's not talent. It's not luck. It's not even hard work. It's the system underneath.
+
+Column headers:
+  Left:  ✗ Without the System
+  Right: ✓ With the System
+
+— ROW PAIRS (left = old, right = new) —
+Row 1:
+  Left:  Winging your sales calls and hoping for the best
+  Right: 6-step process that converts 1 in 3 prospects
+Row 2:
+  Left:  Revenue fluctuates wildly month to month
+  Right: Predictable pipeline with 90-day revenue visibility
+Row 3:
+  Left:  Undercharging because you fear losing the client
+  Right: Premium pricing backed by bulletproof positioning
+Row 4:
+  Left:  Working IN your business 60 hours a week
+  Right: Working ON your business 20 hours a week
+Row 5:
+  Left:  No clear path to your next revenue milestone
+  Right: Step-by-step roadmap with weekly accountability`,
   },
   {
     id: "usp",
