@@ -6420,14 +6420,69 @@ CTA: Start My Journey →`,
     label: "URGENCY",
     title: "Urgency Variation 1",
     description:
-      "Why act today? — Price scarcity, countdown timer, FOMO.",
+      "Dark centered countdown — red radial glow, 4 timer boxes, scarcity + trust line. Space Grotesk, bold high-energy.",
     labelClass: labelClasses.urgency,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/urgency-v1-thumb.webp",
+    funnelTypes: ["Coaching", "Course", "Cohort"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background (override any light theme)
+- Label (accent color, uppercase)
+- H2 = specific deadline statement
+- Sub-paragraph = what changes after the deadline
+- Countdown timer: Days · Hrs · Min · Sec (large accent numbers, tabular-nums, uppercase labels)
+- CTA button · scarcity line with a real number ("8 of 30 seats remaining")
+- Stack 2+ urgency drivers (deadline + price increase + seat cap)
+- min section height 500px
+
+=== COUNTDOWN RULES ===
+- Single JS variable: const DEADLINE = "2026-08-01T23:59:59"; (client edits this one line)
+- Updates every second via setInterval(…,1000)
+- When the deadline passes: hide the timer, show "Enrollment is now closed"
+- Use font-variant-numeric: tabular-nums for stable digit width
+- Works without JS: show a static deadline date as fallback
+
+=== LAYOUT ===
+- Full dark bg, centered column (max-width 700px), subtle red radial glow behind the timer
+- Label (red pill) → H2 → sub → timer label → 4 dark timer boxes with red numbers + colon separators → red CTA (full width) → red scarcity line → small muted trust line
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Section fades in · timer boxes scale 0.9 → 1.0 · timer ticks every second
+- prefers-reduced-motion: skip entrance
+
+=== MOBILE (≤768px) ===
+- Boxes flex to full width, smaller separators
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V1 (Dark Centered Countdown).
+
+— BRAND COLORS —
+--bg: #050510 · --accent: #EF4444 · --timer-bg: #111122 · --timer-border: rgba(239,68,68,0.2) · --timer-num: #EF4444 · --text: #FFFFFF · --muted: #9AA0B0 · --cta-bg: #EF4444 · --cta-text: #FFFFFF
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const SEATS_TOTAL = 30;
+
+— COPY —
+Label: THIS COHORT CLOSES FRIDAY
+H2: Your Last Chance at the Founding Member Price.
+Sub: "After Friday at midnight, this cohort closes and the price increases to $9,997. The fast-action bonuses disappear permanently."
+Timer label: Enrollment closes in:
+CTA: CLAIM MY SPOT BEFORE MIDNIGHT →
+Scarcity: ⚠ Only 8 of 30 seats remaining
+Trust: 30-day guarantee · Secure checkout`,
   },
   {
     id: "urgency",
@@ -6435,14 +6490,56 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "URGENCY",
     title: "Urgency Variation 2",
     description:
-      "Why act today? — Price scarcity, countdown timer, FOMO.",
+      "Split — urgency + gold timer (left) + mini offer card (right). Space Grotesk, dark gold high-ticket.",
     labelClass: labelClasses.urgency,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/urgency-v2-thumb.webp",
+    funnelTypes: ["High-Ticket", "Mastermind", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · Label (accent, uppercase) · H2 deadline statement · sub = what changes after
+- Countdown timer (Days · Hrs · Min · Sec, tabular-nums) · CTA · real scarcity number
+- Stack 2+ urgency drivers (deadline + price + seat cap) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show "Enrollment is now closed" when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Full dark split inside one bordered rounded wrapper
+- LEFT 55%: label → H2 → sub → gold timer (gold numbers, gold box borders) → red scarcity line
+- RIGHT 45%: mini offer card (darker bg) — header + 3 green-✓ items + "Price today: $4,997" + full-width gold CTA
+- Subtle divider between columns
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left timer counts · right offer slides in from right · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack (urgency top, offer below)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V2 (Split Urgency + Mini Offer).
+
+— BRAND COLORS —
+--bg: #0A0A14 · --left-bg: #0D0D1A · --right-bg: #111120 · --accent: #F5C842 · --timer-num: #F5C842 · --timer-bg: rgba(245,200,66,0.08) · --timer-border: rgba(245,200,66,0.25) · --danger: #EF4444 · --text: #FFFFFF · --muted: #9AA0B0 · --cta-bg: #F5C842 · --cta-text: #0A0A14 · --border: rgba(255,255,255,0.06)
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const SEATS_TOTAL = 30;
+
+— COPY —
+LEFT — Label: ENROLLMENT CLOSES · H2: This Cohort Closes Friday. · Sub: "Price increases to $9,997 at midnight. Bonuses expire permanently." · Timer label: Time remaining: · Scarcity: ⚠ 8 of 30 seats remaining
+RIGHT — Header: 8 SEATS LEFT AT THIS PRICE · Items (✓): "12-Week Agency Accelerator Program" · "All bonuses included (expires Friday)" · "Founding member pricing locked" · Price today: $4,997 · CTA: ENROLL NOW →`,
   },
   {
     id: "urgency",
@@ -6450,14 +6547,56 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "URGENCY",
     title: "Urgency Variation 3",
     description:
-      "Why act today? — Price scarcity, countdown timer, FOMO.",
+      "Countdown + after-deadline loss/keep comparison (red vs green). Outfit, dark navy consequence-driven.",
     labelClass: labelClasses.urgency,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/urgency-v3-thumb.webp",
+    funnelTypes: ["Consulting", "SaaS", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · Label · H2 deadline statement · countdown timer (tabular-nums) · CTA · real scarcity number
+- Stack 2+ urgency drivers (deadline + price + bonus) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show closed message when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Dark navy bg, centered timer (blue numbers)
+- Below timer: 2-col loss/keep grid — LEFT red tint "After Friday you lose" (3 ✗) · RIGHT green tint "Enroll now and keep" (3 ✓)
+- Blue CTA centered · red scarcity line below
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Timer appears first · comparison grid fades up after a ~0.4s delay · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Timer top, grid stacks
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V3 (Countdown + What You Lose).
+
+— BRAND COLORS —
+--bg: #07091A · --accent: #3B82F6 · --timer-bg: rgba(59,130,246,0.08) · --timer-border: rgba(59,130,246,0.25) · --timer-num: #3B82F6 · --old-bg: rgba(220,38,38,0.05) · --old-border: rgba(220,38,38,0.2) · --new-bg: rgba(22,163,74,0.05) · --new-border: rgba(22,163,74,0.2) · --text: #FFFFFF · --muted: #9AA0B0 · --cta-bg: #3B82F6 · --danger: #EF4444 · --success: #22C55E
+
+— FONTS —
+Outfit (Google Fonts)
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const SEATS_TOTAL = 30;
+
+— COPY —
+Label: THE CLOCK IS RUNNING · H2: What Changes When the Timer Hits Zero.
+After Friday you lose (✗): "The $4,997 founding member price" · "Fast-action bonus pack ($591 value)" · "Access to the current cohort"
+Enroll now and keep (✓): "Locked-in price — never increases" · "All fast-action bonuses included" · "Immediate access to onboarding"
+CTA: LOCK IN MY SPOT → · Scarcity: ⚠ 8 of 30 seats remaining`,
   },
   {
     id: "urgency",
@@ -6465,14 +6604,59 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "URGENCY",
     title: "Urgency Variation 4",
     description:
-      "Why act today? — Price scarcity, countdown timer, FOMO.",
+      "Seat-scarcity progress bar (green→red, animated fill) + price-reset timer. Inter, FOMO-driven dark.",
     labelClass: labelClasses.urgency,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/urgency-v4-thumb.webp",
+    funnelTypes: ["Cohort", "Course", "Membership"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · Label · H2 deadline/scarcity statement · sub = what changes after
+- Countdown timer (tabular-nums) · CTA · real scarcity number (seats taken)
+- Stack 2+ urgency drivers (seat cap + price reset) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show closed message when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Full dark bg, centered column (max-width 700px)
+- Scarcity progress bar: full width, 12px tall, rounded, gradient fill green → red, fill = SEATS_TAKEN/SEATS_TOTAL (≈73%), animates from 0% on scroll entry
+- Before/after labels above bar + red "seats remaining" warning below
+- Timer below bar (green numbers) → green wide CTA → muted price note below
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Bar fills on entry · timer appears after the bar · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V4 (Seat Scarcity Progress Bar).
+
+— BRAND COLORS —
+--bg: #050505 · --accent: #16A34A · --bar-from: #16A34A · --bar-to: #EF4444 · --timer-bg: rgba(22,163,74,0.08) · --timer-border: rgba(22,163,74,0.25) · --timer-num: #22C55E · --text: #FFFFFF · --muted: #9AA0B0 · --cta-bg: #16A34A · --danger: #EF4444
+
+— FONTS —
+Inter (Google Fonts)
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_TAKEN = 22; · const SEATS_TOTAL = 30; · const SEATS_LEFT = 8;
+
+— COPY —
+Label: LIMITED ENROLLMENT — CLOSING SOON · H2: 22 of 30 Seats Have Been Claimed.
+Sub: "Once the final 8 spots are gone, enrollment closes until the next cohort — in 6 months."
+Bar labels: "Seats taken" (left) · "22 of 30 filled" (right) · Warning: ⚠ 8 seats remaining
+Timer label: Plus — price resets Friday:
+CTA: CLAIM ONE OF THE 8 REMAINING SPOTS → · Note: Next cohort opens in 6 months at $9,997`,
   },
   {
     id: "urgency",
@@ -6480,14 +6664,57 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "URGENCY",
     title: "Urgency Variation 5",
     description:
-      "Why act today? — Price scarcity, countdown timer, FOMO.",
+      "Three stacked urgency drivers (deadline / bonus / seats) + timer. DM Sans, decision-forcing dark.",
     labelClass: labelClasses.urgency,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/urgency-v5-thumb.webp",
+    funnelTypes: ["Coaching", "Consulting", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · Label · H2 · countdown timer (tabular-nums) · CTA · real scarcity number
+- Stack 3 urgency drivers explicitly (deadline + bonus expiry + seat cap) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show closed message when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Full dark bg, centered header (label + H2)
+- 3 driver rows stacked, each: icon circle + title + body + right-aligned colored badge; colored border + subtle tint (Driver 1 red / Driver 2 amber / Driver 3 blue)
+- Timer centered below drivers (dark glass boxes, white numbers) → red CTA → scarcity line
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Drivers slide up staggered (~0.15s each) · timer fades in last · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full-width stack
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V5 (Three Urgency Drivers).
+
+— BRAND COLORS —
+--bg: #0A0A10 · driver-1: rgba(239,68,68,…) red · driver-2: rgba(245,158,11,…) amber · driver-3: rgba(37,99,235,…) blue · --timer-bg: rgba(255,255,255,0.04) · --timer-border: rgba(255,255,255,0.1) · --timer-num: #FFFFFF · --text: #FFFFFF · --muted: #9AA0B0 · --cta-bg: #EF4444 · --accent: #EF4444
+
+— FONTS —
+DM Sans (Google Fonts)
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const SEATS_TOTAL = 30;
+
+— COPY —
+Label: 3 REASONS TO DECIDE RIGHT NOW · H2: Every Day You Wait Costs You Something.
+Driver 1 (red, ⏰): "Enrollment Closes Friday" / "This cohort closes at midnight. After that, you wait 6 months for the next opening." / badge CLOSES FRIDAY
+Driver 2 (amber, 🎁): "Bonuses Expire at Midnight" / "The $591 fast-action bonus pack disappears permanently when the clock hits zero." / badge BONUS EXPIRES
+Driver 3 (blue, 🪑): "Only 8 Seats Remaining" / "This cohort is capped at 30. 22 people have already enrolled. The last 8 fill fast." / badge 8 SEATS LEFT
+Timer label: Enrollment closes in: · CTA: ENROLL BEFORE IT'S GONE → · Scarcity: ⚠ 8 of 30 seats · Price increases Friday`,
   },
   {
     id: "urgency",
@@ -6495,29 +6722,664 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "URGENCY",
     title: "Urgency Variation 6",
     description:
-      "Why act today? — Price scarcity, countdown timer, FOMO.",
+      "Gold premium dark — gold glow behind gold-bordered timer, price-increase framing. Space Grotesk, exclusive.",
     labelClass: labelClasses.urgency,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/urgency-v6-thumb.webp",
+    funnelTypes: ["High-Ticket", "Premium", "Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · urgency badge · H2 deadline/price statement · sub = what changes after
+- Countdown timer (tabular-nums) · CTA · real scarcity number
+- Stack 2+ urgency drivers (price increase + bonus + closing) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show closed message when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Full black bg with gold radial glow behind the timer (CSS only) + subtle gold vignette
+- Urgency badge (red pill) → H2 (gold accent on "$4,997") → sub → timer label → 4 gold-bordered boxes with gold numbers (44px) and gold glow box-shadow → gold CTA (black text) → red price note below → small muted scarcity
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Glow pulses once · timer boxes scale in staggered · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Boxes flex to full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V6 (Gold Premium Dark).
+
+— BRAND COLORS —
+--bg: #050505 · --accent: #F5C842 · --glow: rgba(245,200,66,0.15) · --timer-bg: rgba(245,200,66,0.08) · --timer-border: rgba(245,200,66,0.3) · --timer-num: #F5C842 · --danger: #EF4444 · --text: #FFFFFF · --muted: #9A9A9A · --cta-bg: #F5C842 · --cta-text: #050505
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const SEATS_TOTAL = 30; · const PRICE_NOW = "$4,997"; · const PRICE_AFTER = "$9,997";
+
+— COPY —
+Urgency badge: ⚠ ENROLLMENT CLOSES FRIDAY
+H2: This Is the Last Time We'll Offer This at $4,997.   (gold-accent the "$4,997")
+Sub: "After Friday midnight, the price doubles to $9,997 — permanently. The bonuses disappear. This cohort closes."
+Timer label: Time until price increase:
+CTA: LOCK IN $4,997 BEFORE MIDNIGHT → · Below CTA: Price goes to $9,997 on Saturday · Scarcity: 8 of 30 seats · Closes Friday`,
+  },
+  {
+    id: "urgency",
+    number: "10g",
+    label: "URGENCY",
+    title: "Urgency Variation 7",
+    description:
+      "Price-increase anchor — today vs after price row + purple timer. Syne + Inter, neon decision-forcing.",
+    labelClass: labelClasses.urgency,
+    previewSrc: "/private/urgency-v7-thumb.webp",
+    funnelTypes: ["Course", "Coaching", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · Label · H2 (savings/price framing) · sub = only the price changes
+- Countdown timer (tabular-nums) · CTA · real scarcity number
+- Stack 2+ urgency drivers (price increase + seat cap) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show closed message when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Dark purple-black bg, label (purple pill) → H2 (Syne, large)
+- Price comparison row (3-col flex): TODAY ONLY = large green price · red arrow → · AFTER FRIDAY = large red price with line-through
+- Sub paragraph → timer label → purple-bordered timer (purple numbers) → purple CTA → red scarcity → trust line
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Price row reveals · arrow pulsates on entry · timer ticks from load · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Price row stacks vertically (arrow rotates)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V7 (Price Increase Anchor).
+
+— BRAND COLORS —
+--bg: #0A0210 · --accent: #A855F7 · --timer-bg: rgba(168,85,247,0.08) · --timer-border: rgba(168,85,247,0.3) · --timer-num: #A855F7 · --price-now: #22C55E · --price-after: #EF4444 · --text: #FFFFFF · --muted: #9AA0B0 · --cta-bg: #A855F7 · --arrow-color: #EF4444
+
+— FONTS —
+Syne (headings) + Inter (body) — Google Fonts
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const PRICE_NOW = "$4,997"; · const PRICE_AFTER = "$9,997"; · const SAVINGS = "$5,000";
+
+— COPY —
+Label: PRICE INCREASES FRIDAY AT MIDNIGHT · H2: Save $5,000 by Deciding Today.
+Price row: TODAY ONLY → $4,997 (green) · → · AFTER FRIDAY → $9,997 (red, line-through)
+Sub: "The program doesn't change. The coaching doesn't change. Only the price does — permanently."
+Timer label: This price locks in: · CTA: LOCK IN $4,997 NOW → · Scarcity: ⚠ 8 seats remaining at this price · Trust: 30-day guarantee · Secure checkout`,
+  },
+  {
+    id: "urgency",
+    number: "10h",
+    label: "URGENCY",
+    title: "Urgency Variation 8",
+    description:
+      "Neon dark + glowing purple timer (pulse loop), dual cap (seats or Friday). Outfit + Inter, tech-premium cohort.",
+    labelClass: labelClasses.urgency,
+    previewSrc: "/private/urgency-v8-thumb.webp",
+    funnelTypes: ["Cohort", "SaaS", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Urgency section (Section 10 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Why now?"
+
+=== OUTPUT ===
+File: 11-urgency-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Dark background · badge · H2 (2 lines) · sub = dual cap (seats or deadline) + what's next
+- Countdown timer (tabular-nums) · CTA · real scarcity number
+- Stack 2+ urgency drivers (seat cap + deadline) · min height 500px
+
+=== COUNTDOWN RULES ===
+- const DEADLINE = "2026-08-01T23:59:59"; · setInterval(…,1000) · hide timer + show closed message when passed · tabular-nums · static fallback
+
+=== LAYOUT ===
+- Very dark bg (#04040C) with a purple neon radial glow in the center (CSS only)
+- Badge (purple pill) → H2 (2 lines, line 2 purple accent) → sub → timer label → 4 boxes with purple border + purple numbers (44px) + purple glow box-shadow (subtle purple tint bg) → purple CTA → italic sub-CTA → small scarcity
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Bg glow expands on entry · boxes scale 0.85 → 1.0 staggered · glow pulse loop (~2s) starts after entry · CTA glow intensifies on hover · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Urgency V8 (Neon Dark + Glow Timer).
+
+— BRAND COLORS —
+--bg: #04040C · --accent: #A855F7 · --glow-color: rgba(168,85,247,0.25) · --timer-bg: rgba(168,85,247,0.08) · --timer-border: rgba(168,85,247,0.35) · --timer-num: #A855F7 · --text: #FFFFFF · --muted: #8B8BA0 · --cta-bg: #A855F7 · --badge-bg: rgba(168,85,247,0.15)
+
+— FONTS —
+Outfit (headings) + Inter (body) — Google Fonts
+
+— COUNTDOWN —
+const DEADLINE = "2026-08-01T23:59:59"; · const SEATS_LEFT = 8; · const SEATS_TOTAL = 30;
+
+— COPY —
+Badge: LIMITED COHORT — CLOSING SOON
+H2: The Window Is Closing.  /  (line 2, purple) Don't Miss This Cohort.
+Sub: "Once the final 8 seats are taken or Friday hits — whichever comes first — enrollment closes. Next cohort: 6 months from now at a higher price."
+Timer label: Enrollment closes in: · CTA: SECURE MY SPOT NOW → · Sub-CTA: Join 22 people already enrolled · Scarcity: 8 of 30 seats · Closes Friday`,
   },
   {
     id: "faq",
-    number: "11",
+    number: "11a",
     label: "FAQ",
-    title: "FAQ",
+    title: "FAQ Variation 1",
     description:
-      "4–7 objection handlers: Who's this for? What exactly do I get? What about support? What's the guarantee?",
+      "Classic single-column accordion (8 items, first open). Inter, clean corporate · blue open-state + circle toggles.",
     labelClass: labelClasses.faq,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/faq-v1-thumb.webp",
+    funnelTypes: ["Corporate", "Coaching", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 ("Questions Before You Enroll")
+- 6–8 FAQ items (first item OPEN by default)
+- Each item: bold question (17px) + 28px circle toggle + muted answer (15px); border-bottom between items
+- 6 MANDATORY topics present: who it's for · #1 audience objection · what's different · time/week · guarantee (restated) · start date
+- Only ONE item open at a time; smooth max-height transition (not display)
+- Works without JS: all answers show expanded · min section height 400px
+
+=== LAYOUT ===
+- White bg, centered column (max-width 760px), header (label + H2 + sub)
+- Bordered accordion container; open item = light-blue tint bg + blue left border; toggle = blue circle (+ → −)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Items fade up staggered on entry · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V1 (Classic Single-Column · Clean Corporate).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --bg-alt: #F7F8FA · --accent: #2563EB · --text: #0E1116 · --muted: #4A5160 · --border: #E4E7EB · --open-bg: #F0F7FF · --open-border: #2563EB · --toggle-bg: #EFF6FF · --toggle-color: #2563EB
+
+— FONTS —
+Inter (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll · Sub: Everything you need to know before joining — answered straight.
+
+— FAQ COPY BANK (order Q1→Q8, Q1 open) —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11b",
+    label: "FAQ",
+    title: "FAQ Variation 2",
+    description:
+      "2-column accordion grid (independent columns). Manrope, consulting · teal open-state.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v2-thumb.webp",
+    funnelTypes: ["Consulting", "B2B", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 · 8 FAQ items split across 2 columns (first item open)
+- Each item: bold question + 28px circle toggle + muted answer; border-bottom between
+- 6 MANDATORY topics present · only one item open per column · smooth max-height transition
+- Works without JS: all answers expanded · min height 400px
+
+=== LAYOUT ===
+- Light gray bg, centered header, 2-col grid below (each col a separate bordered accordion)
+- LEFT col: Q1 (open), Q3, Q5, Q7 · RIGHT col: Q2, Q4, Q6, Q8
+- Open item: teal tint bg + teal left border; toggle = teal circle
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left col slides in from left · right col slides in from right · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack single column (left items, then right items)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V2 (2-Column Accordion · Consulting).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #0F766E · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --open-bg: #F0FDFA · --open-border: #0F766E · --toggle-bg: #CCFBF1 · --toggle-color: #0F766E
+
+— FONTS —
+Manrope (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll
+
+— COLUMN SPLIT —
+Left: Q1 (open), Q3, Q5, Q7 · Right: Q2, Q4, Q6, Q8
+
+— FAQ COPY BANK —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11c",
+    label: "FAQ",
+    title: "FAQ Variation 3",
+    description:
+      "Dark premium accordion (8 items, first open). Space Grotesk · gold toggles + gold-tinted open state.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v3-thumb.webp",
+    funnelTypes: ["High-Ticket", "Premium", "Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 (white) · 8 FAQ items (first open)
+- Each item: bold white question + 28px gold circle toggle + muted answer; border-bottom between
+- 6 MANDATORY topics present · only one open at a time · smooth max-height transition
+- Works without JS: all answers expanded · min height 400px
+
+=== LAYOUT ===
+- Full dark bg, centered column (max-width 760px), dark card accordion + subtle border
+- Open item: very-dark gold-tinted bg + 2px gold left border; toggle = gold circle
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Card slides up on section entry · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V3 (Dark Premium Accordion).
+
+— BRAND COLORS —
+--bg: #0A0A10 · --card-bg: #111118 · --accent: #F5C842 · --text: #FFFFFF · --muted: #9A9A9A · --border: #1E1E28 · --open-bg: #16160E · --open-border: rgba(245,200,66,0.4) · --toggle-bg: rgba(245,200,66,0.15) · --toggle-color: #F5C842
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll
+
+— FAQ COPY BANK (order Q1→Q8, Q1 open) —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11d",
+    label: "FAQ",
+    title: "FAQ Variation 4",
+    description:
+      "Categorized FAQ with tabs (Program · Results · Payment · Guarantee). DM Sans, modern SaaS · indigo.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v4-thumb.webp",
+    funnelTypes: ["SaaS", "Course", "Consulting"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 · FAQ items grouped under category tabs (first item per tab open)
+- Each item: bold question + 28px circle toggle + muted answer
+- 6 MANDATORY topics present (across tabs) · only one open per tab · smooth max-height transition
+- Works without JS: hide tabs, show all panels with answers expanded · min height 400px
+
+=== LAYOUT ===
+- White bg, centered header, row of 4 tab pills (active = indigo bg + white text)
+- Accordion below shows only the active tab's questions; switching tabs = smooth fade
+- Tabs → questions: Program (Q1, Q4, Q6) · Results (Q2, Q3) · Payment (Q7, Q8) · Guarantee (Q5); default tab Program
+- Open item: indigo tint + indigo left border; toggle = indigo circle
+
+=== ANIMATIONS (IntersectionObserver / JS) ===
+- Tab switch fade · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Tabs scroll horizontally
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V4 (Categorized Tabs · Modern SaaS).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #4F46E5 · --tab-active: #4F46E5 · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --open-bg: #F8FAFF · --toggle-bg: #EEF2FF · --toggle-color: #4F46E5
+
+— FONTS —
+DM Sans (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll
+
+— TABS → QUESTIONS —
+Program: Q1, Q4, Q6 (Q1 open) · Results: Q2, Q3 (Q2 open) · Payment: Q7, Q8 (Q7 open) · Guarantee: Q5 (open) · Default tab: Program
+
+— FAQ COPY BANK —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11e",
+    label: "FAQ",
+    title: "FAQ Variation 5",
+    description:
+      "Search-style FAQ with live filter (type to filter, no-results state). Plus Jakarta Sans, fresh wellness · green.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v5-thumb.webp",
+    funnelTypes: ["Wellness", "Course", "Membership"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 · 8 FAQ items (first open)
+- Each item: bold question + 28px circle toggle + muted answer; border-bottom between
+- 6 MANDATORY topics present · only one open at a time · smooth max-height transition
+- Works without JS: hide search, show all answers expanded · min height 400px
+
+=== LAYOUT ===
+- Light green bg, centered header, search input (magnifier + "Search questions...") below header
+- JS filters questions as the user types (hide non-matching); show "No results found" when none match
+- Open item: green tint bg + green left border; toggle = green circle
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Search bar + items fade in on entry · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V5 (Search-Style Filter · Wellness).
+
+— BRAND COLORS —
+--bg: #F0FDF4 · --accent: #16A34A · --search-bg: #FFFFFF · --text: #14532D · --muted: #4B5563 · --border: #D1FAE5 · --open-bg: #DCFCE7 · --open-border: #16A34A · --toggle-bg: #BBFFD2 · --toggle-color: #16A34A
+
+— FONTS —
+Plus Jakarta Sans (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll · Search placeholder: "Search questions..." · No-results: "No results found. Try a different keyword."
+
+— FAQ COPY BANK (order Q1→Q8, Q1 open) —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11f",
+    label: "FAQ",
+    title: "FAQ Variation 6",
+    description:
+      "Bold numbered FAQ list (colored 01–08 numerals). Outfit, dark neon · purple open-state.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v6-thumb.webp",
+    funnelTypes: ["SaaS", "Premium", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 (white) · 8 FAQ items (first open)
+- Each item: large colored number (left) + bold question + 28px circle toggle + muted answer; border-bottom between
+- 6 MANDATORY topics present · only one open at a time · smooth max-height transition
+- Works without JS: all answers expanded · min height 400px
+
+=== LAYOUT ===
+- Dark bg, centered column (max-width 700px)
+- Each item: 32px bold colored numeral (01 blue · 02 amber · 03 green · 04 red · 05 purple · 06 teal · 07–08 repeat) + question + toggle, answer indented
+- Open item: subtle purple tint bg
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Items fly up staggered with the numeral lighting up · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Numerals stay visible, text wraps
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V6 (Bold Numbered List · Dark Neon).
+
+— BRAND COLORS —
+--bg: #0F0F1A · --accent: #A855F7 · num-1: #3B82F6 · num-2: #F59E0B · num-3: #22C55E · num-4: #EF4444 · num-5: #A855F7 · num-6: #0891B2 · --text: #FFFFFF · --muted: #9AA0B0 · --open-bg: rgba(168,85,247,0.06) · --open-border: rgba(168,85,247,0.3) · --border: rgba(255,255,255,0.06)
+
+— FONTS —
+Outfit (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll
+
+— FAQ COPY BANK (numbered 01→08, 01 open) —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11g",
+    label: "FAQ",
+    title: "FAQ Variation 7",
+    description:
+      "Card-style FAQ grid (2×4 cards, one open at a time). Nunito, warm coaching · orange open-state.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v7-thumb.webp",
+    funnelTypes: ["Coaching", "Wellness", "Community"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 · 8 FAQ cards in a 2×4 grid (first card open)
+- Each card: bold question title + 28px circle toggle (top-right) + collapsible muted answer
+- 6 MANDATORY topics present · only one card open at a time · smooth max-height transition
+- Works without JS: all answers expanded · min height 400px
+
+=== LAYOUT ===
+- Light gray bg, 2×4 card grid; card order Q1,Q2 / Q3,Q4 / Q5,Q6 / Q7,Q8
+- Each card: white bg + border; open card = warm-orange tint bg + orange border + soft shadow; toggle = orange circle
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade up in pairs (row by row) · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Single column stack
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V7 (Card-Style Grid · Warm Coaching).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #EA580C · --card-bg: #FFFFFF · --open-card: #FFF7ED · --open-border: #EA580C · --text: #1C1917 · --muted: #78716C · --border: #E7E5E4 · --toggle-bg: #FED7AA · --toggle-color: #EA580C
+
+— FONTS —
+Nunito (Google Fonts)
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll
+
+— CARD ORDER (2×4, Q1 open) —
+Row 1: Q1, Q2 · Row 2: Q3, Q4 · Row 3: Q5, Q6 · Row 4: Q7, Q8
+
+— FAQ COPY BANK —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+Q7 — Are there payment plan options? — "Yes. You can pay in full at $4,997 or choose our 3-payment plan at $1,997/month. Both options include identical access to everything in the program."
+Q8 — Do I need any specific tools or software? — "No specialized tools required. We use a simple tech stack that you likely already have: email, a calendar, and a basic CRM (we recommend free options). We walk you through setup on the onboarding call."`,
+  },
+  {
+    id: "faq",
+    number: "11h",
+    label: "FAQ",
+    title: "FAQ Variation 8",
+    description:
+      "FAQ accordion (Q1–Q6) + sticky contact widget (live chat + email + CTA card). DM Serif + DM Sans · purple.",
+    labelClass: labelClasses.faq,
+    previewSrc: "/private/faq-v8-thumb.webp",
+    funnelTypes: ["Premium", "Coaching", "Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium FAQ section (Section 11 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: pre-empts the final objections before enrollment.
+
+=== OUTPUT ===
+File: 12-faq-12.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Section head: label + H2 · FAQ accordion (Q1–Q6, first open) covering all 6 mandatory topics
+- Each item: bold question + 28px circle toggle + muted answer; border-bottom between
+- Only one open at a time · smooth max-height transition · works without JS (answers expanded) · min height 400px
+
+=== LAYOUT ===
+- White bg, 2-col · LEFT 62%: label + H2 (serif) + FAQ accordion (purple toggles, purple tint open)
+- RIGHT 38%: sticky widget panel — "Still have a question?" + Live Chat option (purple icon) + Email option (green icon) + a CTA card (purple border + button)
+- Widget stays sticky on desktop scroll
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left fades up · right widget slides in from right · prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- FAQ full width on top, widget below (not sticky)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to FAQ V8 (FAQ + Contact Widget · Premium Editorial).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #7C3AED · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --open-bg: #FAF5FF · --open-border: #7C3AED · --toggle-bg: #EDE9FE · --toggle-color: #7C3AED · --widget-bg: #F8FAFC · --chat-color: #7C3AED · --email-color: #16A34A
+
+— FONTS —
+DM Serif Display (headings) + DM Sans (body) — Google Fonts
+
+— HEADER —
+Label: BEFORE YOU ENROLL · H2: Questions Before You Enroll
+
+— FAQ COPY BANK (Q1–Q6, Q1 open) —
+Q1 — Who is this perfect for? — "This is for coaches, consultants, and service providers doing $0–$15K/mo who are ready to build a predictable system to $30K–$50K/mo. If you're already above $50K/mo, this likely isn't the right fit — our advanced program would serve you better."
+Q2 — What if I don't have a big audience or following? — "You don't need one. Our entire system is built around direct outreach and referral-based lead generation — not content creation or social media. Our highest-earning clients have under 500 followers on any platform."
+Q3 — I've invested in programs before and got nothing. Why is this different? — "Most programs sell information. We sell implementation. Every week you have a live call where we work through YOUR specific situation — not a recording, not a template answer. Plus our $20K Revenue Guarantee means we keep working with you until results happen. No other program in this space offers that."
+Q4 — How much time does this require per week? — "Plan for 4–6 hours per week. This includes two hours for the core curriculum, one weekly group call, and implementation time. We've designed the program around people who already have a full schedule — because the system works within your current hours, not on top of them."
+Q5 — Is there a money-back guarantee? — "Yes — two layers. First, a full 14-day no-questions-asked refund. If within 14 days you decide it's not right for you, email us and receive a complete refund. Second, our $20K Revenue Guarantee: complete the program, implement the system, and if you don't hit $20K/mo within 90 days of finishing — we coach you for free until you do."
+Q6 — When does it start and how does access work? — "You get immediate access to the full portal upon enrollment. The next live cohort begins the first Monday of next month. You'll receive a welcome email with your login, onboarding call schedule, and community access within 15 minutes of enrolling."
+
+— CONTACT WIDGET —
+Title: Still have a question? · Sub: We typically respond within 2 hours.
+Live Chat (purple bubble icon): "Chat with our team right now" → "Start a conversation →"
+Email Us (green mail icon): support@yourprogram.com → "Send an email →"
+CTA card: "Ready to enroll?" · "Join 500+ clients already inside" · button "Enroll Now →"`,
   },
   {
     id: "footer",
