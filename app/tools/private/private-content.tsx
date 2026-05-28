@@ -4817,14 +4817,71 @@ CTA:            CLAIM YOUR SPOT →`,
     label: "SOCIAL PROOF",
     title: "Social Proof Variation 1",
     description:
-      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+      "Classic 2×2 testimonial grid + brand bar (clean corporate). Aggregate header + 4 cards with star/quote/avatar. Inter, light bg.",
     labelClass: labelClasses.social,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/proof-v1-thumb.webp",
+    funnelTypes: ["Corporate","Coaching","B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- White section bg, container max-width 1140px, padding 96px 24px
+- Centered header: aggregate stat line · H2 · sub
+- 2×2 grid of testimonial cards (gap 24px)
+- Each card: light gray bg, rounded 16px, padding 28px, subtle shadow, hover-lift
+  - Gold star row · italic quote · round avatar photo + bold name + muted title
+- Brand bar below: grayscale CSS text logos, mixed font weights, centered
+- Cards fade up staggered 0.1s
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V1 (2×2 Grid · Clean Corporate).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --bg-alt: #F7F8FA · --accent: #2563EB · --star: #F59E0B · --text: #0E1116 · --muted: #4A5160 · --card-bg: #F7F8FA · --border: #E4E7EB
+
+— FONTS —
+Inter (Google Fonts)
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 across 500+ reviews · 81% client success rate
+H2: Real People. Real Results.
+Sub: Not actors. Not made-up stories. These are verified clients who followed the system.
+Use testimonials: A, B, C, D
+Brand bar: Forbes | Entrepreneur | Inc. | Business Insider
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
   },
   {
     id: "social",
@@ -4832,14 +4889,69 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "SOCIAL PROOF",
     title: "Social Proof Variation 2",
     description:
-      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+      "Dark masonry 3-column grid of 6 testimonials (premium exclusive). Space Grotesk, staggered columns.",
     labelClass: labelClasses.social,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/proof-v2-thumb.webp",
+    funnelTypes: ["High-Ticket","Mastermind","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- Full dark bg (#0A0A0A), container max-width 1200px, padding 100px 24px
+- Centered header: aggregate · H2
+- 3-column masonry grid (middle column offset 20px down), 6 testimonial cards distributed
+- Each card: dark card bg, rounded 14px, padding 26px, star row + italic quote + round avatar photo + name + title
+- Brand bar below: muted white CSS text logos
+- Columns fade in staggered
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V2 (Dark Masonry · Premium).
+
+— BRAND COLORS —
+--bg: #0A0A0A · --card-bg: #141414 · --accent: #F5C842 · --star: #F59E0B · --text: #FFFFFF · --muted: #9A9A9A · --border: #222222
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 · 500+ clients · $2M+ in revenue generated
+H2: The Results Speak for Themselves.
+Use testimonials: A, B, C, D, E, F (distribute across 3 columns)
+Brand bar: Forbes | CNN | Inc. | Fast Company
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
   },
   {
     id: "social",
@@ -4847,14 +4959,71 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "SOCIAL PROOF",
     title: "Social Proof Variation 3",
     description:
-      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+      "Horizontal scroll carousel with arrows + dot pagination + auto-scroll (modern SaaS). DM Sans, light bg.",
     labelClass: labelClasses.social,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/proof-v3-thumb.webp",
+    funnelTypes: ["SaaS","Course","Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- Light gray bg (#F8FAFC), container max-width 1200px, padding 96px 24px
+- Centered header: aggregate · H2 · sub
+- Horizontal scroll carousel (shows ~2.5 cards desktop, ~1.2 mobile)
+  - Each card: white bg + shadow + star row + italic quote + avatar + name
+- Prev/next arrow buttons + dot pagination below
+- Auto-scroll every 4s (pause on hover), active dot indigo
+- Carousel slides in from right on entry
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V3 (Carousel · Modern SaaS).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #4F46E5 · --star: #F59E0B · --text: #0F172A · --muted: #64748B · --card-bg: #FFFFFF · --border: #E2E8F0 · --dot-active: #4F46E5 · --dot-inactive: #CBD5E1
+
+— FONTS —
+DM Sans (Google Fonts)
+
+— COPY —
+Aggregate: ★★★★★ 4.9 average · 500+ verified reviews
+H2: What Our Community Is Saying.
+Sub: Updated weekly with new results.
+Use testimonials: A, B, C, D, E, F (all in carousel)
+Brand bar: Forbes | Entrepreneur | Inc. | Business Insider
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
   },
   {
     id: "social",
@@ -4862,14 +5031,80 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "SOCIAL PROOF",
     title: "Social Proof Variation 4",
     description:
-      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+      "Video testimonial thumbnails + lightbox + text testimonials below (dark neon video-first). Outfit, Unsplash thumbnails.",
     labelClass: labelClasses.social,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/proof-v4-thumb.webp",
+    funnelTypes: ["Coaching","Personal Brand","Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- Dark bg (#0F0F1A), container max-width 1200px, padding 100px 24px
+- Centered header: aggregate · H2 · sub
+- 3 video thumbnail cards in a row: thumbnail bg + dark overlay + purple play button + title + name
+  - Hover: overlay lightens, play button grows
+  - Click: open JS lightbox modal (placeholder video embed)
+- 3 small text testimonials below (D, E, F)
+- Brand bar: muted white CSS text
+- Video cards scale up staggered on entry
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V4 (Video Thumbnails · Dark Neon).
+
+— BRAND COLORS —
+--bg: #0F0F1A · --card-bg: #1A1A2A · --accent: #A855F7 · --star: #F59E0B · --text: #FFFFFF · --muted: #9AA0B0 · --play-bg: rgba(168,85,247,0.9) · --border: #2A2A3A
+
+— FONTS —
+Outfit (Google Fonts)
+
+— VIDEO THUMBNAILS (Unsplash) —
+1: https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80
+2: https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80
+3: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 · Watch real client stories
+H2: Don't Take Our Word for It.
+Sub: Watch what actually happened.
+Video Card 1: "From $8K to $47K in 90 Days" — Marcus T.
+Video Card 2: "Lost 24 lbs Without Starving" — Jennifer K.
+Video Card 3: "Landed $152K Role at Meta" — David L.
+Text testimonials below: D, E, F
+Brand bar: Forbes | Inc. | CNN | Fast Company
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
   },
   {
     id: "social",
@@ -4877,14 +5112,70 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "SOCIAL PROOF",
     title: "Social Proof Variation 5",
     description:
-      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+      "Big featured quote left + 2×2 smaller cards right (warm personal brand). Plus Jakarta Sans, cream bg.",
     labelClass: labelClasses.social,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/proof-v5-thumb.webp",
+    funnelTypes: ["Personal Brand","Coach","Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- Warm cream bg (#FFF8F3), container max-width 1200px, padding 96px 24px
+- Centered header: aggregate · H2 · sub
+- 2-col grid: LEFT 45% featured testimonial (warm tinted bg, orange left border, 56px avatar, large italic quote, bold name+title) | RIGHT 55% 2×2 grid of smaller white cards (star + quote + small avatar + name)
+- Brand bar full width centered below
+- Featured slides left, grid fades in staggered right
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V5 (Featured + Grid · Warm Personal).
+
+— BRAND COLORS —
+--bg: #FFF8F3 · --accent: #EA580C · --star: #F59E0B · --text: #1C1917 · --muted: #78716C · --card-bg: #FFFFFF · --featured-bg: #FFF1E8 · --border: #FED7AA
+
+— FONTS —
+Plus Jakarta Sans (Google Fonts)
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 · 500+ lives changed
+H2: Stories That Say It Better Than We Could.
+Sub: Every result here is real. Every person verified.
+Featured (left): FEATURED quote (Kevin R.)
+Grid (right 2×2): A, B, C, D
+Brand bar: Forbes | Entrepreneur | Inc. | Business Insider
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
   },
   {
     id: "social",
@@ -4892,14 +5183,221 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "SOCIAL PROOF",
     title: "Social Proof Variation 6",
     description:
-      "Who else has this worked for? — Testimonials, ratings, authority by association.",
+      "Stats bar (4 count-up stats) + 3 testimonials row (data-driven). Manrope, light bg + green stats band.",
     labelClass: labelClasses.social,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/proof-v6-thumb.webp",
+    funnelTypes: ["Wellness","Corporate","Consulting"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- White bg, container max-width 1180px, padding 96px 24px
+- Centered header: aggregate · H2
+- Stats bar: light green bg band, 4 equal cells (big colored count-up number + muted label)
+- 3 testimonials in a row below (card bg + star + quote + avatar + name)
+- Brand bar centered muted
+- Stats count up on entry, testimonials fade up staggered
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V6 (Stats Bar + Row · Data-Driven).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --stats-bg: #F0FDF4 · --accent: #16A34A · --star: #F59E0B · --text: #0F172A · --muted: #64748B · --card-bg: #F8FAFC · --border: #E2E8F0 · --stat-1: #16A34A · --stat-2: #2563EB · --stat-3: #D97706 · --stat-4: #7C3AED
+
+— FONTS —
+Manrope (Google Fonts)
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 · Verified by 500+ clients
+H2: The Numbers Back the Stories.
+Stats: 500+ Clients Transformed · 81% Hit Revenue Target · 4.9★ Average Rating · 90d Average to Results
+Use testimonials: A, C, D
+Brand bar: Forbes | Entrepreneur | Inc. | Business Insider | Fast Company
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
+  },
+  {
+    id: "social",
+    number: "07g",
+    label: "SOCIAL PROOF",
+    title: "Social Proof Variation 7",
+    description:
+      "Before/after result cards — 2×2 with star+result badge header (transformation-focused). Nunito, light bg.",
+    labelClass: labelClasses.social,
+    previewSrc: "/private/proof-v7-thumb.webp",
+    funnelTypes: ["Wellness","Coaching","Transformation"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- Light gray bg (#F8FAFC), container max-width 1140px, padding 96px 24px
+- Centered header: aggregate · H2 · sub
+- 2×2 grid of result cards
+  - Each card header row: star rating LEFT + colored result badge RIGHT
+  - Then italic quote body + avatar + name + title
+  - White bg, subtle shadow, hover-lift + badge glow
+- Brand bar centered below
+- Cards fly in from bottom staggered 0.12s
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V7 (Result Cards · Transformation).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #0F766E · --star: #F59E0B · --text: #0F172A · --muted: #64748B · --card-bg: #FFFFFF · --border: #E2E8F0
+Badge colors: green (#DCFCE7/#15803D) · blue (#DBEAFE/#1D4ED8) · amber (#FEF3C7/#B45309) · purple (#EDE9FE/#6D28D9)
+
+— FONTS —
+Nunito (Google Fonts)
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 · 500+ verified transformations
+H2: Specific Results. Specific People. Specific Timeframes.
+Sub: No vague success stories here. Every result is quantified.
+Card 1 (green badge "+$39K/mo"): A
+Card 2 (blue badge "-24 lbs"): B
+Card 3 (amber badge "87 days"): C
+Card 4 (purple badge "$50K/mo"): D
+Brand bar: Forbes | Entrepreneur | Inc. | Business Insider
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
+  },
+  {
+    id: "social",
+    number: "07h",
+    label: "SOCIAL PROOF",
+    title: "Social Proof Variation 8",
+    description:
+      "Single centered hero testimonial that rotates (dark editorial). Syne + Inter, dot nav + auto-rotate + giant quote mark.",
+    labelClass: labelClasses.social,
+    previewSrc: "/private/proof-v8-thumb.webp",
+    funnelTypes: ["Premium","Personal Brand","High-Ticket"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Social Proof section (Section 07 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "Who else has this worked for?"
+
+=== OUTPUT ===
+File: 08-proof-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Aggregate stat in header (★★★★★ 4.9/5 across X reviews · Y% success)
+- Minimum 4 testimonials, each: stars + specific outcome quote (must include numbers + timeframe) + round avatar photo + name + title/location
+- Brand bar below (CSS text media logos, mixed weights, grayscale)
+- All quotes italic
+- Avatars: circular headshot photo — <img>, border-radius 50%, object-fit:cover (use the placeholder URLs from Client Variables; client swaps real client photos)
+
+=== LAYOUT ===
+- Dark bg (#0A0A14), container max-width 700px centered, padding 100px 24px, text-align center
+- Centered header: aggregate · H2 · sub
+- Single rotating testimonial display:
+  - Huge gold CSS quote mark above
+  - Centered gold star row · large italic quote (20px) · 56px avatar circle + bold name + muted title
+- Dot navigation (5 dots) + prev/next arrows
+- Auto-rotate every 5s, active dot gold
+- Brand bar full width below
+- Section fades in, quote transitions on rotate
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Scroll-triggered fade/slide per the layout
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack gracefully, breakpoint 768px
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Social Proof V8 (Single Hero Rotating · Dark Editorial).
+
+— BRAND COLORS —
+--bg: #0A0A14 · --accent: #F5C842 · --star: #F59E0B · --text: #FFFFFF · --muted: #9AA0B0 · --quote-color: #F5C842 · --border: rgba(255,255,255,0.08) · --dot-active: #F5C842 · --dot-inactive: #2A2A3A
+
+— FONTS —
+Syne (headings) + Inter (body)
+
+— COPY —
+Aggregate: ★★★★★ 4.9/5 · 500+ clients · $2M+ generated
+H2: One Story at a Time.
+Sub: Every week, another life changed.
+Rotating testimonials (5): FEATURED, A, B, C, D
+Brand bar: Forbes | CNN | Inc. | Fast Company
+
+— TESTIMONIAL COPY BANK (each line ends with a placeholder headshot URL — swap real client photos) —
+A · ★★★★★ · "I went from $8K months to $47K in month 3. I genuinely didn't believe this was possible until I saw the deposit hit my account." — Marcus T., Business Coach — Austin, TX · badge: +$39K/mo · photo: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80
+B · ★★★★★ · "Down 24 lbs in 8 weeks and my doctor took me off 2 medications. I've tried everything for 6 years. This is the only thing that worked." — Jennifer K., 47 — Phoenix, AZ · badge: -24 lbs · photo: https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80
+C · ★★★★★ · "I landed a $152K offer at Meta in 87 days. I had 1,400 rejections before this program. The system is just different." — David L., Software Engineer — San Francisco, CA · badge: $152K offer · photo: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80
+D · ★★★★★ · "Crossed $50K/mo in month 4. I was stuck at $12K for 18 months before joining. This is the first program that actually delivered." — Sarah M., Marketing Consultant — Chicago, IL · badge: $50K/mo · photo: https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80
+E · ★★★★★ · "From zero clients to a fully booked practice in 90 days. The framework is unlike anything I've seen in 12 years of business." — Rachel B., Executive Coach — New York, NY · badge: Fully booked · photo: https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80
+F · ★★★★★ · "My energy levels are back to what they were in my 30s. I lost 31 lbs without ever feeling deprived. Month 3 was the turning point." — Patricia W., 52 — Seattle, WA · badge: -31 lbs · photo: https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80
+FEATURED · ★★★★★ · "I was the skeptic. I'd bought 4 programs before this one and got nothing. By week 6 I had closed my first $10K client. By month 3 I fired my boss. This program changed my life." — Kevin R., Agency Owner — Miami, FL · photo: https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80
+
+— BRAND BAR (CSS text logos, grayscale) —
+Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
   },
   {
     id: "risk",
