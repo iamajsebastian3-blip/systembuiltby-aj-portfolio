@@ -3284,91 +3284,700 @@ Row 5:
     id: "usp",
     number: "05a",
     label: "USP",
-    title: "Unique Selling Proposition Variation 1",
+    title: "USP Variation 1",
     description:
-      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+      "Classic 3-column icon cards (clean corporate). Money/Process/Forever cards with colored icon blocks + stat pills. Inter, light bg.",
     labelClass: labelClasses.usp,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/usp-v1-thumb.webp",
+    funnelTypes: ["Corporate","B2B","Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium USP section (Section 05 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "Why you and not someone else?" via 3 cards mapped to:
+  Card 1 — Money/Result (quantified outcome)
+  Card 2 — Process/Confidence (how it feels)
+  Card 3 — Long-term/Forever (compounding value)
+
+=== OUTPUT ===
+File: 06-usp-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- White section bg (linear gradient to bg-alt at bottom)
+- Container: max-width 1180px centered, padding 96px 24px
+- Header (centered): uppercase accent label · H2 · sub
+- 3 equal cards (grid-template-columns: repeat(3, 1fr), gap 24px)
+- Each card: white bg, 1px border, rounded 16px, padding 32px, hover-lift + soft shadow
+- Card content: 44px colored icon block (rounded 12px) + bold title + body paragraph + stat pill at bottom
+- Stat pill: small light colored bg matching card theme, padding 8px 14px, rounded 999px
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade up + translateY 16 → 0, staggered 0.1s each
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- 3 cards stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V1 (Classic 3-Column · Clean Corporate) base component.
+
+— BRAND COLORS —
+--bg:      #FFFFFF
+--bg-alt:  #F7F8FA
+--accent:  #2563EB
+--card-1:  #2563EB
+--card-2:  #D97706
+--card-3:  #16A34A
+--text:    #0E1116
+--muted:   #4A5160
+--border:  #E4E7EB
+
+— FONTS —
+Heading & Body Font: Inter (Google Fonts)
+
+— COPY —
+Label: WHY CLIENTS CHOOSE US
+H2:    Not Another Coach. A Proven System.
+Sub:   We don't sell hope. We deliver a repeatable framework backed by 500+ success stories.
+
+— CARD 1 (Money/Result · blue) —
+Icon:  coin
+Title: Guaranteed Revenue Growth
+Body:  81% of our clients cross $30K/mo within their first 90 days — or we keep working with them until they do. No exceptions. No fine print.
+Stat:  $50K avg/mo by week 12
+
+— CARD 2 (Process · amber) —
+Icon:  route
+Title: A System, Not Just Advice
+Body:  Every week you follow a proven playbook — not guesswork. You'll always know exactly what to do next, and why it works.
+Stat:  6-step framework, zero confusion
+
+— CARD 3 (Forever · green) —
+Icon:  infinity
+Title: Skills That Compound Forever
+Body:  What you build here doesn't stop when the program ends. The system, the clients, the confidence — they're yours to keep and scale.
+Stat:  Clients still growing 2 years later`,
   },
   {
     id: "usp",
     number: "05b",
     label: "USP",
-    title: "Unique Selling Proposition Variation 2",
+    title: "USP Variation 2",
     description:
-      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+      "Dark numbered pillars (premium high-ticket). 3 dark cards with big colored numbers + title + body + proof badge. Space Grotesk.",
     labelClass: labelClasses.usp,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/usp-v2-thumb.webp",
+    funnelTypes: ["High-Ticket Coaching","Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium USP section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 06-usp-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark section bg (#0D0D0D)
+- Container: max-width 1200px centered, padding 100px 24px
+- Header (centered): uppercase gold label · H2 · sub
+- 3 dark pillar cards side-by-side (grid 3 cols, gap 24px)
+- Each pillar: bg-card, 2px colored top border (matches pillar color), padding 36px 28px, rounded 12px
+- Pillar content (top → bottom):
+  - Large colored number (clamp 44-56px, Space Grotesk 700, letter-spacing -0.02em)
+  - Title (22px bold)
+  - Body paragraph (15px muted, line-height 1.6)
+  - Proof badge at bottom (small pill, colored bg+text matching pillar)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Pillars slide up + fade, staggered 0.12s each
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Pillars stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V2 (Dark Numbered Pillars · High-Ticket) base component.
+
+— BRAND COLORS —
+--bg:      #0D0D0D
+--bg-card: #1A1A1A
+--accent:  #F5C842
+--num-1:   #3B82F6
+--num-2:   #F59E0B
+--num-3:   #22C55E
+--text:    #FFFFFF
+--muted:   #9A9A9A
+--border:  #2A2A2A
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— COPY —
+Label: THE THREE PILLARS
+H2:    Three Reasons Our Clients Win.
+Sub:   While others are still figuring out the basics, our clients are already cashing the checks.
+
+— PILLAR 01 (Money · blue) —
+Number: 01
+Title:  Speed to Revenue
+Body:   Our onboarding process gets you earning faster than any program on the market. First client closed within 14 days — average.
+Proof:  Avg first sale: 14 days
+
+— PILLAR 02 (Process · amber) —
+Number: 02
+Title:  Done-With-You Execution
+Body:   This isn't a course you watch alone at midnight. We build alongside you — weekly calls, real feedback, real accountability.
+Proof:  Weekly live coaching included
+
+— PILLAR 03 (Forever · green) —
+Number: 03
+Title:  Permanent Transformation
+Body:   By the time you finish, you won't need us anymore — because you'll have internalized a system that works in any market, any economy.
+Proof:  Skills last a lifetime`,
   },
   {
     id: "usp",
     number: "05c",
     label: "USP",
-    title: "Unique Selling Proposition Variation 3",
+    title: "USP Variation 3",
     description:
-      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+      "Split — left headline/intro/CTA + right 3 compact horizontal cards stacked. Warm cream bg, Plus Jakarta Sans, approachable.",
     labelClass: labelClasses.usp,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/usp-v3-thumb.webp",
+    funnelTypes: ["Personal Brand","Coach"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium USP section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 06-usp-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Warm cream bg (#FFF8F3)
+- Container: max-width 1200px centered, padding 96px 24px
+- 2-column grid: 40% left / 60% right, gap 56px, align-items center
+- LEFT:
+  - Uppercase accent label
+  - H2 (large bold) with an italic accent second-line ("We've Lived It.")
+  - Body paragraph (muted, line-height 1.65)
+  - CTA outlined orange pill
+- RIGHT: 3 compact horizontal cards stacked, gap 16px
+  - Each card: bg white, 1px border, rounded 14px, padding 22px 24px
+  - Layout per card: 48px colored icon block left + (title + body) right
+  - Title 18px bold + body 14.5px muted
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left content fades in from left
+- Right cards slide in from right staggered 0.12s each
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid stacks to single column
+- Left content first, cards below
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V3 (Split + Stacked Cards · Warm Personal) base component.
+
+— BRAND COLORS —
+--bg:      #FFF8F3
+--accent:  #EA580C
+--text:    #1C1917
+--muted:   #78716C
+--border:  #FED7AA
+--card-1:  #3B82F6
+--card-2:  #F59E0B
+--card-3:  #22C55E
+
+— FONTS —
+Heading & Body Font: Plus Jakarta Sans (Google Fonts)
+
+— LEFT COLUMN —
+Label:       THE HONEST DIFFERENCE
+H2:          We Don't Just Teach It.
+H2 Accent:   We've Lived It.
+Body:        Every framework we teach was born from real failures and real wins — not theory. That's why it works for our clients the way it never worked with anyone else.
+CTA:         See How It Works →
+
+— RIGHT CARDS —
+Card 1 (blue · Result):
+  Icon:  coin
+  Title: Quantified Outcomes
+  Body:  Average client adds $2,400/mo in new revenue within 30 days.
+
+Card 2 (amber · Process):
+  Icon:  route
+  Title: Hands-On Partnership
+  Body:  You're never doing this alone. Real humans, real feedback, real accountability every week.
+
+Card 3 (green · Forever):
+  Icon:  infinity
+  Title: Yours to Keep
+  Body:  The system lives in your business long after the program ends.`,
   },
   {
     id: "usp",
     number: "05d",
     label: "USP",
-    title: "Unique Selling Proposition Variation 4",
+    title: "USP Variation 4",
     description:
-      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+      "3 large stat cards (corporate/consulting). Each card features a massive count-up number + title + body. Manrope, data-driven.",
     labelClass: labelClasses.usp,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/usp-v4-thumb.webp",
+    funnelTypes: ["Consulting","Finance","Corporate"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium USP section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 06-usp-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light gray bg (#F8FAFC)
+- Container: max-width 1180px centered, padding 96px 24px
+- Header (centered): uppercase teal label · H2 · sub
+- 3 white stat cards (grid 3 cols, gap 28px)
+- Each card: bg --card-bg white, 1px border, rounded 18px, 3px top border (theme color), padding 40px 32px, text-align center
+- Card content: huge count-up number (clamp 48-72px bold, theme color) + title (20px bold) + body (15px muted)
+- Hover: card lifts + shadow deepens
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade up staggered
+- Numbers count up from 0 → target on scroll entry (1.4s ease)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V4 (Big Stat Cards · Corporate Data-Driven) base component.
+
+— BRAND COLORS —
+--bg:       #F8FAFC
+--accent:   #0F766E
+--stat-1:   #0F766E
+--stat-2:   #D97706
+--stat-3:   #7C3AED
+--text:     #0F172A
+--muted:    #64748B
+--border:   #E2E8F0
+--card-bg:  #FFFFFF
+
+— FONTS —
+Heading & Body Font: Manrope (Google Fonts)
+
+— COPY —
+Label: THE NUMBERS BEHIND THE METHOD
+H2:    We Measure Everything. So You Don't Have To.
+Sub:   Three metrics that define why our approach works — and why others don't come close.
+
+— STAT 1 (teal · Money) —
+Big number: $50K
+Title:      Monthly Revenue Target
+Body:       The income milestone our program is engineered to hit — with a documented path to get there in 90 days or less.
+
+— STAT 2 (amber · Process) —
+Big number: 81%
+Title:      Client Success Rate
+Body:       Of clients who complete the program hit their stated revenue goal within the first quarter. Tracked and verified.
+
+— STAT 3 (purple · Forever) —
+Big number: 14x
+Title:      Average ROI
+Body:       For every dollar invested in the program, our clients report an average 14x return within their first year.`,
   },
   {
     id: "usp",
     number: "05e",
     label: "USP",
-    title: "Unique Selling Proposition Variation 5",
+    title: "USP Variation 5",
     description:
-      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+      "Overlapping gradient accent cards (dark neon premium SaaS). 3 cards with colored gradient bg + border + stat badge. Outfit.",
     labelClass: labelClasses.usp,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/usp-v5-thumb.webp",
+    funnelTypes: ["SaaS","Tech Coaching","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium USP section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 06-usp-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Very dark bg (#0F0F23)
+- Container: max-width 1200px centered, padding 96px 24px
+- Header (centered): uppercase accent label · H2 · sub
+- 3 cards side-by-side (grid 3 cols, gap 24px)
+- Each card: gradient bg (linear-gradient from theme-color/15 → theme-color/03), 1px colored border, rounded 18px, padding 32px 28px
+- Card content: large theme-colored icon (32px) at top + title (20px bold white) + body (15px muted) + stat badge at bottom (pill, matching color)
+- Hover: glow intensifies (box-shadow expand in card color)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade + scale 0.95 → 1, staggered 0.15s
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V5 (Gradient Accent Cards · Dark Neon SaaS) base component.
+
+— BRAND COLORS —
+--bg:           #0F0F23
+--accent:       #7C3AED
+--card-1-from:  rgba(59,130,246,0.15)
+--card-1-to:    rgba(59,130,246,0.03)
+--card-2-from:  rgba(245,158,11,0.15)
+--card-2-to:    rgba(245,158,11,0.03)
+--card-3-from:  rgba(34,197,94,0.15)
+--card-3-to:    rgba(34,197,94,0.03)
+--text:         #FFFFFF
+--muted:        #9AA0B0
+--border-1:     rgba(59,130,246,0.35)
+--border-2:     rgba(245,158,11,0.35)
+--border-3:     rgba(34,197,94,0.35)
+
+— FONTS —
+Heading & Body Font: Outfit (Google Fonts)
+
+— COPY —
+Label: YOUR UNFAIR ADVANTAGE
+H2:    Three Things No One Else Is Offering.
+Sub:   We searched. We compared. We built what was missing.
+
+— CARD 1 (blue · Money) —
+Icon:  coin
+Title: Revenue You Can Predict
+Body:  Stop hoping for good months. Start engineering them. Our pipeline system creates revenue visibility 90 days out.
+Stat:  $50K avg/mo
+
+— CARD 2 (amber · Process) —
+Icon:  route
+Title: Clarity on Every Step
+Body:  No more paralysis. No more rabbit holes. A clear weekly action plan mapped to your specific situation.
+Stat:  Zero guesswork
+
+— CARD 3 (green · Forever) —
+Icon:  infinity
+Title: A Business That Outlasts You
+Body:  We build systems, not habits. What we install runs whether you show up or not — and grows while you sleep.
+Stat:  Scalable forever`,
   },
   {
     id: "usp",
     number: "05f",
     label: "USP",
-    title: "Unique Selling Proposition Variation 6",
+    title: "USP Variation 6",
     description:
-      "Why you and not someone else? — Positioning, uniqueness, benefits.",
+      "Full dark neon glow cards (high-performance coaching). 3 cards with massive count-up numbers + radial box-shadow glow. Syne + Inter.",
     labelClass: labelClasses.usp,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/usp-v6-thumb.webp",
+    funnelTypes: ["Performance Coaching","Premium","High-Ticket"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium USP section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 06-usp-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Very dark purple-black bg (#050510)
+- Container: max-width 1200px centered, padding 100px 24px
+- Header (centered): uppercase accent (--accent purple) label · H2 (Syne) · sub
+- 3 cards side-by-side (grid 3 cols, gap 28px)
+- Each card: dark bg, 1px theme-colored border, rounded 18px, padding 36px 32px, text-align center
+- Card content: massive count-up number (clamp 52-72px Syne 700, theme color) + title (Syne 22px bold) + body (Inter 15px muted line-height 1.6)
+- Each card has CSS box-shadow glow behind in theme color (50px blur, 0.25 opacity)
+- Glow pulses once on entry (box-shadow expand and settle)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade + scale 0.95 → 1, staggered 0.15s
+- Numbers count up from 0 → target (1.4s ease)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V6 (Neon Glow Cards · High-Performance) base component.
+
+— BRAND COLORS —
+--bg:       #050510
+--accent:   #A855F7
+--glow-1:   rgba(59,130,246,0.25)
+--glow-2:   rgba(245,158,11,0.25)
+--glow-3:   rgba(34,197,94,0.25)
+--num-1:    #3B82F6
+--num-2:    #F59E0B
+--num-3:    #22C55E
+--text:     #FFFFFF
+--muted:    #8B8BA0
+--border-1: rgba(59,130,246,0.3)
+--border-2: rgba(245,158,11,0.3)
+--border-3: rgba(34,197,94,0.3)
+
+— FONTS —
+Heading Font: Syne (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— COPY —
+Label: THE ADVANTAGE
+H2:    Three Numbers That Say Everything.
+Sub:   We don't ask you to trust us. We show you the receipts.
+
+— GLOW CARD 1 (blue · Money) —
+Big number: $50K
+Title:      Average Monthly Revenue
+Body:       By the end of week 12, the average client in this program is earning $50K/mo or more. Not a projection. An average.
+
+— GLOW CARD 2 (amber · Process) —
+Big number: 81%
+Title:      Client Success Rate
+Body:       8 in 10 clients who complete the program hit their stated income goal within 90 days. We track every single one.
+
+— GLOW CARD 3 (green · Forever) —
+Big number: 90
+Title:      Days to Full Results
+Body:       Not 6 months. Not a year. 90 days from onboarding to a business that runs itself and pays you like one.`,
+  },
+  {
+    id: "usp",
+    number: "05g",
+    label: "USP",
+    title: "USP Variation 7",
+    description:
+      "Centered manifesto headline + 3 colored pill bullets (editorial premium). DM Serif Display + DM Sans, authoritative.",
+    labelClass: labelClasses.usp,
+    previewSrc: "/private/usp-v7-thumb.webp",
+    funnelTypes: ["Editorial Brand","Premium Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium USP section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 06-usp-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light gray section bg (#FAFAFA)
+- Container: max-width 880px centered, padding 100px 24px, text-align center
+- Uppercase accent label
+- H2 with serif font (DM Serif Display, clamp 36-56px), 2 lines, last line in accent green italic
+- Body paragraph (DM Sans 17px muted line-height 1.7, max-width 640px centered, margin-top 24px)
+- Below body: 3 horizontal pills in a row (gap 14px, justify-center, flex-wrap)
+- Each pill: rounded 999px, padding 12px 22px, colored bg + 1px colored border, icon + text inline
+- Pill 1 blue, Pill 2 amber, Pill 3 green
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Headline fades up, body fades up after
+- Pills fade up staggered 0.12s each
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Pills stack to column (justify-center, gap 12px)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V7 (Centered Manifesto + Pills · Editorial) base component.
+
+— BRAND COLORS —
+--bg:           #FAFAFA
+--accent:       #16A34A
+--pill-1-bg:    #EFF6FF
+--pill-1-border:#BFDBFE
+--pill-1-color: #1D4ED8
+--pill-2-bg:    #FFFBEB
+--pill-2-border:#FDE68A
+--pill-2-color: #B45309
+--pill-3-bg:    #F0FDF4
+--pill-3-border:#BBF7D0
+--pill-3-color: #15803D
+--text:         #111827
+--muted:        #6B7280
+--border:       #E5E7EB
+
+— FONTS —
+Heading Font: DM Serif Display (Google Fonts)
+Body Font:    DM Sans (Google Fonts)
+
+— COPY —
+Label:     THE REAL DIFFERENCE
+H2:        We Built the Thing We Wished Existed.
+H2 Accent: Now It's Yours.
+Body:      After years of buying programs that promised everything and delivered templates, we rebuilt the entire experience from the ground up. No fluff. No filler. Just the exact moves that create real results — mapped to your specific situation.
+
+— PILLS —
+Pill 1 (blue · coin):     Revenue you can predict
+Pill 2 (amber · route):   A process that actually fits
+Pill 3 (green · infinity): Skills that compound for life`,
+  },
+  {
+    id: "usp",
+    number: "05h",
+    label: "USP",
+    title: "USP Variation 8",
+    description:
+      "Tabbed USP with detail panel (friendly coaching). 3 clickable tabs + detail panel below with big number + title + body. Nunito.",
+    labelClass: labelClasses.usp,
+    previewSrc: "/private/usp-v8-thumb.webp",
+    funnelTypes: ["Coaching","Course","Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium USP section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 06-usp-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- White section bg
+- Container: max-width 1100px centered, padding 96px 32px
+- Header (centered): uppercase accent label · H2 · sub
+- Tab bar (3 buttons in a row, gap 12px, justify-center, margin 32px 0 28px)
+  - Each tab: icon + label, padding 12px 24px, rounded 999px, font-weight 700
+  - Active: --tab-active (indigo) bg + white text
+  - Inactive: light gray bg + muted text, hover slightly darker
+- Detail panel below: --panel-bg light indigo, rounded 20px, padding 48px 40px
+  - Grid 2 cols: BIG NUMBER (Nunito clamp 60-96px, indigo) left + (TITLE + BODY) right
+- JS: click tab → switch active class + show that tab's panel content
+
+=== ANIMATIONS ===
+- Tabs slide down from top
+- Panel fades in on tab switch (.25s)
+- Big number count-up on first activation
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Tab bar scrolls horizontally (overflow-x auto)
+- Panel grid becomes single column (number on top, text below)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V8 (Tabbed USP · Friendly Coaching) base component.
+
+— BRAND COLORS —
+--bg:         #FFFFFF
+--accent:     #4F46E5
+--tab-active: #4F46E5
+--text:       #0F172A
+--muted:      #64748B
+--border:     #E2E8F0
+--panel-bg:   #F8FAFF
+
+— FONTS —
+Heading & Body Font: Nunito (Google Fonts)
+
+— COPY —
+Label: THREE CORE ADVANTAGES
+H2:    Pick the One That Matters Most to You.
+Sub:   They all come included — but each one alone is worth the investment.
+
+— TAB 1 (coin · Money) —
+Tab label:        Revenue
+Panel big number: $50K
+Panel title:      Predictable $50K Months
+Panel body:       We engineer your revenue, not just your mindset. The program is built around one outcome — getting you to $50K/mo — and every module maps to that goal.
+
+— TAB 2 (route · Process) —
+Tab label:        Clarity
+Panel big number: 6 Steps
+Panel title:      A Process That Removes All Doubt
+Panel body:       Six steps. Every week. You always know exactly what to do, what to say, and who to talk to. No confusion. No second-guessing.
+
+— TAB 3 (infinity · Forever) —
+Tab label:        Legacy
+Panel big number: Forever
+Panel title:      A Business That Outlives the Program
+Panel body:       When the 12 weeks end, the business doesn't. We build infrastructure, not just skills — so everything keeps growing whether you're working or not.`,
+  },
+  {
+    id: "usp",
+    number: "05i",
+    label: "USP",
+    title: "USP Variation 9",
+    description:
+      "Staggered offset cards with cascading waterfall layout (dark bold agency). 3 cards each offset down further than the last. Space Grotesk.",
+    labelClass: labelClasses.usp,
+    previewSrc: "/private/usp-v9-thumb.webp",
+    funnelTypes: ["Agency","Bold Brand","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium USP section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 06-usp-11.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark navy bg (#0A0A1A)
+- Container: max-width 1200px centered, padding 100px 24px
+- Header (centered or left): uppercase amber label · H2 · sub
+- 3 cards side-by-side with staggered vertical offsets (cascading waterfall):
+  - Card 1: margin-top 0
+  - Card 2: margin-top 32px
+  - Card 3: margin-top 64px
+- Each card: --card-bg, 3px solid colored top border, rounded 16px, padding 32px 28px
+- Card content: large theme-colored icon (48px) + title (22px bold) + body (15px muted line-height 1.6) + stat pill at bottom
+- Subtle dashed connector line between cards (decorative SVG or pseudo-element)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fly in from right (translateX 30 → 0) + fade, staggered 0.2s
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Remove staggered offsets (all cards margin-top 0)
+- Stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the USP V9 (Staggered Offset Cards · Dark Bold Agency) base component.
+
+— BRAND COLORS —
+--bg:       #0A0A1A
+--card-bg:  #12122A
+--accent:   #F59E0B
+--card-1:   #3B82F6
+--card-2:   #F59E0B
+--card-3:   #22C55E
+--text:     #FFFFFF
+--muted:    #8B8BA0
+--border:   #1E1E3A
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— COPY —
+Label: WHY WE WIN
+H2:    The Three Layers of Our Edge.
+Sub:   Stack them together and you get something no competitor can replicate.
+
+— CARD 1 (blue · offset 0) —
+Icon:  coin
+Title: The Revenue Engine
+Body:  A client acquisition system that generates $20K–$50K/mo without paid ads, cold email, or posting 3x a day.
+Stat:  $50K avg/mo
+
+— CARD 2 (amber · offset 32px) —
+Icon:  route
+Title: The Clarity Machine
+Body:  A week-by-week execution map so you always know the single highest-leverage action to take right now.
+Stat:  Zero confusion
+
+— CARD 3 (green · offset 64px) —
+Icon:  infinity
+Title: The Compounding Asset
+Body:  Every client you close, every system you build, every skill you acquire — it compounds into a business that runs without you.
+Stat:  Grows forever`,
   },
   {
     id: "offer",
