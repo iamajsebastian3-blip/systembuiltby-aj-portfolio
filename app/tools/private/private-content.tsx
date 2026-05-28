@@ -16,9 +16,8 @@ type SectionId =
   | "authority"
   | "urgency"
   | "faq"
-  | "footer"
-  | "nav";
-type TabId = SectionId | "gpt" | "builder";
+  | "footer";
+type TabId = SectionId | "builder";
 
 type Section = {
   id: SectionId;
@@ -47,7 +46,6 @@ const labelClasses: Record<SectionId, string> = {
   urgency: "text-[#FF8585]",
   faq: "text-[#B8D8E0]",
   footer: "text-[#94A3B8]",
-  nav: "text-[#A09AB8]",
 };
 
 const sections: Section[] = [
@@ -7383,103 +7381,442 @@ CTA card: "Ready to enroll?" · "Join 500+ clients already inside" · button "En
   },
   {
     id: "footer",
-    number: "12",
+    number: "12a",
     label: "FOOTER",
-    title: "Footer",
+    title: "Footer Variation 1",
     description:
-      "Logo + Privacy / Terms / Disclaimer / Contact. Minimal, intentional whitespace.",
+      "Classic final CTA + simple footer (logo · nav · ©). Inter, clean corporate · blue.",
     labelClass: labelClasses.footer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/footer-v1-thumb.webp",
+    funnelTypes: ["Corporate", "Coaching", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: the closing ask — make the decision now.
+
+=== OUTPUT ===
+File: 13-footer-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- H2 restates the core promise as a directive
+- Short paragraph restates audience + social proof
+- CTA button includes the price in microcopy ("Enroll Now — $4,997 →")
+- Trust line: refund + guarantee + payment plan
+- Footer: logo (left) + nav links + © (right); nav = Privacy | Terms | Disclaimer | Contact
+- min CTA height 300px
+
+=== LAYOUT ===
+- Light CTA section, centered column (max-width 760px): small uppercase label → large bold H2 → muted 18px sub → blue CTA pill (price in button) → small muted trust line
+- Separator line, then footer (light-blue bg): logo left + nav links inline center + © right
+
+=== ANIMATIONS (IntersectionObserver) ===
+- CTA section fades up · CTA button pulses once on entry · footer links hover-underline
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Footer stacks; nav links wrap
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V1 (Classic Final CTA · Clean Corporate).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --cta-bg: #F7F8FA · --accent: #2563EB · --text: #0E1116 · --muted: #4A5160 · --footer-bg: #F0F4FF · --border: #E4E7EB · --cta-btn: #2563EB
+
+— FONTS —
+Inter (Google Fonts)
+
+— COPY —
+Label: YOUR MOVE
+H2: Stop Waiting for the Right Moment. This Is It.
+Sub: "Join 500+ coaches, consultants, and service providers who made the same decision you're about to make. The program works. The guarantee protects you. The only question is whether you're ready."
+CTA: Enroll Now — $4,997 →
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Footer: Logo "Revenue Architecture" · nav: Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
   },
   {
-    id: "nav",
-    number: "—",
-    label: "NAVIGATION (UTILITY)",
-    title: "Navigation Bar",
+    id: "footer",
+    number: "12b",
+    label: "FOOTER",
+    title: "Footer Variation 2",
     description:
-      "Optional utility component — not part of the 10P sequence. Use only when a sales page needs a full nav bar.",
-    labelClass: labelClasses.nav,
-    basePrompt: `Coming soon.
+      "Split final CTA (left) + 4 trust signals (right), dark footer. Manrope, trust-heavy · green.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v2-thumb.webp",
+    funnelTypes: ["Corporate", "Consulting", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
-  },
-];
+ANSWERS: the closing ask — make the decision now.
 
-const gptPrompts: { id: string; label: string; body: string }[] = [
-  {
-    id: "g1",
-    label: "📸 PROMPT 1 — Extend Background Around Your Photo",
-    body: `Attached is my photo. I need you to extend the background around me and create a professional hero section image for my coaching/agency website.
+=== OUTPUT ===
+File: 13-footer-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
 
-IMPORTANT: Do NOT change, alter, or modify my face, body, or appearance in any way whatsoever. Keep me exactly as I appear in the photo.
+=== 10P REQUIREMENTS ===
+- H2 directive · short paragraph (audience + social proof)
+- CTA button with price microcopy · trust line (refund + guarantee + payment plan)
+- Footer: logo + Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
 
-Background to generate:
-- Dark cinematic environment — deep purple-black tones (#0D0B1F palette)
-- Subtle volumetric light from slightly behind and above me (rim lighting effect)
-- Background atmosphere: premium agency/tech studio — modern, not corporate
-- Add soft out-of-focus bokeh light spheres in the background (purple and gold tones)
-- Very subtle geometric lines or grid in the far background (barely visible texture)
+=== LAYOUT ===
+- Split CTA wrapper · LEFT 55% (white): H2 + sub + green CTA + trust line · RIGHT 45% (light green): 4 trust signals (icon + title + body each: 30-day refund · secure checkout · $20K guarantee · 500+ enrolled)
+- Dark navy footer below: logo left + nav center + © right
 
-Composition:
-- Output: 1440x810px horizontal (16:9)
-- Place me center-left, leaving the right ~40% open for headline text overlay
-- Background should feel deep and spacious, not crowded
+=== ANIMATIONS (IntersectionObserver) ===
+- Left slides up · right trust signals stagger in · CTA pulses once · footer links hover-underline
+- prefers-reduced-motion: skip
 
-Mood: Bold, modern, high-authority. Like a premium SaaS founder photo shoot — confident, dark, cinematic.`,
-  },
-  {
-    id: "g2",
-    label: "🖼️ PROMPT 2 — Background Only (You Drop Your Photo In After)",
-    body: `Create a hero section background image for a high-ticket coaching and automation agency website.
+=== MOBILE (≤768px) ===
+- Stack (CTA top, trust signals below, dark footer)
 
-DO NOT include any people, faces, or figures — this is a background layer only. I will add my own photo on top in Canva or Figma.
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V2 (Split CTA + Trust Signals · Trust-Heavy).
 
-Background specs:
-- Color palette: deep purple-black gradient (#0D0B1F to #130F2A)
-- Lighting: subtle volumetric glow from center-top, fading to near-black at edges
-- Texture: extremely faint circuit-board or geometric mesh lines (10–15% opacity max)
-- Left side: slightly lighter — this is where my portrait photo will be placed
-- Right side: darker and more open — this is where headline text will appear
-- Small soft bokeh orbs scattered in background (purple #7C5CFC and gold #F5C842 at very low opacity)
+— BRAND COLORS —
+--bg: #F8FAFC · --left-bg: #FFFFFF · --right-bg: #F0FDF4 · --accent: #16A34A · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --footer-bg: #0F172A · --footer-text: #94A3B8 · --cta-btn: #16A34A · signals: green/blue/amber/purple
 
-Output: 1440 x 810px. No text. No logos. No people. Pure atmospheric background.`,
+— FONTS —
+Manrope (Google Fonts)
+
+— COPY —
+H2: You Already Know What You Need to Do.
+Sub: "Join 500+ coaches, consultants, and service providers who made the same decision you're about to make. The program works. The guarantee protects you. The only question is whether you're ready."
+CTA: Claim My Spot — $4,997 →
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Trust signals: "30-Day Money-Back Guarantee / Full refund, no questions asked" · "256-bit Secure Checkout / Your information is protected" · "$20K Revenue Guarantee / We coach you free until you win" · "500+ Clients Already Enrolled / Join a proven community"
+Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
   },
   {
-    id: "g3",
-    label: "⚡ PROMPT 3 — Midjourney / Adobe Firefly Version",
-    body: `Dark cinematic hero background for a premium coaching and automation agency website. Deep purple-black atmospheric gradient. Subtle soft bokeh light orbs in purple and warm gold tones, barely visible geometric grid lines in the far background, dramatic volumetric rim light from upper-left. Film noir meets modern SaaS aesthetic. Left half slightly lighter for portrait overlay, right half darker for headline text. Ultra-widescreen 16:9. No people, no text, no logos, no faces. Clean and layered. --ar 16:9 --style raw --q 2 --v 6`,
+    id: "footer",
+    number: "12c",
+    label: "FOOTER",
+    title: "Footer Variation 3",
+    description:
+      "Minimal CTA + rich 4-column footer (Program / Support / Legal + social). DM Sans, modern SaaS · indigo.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v3-thumb.webp",
+    funnelTypes: ["SaaS", "Agency", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: the closing ask — make the decision now.
+
+=== OUTPUT ===
+File: 13-footer-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- H2 directive · CTA with price microcopy · trust line
+- Footer includes Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
+
+=== LAYOUT ===
+- White CTA section: centered, minimal — H2 → indigo CTA button → trust line only
+- Dark indigo footer, 4 columns: (1) logo + tagline + social icons · (2) Program links · (3) Support links · (4) Legal links (Privacy/Terms/Disclaimer/Cookie); bottom bar with centered ©
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Footer columns fade up staggered · CTA pulses once · links hover-underline
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- CTA full width; footer 2×2 grid; bottom bar stacks
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V3 (Minimal CTA + Rich 4-Col Footer · Modern SaaS).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --cta-bg: #F0F7FF · --accent: #4F46E5 · --text: #0F172A · --muted: #64748B · --footer-bg: #1E1B4B · --footer-muted: #A5B4FC · --border: #E2E8F0 · --cta-btn: #4F46E5
+
+— FONTS —
+DM Sans (Google Fonts)
+
+— COPY —
+H2: The Only Thing Between You and $50K/mo Is This Decision.
+CTA: Yes, I'm Ready — $4,997 →
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Footer Col 1: "Revenue Architecture" + "Building the future of professional coaching." + social (f · in · yt · x)
+Col 2 Program: About the Method, Success Stories, The Guarantee, Start Here
+Col 3 Support: FAQ, Contact Us, Refund Policy, Affiliate Program
+Col 4 Legal: Privacy Policy, Terms of Service, Disclaimer, Cookie Policy
+Bottom: © 2026 Revenue Architecture. All rights reserved.`,
   },
   {
-    id: "g4",
-    label: "📋 HOW TO USE — Step by Step",
-    body: `STEP 1 — Prepare your photo
-Best results: high-quality PNG, clean lighting, simple background (plain wall), wearing dark/neutral clothing so you blend with the dark background.
+    id: "footer",
+    number: "12d",
+    label: "FOOTER",
+    title: "Footer Variation 4",
+    description:
+      "Gradient-accent CTA (animated shimmer) + minimal centered footer. Outfit, premium wellness · purple.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v4-thumb.webp",
+    funnelTypes: ["Wellness", "Coaching", "Personal Brand"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-STEP 2 — ChatGPT (with your photo)
-Go to ChatGPT with GPT-4o. Upload your photo. Paste Prompt 1. This extends the bg around you while keeping your face 100% intact.
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-STEP 3 — Background-only approach
-Use Prompt 2 (no photo needed). Generate just the background. Then in Canva: Upload your photo → use Background Remover → layer your cutout over the generated bg. Adjust placement and scale.
+ANSWERS: the closing ask — make the decision now.
 
-STEP 4 — Midjourney / Firefly
-Use Prompt 3 in Midjourney (v6) or Adobe Firefly. Background only. Then composite in Canva or Figma.
+=== OUTPUT ===
+File: 13-footer-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
 
-STEP 5 — Final assembly in Canva
-1. Background image (generated) → set as full-bleed base layer
-2. Your photo (background removed) → position center-left, scale to fit the hero height
-3. Gradient overlay → dark fade from right side toward center for headline readability
-4. Headline text → place on the right ~40%, use Space Grotesk Bold, white + one phrase in gold (#F5C842)
-5. Export at 1440×810px JPG (quality 85) or WebP for the live site.
+=== 10P REQUIREMENTS ===
+- Label + H2 directive · short paragraph (audience + social proof)
+- CTA with price microcopy · trust line
+- Footer includes Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
 
-PRO TIP: Always generate 3–4 variations and pick the one with the cleanest negative space for text. Don't settle for the first output.`,
+=== LAYOUT ===
+- CTA section with a subtle diagonal indigo→green gradient bg (animated shimmer via CSS keyframes), centered column
+- Label (uppercase purple) → bold H2 → muted sub → purple CTA pill → small trust line
+- Minimal footer: logo centered + nav links centered + © centered (3 stacked rows), white bg, light top border
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Gradient shimmer loop · CTA glows on entry · links hover-underline
+- prefers-reduced-motion: skip (freeze gradient)
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V4 (Gradient Accent CTA · Premium Wellness).
+
+— BRAND COLORS —
+--bg: #FAFAFA · --gradient-from: #EEF2FF · --gradient-to: #F0FDF4 · --accent: #7C3AED · --text: #0F172A · --muted: #64748B · --footer-bg: #FFFFFF · --border: #E5E7EB · --cta-btn: #7C3AED
+
+— FONTS —
+Outfit (Google Fonts)
+
+— COPY —
+Label: ONE LAST THING
+H2: Every Day You Wait Is Another Day Someone Else Gets There First.
+Sub: "Join 500+ coaches, consultants, and service providers who made the same decision you're about to make. The program works. The guarantee protects you. The only question is whether you're ready."
+CTA: Start Today — $4,997 →
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
+  },
+  {
+    id: "footer",
+    number: "12e",
+    label: "FOOTER",
+    title: "Footer Variation 5",
+    description:
+      "Stats recap (4 count-up stats) + final CTA + dark footer. Space Grotesk, results-obsessed · gold.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v5-thumb.webp",
+    funnelTypes: ["High-Ticket", "Premium", "Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: the closing ask — make the decision now.
+
+=== OUTPUT ===
+File: 13-footer-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- H2 directive · short paragraph (audience + social proof)
+- CTA with price microcopy · trust line
+- Footer includes Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
+
+=== LAYOUT ===
+- Full dark bg · stats bar: 4 colored count-up numbers in a row (count up on scroll entry)
+- Below stats: centered H2 + sub + gold CTA (dark text) + muted trust line
+- Dark footer (#080808): logo left + nav center + © right
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Stats count up on entry · CTA section fades up after stats · CTA pulses once · links hover-underline
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stats 2×2, full-width CTA
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V5 (Stats Recap + CTA · Results-Obsessed).
+
+— BRAND COLORS —
+--bg: #0A0A0A · --stats-bg: #111111 · --accent: #F5C842 · stat-1: #3B82F6 · stat-2: #22C55E · stat-3: #F59E0B · stat-4: #A855F7 · --text: #FFFFFF · --muted: #9A9A9A · --footer-bg: #080808 · --border: #222222 · --cta-btn: #F5C842 · --cta-text: #0A0A0A
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COPY —
+Stats (count-up): 500+ Clients Transformed · $2M+ Client Revenue Generated · 81% Success Rate · 4.9★ Average Rating
+H2: The Numbers Don't Lie. Neither Do We.
+Sub: "Join 500+ coaches, consultants, and service providers who made the same decision you're about to make. The program works. The guarantee protects you. The only question is whether you're ready."
+CTA: Enroll Now — $4,997 →
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
+  },
+  {
+    id: "footer",
+    number: "12f",
+    label: "FOOTER",
+    title: "Footer Variation 6",
+    description:
+      "Gold neon dark final CTA (radial glow + price-increase line). Space Grotesk, exclusive high-ticket · gold.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v6-thumb.webp",
+    funnelTypes: ["High-Ticket", "Mastermind", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: the closing ask — make the decision now.
+
+=== OUTPUT ===
+File: 13-footer-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Badge + H2 directive (accent on last line) · short paragraph
+- CTA with price microcopy · trust line · stack a price-increase urgency line
+- Footer includes Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
+
+=== LAYOUT ===
+- Full black bg with a gold radial glow behind the CTA (CSS only)
+- Badge (gold pill) → H2 (white + gold accent on last line) → muted sub → gold CTA (black text) → red price-urgency line → muted trust line
+- Very dark footer with a gold top border: logo left + nav center + © right (all muted)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Glow expands on entry · CTA pulses gold once · links hover-underline
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V6 (Gold Neon Dark Final CTA · Exclusive).
+
+— BRAND COLORS —
+--bg: #050505 · --glow: rgba(245,200,66,0.12) · --accent: #F5C842 · --text: #FFFFFF · --muted: #9A9A9A · --footer-bg: #030303 · --border: rgba(255,255,255,0.06) · --cta-btn: #F5C842 · --cta-text: #050505 · --badge-bg: rgba(245,200,66,0.12) · --danger: #EF4444
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COPY —
+Badge: THE FINAL WORD
+H2: Stop Waiting for the Right Moment. This Is It.   (gold-accent "This Is It.")
+Sub: "Join 500+ coaches, consultants, and service providers who made the same decision you're about to make. The program works. The guarantee protects you. The only question is whether you're ready."
+CTA: Claim My Spot — $4,997 →
+Below CTA: Price increases to $9,997 on Friday
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
+  },
+  {
+    id: "footer",
+    number: "12g",
+    label: "FOOTER",
+    title: "Footer Variation 7",
+    description:
+      "Editorial CTA + income-disclaimer box + 2-col dark footer. DM Serif + DM Sans, legal-conscious · teal.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v7-thumb.webp",
+    funnelTypes: ["Premium", "Coaching", "Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: the closing ask — make the decision now.
+
+=== OUTPUT ===
+File: 13-footer-11.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Serif H2 directive · CTA with price microcopy · trust line
+- Income disclaimer box (10px, very muted, max-width 760px)
+- Footer includes Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
+
+=== LAYOUT ===
+- White CTA section (max-width 760px, centered): large serif H2 → teal CTA → trust line → gray disclaimer box (small legal text)
+- Dark navy footer, 2-col: LEFT logo + tagline + © · RIGHT 4 nav links stacked
+
+=== ANIMATIONS (IntersectionObserver) ===
+- CTA fades up · disclaimer fades in after · CTA pulses once · links hover-underline
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Footer stacks single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V7 (CTA + Disclaimer · Editorial Legal-Conscious).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --disclaimer-bg: #F7F8FA · --accent: #0F766E · --text: #0F172A · --muted: #64748B · --disclaimer: #9CA3AF · --footer-bg: #0F172A · --footer-muted: #64748B · --border: #E2E8F0 · --cta-btn: #0F766E
+
+— FONTS —
+DM Serif Display (headings) + DM Sans (body) — Google Fonts
+
+— COPY —
+H2: The Decision That Changes Everything Is Always Simpler Than It Seems.
+CTA: Enroll Now — $4,997 →
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available
+Disclaimer: "INCOME DISCLAIMER: Results mentioned on this page are not typical. Individual results will vary significantly based on effort, experience, background, and market conditions. The testimonials and examples shown are exceptional results and are not intended to represent or guarantee that anyone will achieve the same or similar results. This program is not a get-rich scheme. Success requires real work, dedication, and execution."
+Footer: Logo "Revenue Architecture" + "Building the future of professional coaching." + © 2026 · nav (stacked): Privacy Policy | Terms of Service | Disclaimer | Contact`,
+  },
+  {
+    id: "footer",
+    number: "12h",
+    label: "FOOTER",
+    title: "Footer Variation 8",
+    description:
+      "Two pricing-path CTAs (Group vs VIP, popular badge) + dark footer. Nunito, warm · buyer choice.",
+    labelClass: labelClasses.footer,
+    previewSrc: "/private/footer-v8-thumb.webp",
+    funnelTypes: ["Coaching", "Course", "Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Footer + Final CTA section (closing section of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: the closing ask — pick a path and start now.
+
+=== OUTPUT ===
+File: 13-footer-12.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Label + H2 directive + sub · two CTA option cards, each CTA button includes its price
+- Trust line + guarantee · Footer includes Privacy | Terms | Disclaimer | Contact + © · min CTA height 300px
+
+=== LAYOUT ===
+- Light gray bg, centered header (label + H2 + sub)
+- Two plan cards side by side (max-width 700px): Plan 1 Group (blue border) · Plan 2 VIP (green border + "Most Popular" badge + elevated shadow); each = name + price + feature list (✓ + a ★ bonus) + CTA (with price) + note
+- Trust line + guarantee centered below cards
+- Dark navy footer: logo left + nav center + © right
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Plans scale up staggered (~0.15s) with Plan 2 highlighted · links hover-underline
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Plans stack (Plan 2 / VIP first)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Footer V8 (Two CTA Options · Warm Buyer-Choice).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #2563EB · --plan-1: #2563EB · --plan-2: #16A34A · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --footer-bg: #0F172A · --footer-muted: #64748B · --cta-1-btn: #2563EB · --cta-2-btn: #16A34A · star: #F59E0B
+
+— FONTS —
+Nunito (Google Fonts)
+
+— COPY —
+Label: CHOOSE YOUR PATH · H2: Two Ways to Get Started Today. · Sub: Same program. Same guarantee. Different levels of support.
+Plan 1 — GROUP COACHING — $2,997: ✓ Full 12-Week Curriculum · ✓ Weekly Group Calls · ✓ Community Access · ★ All Fast-Action Bonuses · CTA: Join Group — $2,997 → · Note: Best for accountability + community
+Plan 2 — VIP PRIVATE (badge MOST POPULAR) — $9,997: ✓ Everything in Group · ✓ Weekly 1:1 Coaching Calls · ✓ Done-With-You Buildout · ✓ Priority Support Access · ★ All Bonuses + Extended Support · CTA: Apply for VIP — $9,997 → · Note: Best for fastest results
+Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available · Guarantee: 30-day refund · $20K guarantee
+Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
   },
 ];
 
@@ -7497,8 +7834,6 @@ const tabs: { id: TabId; label: string }[] = [
   { id: "urgency", label: "⏰ Urgency" },
   { id: "faq", label: "❓ FAQ" },
   { id: "footer", label: "📄 Footer" },
-  { id: "nav", label: "🔗 Nav" },
-  { id: "gpt", label: "🎨 GPT Image" },
 ];
 
 function CopyButton({
@@ -7935,7 +8270,6 @@ export function PrivateContent() {
   const [tab, setTab] = useState<TabId>("builder");
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
-  const showGpt = tab === "gpt";
   const showBuilder = tab === "builder";
   const visibleSections = sections.filter((s) => tab === s.id);
 
@@ -8052,47 +8386,6 @@ export function PrivateContent() {
             </article>
           ))}
 
-          {showGpt && (
-            <article
-              className="col-span-full overflow-hidden rounded-[14px] border bg-gradient-to-br from-[#161330] to-[#1A153E] transition hover:border-[rgba(245,200,66,0.45)]"
-              style={{ borderColor: "rgba(245,200,66,0.25)" }}
-            >
-              <div className="px-7 pt-7">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(245,200,66,0.25)] bg-[rgba(245,200,66,0.08)] px-3.5 py-1.5 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[#F5C842] mb-3.5">
-                  🎨 GPT IMAGE GENERATION · HERO BACKGROUND
-                </span>
-                <h2
-                  className="text-[20px] font-bold mb-1.5"
-                  style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
-                >
-                  Hero Section — Background Image Prompts
-                </h2>
-                <p className="text-[13px] text-[#A09AB8] leading-[1.55]">
-                  Use these in ChatGPT (with your photo attached) to generate a cinematic hero
-                  background — real coach, not AI generated faces. Your face stays exactly as-is.
-                </p>
-                <hr className="border-0 border-t border-[#2A2250] mt-5" />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                {gptPrompts.map((p, idx) => (
-                  <div
-                    key={p.id}
-                    className={`px-6 py-[22px] ${
-                      idx % 2 === 0 ? "md:border-r" : ""
-                    } ${idx < gptPrompts.length - 2 ? "border-b" : "border-b md:border-b-0"} border-[#2A2250]`}
-                  >
-                    <div className="text-[10px] font-bold uppercase tracking-[0.13em] text-[#F5C842] mb-3 flex items-center gap-1.5">
-                      {p.label}
-                    </div>
-                    <div className="font-mono text-[11.5px] text-[#C0B8E0] leading-[1.75] whitespace-pre-wrap mb-3.5">
-                      {p.body}
-                    </div>
-                    <CopyButton text={p.body} />
-                  </div>
-                ))}
-              </div>
-            </article>
-          )}
         </div>
         )}
 
