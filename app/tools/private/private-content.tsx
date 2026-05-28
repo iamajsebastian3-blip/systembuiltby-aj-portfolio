@@ -1926,91 +1926,763 @@ Bar 3 (green left border):
     id: "opportunity",
     number: "03a",
     label: "OPPORTUNITY VEHICLE",
-    title: "Opportunity Vehicle Variation 1",
+    title: "Opportunity Variation 1",
     description:
-      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+      "4-phase horizontal grid + 3-stat bar (clean corporate). Inter, light bg, colored phase labels with left-border accent.",
     labelClass: labelClasses.opportunity,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/opportunity-v1-thumb.webp",
+    funnelTypes: ["Corporate","B2B","Agency"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Opportunity Vehicle section (Section 03 of the 10P Sales Page Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What's the new thing that finally works?"
+
+=== OUTPUT ===
+File: 04-vehicle-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light section bg (white) with subtle gradient to bg-alt
+- Container: max-width 1200px centered, padding 96px 24px
+- Header (centered): uppercase label (accent color) + H2 (method name with ™) + sub
+- 4 equal phase cards in a row (grid-template-columns: repeat(4, 1fr), gap 20px)
+- Each card: white bg, 28px padding, 16px border-radius, 4px left border (phase color), 1px top/right/bottom border (var(--border))
+- Card content: colored uppercase phase label + bold title + body
+- Below grid: 3-stat bar (centered row, gap 56px, padding-top 64px, border-top 1px var(--border))
+- Each stat: big accent number (clamp 40-56px bold) + muted label
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade up + translateY 16px → 0, staggered 0.1s
+- Stats count-up: animate integer/decimal from 0 to target over 1.2s on entry
+- prefers-reduced-motion: skip animations
+
+=== MOBILE (≤768px) ===
+- 4-card grid collapses to 2×2 then 1 column under 480px
+- Stats stack vertically, smaller text
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V1 (4-Phase Horizontal · Clean Corporate) base component.
+
+— BRAND COLORS —
+--bg:      #FFFFFF
+--bg-alt:  #F7F8FA
+--accent:  #2563EB
+--text:    #0E1116
+--muted:   #4A5160
+--phase-1: #2563EB
+--phase-2: #D97706
+--phase-3: #16A34A
+--phase-4: #7C3AED
+--border:  #E4E7EB
+
+— FONTS —
+Heading & Body Font: Inter (Google Fonts)
+
+— COPY —
+Label: THE PROVEN FRAMEWORK
+H2:    The Lean Agency Method™
+Sub:   A 12-week system built for coaches and consultants ready to hit consistent $50K months — without burnout.
+
+— PHASE 1 (blue · Weeks 1–3) —
+Label: Phase 1 · Weeks 1–3
+Title: Foundation
+Body:  Audit your current offer, identify your highest-value clients, and install the core infrastructure for scale.
+
+— PHASE 2 (amber · Weeks 4–6) —
+Label: Phase 2 · Weeks 4–6
+Title: Pipeline
+Body:  Build a predictable lead engine using our 3-channel outreach system — zero paid ads required.
+
+— PHASE 3 (green · Weeks 7–9) —
+Label: Phase 3 · Weeks 7–9
+Title: Conversion
+Body:  Deploy the 6-step sales framework that converts 1 in 3 discovery calls into high-ticket clients.
+
+— PHASE 4 (purple · Weeks 10–12) —
+Label: Phase 4 · Weeks 10–12
+Title: Scale
+Body:  Systemize delivery, hire your first VA, and remove yourself from the day-to-day without losing revenue.
+
+— STATS (count-up) —
+Stat 1: $50K · average monthly revenue by week 12
+Stat 2: 81%  · of clients hit target within 90 days
+Stat 3: 90   · days to a fully systemized business`,
   },
   {
     id: "opportunity",
     number: "03b",
     label: "OPPORTUNITY VEHICLE",
-    title: "Opportunity Vehicle Variation 2",
+    title: "Opportunity Variation 2",
     description:
-      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+      "Vertical stepper + connector lines (dark premium). Left intro · right 3-step process with numbered circles. Space Grotesk.",
     labelClass: labelClasses.opportunity,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/opportunity-v2-thumb.webp",
+    funnelTypes: ["High-Ticket Coaching","Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 04-vehicle-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark section bg (#0D0D0D)
+- Container: max-width 1200px centered, padding 100px 32px
+- Two-column grid: 40% left / 60% right, gap 64px, align-items start
+- LEFT: uppercase label · H2 (method name with ™) · accent line · intro paragraph · stats row (3 stats stacked)
+- RIGHT: vertical stepper with 3 numbered colored circles
+  - Each step is a flex row: 56px colored circle (number inside) + step card (bg-card, padding 22px, rounded 12px)
+  - Vertical dashed connector line runs through circles (left of cards)
+  - Step 1 blue, Step 2 amber, Step 3 green
+- Stats below intro on left: 3 lines, each with big accent number + muted label
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Stepper draws downward: connector line scaleY 0 → 1 over 1.2s
+- Each step card slides in from right (translateX 20px → 0), staggered 0.2s
+- Stats count-up on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid collapses to single column
+- Stepper takes full width
+- Stats become a row at top
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V2 (Vertical Stepper · Dark Premium) base component.
+
+— BRAND COLORS —
+--bg:      #0D0D0D
+--bg-card: #1A1A1A
+--accent:  #F5C842
+--text:    #FFFFFF
+--muted:   #9A9A9A
+--step-1:  #3B82F6
+--step-2:  #F59E0B
+--step-3:  #22C55E
+--border:  #2A2A2A
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— LEFT COLUMN —
+Label:       HOW IT WORKS
+H2:          The Revenue Acceleration Framework™
+H2 Accent:   Three Steps. Ninety Days.
+Sub:         Not a course. Not a template. A hands-on system with real accountability.
+Intro:       Most coaches spend years figuring out what takes our clients 90 days. The difference is having a battle-tested system and someone who's walked the path before you.
+
+— RIGHT — STEPS —
+Step 1 (blue):  Title: Diagnose & Design  · Body: We identify exactly what's blocking your growth and rebuild your offer architecture from the ground up.
+Step 2 (amber): Title: Build & Launch     · Body: Your new client acquisition system goes live. First qualified leads arrive within 14 days.
+Step 3 (green): Title: Optimize & Scale   · Body: Data-driven iteration every week until you hit your income target — then we build the team around it.
+
+— STATS (count-up) —
+Stat 1: 500   · clients transformed
+Stat 2: $2M   · in client revenue generated
+Stat 3: 92%   · client satisfaction rate`,
   },
   {
     id: "opportunity",
     number: "03c",
     label: "OPPORTUNITY VEHICLE",
-    title: "Opportunity Vehicle Variation 3",
+    title: "Opportunity Variation 3",
     description:
-      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+      "3 phase cards with neon glow accents (dark neon, tech-forward). Outfit font. Each card has colored top-border + radial glow behind.",
     labelClass: labelClasses.opportunity,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/opportunity-v3-thumb.webp",
+    funnelTypes: ["Health Coaching","Fitness","Performance"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 04-vehicle-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Very dark purple-black bg (#07020F)
+- Container: max-width 1200px centered, padding 100px 24px
+- Header (centered): uppercase label · H2 (method™) · sub
+- 3 phase cards in a row, gap 28px
+- Each card: bg-card, 32px padding, 16px border-radius, 4px solid top border (phase color), box-shadow radial glow at base (60px blur, color-matched glow)
+- Card content: colored uppercase week period + bold title + body paragraph
+- 3-stat row below cards, padding-top 56px, with thin top border
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cards fade up + scale 0.96 → 1, staggered 0.15s
+- Glow pulses once on card entry (box-shadow expand)
+- Stats count-up on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- 3 cards stack to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V3 (Dark Neon Glow Cards) base component.
+
+— BRAND COLORS —
+--bg:      #07020F
+--bg-card: #110D1F
+--accent:  #A855F7
+--accent-2:#06B6D4
+--text:    #FFFFFF
+--muted:   #8B8BA0
+--glow-1:  rgba(59,130,246,0.3)
+--glow-2:  rgba(245,158,11,0.3)
+--glow-3:  rgba(34,197,94,0.3)
+--border:  #1E1A2E
+
+— FONTS —
+Heading & Body Font: Outfit (Google Fonts)
+
+— COPY —
+Label: THE SYSTEM
+H2:    The Hormone-First Transformation™
+Sub:   Built specifically for women 40+ who've been told "just eat less and move more" — and watched it fail.
+
+— PHASE 1 (blue glow · Week 1–2) —
+Period: WEEK 1–2
+Title:  Reset
+Body:   Eliminate the hidden inflammation triggers sabotaging your metabolism. Most clients feel different within the first 10 days.
+
+— PHASE 2 (amber glow · Week 3–6) —
+Period: WEEK 3–6
+Title:  Rebuild
+Body:   Rebalance cortisol, estrogen, and insulin through targeted nutrition and movement protocols.
+
+— PHASE 3 (green glow · Week 7–12) —
+Period: WEEK 7–12
+Title:  Results
+Body:   Sustainable fat loss, restored energy, and a body that works with your hormones — not against them.
+
+— STATS —
+Stat 1: 500+  · women transformed
+Stat 2: $0    · in gym equipment required
+Stat 3: 12wk  · average to full results`,
   },
   {
     id: "opportunity",
     number: "03d",
     label: "OPPORTUNITY VEHICLE",
-    title: "Opportunity Vehicle Variation 4",
+    title: "Opportunity Variation 4",
     description:
-      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+      "Accordion expandable phases (modern SaaS). Left intro + CTA · right 3 collapsible phase cards (first expanded by default). DM Sans.",
     labelClass: labelClasses.opportunity,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/opportunity-v4-thumb.webp",
+    funnelTypes: ["Career Coaching","Education","SaaS"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 04-vehicle-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light section bg (#F8FAFC)
+- Container: max-width 1200px centered, padding 96px 24px
+- Two-column grid: 40% left / 60% right, gap 56px, align-items start
+- LEFT: uppercase label · H2 (method™) · sub · intro paragraph · CTA outlined indigo pill
+- RIGHT: 3 accordion phase items stacked, gap 12px
+  - Each item: bg white, 1px border, 12px radius
+  - Header: clickable row (padding 20px 24px) with title + chevron icon
+  - Body: hidden by default (max-height 0, padding 0)
+  - Active item: bg-active (very light indigo), max-height 500px, body padding 0 24px 24px
+  - First item starts active
+- Stats row below accordion (3 stats inline, padding-top 32px)
+
+=== ANIMATIONS ===
+- Accordion: smooth max-height transition on toggle (.35s)
+- Chevron rotates 180deg on open
+- IntersectionObserver: items fade up + translateY staggered
+- Stats count-up on entry
+
+=== MOBILE (≤768px) ===
+- Grid collapses to single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V4 (Accordion · Modern SaaS) base component.
+
+— BRAND COLORS —
+--bg:        #F8FAFC
+--bg-active: #EEF2FF
+--accent:    #4F46E5
+--text:      #0F172A
+--muted:     #64748B
+--border:    #E2E8F0
+
+— FONTS —
+Heading & Body Font: DM Sans (Google Fonts)
+
+— LEFT COLUMN —
+Label: THE METHODOLOGY
+H2:    The Reverse-Engineered Interview System™
+Sub:   The exact process used to move 400+ professionals into $150K+ roles in under 90 days.
+Body:  Stop sending applications into the void. Our system works backwards from the offer letter — mapping every step with surgical precision so you know exactly what to do, and when.
+CTA:   See Full Curriculum →
+
+— RIGHT — PHASES —
+Phase 1 (open by default):
+  Title: Target & Position
+  Body:  Identify your highest-leverage opportunities and reposition your profile to attract inbound recruiter interest. Most clients see 3x more profile views within the first week.
+
+Phase 2 (collapsed):
+  Title: Activate & Outreach
+  Body:  Deploy our 5-touch outreach sequence to hiring managers and internal champions — bypassing the ATS entirely.
+
+Phase 3 (collapsed):
+  Title: Interview & Convert
+  Body:  Use the STAR+ framework to ace every interview round and generate competing offers to maximize leverage.
+
+— STATS (count-up) —
+Stat 1: 400+   · placed
+Stat 2: $150K+ · avg offer
+Stat 3: 87     · days avg`,
   },
   {
     id: "opportunity",
     number: "03e",
     label: "OPPORTUNITY VEHICLE",
-    title: "Opportunity Vehicle Variation 5",
+    title: "Opportunity Variation 5",
     description:
-      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+      "Arrow flow diagram → outcome box (fresh green wellness). 3 stage cards + arrows + highlighted outcome card. Plus Jakarta Sans.",
     labelClass: labelClasses.opportunity,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/opportunity-v5-thumb.webp",
+    funnelTypes: ["Wellness","Health Coaching","Weight Loss"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 04-vehicle-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light green bg (#F0FDF4)
+- Container: max-width 1280px centered, padding 96px 24px
+- Header (centered): uppercase label · H2 (method™) · sub
+- Horizontal flow: 3 stage cards + arrows + outcome box (4 cells with connectors)
+- Each stage card: white bg, padding 24px, rounded 14px, 1px border, colored top label
+- Connector arrows between cells (SVG inline, animated draw on scroll)
+- Outcome box: solid filled bg (--outcome-bg light green), green border (2px solid var(--outcome-border)), prominent
+- Stats row below (3 stats, centered)
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Stages fade up + translateY staggered 0.2s
+- Arrows draw left-to-right (stroke-dashoffset animation)
+- Outcome box pulses once on entry (box-shadow expand + return)
+- Stats count-up
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Horizontal flow becomes vertical (stack top to bottom)
+- Arrows rotate 90deg
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V5 (Arrow Flow + Outcome · Fresh Wellness) base component.
+
+— BRAND COLORS —
+--bg:              #F0FDF4
+--accent:          #16A34A
+--accent-2:        #0EA5E9
+--text:            #14532D
+--muted:           #4B5563
+--border:          #D1FAE5
+--outcome-bg:      #DCFCE7
+--outcome-border:  #16A34A
+
+— FONTS —
+Heading & Body Font: Plus Jakarta Sans (Google Fonts)
+
+— COPY —
+Label: THE PATH FORWARD
+H2:    The Metabolic Reset Protocol™
+Sub:   A science-backed 30-day system that resets your body's fat-burning switch — even if you've failed every diet before.
+
+— STAGE 1 (blue · DISCOVER) —
+Label: DISCOVER
+Title: Your Metabolic Type
+Body:  Personalized assessment reveals exactly why previous approaches failed.
+
+— STAGE 2 (amber · ACTIVATE) —
+Label: ACTIVATE
+Title: Your Fat-Burning Mode
+Body:  Targeted nutrition triggers that switch your metabolism on.
+
+— STAGE 3 (green · SUSTAIN) —
+Label: SUSTAIN
+Title: Your New Normal
+Body:  Habits that stick because they work with your lifestyle.
+
+— OUTCOME BOX (green border) —
+Label: RESULT
+Title: Down 20 lbs in 30 Days
+Body:  Without starving, without the gym, without giving up wine.
+
+— STATS —
+Stat 1: 30   · days to visible results
+Stat 2: 3X   · faster than traditional diets
+Stat 3: 94%  · client success rate`,
   },
   {
     id: "opportunity",
     number: "03f",
     label: "OPPORTUNITY VEHICLE",
-    title: "Opportunity Vehicle Variation 6",
+    title: "Opportunity Variation 6",
     description:
-      "What's the new thing that finally works? — Missing link, unique mechanism, proof the vehicle works.",
+      "Tabbed phase switcher (corporate professional). 4 tabs · 2-col tab content (text + visual). Manrope. JS tab switching.",
     labelClass: labelClasses.opportunity,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/opportunity-v6-thumb.webp",
+    funnelTypes: ["Executive Coaching","Consulting","Corporate"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 04-vehicle-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Clean white section bg
+- Container: max-width 1200px centered, padding 96px 32px
+- Header (centered): uppercase label · H2 (method™) · sub
+- Tab bar (row of 4 pills, centered, bg-tabs background, padding 6px, rounded 999px, gap 4px)
+- Each pill: padding 10px 22px, rounded 999px, font-weight 600, cursor pointer
+- Active tab: tab-active bg + white text
+- Inactive: transparent + muted text, hover bg slightly darker
+- Tab content panel below: 2-column grid 1.2fr / 1fr, gap 48px, padding-top 48px
+  - LEFT: tab title · weeks sub · body paragraph
+  - RIGHT: large illustrative SVG icon block (240px square, bg-tabs, rounded 20px, color accent)
+- Stats row below tabs/content (3 stats inline, padding-top 56px, top border)
+
+=== INTERACTIONS ===
+- JS: click tab → switch active class + show that tab's content
+- Smooth fade transition between tab panels (.25s)
+- IntersectionObserver: bar slides in from top, first content fades in
+- Stats count-up on entry
+
+=== MOBILE (≤768px) ===
+- Tab bar scrolls horizontally (overflow-x auto)
+- Tab content stacks (visual below text)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V6 (Tabbed Switcher · Corporate) base component.
+
+— BRAND COLORS —
+--bg:         #FFFFFF
+--bg-tabs:    #F1F5F9
+--accent:     #0F766E
+--text:       #0F172A
+--muted:      #64748B
+--border:     #CBD5E1
+--tab-active: #0F766E
+
+— FONTS —
+Heading & Body Font: Manrope (Google Fonts)
+
+— COPY —
+Label: HOW WE WORK TOGETHER
+H2:    The Executive Presence Blueprint™
+Sub:   Four distinct phases. Each one builds on the last. Together they create a transformation that lasts.
+
+— TAB 1 — Phase 1 —
+Title: Awareness
+Sub:   Weeks 1–2
+Body:  A 360° assessment reveals blind spots in how others perceive your leadership — and the specific shifts that create immediate impact.
+Icon:  chart-bar (illustrative)
+
+— TAB 2 — Phase 2 —
+Title: Architecture
+Sub:   Weeks 3–5
+Body:  We rebuild your communication framework — how you speak in meetings, present to boards, and handle conflict under pressure.
+Icon:  layers
+
+— TAB 3 — Phase 3 —
+Title: Activation
+Sub:   Weeks 6–9
+Body:  Live scenario practice with real-time coaching. You walk into every room knowing exactly how to command it.
+Icon:  zap / lightning
+
+— TAB 4 — Phase 4 —
+Title: Ascent
+Sub:   Weeks 10–12
+Body:  Strategic positioning for your next promotion, board seat, or speaking opportunity.
+Icon:  trending-up
+
+— STATS —
+Stat 1: 200+ · executives coached
+Stat 2: 94%  · promotion rate within 12 months
+Stat 3: 4.9★ · average client rating`,
+  },
+  {
+    id: "opportunity",
+    number: "03g",
+    label: "OPPORTUNITY VEHICLE",
+    title: "Opportunity Variation 7",
+    description:
+      "Split — 3 numbered method steps left + 3 big stat blocks right (warm agency). Syne headlines + Inter body.",
+    labelClass: labelClasses.opportunity,
+    previewSrc: "/private/opportunity-v7-thumb.webp",
+    funnelTypes: ["Personal Brand","Agency","Marketing"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 04-vehicle-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Warm cream section bg (#FFF7ED)
+- Container: max-width 1240px centered, padding 100px 32px
+- Two-column grid: 55% left / 45% right, gap 64px, align-items center
+- LEFT:
+  - Uppercase label (accent orange)
+  - H2 (Syne, method™)
+  - Sub paragraph
+  - 3 numbered steps stacked, gap 28px
+  - Each step: large colored number (Syne bold, 56px) + title + body
+  - Number colors: 1 orange · 2 amber · 3 green
+- RIGHT: 3 big stat blocks stacked, separated by 1px horizontal divider
+  - Each stat: massive number (clamp 48-72px bold) in stat color + muted label below
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left content slides in from left, staggered (label · H2 · sub · steps)
+- Right stats count up on entry (numbers animate 0 → target)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid stacks vertically (left first, right below)
+- Stats become a row of 3 (or stack on very small screens)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V7 (Method + Big Stats · Warm Agency) base component.
+
+— BRAND COLORS —
+--bg:     #FFF7ED
+--accent: #EA580C
+--text:   #1C1917
+--muted:  #78716C
+--stat-1: #EA580C
+--stat-2: #16A34A
+--stat-3: #2563EB
+--border: #FED7AA
+
+— FONTS —
+Heading Font: Syne (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— COPY —
+Label: THE METHOD
+H2:    The Brand Authority System™
+Sub:   Built for personal brands doing $0–$10K/mo who are ready to cross $50K in 90 days.
+
+— STEP 1 (orange) —
+Title: Magnetic Positioning
+Body:  Define the single message that makes your ideal client say "this is exactly what I need."
+
+— STEP 2 (amber) —
+Title: Content That Converts
+Body:  A repeatable content system that builds authority and drives DMs from qualified buyers — daily.
+
+— STEP 3 (green) —
+Title: The Closing Machine
+Body:  A simple sales process that converts conversations into clients without feeling salesy.
+
+— STATS (count-up) —
+Stat 1 (orange): $50K · monthly revenue milestone
+Stat 2 (green):  81%  · hit target in 90 days
+Stat 3 (blue):   3.2X · average revenue multiple`,
+  },
+  {
+    id: "opportunity",
+    number: "03h",
+    label: "OPPORTUNITY VEHICLE",
+    title: "Opportunity Variation 8",
+    description:
+      "Full dark numbered timeline + proof row (high-performance fitness/business hybrid). 4 borderless cells with vertical dividers. Space Grotesk.",
+    labelClass: labelClasses.opportunity,
+    previewSrc: "/private/opportunity-v8-thumb.webp",
+    funnelTypes: ["Performance Coaching","Mastermind","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 04-vehicle-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Full black section bg (#050505)
+- Container: max-width 1280px centered, padding 100px 32px
+- Header (centered or left): uppercase label · H2 (method™) · sub
+- 4 phase cells in a single row, no card bg or border-radius — borderless cells separated by 1px vertical dividers
+- Each cell: padding 28px, hover bg slightly lightens
+- Each cell content: large colored number (top, clamp 56-72px bold) · bold title · body
+- Number colors: 01 blue · 02 amber · 03 green · 04 purple
+- Proof stats row below: dark gray bg band (bg-card), padding 32px 0, 3 stats centered
+- Each stat: big bold accent number + small muted label
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Cells slide up + fade, staggered 0.1s
+- Stats count up on entry
+- Hover: bg shifts subtly
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- 4 cells become 2×2 grid, then 1-column under 480px
+- Dividers hide on mobile
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V8 (Dark Numbered Timeline · High-Performance) base component.
+
+— BRAND COLORS —
+--bg:      #050505
+--bg-card: #111111
+--accent:  #DC2626
+--accent-2:#F5C842
+--text:    #FFFFFF
+--muted:   #9A9A9A
+--num-1:   #3B82F6
+--num-2:   #F59E0B
+--num-3:   #22C55E
+--num-4:   #A855F7
+--border:  #222222
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— COPY —
+Label: THE SYSTEM
+H2:    The Athlete Entrepreneur Method™
+Sub:   Four phases. One hundred days. Built for high performers who refuse to choose between health and wealth.
+
+— PHASE 01 (blue) —
+Number: 01
+Title:  Audit
+Body:   Full performance audit of your body, business, and mindset. No more guessing — pure data.
+
+— PHASE 02 (amber) —
+Number: 02
+Title:  Install
+Body:   High-performance protocols for energy, focus, and recovery installed alongside your revenue-generating activities.
+
+— PHASE 03 (green) —
+Number: 03
+Title:  Execute
+Body:   Weekly sprints with accountability checkpoints. Every action tracked, every win celebrated.
+
+— PHASE 04 (purple) —
+Number: 04
+Title:  Compound
+Body:   Systems lock in. Results compound. You become the person who operates at this level permanently.
+
+— PROOF STATS (count-up) —
+Stat 1: 1,200+ · high performers enrolled
+Stat 2: $4.2M  · in client revenue added
+Stat 3: 4.9★   · average program rating`,
+  },
+  {
+    id: "opportunity",
+    number: "03i",
+    label: "OPPORTUNITY VEHICLE",
+    title: "Opportunity Variation 9",
+    description:
+      "Roadmap milestones + outcome flag (warm coaching). Left intro + mini stats · right vertical timeline with colored milestones + outcome cap. Nunito.",
+    labelClass: labelClasses.opportunity,
+    previewSrc: "/private/opportunity-v9-thumb.webp",
+    funnelTypes: ["Life Coaching","Personal Development","Transformation"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Opportunity Vehicle section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 04-vehicle-12.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light sky blue section bg (#F0F9FF)
+- Container: max-width 1200px centered, padding 96px 24px
+- Two-column grid: 38% left / 62% right, gap 64px, align-items start
+- LEFT:
+  - Uppercase label (accent teal)
+  - H2 (method™)
+  - Sub paragraph
+  - Mini 2×2 stat grid (gap 16px): each cell has big number + label
+- RIGHT: vertical timeline with 4 nodes (3 milestones + 1 outcome)
+  - Each node: colored circle (28px) on left + content card on right
+  - Vertical dashed connector line runs through circles
+  - Milestone 1 blue · 2 amber · 3 green · Outcome teal with flag icon (filled)
+  - Each node card: period label (small uppercase) + title + body
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Connector line draws downward (scaleY 0 → 1 over 1.5s)
+- Milestone circles pop in one by one (scale 0 → 1, staggered 0.25s)
+- Mini stats count-up on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid stacks single column
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Opportunity V9 (Roadmap Milestones · Warm Coaching) base component.
+
+— BRAND COLORS —
+--bg:          #F0F9FF
+--accent:      #0891B2
+--accent-warm: #F59E0B
+--text:        #0C4A6E
+--muted:       #64748B
+--border:      #BAE6FD
+--milestone-1: #3B82F6
+--milestone-2: #F59E0B
+--milestone-3: #22C55E
+--outcome:     #0891B2
+
+— FONTS —
+Heading & Body Font: Nunito (Google Fonts)
+
+— LEFT COLUMN —
+Label: YOUR TRANSFORMATION ROADMAP
+H2:    The Life by Design Method™
+Sub:   A 90-day guided journey from where you are — to where you've always known you could be.
+Body:  Every person who walks this path starts in a different place. But the destination is always the same: a life that feels like yours.
+
+— MINI STATS (2×2) —
+Stat 1: 90    · days
+Stat 2: $50K  · avg income gain
+
+— RIGHT — TIMELINE —
+Milestone 1 (blue · Day 1–30):
+  Period: DAY 1–30
+  Title:  Clarity
+  Body:   Define your version of success — not someone else's.
+
+Milestone 2 (amber · Day 31–60):
+  Period: DAY 31–60
+  Title:  Momentum
+  Body:   First real wins compound into unshakeable belief in your path.
+
+Milestone 3 (green · Day 61–90):
+  Period: DAY 61–90
+  Title:  Breakthrough
+  Body:   The results you've been working toward become your new normal.
+
+Outcome (teal · OUTCOME, flag icon):
+  Period: OUTCOME
+  Title:  Life by Design
+  Body:   Freedom. Purpose. Financial independence. All three.`,
   },
   {
     id: "compare",
