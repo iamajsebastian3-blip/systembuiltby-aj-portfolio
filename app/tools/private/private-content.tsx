@@ -8076,6 +8076,27 @@ function nearestColor(hex: string, palette: string[]): string {
   }
   return best;
 }
+function hexToHsl(hex: string): [number, number, number] | null {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return null;
+  const r = rgb[0] / 255, g = rgb[1] / 255, b = rgb[2] / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h = 0, s = 0;
+  const d = max - min;
+  if (d !== 0) {
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    if (max === r) h = (((g - b) / d) % 6 + 6) % 6;
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+  }
+  return [h, s, l];
+}
+function hueDist(a: number, b: number): number {
+  const d = Math.abs(a - b) % 360;
+  return d > 180 ? 360 - d : d;
+}
 function uniqHexes(text: string): string[] {
   const out: string[] = [];
   for (const m of text.match(/#[0-9a-fA-F]{3,8}\b/g) || []) {
@@ -8106,8 +8127,11 @@ function usedFonts(html: string): string[] {
 }
 
 function FunnelBuilder() {
-  const [colors, setColors] = useState("");
-  const [fonts, setFonts] = useState("");
+  const [primary, setPrimary] = useState("");
+  const [background, setBackground] = useState("");
+  const [fontHead, setFontHead] = useState("");
+  const [fontSub, setFontSub] = useState("");
+  const [fontBody, setFontBody] = useState("");
   const [images, setImages] = useState("");
   const [includeRef, setIncludeRef] = useState(true);
   const [sel, setSel] = useState<Record<string, BuilderSelection>>(freshSelections);
@@ -8143,9 +8167,24 @@ function FunnelBuilder() {
 
   const buildOutputs = useCallback(() => {
     const bar = "=".repeat(60);
-    const hasColors = colors.trim().length > 0;
-    const hasFonts = fonts.trim().length > 0;
+    const hasColors = primary.trim().length > 0 || background.trim().length > 0;
+    const hasFonts = fontHead.trim().length > 0 || fontSub.trim().length > 0 || fontBody.trim().length > 0;
     const hasBrand = hasColors || hasFonts;
+
+    const colorBlock = hasColors
+      ? `— BRAND COLORS (2-color kit — derive every supporting shade from these) —\n` +
+        `Primary / accent: ${primary.trim() || "(pick one)"}\n` +
+        `Background / base: ${background.trim() || "(pick one)"}\n` +
+        `Derive on-brand from the two colors above: text, muted text, cards/surfaces, borders, hovers and gradients ` +
+        `(use tints/shades of the brand colors + neutral white/black/grey). Use the primary for CTAs, links and highlights; ` +
+        `the background as the page base. Do NOT introduce any unrelated hue.`
+      : "";
+    const fontBlock = hasFonts
+      ? `— FONTS (apply each to its role; load via Google Fonts) —\n` +
+        `Headline font: ${fontHead.trim() || "(strong display font)"}  → H1/H2 and section titles\n` +
+        `Subheadline font: ${fontSub.trim() || "(use the body or headline font)"}  → eyebrows, sub-headings, labels\n` +
+        `Body font: ${fontBody.trim() || "(clean readable sans)"}  → paragraphs, lists, buttons, UI text`
+      : "";
 
     // Authoritative brand kit — leads the prompt so the building AI applies it
     // instead of the variation's illustrative example palette.
@@ -8155,8 +8194,8 @@ function FunnelBuilder() {
         `placeholders only. Re-skin the ENTIRE section in this brand kit: backgrounds, text,\n` +
         `accents, buttons, borders, gradients, hovers — every color and font. Keep the spec's\n` +
         `LAYOUT, STRUCTURE and ANIMATIONS exactly; change only the palette + typography to this:\n\n` +
-        `— BRAND COLORS —\n${hasColors ? colors.trim() : "(not provided — keep the spec's palette)"}\n\n` +
-        `— FONTS —\n${hasFonts ? fonts.trim() : "(not provided — keep the spec's fonts)"}\n` +
+        `${colorBlock ? colorBlock + "\n\n" : ""}` +
+        `${fontBlock ? fontBlock + "\n" : ""}` +
         `${images.trim() ? `\n— IMAGES / LOGO —\n${images.trim()}\n` : ""}` +
         `╚${"═".repeat(66)}╝\n\n`
       : "";
@@ -8207,9 +8246,10 @@ function FunnelBuilder() {
       return { blocks, full: null as string | null };
     }
     const kitLines =
-      `— BRAND COLORS —\n${hasColors ? colors.trim() : "(choose one clean, conversion-friendly palette and use it throughout)"}\n\n` +
-      `— FONTS —\n${hasFonts ? fonts.trim() : "(choose 1–2 Google Fonts and use them throughout)"}\n` +
-      `${images.trim() ? `\n— IMAGES / LOGO —\n${images.trim()}\n` : ""}`;
+      (colorBlock || `— BRAND COLORS —\n(choose one clean, conversion-friendly palette and use it throughout)`) +
+      `\n\n` +
+      (fontBlock || `— FONTS —\n(choose 1–2 Google Fonts and use them throughout)`) +
+      `\n${images.trim() ? `\n— IMAGES / LOGO —\n${images.trim()}\n` : ""}`;
     let full =
       `You are an expert frontend developer and funnel designer.\n\n` +
       `Build ONE complete, production-ready, single-file HTML landing page — the FULL funnel — by stacking the ${ordered.length} sections below IN THE GIVEN ORDER.\n\n` +
@@ -8238,7 +8278,7 @@ function FunnelBuilder() {
       `\n=== ASSEMBLY ===\n` +
       `Output the complete single HTML file now: all ${ordered.length} sections in order, sharing one brand kit and design system, fully responsive and animated. Nothing else.`;
     return { blocks, full: full as string | null };
-  }, [sel, colors, fonts, images, includeRef]);
+  }, [sel, primary, background, fontHead, fontSub, fontBody, images, includeRef]);
 
   const generate = () => {
     const { blocks, full } = buildOutputs();
@@ -8306,23 +8346,39 @@ function FunnelBuilder() {
   };
 
   const runCheck = () => {
-    const brandHexes = uniqHexes(colors);
+    const brandHexes = uniqHexes(`${primary} ${background}`);
+    const brandHues = brandHexes
+      .map((h) => hexToHsl(h))
+      .filter((x): x is [number, number, number] => !!x && x[1] >= 0.08)
+      .map((x) => x[0]);
     const counts: Record<string, number> = {};
     for (const m of htmlIn.match(/#[0-9a-fA-F]{3,8}\b/g) || []) {
       const n = normHex(m);
       if (n) counts[n] = (counts[n] || 0) + 1;
     }
     const used = Object.keys(counts);
-    const off = used.filter((h) => !brandHexes.includes(h));
-    const offColors = off
-      .map((h) => ({ hex: h, count: counts[h] || 0, to: brandHexes.length ? nearestColor(h, brandHexes) : "" }))
-      .sort((a, b) => b.count - a.count);
-    const kf = kitFonts(fonts);
+    const offColors: { hex: string; count: number; to: string }[] = [];
+    let onCount = 0;
+    if (brandHexes.length) {
+      for (const h of used) {
+        const hsl = hexToHsl(h);
+        let onBrand = brandHexes.includes(h);
+        if (!onBrand && hsl) {
+          // neutral (white/black/grey) is always allowed; otherwise must share a brand hue (a tint/shade)
+          if (hsl[1] < 0.1) onBrand = true;
+          else if (brandHues.length && Math.min(...brandHues.map((bh) => hueDist(hsl[0], bh))) <= 30) onBrand = true;
+        }
+        if (onBrand) onCount++;
+        else offColors.push({ hex: h, count: counts[h] || 0, to: nearestColor(h, brandHexes) });
+      }
+      offColors.sort((a, b) => b.count - a.count);
+    }
+    const kf = kitFonts([fontHead, fontSub, fontBody].join(" · "));
     const uf = usedFonts(htmlIn);
     const offFonts = uf.filter(
       (f) => !kf.some((b) => f.toLowerCase().includes(b.toLowerCase()) || b.toLowerCase().includes(f.toLowerCase()))
     );
-    setCheck({ offColors, onCount: used.length - off.length, brandHexes, fonts: uf, offFonts });
+    setCheck({ offColors, onCount, brandHexes, fonts: uf, offFonts });
     setFixedHtml(null);
   };
 
@@ -8340,8 +8396,11 @@ function FunnelBuilder() {
   };
 
   const reset = () => {
-    setColors("");
-    setFonts("");
+    setPrimary("");
+    setBackground("");
+    setFontHead("");
+    setFontSub("");
+    setFontBody("");
     setImages("");
     setSel(freshSelections());
     setResults(null);
@@ -8443,36 +8502,68 @@ function FunnelBuilder() {
         </section>
       )}
 
-      {/* 1 · Brand guidelines */}
+      {/* 1 · Brand kit */}
       <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
         <h2
           className="text-[15px] font-bold mb-1"
           style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
         >
-          <span className="text-[#7C5CFC]">{mode === "analyze" ? "2 ·" : "1 ·"}</span> Brand Guidelines
+          <span className="text-[#7C5CFC]">{mode === "analyze" ? "2 ·" : "1 ·"}</span> Brand Kit
         </h2>
         <p className="text-[12px] text-[#A09AB8] mb-4">
-          Applied to every section. Leave any field blank to fill in later (it becomes a{" "}
-          <code className="text-[#C0B8E0]">______</code> placeholder).
+          Two brand colors + three font roles. The AI derives all supporting shades (text, muted,
+          cards, borders) on-brand from your colors. Leave blank to keep the variation&apos;s defaults.
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className={labelCls}>Colors</label>
-            <textarea
-              value={colors}
-              onChange={(e) => setColors(e.target.value)}
-              rows={3}
-              placeholder="--accent: #2563EB · --bg: #FFFFFF · --text: #0F172A ..."
+            <label className={labelCls}>Primary / Accent</label>
+            <input
+              type="text"
+              value={primary}
+              onChange={(e) => setPrimary(e.target.value)}
+              placeholder="#A8BFA2 Sage Green"
               className={fieldCls}
             />
           </div>
           <div>
-            <label className={labelCls}>Fonts</label>
-            <textarea
-              value={fonts}
-              onChange={(e) => setFonts(e.target.value)}
-              rows={3}
-              placeholder="Headings: Space Grotesk · Body: Inter (Google Fonts)"
+            <label className={labelCls}>Background / Base</label>
+            <input
+              type="text"
+              value={background}
+              onChange={(e) => setBackground(e.target.value)}
+              placeholder="#F7F6F0 Ivory White"
+              className={fieldCls}
+            />
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3 mt-4">
+          <div>
+            <label className={labelCls}>Headline font</label>
+            <input
+              type="text"
+              value={fontHead}
+              onChange={(e) => setFontHead(e.target.value)}
+              placeholder="Montserrat"
+              className={fieldCls}
+            />
+          </div>
+          <div>
+            <label className={labelCls}>Subheadline font</label>
+            <input
+              type="text"
+              value={fontSub}
+              onChange={(e) => setFontSub(e.target.value)}
+              placeholder="Inter"
+              className={fieldCls}
+            />
+          </div>
+          <div>
+            <label className={labelCls}>Body font</label>
+            <input
+              type="text"
+              value={fontBody}
+              onChange={(e) => setFontBody(e.target.value)}
+              placeholder="DM Sans"
               className={fieldCls}
             />
           </div>
