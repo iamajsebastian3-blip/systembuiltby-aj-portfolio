@@ -3985,14 +3985,95 @@ Stat:  Grows forever`,
     label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 1",
     description:
-      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+      "Classic centered offer box (clean corporate). 6 ✓ items + 2 ★ bonuses + total value + strikethrough + price + CTA. Inter, light bg.",
     labelClass: labelClasses.offer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/offer-v1-thumb.webp",
+    funnelTypes: ["Corporate","Coaching","B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Offer Positioning section (Section 06 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What exactly do I get and is it worth it?"
+
+=== OUTPUT ===
+File: 07-offer-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light gray section bg
+- Container: max-width 760px centered, padding 96px 24px
+- Header (centered): uppercase accent label · H2 · sub
+- Offer box: white bg, 2px solid accent border, rounded 16px, padding 40px 36px, large drop shadow
+- Box title (top of box, centered, bold)
+- Offer stack items (6, with ✓):
+  - Each row: ✓ icon left + name middle + value right (right-aligned)
+  - Dashed border-bottom between items, padding 12px 0
+- Bonus items (2, with ★):
+  - Same row layout, bonus accent color
+- Total value row: solid top border, bold, accent color value
+- Price block (centered):
+  - Strikethrough regular price (muted, line-through)
+  - Today's price: massive number (clamp 48-72px bold, accent)
+  - Payment plan text below
+- CTA button: full width, accent pill, white bold uppercase
+- Trust line: small muted center below CTA
+
+=== ANIMATIONS ===
+- Box: fade + scale 0.97 → 1 on entry
+- Price count-up on scroll
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Box padding reduces
+- Item rows wrap (name top, value below right-aligned)
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V1 (Classic Centered Box · Clean Corporate) base component.
+
+— BRAND COLORS —
+--bg:           #F7F8FA
+--accent:       #2563EB
+--box-border:   #2563EB
+--text:         #0E1116
+--muted:        #4A5160
+--check:        #16A34A
+--bonus:        #D97706
+--price-color:  #2563EB
+--border:       #E4E7EB
+
+— FONTS —
+Heading & Body Font: Inter (Google Fonts)
+
+— COPY —
+Label: YOUR COMPLETE INVESTMENT
+H2:    Everything You Need to Hit $50K/mo — In One Place.
+Sub:   No upsells. No hidden fees. Everything listed below is included the moment you enroll.
+
+— BOX TITLE —
+Here's everything you get when you enroll today:
+
+— OFFER STACK (✓) —
+✓ 12-Week Live Coaching Program — $4,997
+✓ The Revenue Engine Playbook™ (PDF) — $997
+✓ 6-Step Sales Framework (Video Series) — $797
+✓ Weekly Group Accountability Calls — $1,997
+✓ Private Slack Community Access — $497
+✓ 90-Day Action Plan Template — $297
+
+— BONUSES (★) —
+★ Fast-Action Bonus: DFY Email Scripts — $297
+★ Fast-Action Bonus: Client Avatar Workbook — $197
+
+— PRICING —
+Total Value:    $10,076
+Strikethrough:  $9,997
+Today's Price:  $4,997
+Plan:           or 3 payments of $1,997
+
+— CTA & TRUST —
+CTA:   YES — Enroll Me Now →
+Trust: Join 500+ clients already inside the program`,
   },
   {
     id: "offer",
@@ -4000,14 +4081,98 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 2",
     description:
-      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+      "Dark premium offer box with gold glow + urgency banner + green ✓ + amber ★. Space Grotesk, high-ticket exclusive.",
     labelClass: labelClasses.offer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/offer-v2-thumb.webp",
+    funnelTypes: ["High-Ticket","Mastermind","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 07-offer-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark section bg (#0A0A0A)
+- Container: max-width 760px centered, padding 100px 24px
+- Header (centered): uppercase gold label · H2 · sub
+- Offer box: var(--box-bg) dark card, 2px gold border, rounded 18px, padding 0 (so urgency banner sits flush)
+- Urgency banner (top of box): red tint bg + bold red text "CLOSES FRIDAY — 8 SEATS LEFT", padding 14px, full-width inside box top
+- Below banner: padding 40px 36px
+  - Box title (white bold)
+  - 6 ✓ items (green check + white name + gold value, dashed border between)
+  - 3 ★ bonuses (gold star + amber text + amber value)
+  - Total value row (gold bold)
+  - Price block: strikethrough muted + massive gold today's price (clamp 52-72px) + payment plan
+  - Gold CTA pill (full width, dark text)
+  - Trust line below
+- Box drop shadow: gold glow (rgba 245,200,66,0.18 at 40px blur)
+
+=== ANIMATIONS ===
+- Box slides up + fade on entry
+- Gold border pulses once on entry
+- Price count-up
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Box padding reduces
+- Item rows wrap
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V2 (Dark Premium Box · High-Ticket) base component.
+
+— BRAND COLORS —
+--bg:           #0A0A0A
+--box-bg:       #111111
+--box-border:   rgba(245,200,66,0.4)
+--accent:       #F5C842
+--text:         #FFFFFF
+--muted:        #9A9A9A
+--check:        #22C55E
+--bonus:        #F59E0B
+--price-color:  #F5C842
+--border:       #222222
+--urgency-bg:   rgba(239,68,68,0.15)
+--urgency-text: #EF4444
+
+— FONTS —
+Heading & Body Font: Space Grotesk (Google Fonts)
+
+— COPY —
+Label: LIMITED ENROLLMENT
+H2:    The Agency Accelerator Program™
+Sub:   Accepting 30 clients this cohort. 22 seats already taken.
+
+— URGENCY BADGE —
+CLOSES FRIDAY — 8 SEATS LEFT
+
+— BOX TITLE —
+Everything included when you join today:
+
+— OFFER STACK (✓) —
+✓ Agency Accelerator 12-Week Program — $6,997
+✓ Done-With-You Funnel Buildout — $2,997
+✓ Weekly 1:1 Strategy Calls (12 sessions) — $3,600
+✓ The Client Acquisition System™ — $1,997
+✓ Agency Hiring & Delegation Playbook — $997
+✓ Lifetime Access to All Future Updates — $997
+
+— BONUSES (★) —
+★ Bonus: Agency Contract Templates Pack — $497
+★ Bonus: 30-Day Revenue Sprint Plan — $297
+★ Bonus: Private Mastermind Access — $1,997
+
+— PRICING —
+Total Value:    $20,376
+Strikethrough:  $19,997
+Today's Price:  $9,997
+Plan:           or 3 payments of $3,997
+
+— CTA & TRUST —
+CTA:   CLAIM MY SPOT NOW →
+Trust: Secure checkout · 30-day money-back guarantee`,
   },
   {
     id: "offer",
@@ -4015,14 +4180,88 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 3",
     description:
-      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+      "Split layout — offer stack left + sticky price column right. Warm cream bg, Plus Jakarta Sans, approachable coaching feel.",
     labelClass: labelClasses.offer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/offer-v3-thumb.webp",
+    funnelTypes: ["Coaching","Personal Brand","Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 07-offer-03.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Warm cream bg (#FFF8F3)
+- Container: max-width 1200px centered, padding 96px 24px
+- Header (centered): uppercase orange label · H2 · sub
+- 2-column grid: 60% left (offer stack) / 40% right (sticky price), gap 48px, align-items start
+- LEFT — offer stack:
+  - Section header (bold): "Core Program"
+  - 5 ✓ items (green check + name + value right-aligned, dashed border between)
+  - Bonus header (gold): "★ Fast-Action Bonuses"
+  - 2 ★ items (amber)
+- RIGHT — price column (position: sticky, top: 24px):
+  - White card, 1px orange border, rounded 16px, padding 32px
+  - Total value muted (line-height)
+  - Strikethrough regular price
+  - Massive orange today's price (clamp 48-64px bold)
+  - Payment plan
+  - Orange CTA pill (full width)
+  - Guarantee seal CSS badge (small circular SVG-like badge)
+  - Trust line muted
+
+=== ANIMATIONS ===
+- Left fades in
+- Right price slides from right
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid stacks (offer first, price below)
+- Sticky removed on mobile
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V3 (Split Stack + Sticky Price · Warm Coaching) base component.
+
+— BRAND COLORS —
+--bg:           #FFF8F3
+--accent:       #EA580C
+--text:         #1C1917
+--muted:        #78716C
+--check:        #16A34A
+--bonus:        #D97706
+--price-color:  #EA580C
+--border:       #FED7AA
+--divider:      #E7E5E4
+
+— FONTS —
+Heading & Body Font: Plus Jakarta Sans (Google Fonts)
+
+— COPY —
+Label: WHAT'S INCLUDED
+H2:    The Complete Coaching Package.
+Sub:   No piece of this works without the others — that's why we include everything.
+
+— CORE PROGRAM (✓) —
+✓ The Signature 12-Week Coaching Program — $3,997
+✓ Weekly Group Coaching Calls — $1,997
+✓ Private Community & Peer Accountability — $997
+✓ The Complete Marketing Playbook™ — $997
+✓ Lifetime Portal Access — $497
+
+— FAST-ACTION BONUSES (★) —
+★ Bonus: Content Calendar & Scripts Pack — $297
+★ Bonus: Client Onboarding Template Suite — $197
+
+— PRICE COLUMN —
+Total Value:    $8,979
+Strikethrough:  $7,997
+Today's Price:  $3,997
+Plan:           or 3 × $1,497
+CTA:            Get Instant Access →
+Trust:          30-day guarantee included`,
   },
   {
     id: "offer",
@@ -4030,14 +4269,93 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 4",
     description:
-      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+      "3-tier pricing plans (Self-Study · Group · VIP) with 'Most Popular' badge on middle tier. Manrope, modern SaaS.",
     labelClass: labelClasses.offer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/offer-v4-thumb.webp",
+    funnelTypes: ["SaaS","Course","Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 07-offer-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Light gray bg (#F8FAFC)
+- Container: max-width 1200px centered, padding 96px 24px
+- Header (centered): uppercase indigo label · H2 · sub
+- 3 plan cards in a grid (grid 3 cols, gap 24px, align-items start)
+- Each plan card: white bg, 1px border, rounded 18px, padding 36px 28px, hover-lift
+  - Plan label (uppercase, plan color)
+  - Price (large bold)
+  - 3-5 ✓ items (each: green check + text)
+  - Optional ★ bonuses for premium tier
+  - CTA button (plan colored, full width)
+  - Note muted (small italic below)
+- Middle plan (Group Coaching) is highlighted:
+  - Indigo border (2px), slightly elevated shadow, sits 8px higher
+  - "MOST POPULAR" badge: indigo pill at top of card (absolute positioned)
+
+=== ANIMATIONS ===
+- Plans fan in from bottom, staggered 0.1s
+- Middle plan: gentle highlight pulse once on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack to single column
+- Popular plan first
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V4 (3-Tier Plans · Modern SaaS) base component.
+
+— BRAND COLORS —
+--bg:           #F8FAFC
+--accent:       #4F46E5
+--plan-1-color: #64748B
+--plan-2-color: #4F46E5
+--plan-3-color: #7C3AED
+--text:         #0F172A
+--muted:        #64748B
+--check:        #16A34A
+--border:       #E2E8F0
+--popular-bg:   #EEF2FF
+
+— FONTS —
+Heading & Body Font: Manrope (Google Fonts)
+
+— COPY —
+Label: CHOOSE YOUR PATH
+H2:    Three Ways to Work Together.
+Sub:   Every option includes the core framework. Choose the level of support that fits where you are.
+
+— PLAN 1 · SELF-STUDY — $997 —
+✓ Core 12-Week Video Curriculum
+✓ The Revenue Playbook™ PDF
+✓ Private Community Access
+CTA:  Start Self-Study →
+Note: Best if you prefer to go at your own pace
+
+— PLAN 2 · GROUP COACHING — $2,997 (POPULAR) —
+Badge: MOST POPULAR
+✓ Everything in Self-Study
+✓ Weekly Group Coaching Calls
+✓ Direct Slack Access to Coach
+✓ Monthly Hot-Seat Sessions
+★ Bonus: DFY Email Templates ($297)
+CTA:  Join the Group →
+Note: Best for accountability + community
+
+— PLAN 3 · VIP PRIVATE — $9,997 —
+✓ Everything in Group Coaching
+✓ Weekly 1:1 Private Coaching Calls
+✓ Done-With-You Funnel Build
+✓ Personal Revenue Strategy Session
+★ Bonus: All Templates & Playbooks ($994)
+★ Bonus: 6-Month Extended Support
+CTA:  Apply for VIP →
+Note: Best for fastest results`,
   },
   {
     id: "offer",
@@ -4045,14 +4363,96 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 5",
     description:
-      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+      "Offer box + 2 social-proof review cards (split layout). DM Sans, fresh health/wellness · teal accent · 5-star reviews.",
     labelClass: labelClasses.offer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/offer-v5-thumb.webp",
+    funnelTypes: ["Wellness","Health Coaching","Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 07-offer-06.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- White section bg
+- Container: max-width 1200px centered, padding 96px 24px
+- Header (centered): uppercase teal label · H2 · sub
+- 2-column grid: 58% left (offer box) / 42% right (review cards), gap 40px, align-items start
+- LEFT — offer box: white card, 2px teal border, rounded 16px, padding 32px
+  - Title bold
+  - 5 ✓ items (teal check + name + value)
+  - 2 ★ bonuses (gold star + amber text)
+  - Total value
+  - Massive teal price (clamp 44-60px)
+  - Plan + teal CTA pill (full width)
+- RIGHT — 2 stacked review cards (gap 16px)
+  - Each card: light gray bg, rounded 14px, padding 24px, subtle shadow
+  - 5 gold stars (★★★★★) row
+  - Italic quote (muted, line-height 1.5)
+  - Avatar (32px colored circle with initials) + bold name + small muted location
+
+=== ANIMATIONS ===
+- Offer slides in from left
+- Reviews stagger in from right
+- Price count-up
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid stacks single column (offer first)
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V5 (Offer + Social Proof · Health/Wellness) base component.
+
+— BRAND COLORS —
+--bg:           #FFFFFF
+--accent:       #0F766E
+--box-border:   #0F766E
+--text:         #0F172A
+--muted:        #64748B
+--check:        #0F766E
+--bonus:        #D97706
+--price-color:  #0F766E
+--star-color:   #F59E0B
+--border:       #E2E8F0
+
+— FONTS —
+Heading & Body Font: DM Sans (Google Fonts)
+
+— COPY —
+Label: ENROLL TODAY
+H2:    Join 500+ Clients Who Made This Decision.
+Sub:   Here's exactly what you're getting — and what others say about it.
+
+— OFFER BOX TITLE —
+The Complete Transformation Package
+
+— OFFER STACK (✓) —
+✓ 12-Week Hormone Reset Protocol — $2,997
+✓ Personalized Nutrition Framework — $997
+✓ Weekly Live Q&A with Coach — $1,997
+✓ The Supplement & Lab Guide — $297
+✓ Progress Tracking Dashboard — $197
+
+— BONUSES (★) —
+★ Bonus: The Recipe & Meal Prep Bundle — $197
+★ Bonus: Stress & Sleep Reset Guide — $97
+
+— PRICING —
+Total Value:   $6,779
+Today's Price: $1,997
+Plan:          or 2 × $1,097
+CTA:           Start My Transformation →
+
+— REVIEWS (★★★★★) —
+Review 1:
+  Quote: "Down 24 lbs in 8 weeks. My doctor took me off 2 medications."
+  Name:  Sarah M., 47 — Phoenix, AZ
+Review 2:
+  Quote: "I've tried everything. This is the first thing that actually worked for my hormones."
+  Name:  Jennifer K., 52 — Austin, TX`,
   },
   {
     id: "offer",
@@ -4060,14 +4460,356 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "OFFER POSITIONING",
     title: "Offer Positioning Variation 6",
     description:
-      "What exactly do I get? — Packaging, offer stack, price anchoring.",
+      "Accordion-style core + bonus reveal (dark neon). Clickable collapsible sections with purple price reveal. Outfit, premium SaaS.",
     labelClass: labelClasses.offer,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/offer-v6-thumb.webp",
+    funnelTypes: ["SaaS","Tech Coaching","Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+=== OUTPUT ===
+File: 07-offer-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark navy bg (#0D0F1A)
+- Container: max-width 760px centered, padding 100px 24px
+- Header (centered): uppercase purple label · H2 · sub
+- 2 accordion sections (both open by default), gap 16px:
+  - Core Program section: dark card bg, 1px border var(--border)
+    - Header (clickable): "Core Program" left + "$3,285 value" right + chevron
+    - Body (open by default): 3 ✓ items (green check + name + value right-aligned, dashed border between)
+  - Bonus section: bonus tint bg + amber border
+    - Header: "★ Fast-Action Bonuses (expires soon)" left + "$591 value" right + chevron
+    - Body: 3 ★ items (amber)
+- Click header → toggle open/closed (smooth max-height transition)
+- Chevron rotates 180° when open
+- Below sections — price reveal block (centered, margin-top 32px):
+  - Strikethrough total
+  - "Your price today:" small muted
+  - Massive purple price (clamp 56-80px) with subtle purple glow
+  - Payment plan
+  - Purple gradient CTA pill (full width)
+  - Trust line muted
+
+=== ANIMATIONS ===
+- Sections slide up + fade on entry
+- Price block fades in last
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Padding reduces
+- Accordion behavior same
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V6 (Accordion Reveal · Dark Neon) base component.
+
+— BRAND COLORS —
+--bg:           #0D0F1A
+--core-bg:      #131520
+--bonus-bg:     rgba(245,158,11,0.05)
+--bonus-border: rgba(245,158,11,0.25)
+--accent:       #7C3AED
+--text:         #FFFFFF
+--muted:        #9AA0B0
+--check:        #22C55E
+--bonus:        #F59E0B
+--price-color:  #A855F7
+--border:       #1E2130
+
+— FONTS —
+Heading & Body Font: Outfit (Google Fonts)
+
+— COPY —
+Label: THE COMPLETE PACKAGE
+H2:    Everything. No Exceptions.
+Sub:   Every tool, every framework, every call — included.
+
+— CORE PROGRAM ($3,285 value) —
+✓ The Full 12-Week Curriculum — $1,997
+✓ Weekly Live Group Calls — $997
+✓ Private Members Community — $297
+
+— FAST-ACTION BONUSES ($591 value) —
+★ The Lead Generation Swipe File — $297
+★ 90-Day Content Calendar — $197
+★ The Pricing & Packaging Guide — $97
+
+— PRICE REVEAL —
+Strikethrough:  $3,876
+Today's Price:  $1,997
+Plan:           or 3 × $797
+CTA:            GET INSTANT ACCESS →
+Trust:          30-day full refund · Cancel anytime`,
+  },
+  {
+    id: "offer",
+    number: "06g",
+    label: "OFFER POSITIONING",
+    title: "Offer Positioning Variation 7",
+    description:
+      "Us vs competitors comparison table (fresh green wellness). 7 rows comparing features and prices. Nunito.",
+    labelClass: labelClasses.offer,
+    previewSrc: "/private/offer-v7-thumb.webp",
+    funnelTypes: ["Wellness","Coaching","Consulting"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 07-offer-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Fresh light green bg (#F0FDF4)
+- Container: max-width 980px centered, padding 96px 24px
+- Header (centered): uppercase green label · H2 · sub
+- Comparison table:
+  - 3 columns: Feature (left, 50%) · US ✓ (25%, green) · Others ✗ (25%, red)
+  - Header row: light green bg, bold
+  - 7 data rows alternating bg (white / very-light-green)
+  - "US" column: green ✓ icon, bold green text (or green checkmark + brief value)
+  - "Others" column: red ✗ icon, muted
+  - Price row: highlighted bg, bold
+- Below table (centered, padding-top 48px):
+  - H3 (large bold green)
+  - Sub paragraph muted
+  - Green pill CTA
+  - Trust line muted
+
+=== ANIMATIONS ===
+- Table rows fade in top to bottom (staggered 0.08s)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Table allows horizontal scroll
+- CTA stays centered
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V7 (Us vs Competitors · Fresh Wellness) base component.
+
+— BRAND COLORS —
+--bg:           #F0FDF4
+--accent:       #16A34A
+--us-color:     #16A34A
+--them-color:   #DC2626
+--text:         #14532D
+--muted:        #4B5563
+--border:       #D1FAE5
+--table-header: #DCFCE7
+--price-color:  #16A34A
+
+— FONTS —
+Heading & Body Font: Nunito (Google Fonts)
+
+— COPY —
+Label: HOW WE COMPARE
+H2:    More Value. Better Results. Lower Investment.
+Sub:   We've done the research so you don't have to. Here's how we stack up against the alternatives.
+
+— TABLE HEADERS —
+Feature | US ✓ | Others ✗
+
+— ROWS —
+Personalized protocol (not generic)        | ✓ | ✗
+Weekly live coaching calls                 | ✓ | ✗
+Private accountability community           | ✓ | ✗
+Hormone-first nutrition approach           | ✓ | ✗
+90-day results guarantee                   | ✓ | ✗
+Ongoing support after program ends         | ✓ | ✗
+Price                                       | $1,997 | $3,000–$15,000+
+
+— BELOW TABLE —
+H3:    The choice is clear.
+Sub:   Half the price. Twice the support. Proven results.
+CTA:   Choose Better →
+Trust: 500+ clients transformed`,
+  },
+  {
+    id: "offer",
+    number: "06h",
+    label: "OFFER POSITIONING",
+    title: "Offer Positioning Variation 8",
+    description:
+      "Floating white offer card on dark navy bg with urgency badge + gold CTA. Space Grotesk + Inter, high-converting.",
+    labelClass: labelClasses.offer,
+    previewSrc: "/private/offer-v8-thumb.webp",
+    funnelTypes: ["High-Ticket","Agency","Mastermind"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 07-offer-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Dark navy section bg (#07091A) with subtle radial gradient
+- Container: max-width 820px centered, padding 100px 24px
+- Section header (centered, white text):
+  - Uppercase gold label · H2 (Space Grotesk) · sub
+- Floating white offer card below header:
+  - max-width 560px centered, bg white, rounded 20px, padding 36px, MASSIVE drop shadow (60px blur)
+  - Urgency badge (top-right corner, absolute): red pill "CLOSES FRIDAY", subtle pulse
+  - Card title bold dark
+  - 5 ✓ items (green check + dark name + dark value right-aligned)
+  - 2 ★ bonuses (gold star + amber name + amber value)
+  - Total value muted
+  - Strikethrough regular price
+  - Indigo today's price (clamp 48-64px bold)
+  - Payment plan
+  - GOLD CTA pill (full width of card, dark text bold)
+  - Trust line muted
+
+=== ANIMATIONS ===
+- Dark section header fades in
+- White card floats up from bottom + scale 0.97 → 1
+- Urgency badge pulses gently (2.4s loop)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Card padding reduces
+- Item rows wrap
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V8 (Floating Card · Bold Dark) base component.
+
+— BRAND COLORS —
+--bg:           #07091A
+--card-bg:      #FFFFFF
+--accent:       #F5C842
+--text-dark:    #0F172A
+--text-light:   #FFFFFF
+--muted:        #9AA0B0
+--check:        #16A34A
+--bonus:        #D97706
+--price-color:  #4F46E5
+--urgency-bg:   rgba(239,68,68,0.15)
+--border:       rgba(255,255,255,0.08)
+
+— FONTS —
+Heading Font: Space Grotesk (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— SECTION HEADER (dark bg) —
+Label: READY TO TRANSFORM?
+H2:    This is the decision that changes everything.
+Sub:   One program. One cohort. One chance at this price.
+
+— FLOATING CARD —
+Urgency: CLOSES FRIDAY
+Title:   The Complete Agency System™
+
+— OFFER STACK (✓) —
+✓ 12-Week Agency Accelerator Program — $4,997
+✓ Revenue Engine Video Series — $997
+✓ Weekly Group Coaching Calls — $1,997
+✓ Client Acquisition Playbook™ — $997
+✓ Hiring & Delegation System — $497
+
+— BONUSES (★) —
+★ BONUS: DFY Proposal Templates — $297
+★ BONUS: Cold Outreach Swipe File — $197
+
+— PRICING —
+Total Value:    $9,979
+Strikethrough:  $9,997
+Today's Price:  $4,997
+Plan:           or 3 × $1,997
+CTA:            ENROLL NOW — $4,997 →
+Trust:          30-day refund · Secure checkout`,
+  },
+  {
+    id: "offer",
+    number: "06i",
+    label: "OFFER POSITIONING",
+    title: "Offer Positioning Variation 9",
+    description:
+      "Full-width mega offer reveal — 2-col grid (core / bonus) + dark bottom bar with massive gold price. Syne + Inter, bold agency.",
+    labelClass: labelClasses.offer,
+    previewSrc: "/private/offer-v9-thumb.webp",
+    funnelTypes: ["Agency","Premium","Coaching"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Offer Positioning section. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 07-offer-12.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== FIXED LAYOUT STRUCTURE ===
+- Full dark bg (#0A0A14)
+- Container: max-width 1240px centered, padding 100px 32px
+- Header (centered): uppercase amber label · H2 (Syne) · sub
+- 2-column grid (core + bonus), gap 24px, align-items start
+- LEFT — Core Modules card: bg var(--core-bg), rounded 18px, padding 36px 32px
+  - Section header (white uppercase bold, large)
+  - 5 ✓ items (green check + white name + amber value right-aligned, dashed border between)
+- RIGHT — Bonus card: bg var(--bonus-bg), 1px amber border, rounded 18px, padding 36px 32px
+  - Section header (amber uppercase bold)
+  - 4 ★ items (amber)
+- Bottom bar (full container width below grid, margin-top 32px):
+  - Dark card bg, padding 32px 36px, rounded 18px
+  - Flex row: Total/Strikethrough (left) · Massive gold price (clamp 56-80px center) · CTA + plan (right)
+  - On mobile: stacks vertically
+
+=== ANIMATIONS ===
+- Left card slides in from left, right slides in from right
+- Bottom bar slides up + price count-up
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Cols stack
+- Bottom bar stacks (centered)
+
+Total value must be 3–5x the price. Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Offer V9 (Mega Reveal · Bold Dark Agency) base component.
+
+— BRAND COLORS —
+--bg:           #0A0A14
+--core-bg:      #111120
+--bonus-bg:     #141408
+--accent:       #F59E0B
+--text:         #FFFFFF
+--muted:        #9AA0B0
+--check:        #22C55E
+--bonus:        #F59E0B
+--price-color:  #F5C842
+--border:       #1E1E30
+
+— FONTS —
+Heading Font: Syne (Google Fonts)
+Body Font:    Inter (Google Fonts)
+
+— COPY —
+Label: THE COMPLETE ARSENAL
+H2:    We Didn't Hold Anything Back.
+Sub:   Every tool, template, call, and community we have — yours.
+
+— CORE MODULES (left, ✓) —
+✓ The Flagship 12-Week Masterclass — $5,997
+✓ The Revenue Architecture Framework™ — $1,997
+✓ 12 Weekly Live Coaching Sessions — $3,600
+✓ Private High-Level Community — $997
+✓ Done-With-You Funnel Review — $997
+
+— FAST-ACTION BONUSES (right, ★) —
+★ 90-Day Revenue Sprint Roadmap — $497
+★ Agency Proposal & Contract Pack — $397
+★ The Objection Handler Swipe File — $297
+★ Personal Brand Content System — $197
+
+— BOTTOM BAR —
+Total Value:    $14,976
+Strikethrough:  $14,997
+Today's Price:  $9,997
+Plan:           or 3 × $3,997
+CTA:            CLAIM YOUR SPOT →`,
   },
   {
     id: "social",
