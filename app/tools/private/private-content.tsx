@@ -5405,14 +5405,61 @@ Forbes | Entrepreneur | Inc. | Business Insider | Fast Company | CNN`,
     label: "RISK REVERSAL",
     title: "Risk Reversal Variation 1",
     description:
-      "What if it doesn't work? — Guarantee, payment plan, trial.",
+      "Classic centered guarantee card (clean corporate). Green seal · primary guarantee · secondary protections line · full-width CTA. Inter, light gray bg.",
     labelClass: labelClasses.risk,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/guarantee-v1-thumb.webp",
+    funnelTypes: ["Corporate", "Coaching", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-01.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Guarantee seal (96×96 circle)
+- Risk-free label ("100% Risk-Free" or similar)
+- H2 names the guarantee specifically
+- Primary guarantee paragraph with specific terms
+- TWO layers always: Layer 1 = 14-day no-questions refund · Layer 2 = outcome-based guarantee
+- CTA button · min section height 420px
+
+=== LAYOUT ===
+- Light gray section bg, centered card (max-width 600px)
+- Card: white, 2px green border, large drop shadow, rounded
+- 96px green seal (top "$20K" + bottom "GUARANTEE") centered, H2 below
+- Risk-free pill under H2
+- Primary paragraph centered (outcome guarantee), secondary line smaller/muted/italic (14-day refund + day-90)
+- CTA: green pill, full card width
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Card scales 0.96 → 1.0 + fades in on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full-width card, reduced padding
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V1 (Classic Centered · Clean Corporate).
+
+— BRAND COLORS —
+--bg: #F7F8FA · --accent: #16A34A · --seal-bg: #DCFCE7 · --seal-border: #16A34A · --text: #0E1116 · --muted: #4A5160 · --border: #D1FAE5 · --cta-bg: #16A34A
+
+— FONTS —
+Inter (Google Fonts)
+
+— COPY —
+Label: THE $20K REVENUE GUARANTEE
+Seal: $20K / GUARANTEE
+H2: The $20K Revenue Guarantee
+Risk-free label: 100% RISK-FREE ENROLLMENT
+Primary guarantee: "If you complete all 12 weeks of the program, implement the frameworks as taught, and don't hit $20K in monthly revenue within 90 days of finishing — we will continue coaching you at no additional charge until you do. No time limits. No exceptions."
+Secondary line (italic): "Plus: full 14-day no-questions-asked refund within your first two weeks — and our $20K outcome guarantee kicks in at day 90."
+CTA: I'm In — Enroll Risk-Free →`,
   },
   {
     id: "risk",
@@ -5420,14 +5467,59 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "RISK REVERSAL",
     title: "Risk Reversal Variation 2",
     description:
-      "What if it doesn't work? — Guarantee, payment plan, trial.",
+      "Split layout — big seal left (light-blue panel) + text right with two layer cards. Manrope, executive/consulting trust-heavy.",
     labelClass: labelClasses.risk,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/guarantee-v2-thumb.webp",
+    funnelTypes: ["Consulting", "Executive", "B2B"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-02.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Guarantee seal (96×96 circle)
+- Risk-free label · H2 names the guarantee
+- Primary guarantee paragraph with specific terms
+- TWO layers always: Layer 1 = 14-day refund · Layer 2 = outcome guarantee (as two distinct cards)
+- CTA button · min section height 420px
+
+=== LAYOUT ===
+- White section bg, single rounded bordered wrapper, 2-col grid
+- LEFT 40%: light-blue panel, centered 96px seal ("$20K" / "REVENUE" / "GUARANTEE") with CSS ring effect
+- RIGHT 60%: label + H2 + primary paragraph + two layer cards side by side + CTA
+- Layer cards: number badge + title + body · L1 blue left border, L2 green left border
+- CTA: blue pill
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Seal rotates from slight angle to upright on entry · right content fades up
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack (seal panel top, text below) · layer cards stack
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V2 (Split Seal + Text · Executive).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #2563EB · --seal-bg: #DBEAFE · --seal-border: #2563EB · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --cta-bg: #2563EB · --left-bg: #F0F7FF · L1: #2563EB · L2: #16A34A
+
+— FONTS —
+Manrope (Google Fonts)
+
+— COPY —
+Seal: $20K / REVENUE / GUARANTEE
+Label: 100% RISK-FREE
+H2: The $20K Revenue Guarantee
+Primary: "Complete every module. Attend every call. Submit your work. If you don't cross $20K/mo within 90 days of graduation — we coach you personally until you do. Free. Forever."
+Layer 1 — 14-Day Full Refund: "Try the entire program risk-free for 14 days. If it's not for you, email us once. Full refund, no questions asked."
+Layer 2 — The $20K Outcome Guarantee: "Do the work and don't hit your goal? We keep working with you at zero cost until you do."
+CTA: Enroll Risk-Free Today →`,
   },
   {
     id: "risk",
@@ -5435,14 +5527,59 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "RISK REVERSAL",
     title: "Risk Reversal Variation 3",
     description:
-      "What if it doesn't work? — Guarantee, payment plan, trial.",
+      "Dark premium guarantee card with green glow + two layer cards. Space Grotesk, high-ticket / exclusive vibe.",
     labelClass: labelClasses.risk,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/guarantee-v3-thumb.webp",
+    funnelTypes: ["High-Ticket", "Mastermind", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-04.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Guarantee seal (96×96 circle, green glow ring)
+- Label · H2 names the guarantee
+- Primary guarantee paragraph (contractual, specific terms)
+- TWO layers always: Layer 1 = 14-day refund · Layer 2 = outcome guarantee (two dark cards)
+- CTA button · min section height 420px
+
+=== LAYOUT ===
+- Very dark bg (near black), centered card (max-width 640px)
+- Card: dark, green glowing border (box-shadow), rounded
+- 96px seal with green glow ring ("$20K" / "GUARANTEED")
+- Two layer cards below paragraph (dark, colored left border) · L1 blue, L2 green
+- CTA: green pill with pulse-glow animation
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Card rises from below + fades in · seal glow pulses once on entry · CTA glow loops
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full-width card · layer cards stack
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V3 (Dark Premium · High-Ticket).
+
+— BRAND COLORS —
+--bg: #050510 · --card-bg: #0D0D20 · --accent: #22C55E · --seal-bg: rgba(34,197,94,0.1) · --seal-border: rgba(34,197,94,0.4) · --text: #FFFFFF · --muted: #9AA0B0 · --border: rgba(34,197,94,0.2) · --glow: rgba(34,197,94,0.15) · --cta-bg: #16A34A · L1: #3B82F6
+
+— FONTS —
+Space Grotesk (Google Fonts)
+
+— COPY —
+Seal: $20K / GUARANTEED
+Label: ZERO RISK. MAXIMUM UPSIDE.
+H2: The $20K Revenue Guarantee
+Primary: "We put our money where our mouth is. Complete the 12-week program, do the work, and if you haven't crossed $20K/mo within 90 days of finishing — we coach you for free until you do. Not a 'we'll try our best.' A contractual guarantee."
+Layer 1 — 14-Day No-Questions Refund: "You have 14 full days to go through the material, attend a live call, and decide. If it's not right — one email and you get every dollar back."
+Layer 2 — The $20K Outcome Guarantee: "Show up, do the work, follow the system. If $20K/mo doesn't happen within 90 days of finishing — we keep coaching you at zero cost. No cap. No excuses."
+CTA: Lock In My Spot →`,
   },
   {
     id: "risk",
@@ -5450,14 +5587,60 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "RISK REVERSAL",
     title: "Risk Reversal Variation 4",
     description:
-      "What if it doesn't work? — Guarantee, payment plan, trial.",
+      "Trust-badges bar (4 icons) + centered guarantee text. Plus Jakarta Sans, fresh health/wellness, approachable.",
     labelClass: labelClasses.risk,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/guarantee-v4-thumb.webp",
+    funnelTypes: ["Wellness", "Health Coaching", "Service"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-05.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Row of 4 trust badges (inline-SVG icon + title + body)
+- H2 names the protection
+- Primary guarantee paragraph with specific terms
+- TWO layers always: Layer 1 = 14-day refund (line) · Layer 2 = outcome guarantee (paragraph)
+- CTA button · min section height 420px
+
+=== LAYOUT ===
+- Fresh light-green section bg
+- 4 trust badges in a row: each a white card, colored rounded icon (green/blue/amber/purple), title + body
+- Below badges: centered guarantee text block (max-width 600px) — outcome guarantee paragraph + 14-day italic line
+- CTA: green pill centered
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Badges fan in staggered · guarantee text fades up below
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Badges 2×2 · text full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V4 (Trust Badges Bar · Wellness).
+
+— BRAND COLORS —
+--bg: #F0FDF4 · --accent: #16A34A · --badge-bg: #FFFFFF · --seal-bg: #DCFCE7 · --text: #14532D · --muted: #4B5563 · --border: #D1FAE5 · --cta-bg: #16A34A · badge-1: #16A34A · badge-2: #2563EB · badge-3: #D97706 · badge-4: #7C3AED
+
+— FONTS —
+Plus Jakarta Sans (Google Fonts)
+
+— COPY —
+Label: YOUR INVESTMENT IS 100% PROTECTED
+H2: Four Layers of Protection — Not Just One.
+Badge 1 (shield-check, green): "30-Day Refund" / "Full refund, no questions"
+Badge 2 (lock, blue): "Secure Checkout" / "256-bit SSL encryption"
+Badge 3 (refresh, amber): "Outcome Guarantee" / "We work until you win"
+Badge 4 (headset, purple): "Dedicated Support" / "Real humans, real help"
+Primary: "Beyond the standard guarantees, we offer something most programs won't: the $20K Revenue Guarantee. Do the work. Follow the system. If you don't hit $20K/mo within 90 days of completing the program, we coach you for free until you do."
+14-day line (italic): "Plus a full 14-day no-questions-asked refund. Try everything. If it's not right, you pay nothing."
+CTA: Start Risk-Free →`,
   },
   {
     id: "risk",
@@ -5465,14 +5648,56 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "RISK REVERSAL",
     title: "Risk Reversal Variation 5",
     description:
-      "What if it doesn't work? — Guarantee, payment plan, trial.",
+      "With vs without guarantee comparison (red vs green columns). DM Sans, modern comparison-first consulting/SaaS.",
     labelClass: labelClasses.risk,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/guarantee-v5-thumb.webp",
+    funnelTypes: ["SaaS", "Consulting", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-07.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Centered header (label + H2 + sub)
+- 2-col comparison: typical program (✗) vs our program (✓)
+- TWO layers always present in the "our program" column: 14-day refund + outcome guarantee
+- CTA button · min section height 420px
+
+=== LAYOUT ===
+- Light gray section bg
+- 2-col comparison grid · LEFT red-tint bg + red border (✗ items), RIGHT green-tint bg + green border (✓ items)
+- Each item: colored ✗/✓ mark + text, divider between rows
+- Below grid: centered CTA
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Left column slides in from left · right column slides in from right
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Stack (typical top, ours below)
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V5 (With vs Without · Comparison).
+
+— BRAND COLORS —
+--bg: #FAFAFA · --accent: #4F46E5 · --old-bg: rgba(220,38,38,0.03) · --new-bg: rgba(22,163,74,0.03) · --old-border: rgba(220,38,38,0.25) · --new-border: rgba(22,163,74,0.25) · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --cta-bg: #4F46E5
+
+— FONTS —
+DM Sans (Google Fonts)
+
+— COPY —
+Label: WHY THIS IS DIFFERENT
+H2: Most Programs Hope You Don't Ask for Your Money Back.
+Sub: We built our guarantee to make asking unnecessary.
+Typical Program (✗): "Vague 'satisfaction guarantee' buried in fine print" · "Refund requires jumping through hoops" · "No outcome guarantee — just vibes" · "You're on your own after purchase" · "Results not guaranteed in any way"
+Our Program (✓): "14-day full refund — one email, done" · "The $20K Revenue Guarantee in writing" · "We coach you free until you hit $20K/mo" · "Dedicated support for every student" · "Results contractually backed"
+CTA: Enroll Under the Guarantee →`,
   },
   {
     id: "risk",
@@ -5480,14 +5705,189 @@ The Client Variables fill-in-the-blank brief will be added once the Base prompt 
     label: "RISK REVERSAL",
     title: "Risk Reversal Variation 6",
     description:
-      "What if it doesn't work? — Guarantee, payment plan, trial.",
+      "Minimal text-first guarantee — large serif headline + two stacked layer cards. DM Serif Display + DM Sans, editorial luxury.",
     labelClass: labelClasses.risk,
-    basePrompt: `Coming soon.
+    previewSrc: "/private/guarantee-v6-thumb.webp",
+    funnelTypes: ["Premium", "Personal Brand", "Editorial"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
 
-The Base prompt (technical build instructions, CSS variables, layout spec) will be added once we finalize the wireframe and structural pattern for this variation.`,
-    varsPrompt: `Coming soon.
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
 
-The Client Variables fill-in-the-blank brief will be added once the Base prompt above is finalized.`,
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-08.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Label · large serif H2 + serif sub-line
+- Body paragraph (authoritative)
+- TWO layers always: Layer 1 = 14-day refund · Layer 2 = outcome guarantee (two stacked cards)
+- CTA button · min section height 420px
+
+=== LAYOUT ===
+- Clean white bg, centered column (max-width 620px)
+- Large serif headline + accent serif sub-line + body paragraph
+- Two layer cards stacked, subtle gray bg, colored left accent border · L1 teal, L2 blue
+- CTA: teal pill centered
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Headline block fades up · layer cards slide in from bottom staggered
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Full width
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V6 (Minimal Text-First · Editorial).
+
+— BRAND COLORS —
+--bg: #FFFFFF · --accent: #0F766E · --layer-1: #0F766E · --layer-2: #2563EB · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --cta-bg: #0F766E
+
+— FONTS —
+DM Serif Display (headings) + DM Sans (body) — Google Fonts
+
+— COPY —
+Label: ZERO RISK ENROLLMENT
+H2: We Guarantee Your Results.
+H2 sub: Or We Work for Free.
+Body: "We've been doing this long enough to know exactly what separates those who succeed from those who don't. If you do the work, follow the system, and show up — you will get results. That's not a hope. That's a guarantee we put in writing."
+Layer 1 — The 14-Day Refund (teal border): "Try the full program for 14 days. Attend a live call. Go through the first two modules. If it's not everything we promised — one email gets your money back."
+Layer 2 — The $20K Revenue Guarantee (blue border): "Complete the program, implement the system, and if you don't cross $20K/mo within 90 days — we coach you personally, at zero cost, until you do."
+CTA: I'm In — Enroll Risk-Free →`,
+  },
+  {
+    id: "risk",
+    number: "08g",
+    label: "RISK REVERSAL",
+    title: "Risk Reversal Variation 7",
+    description:
+      "Triple seals row (blue/green/amber, glowing) + layered protection text. Syne + Inter, dark bold agency.",
+    labelClass: labelClasses.risk,
+    previewSrc: "/private/guarantee-v7-thumb.webp",
+    funnelTypes: ["Agency", "High-Ticket", "Premium"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-09.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Three 96px guarantee seals (each a colored circle with CSS glow matching its color)
+- Label · H2 + sub
+- Each seal has short body text below it
+- TWO layers always: Seal 1 = 14-day refund · Seal 2 = outcome guarantee (Seal 3 = lifetime access bonus)
+- Primary paragraph below all seals · CTA button · min section height 420px
+
+=== LAYOUT ===
+- Dark section bg
+- 3 seals in a row, each a colored circle (blue / green / amber) with matching glow, short body below each
+- Primary paragraph centered below all seals
+- CTA: gold bg + dark text
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Seals scale 0.8 → 1.0 staggered · each glows once on entry
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Seals stay in a row (smaller) · body text stacks
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V7 (Triple Seals · Dark Agency).
+
+— BRAND COLORS —
+--bg: #0A0A14 · --accent: #F5C842 · --seal-1: #3B82F6 · --seal-2: #22C55E · --seal-3: #F59E0B · --text: #FFFFFF · --muted: #9AA0B0 · --border: rgba(255,255,255,0.08) · --card-bg: rgba(255,255,255,0.04) · --cta-bg: #F5C842 · --cta-text: #0A0A14
+
+— FONTS —
+Syne (headings) + Inter (body) — Google Fonts
+
+— COPY —
+Label: TRIPLE PROTECTION GUARANTEE
+H2: Three Layers. Zero Excuses.
+Sub: We stacked every protection we could think of — because we're that confident in the system.
+Seal 1 (blue): "14-DAY" / "REFUND" — body: "Full refund in the first 14 days — no forms, no hoops, one email."
+Seal 2 (green): "$20K" / "RESULT" — body: "Hit $20K/mo in 90 days or we coach you free until you do."
+Seal 3 (amber): "LIFE-" / "TIME" — body: "Lifetime access to all program updates, new modules, resources."
+Primary: "Three separate commitments. All in writing. All enforced. If this program doesn't deliver what we promised — you don't pay. Simple."
+CTA: Accept All Three Guarantees →`,
+  },
+  {
+    id: "risk",
+    number: "08h",
+    label: "RISK REVERSAL",
+    title: "Risk Reversal Variation 8",
+    description:
+      "Guarantee card (left, animated SVG shield-check seal + covered list) + interactive mini-FAQ accordion (right). Outfit, modern friendly SaaS/coaching hybrid.",
+    labelClass: labelClasses.risk,
+    previewSrc: "/private/guarantee-v8-thumb.webp",
+    funnelTypes: ["SaaS", "Coaching", "Course"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Risk Reversal / Guarantee section (Section 08 of the 10P Framework). Production-ready, GHL-ready custom code block.
+
+ANSWERS: "What if it doesn't work?"
+
+=== OUTPUT ===
+File: 09-guarantee-11.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== 10P REQUIREMENTS ===
+- Centered header (label with inline shield-check SVG + H2)
+- Guarantee card: 96px seal containing an inline SVG shield-with-checkmark (not just text) + title + body + CTA
+- TWO layers always — shown as a 2-item "covered" list with green check-circle SVGs (Layer 1 = 14-day refund · Layer 2 = outcome guarantee), reinforced in card body + FAQ
+- Mini FAQ (3 Q&A) as an interactive accordion addressing refund / completion / free coaching
+- min section height 420px
+
+=== LAYOUT ===
+- Light gray section bg
+- 2-col grid · LEFT 55%: guarantee card (purple border) — seal block (animated SVG shield-check + "30-Day Refund" chip + ★★★★★ row) · title · body · 2-item covered list (green check-circle SVGs) · CTA with right-arrow SVG
+- RIGHT 45%: small uppercase FAQ label + 3 accordion items. Each = button row (rounded icon tile with per-question SVG [clock / clipboard-check / calendar] + question + chevron SVG) and a collapsible answer panel
+- First FAQ item open by default; single-open accordion
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Card slides in from left
+- Seal: spring scale-in (pop) + one-time ring pulse + checkmark draws itself (stroke-dashoffset)
+- Covered-list items + FAQ items fade up staggered on entry
+- Accordion: click toggles a single open item — chevron rotates 180°, icon tile fills with accent, answer panel height-transitions open; aria-expanded toggled
+- CTA arrow nudges right on hover
+- prefers-reduced-motion: skip all (accordion still works; first item open)
+
+=== MOBILE (≤768px) ===
+- Guarantee card top, FAQ below
+
+=== WORKS WITHOUT JS ===
+- Section renders fully; first FAQ answer visible by default
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Risk Reversal V8 (Guarantee + Mini FAQ · SaaS/Coaching).
+
+— BRAND COLORS —
+--bg: #F8FAFC · --accent: #7C3AED · --seal-bg: #EDE9FE · --seal-border: #7C3AED · --text: #0F172A · --muted: #64748B · --border: #E2E8F0 · --faq-border: #E2E8F0 · --cta-bg: #7C3AED
+
+— FONTS —
+Outfit (Google Fonts)
+
+— COPY —
+Label: EVERYTHING COVERED
+H2: The Risk-Free Guarantee.
+Seal: animated SVG shield + checkmark (96px circle) · chip "30-Day Refund Window" · ★★★★★ row
+Guarantee title: The $20K Revenue Guarantee
+Body: "Complete the program, implement the framework, and if you don't hit $20K/mo within 90 days — we coach you free until you do. Plus a full 14-day refund window from day one."
+Covered list (green check-circle SVGs):
+  Layer 1 — "Full 14-day refund window. One email, every dollar back."
+  Layer 2 — "Free coaching until you cross $20K/mo. No cap, no time limit."
+CTA: Enroll Risk-Free →  (button includes a right-arrow SVG)
+FAQ icons — Q1: clock · Q2: clipboard-check · Q3: calendar (each in a rounded tile; accordion, first item open)
+FAQ Q1: "What if I change my mind in week 1?" — A1: "Email us within 14 days for a full no-questions-asked refund."
+FAQ Q2: "What counts as 'completing the program'?" — A2: "Attending 80%+ of calls, submitting weekly assignments, and implementing the core frameworks."
+FAQ Q3: "How does the free coaching work?" — A3: "We schedule weekly calls until you hit $20K/mo. No time limits. No additional cost."`,
   },
   {
     id: "authority",
