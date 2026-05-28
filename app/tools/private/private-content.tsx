@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { lock } from "./actions";
 
 type SectionId =
@@ -8017,6 +8017,94 @@ const freshSelections = (): Record<string, BuilderSelection> =>
     builderGroups.map((g) => [g.id, { enabled: false, variation: g.variations[0].number, copy: "" }])
   );
 
+// Remove labeled blocks (e.g. "— BRAND COLORS —", "— FONTS —") from a varsPrompt
+// so the variation's original palette can't compete with the client's brand kit.
+function stripBrandBlocks(vars: string, labels: string[]): string {
+  if (labels.length === 0) return vars;
+  const upper = labels.map((l) => l.toUpperCase());
+  const out: string[] = [];
+  let skipping = false;
+  for (const line of vars.split("\n")) {
+    const t = line.trim();
+    const isHeader = t.startsWith("—") && t.endsWith("—");
+    if (isHeader) {
+      const name = t.replace(/—/g, "").trim().toUpperCase();
+      skipping = upper.some((l) => name.startsWith(l));
+    }
+    if (!skipping) out.push(line);
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+// Adapt a per-file section basePrompt for single-page assembly:
+// drop the intro + the "=== OUTPUT ===" (single-file) block + the trailing build line.
+function sectionSpecForCombined(base: string): string {
+  let t = base;
+  const firstHeader = t.indexOf("=== ");
+  if (firstHeader > 0) t = t.slice(firstHeader);
+  t = t.replace(/=== OUTPUT ===[\s\S]*?(?=\n=== )/, "");
+  t = t.replace(/\n*Build the complete file now\.?\s*$/i, "");
+  return t.trim();
+}
+
+// ---- Brand Check color/font helpers ----
+function normHex(hex: string): string | null {
+  let h = hex.replace("#", "").toLowerCase();
+  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
+  if (h.length === 8) h = h.slice(0, 6);
+  if (h.length !== 6 || /[^0-9a-f]/.test(h)) return null;
+  return "#" + h;
+}
+function hexToRgb(hex: string): [number, number, number] | null {
+  const n = normHex(hex);
+  if (!n) return null;
+  return [parseInt(n.slice(1, 3), 16), parseInt(n.slice(3, 5), 16), parseInt(n.slice(5, 7), 16)];
+}
+function nearestColor(hex: string, palette: string[]): string {
+  let best = palette[0] ?? "";
+  let bd = Infinity;
+  const a = hexToRgb(hex);
+  if (!a) return best;
+  for (const p of palette) {
+    const b = hexToRgb(p);
+    if (!b) continue;
+    const d = (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2;
+    if (d < bd) {
+      bd = d;
+      best = p;
+    }
+  }
+  return best;
+}
+function uniqHexes(text: string): string[] {
+  const out: string[] = [];
+  for (const m of text.match(/#[0-9a-fA-F]{3,8}\b/g) || []) {
+    const n = normHex(m);
+    if (n && !out.includes(n)) out.push(n);
+  }
+  return out;
+}
+function kitFonts(s: string): string[] {
+  return s
+    .replace(/\(google fonts\)/gi, "")
+    .split(/[·,+:\n/]/)
+    .map((x) => x.trim().replace(/['"]/g, ""))
+    .filter((x) => x && !/^(headings?|body|fonts?|google|sans-serif|serif)$/i.test(x));
+}
+function usedFonts(html: string): string[] {
+  const out = new Set<string>();
+  for (const decl of html.match(/font-family\s*:\s*([^;}'"]+)/gi) || []) {
+    const first = decl.replace(/font-family\s*:/i, "").split(",")[0].replace(/['"]/g, "").trim();
+    if (first && !/^(inherit|initial|unset|sans-serif|serif|monospace)$/i.test(first) && !first.startsWith("var("))
+      out.add(first);
+  }
+  for (const l of html.match(/family=([^&":)]+)/gi) || []) {
+    const name = l.replace(/family=/i, "").split(":")[0].replace(/\+/g, " ").trim();
+    if (name) out.add(name);
+  }
+  return Array.from(out);
+}
+
 function FunnelBuilder() {
   const [colors, setColors] = useState("");
   const [fonts, setFonts] = useState("");
@@ -8026,12 +8114,23 @@ function FunnelBuilder() {
   const [results, setResults] = useState<
     { id: string; heading: string; sub: string; text: string }[] | null
   >(null);
-  const [mode, setMode] = useState<"analyze" | "manual">("analyze");
+  const [fullPrompt, setFullPrompt] = useState<string | null>(null);
+  const [generated, setGenerated] = useState(false);
+  const [mode, setMode] = useState<"analyze" | "manual" | "check">("analyze");
   const [fullCopy, setFullCopy] = useState("");
   const [analyzing, setAnalyzing] = useState(false);
   const [analyzeErr, setAnalyzeErr] = useState<string | null>(null);
   const [reasons, setReasons] = useState<Record<string, string>>({});
   const [meta, setMeta] = useState<{ niche: string; vibe: string } | null>(null);
+  const [htmlIn, setHtmlIn] = useState("");
+  const [check, setCheck] = useState<{
+    offColors: { hex: string; count: number; to: string }[];
+    onCount: number;
+    brandHexes: string[];
+    fonts: string[];
+    offFonts: string[];
+  } | null>(null);
+  const [fixedHtml, setFixedHtml] = useState<string | null>(null);
 
   const fieldCls =
     "w-full rounded-lg border border-[#2A2250] bg-[#0B091A] px-3 py-2.5 text-[13px] text-[#E8E4F5] placeholder-[#5A5478] focus:border-[#7C5CFC] focus:outline-none resize-y leading-[1.55]";
@@ -8042,8 +8141,26 @@ function FunnelBuilder() {
   const update = (id: string, patch: Partial<BuilderSelection>) =>
     setSel((prev) => ({ ...prev, [id]: { ...prev[id], ...patch } }));
 
-  const generate = () => {
+  const buildOutputs = useCallback(() => {
     const bar = "=".repeat(60);
+    const hasColors = colors.trim().length > 0;
+    const hasFonts = fonts.trim().length > 0;
+    const hasBrand = hasColors || hasFonts;
+
+    // Authoritative brand kit — leads the prompt so the building AI applies it
+    // instead of the variation's illustrative example palette.
+    const brandKit = hasBrand
+      ? `╔══ BRAND KIT — AUTHORITATIVE · OVERRIDES EVERY COLOR & FONT BELOW ══╗\n` +
+        `RULE: The spec below names specific colors and fonts — treat ALL of them as illustrative\n` +
+        `placeholders only. Re-skin the ENTIRE section in this brand kit: backgrounds, text,\n` +
+        `accents, buttons, borders, gradients, hovers — every color and font. Keep the spec's\n` +
+        `LAYOUT, STRUCTURE and ANIMATIONS exactly; change only the palette + typography to this:\n\n` +
+        `— BRAND COLORS —\n${hasColors ? colors.trim() : "(not provided — keep the spec's palette)"}\n\n` +
+        `— FONTS —\n${hasFonts ? fonts.trim() : "(not provided — keep the spec's fonts)"}\n` +
+        `${images.trim() ? `\n— IMAGES / LOGO —\n${images.trim()}\n` : ""}` +
+        `╚${"═".repeat(66)}╝\n\n`
+      : "";
+
     const blocks: { id: string; heading: string; sub: string; text: string }[] = [];
     for (const g of builderGroups) {
       const s = sel[g.id];
@@ -8052,24 +8169,91 @@ function FunnelBuilder() {
       const secNum = (v.number.match(/^\d+/) || ["?"])[0];
       const vName = variationShortName(v.title);
       const heading = `SECTION ${secNum} · ${g.label} — ${vName}`;
-      const clientVars =
-        `=== CLIENT VARIABLES — USE THESE (override any example values in the spec above) ===\n\n` +
-        `— BRAND COLORS —\n${colors.trim() || "______"}\n\n` +
-        `— FONTS —\n${fonts.trim() || "______"}\n\n` +
-        `— IMAGES —\nUse placeholder images first, then swap for the real assets.\n${
-          images.trim() || "(no image notes — keep the section's built-in placeholder images)"
-        }\n\n` +
-        `— COPY —\n${s.copy.trim() || "______"}`;
-      let text = `${bar}\n${heading}\n${v.description}\n${bar}\n\n${v.basePrompt}\n\n${clientVars}`;
-      if (includeRef) {
-        text +=
-          `\n\n──────── REFERENCE · original variation example (format guide only — your values above win) ────────\n` +
-          v.varsPrompt;
+
+      let text: string;
+      if (hasBrand) {
+        text =
+          brandKit +
+          `${bar}\n${heading}\n${v.description}\n${bar}\n\n${v.basePrompt}\n\n` +
+          `=== CLIENT COPY FOR THIS SECTION (use verbatim) ===\n${s.copy.trim() || "______"}`;
+        if (includeRef) {
+          const stripLabels = [...(hasColors ? ["BRAND COLORS"] : []), ...(hasFonts ? ["FONTS"] : [])];
+          text +=
+            `\n\n──────── REFERENCE · layout & copy-slot guide (palette removed — use the BRAND KIT above) ────────\n` +
+            stripBrandBlocks(v.varsPrompt, stripLabels);
+        }
+      } else {
+        const clientVars =
+          `=== CLIENT VARIABLES — USE THESE (override any example values in the spec above) ===\n\n` +
+          `— BRAND COLORS —\n______\n\n` +
+          `— FONTS —\n______\n\n` +
+          `— IMAGES —\nUse placeholder images first, then swap for the real assets.\n${
+            images.trim() || "(no image notes — keep the section's built-in placeholder images)"
+          }\n\n` +
+          `— COPY —\n${s.copy.trim() || "______"}`;
+        text = `${bar}\n${heading}\n${v.description}\n${bar}\n\n${v.basePrompt}\n\n${clientVars}`;
+        if (includeRef) {
+          text +=
+            `\n\n──────── REFERENCE · original variation example (format guide only) ────────\n` +
+            v.varsPrompt;
+        }
       }
       blocks.push({ id: g.id, heading, sub: v.description, text });
     }
+
+    // Combined master prompt → ONE single HTML page (full funnel)
+    const ordered = builderGroups.filter((g) => sel[g.id]?.enabled);
+    if (ordered.length === 0) {
+      return { blocks, full: null as string | null };
+    }
+    const kitLines =
+      `— BRAND COLORS —\n${hasColors ? colors.trim() : "(choose one clean, conversion-friendly palette and use it throughout)"}\n\n` +
+      `— FONTS —\n${hasFonts ? fonts.trim() : "(choose 1–2 Google Fonts and use them throughout)"}\n` +
+      `${images.trim() ? `\n— IMAGES / LOGO —\n${images.trim()}\n` : ""}`;
+    let full =
+      `You are an expert frontend developer and funnel designer.\n\n` +
+      `Build ONE complete, production-ready, single-file HTML landing page — the FULL funnel — by stacking the ${ordered.length} sections below IN THE GIVEN ORDER.\n\n` +
+      `=== GLOBAL OUTPUT RULES ===\n` +
+      `- Output ONE standalone HTML file. ALL CSS in a single <style>; ALL JS in a single <script>.\n` +
+      `- No frameworks. Load every Google Font used once via <link>.\n` +
+      `- ONE cohesive design system across every section: shared CSS variables (the brand kit), consistent buttons, spacing scale and section padding.\n` +
+      `- Each section is a full-width <section> stacked top → bottom in order; the page must read as one continuous funnel.\n` +
+      `- Fully responsive (breakpoint 768px), accessible, smooth-scrolling. Use IntersectionObserver for scroll animations.\n` +
+      `- The section specs below were each originally written as standalone blocks — IGNORE any "output one file", "standalone", "File: …" or "Build the complete file now" wording inside them. They are section requirements only.\n\n` +
+      `=== BRAND KIT — AUTHORITATIVE · applies to EVERY section ===\n` +
+      `Render the ENTIRE page in this kit. Treat any colors/fonts named inside the section specs as illustrative placeholders and replace them with this kit:\n\n` +
+      kitLines +
+      `\n=== SECTIONS (build in this exact order) ===\n`;
+    ordered.forEach((g, i) => {
+      const s = sel[g.id];
+      const v = g.variations.find((x) => x.number === s.variation) ?? g.variations[0];
+      full +=
+        `\n${"-".repeat(58)}\n` +
+        `SECTION ${i + 1} — ${g.label} · ${variationShortName(v.title)} (${v.description})\n` +
+        `${"-".repeat(58)}\n\n` +
+        `${sectionSpecForCombined(v.basePrompt)}\n\n` +
+        `— COPY FOR THIS SECTION (use verbatim) —\n${s.copy.trim() || "______"}\n`;
+    });
+    full +=
+      `\n=== ASSEMBLY ===\n` +
+      `Output the complete single HTML file now: all ${ordered.length} sections in order, sharing one brand kit and design system, fully responsive and animated. Nothing else.`;
+    return { blocks, full: full as string | null };
+  }, [sel, colors, fonts, images, includeRef]);
+
+  const generate = () => {
+    const { blocks, full } = buildOutputs();
     setResults(blocks);
+    setFullPrompt(full);
+    setGenerated(true);
   };
+
+  // Live-update the generated prompts whenever a variation, copy or the brand kit changes.
+  useEffect(() => {
+    if (!generated) return;
+    const { blocks, full } = buildOutputs();
+    setResults(blocks);
+    setFullPrompt(full);
+  }, [generated, buildOutputs]);
 
   const analyze = async () => {
     setAnalyzing(true);
@@ -8112,11 +8296,47 @@ function FunnelBuilder() {
       setReasons(nextReasons);
       setMeta({ niche: data.niche || "", vibe: data.vibe || "" });
       setResults(null);
+      setFullPrompt(null);
+      setGenerated(false);
     } catch (e) {
       setAnalyzeErr(e instanceof Error ? e.message : "Analysis failed.");
     } finally {
       setAnalyzing(false);
     }
+  };
+
+  const runCheck = () => {
+    const brandHexes = uniqHexes(colors);
+    const counts: Record<string, number> = {};
+    for (const m of htmlIn.match(/#[0-9a-fA-F]{3,8}\b/g) || []) {
+      const n = normHex(m);
+      if (n) counts[n] = (counts[n] || 0) + 1;
+    }
+    const used = Object.keys(counts);
+    const off = used.filter((h) => !brandHexes.includes(h));
+    const offColors = off
+      .map((h) => ({ hex: h, count: counts[h] || 0, to: brandHexes.length ? nearestColor(h, brandHexes) : "" }))
+      .sort((a, b) => b.count - a.count);
+    const kf = kitFonts(fonts);
+    const uf = usedFonts(htmlIn);
+    const offFonts = uf.filter(
+      (f) => !kf.some((b) => f.toLowerCase().includes(b.toLowerCase()) || b.toLowerCase().includes(f.toLowerCase()))
+    );
+    setCheck({ offColors, onCount: used.length - off.length, brandHexes, fonts: uf, offFonts });
+    setFixedHtml(null);
+  };
+
+  const setSwap = (hex: string, to: string) =>
+    setCheck((c) => (c ? { ...c, offColors: c.offColors.map((o) => (o.hex === hex ? { ...o, to } : o)) } : c));
+
+  const applySwaps = () => {
+    if (!check) return;
+    const map = new Map(check.offColors.filter((o) => o.to).map((o) => [o.hex, o.to] as const));
+    const out = htmlIn.replace(/#[0-9a-fA-F]{3,8}\b/g, (m) => {
+      const n = normHex(m);
+      return n && map.has(n) ? map.get(n)! : m;
+    });
+    setFixedHtml(out);
   };
 
   const reset = () => {
@@ -8125,10 +8345,15 @@ function FunnelBuilder() {
     setImages("");
     setSel(freshSelections());
     setResults(null);
+    setFullPrompt(null);
+    setGenerated(false);
     setFullCopy("");
     setReasons({});
     setMeta(null);
     setAnalyzeErr(null);
+    setHtmlIn("");
+    setCheck(null);
+    setFixedHtml(null);
   };
 
   const combined = results ? results.map((r) => r.text).join("\n\n\n") : "";
@@ -8156,12 +8381,23 @@ function FunnelBuilder() {
           >
             ✍️ Manual
           </button>
+          <button
+            type="button"
+            onClick={() => setMode("check")}
+            className={`px-4 py-1.5 text-[12.5px] font-semibold rounded-md transition ${
+              mode === "check" ? "bg-[#7C5CFC] text-white" : "text-[#A09AB8] hover:text-white"
+            }`}
+          >
+            🎨 Brand Check
+          </button>
         </div>
       </div>
 
       <p className="text-[13px] text-[#A09AB8] leading-[1.6] mb-6 text-center">
         {mode === "analyze"
           ? "Paste the client's full funnel copy. AI splits it into the 10P sections, recommends the best-fit variation for each, and fills your copy in — review, tweak, then generate."
+          : mode === "check"
+          ? "Built the page already? Paste its HTML here and check it against your brand kit — it flags every off-brand color/font and one-click swaps them. Deterministic, no AI, no tokens."
           : "Pick a variation per section, drop in your brand + copy, and generate one ready-to-paste prompt for each section. Pure assembly — nothing leaves your browser."}
       </p>
 
@@ -8253,6 +8489,8 @@ function FunnelBuilder() {
         </div>
       </section>
 
+      {mode !== "check" && (
+      <>
       {/* 2 · Sections */}
       <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
         <div className="flex items-center justify-between mb-4">
@@ -8367,13 +8605,39 @@ function FunnelBuilder() {
       {results && results.length > 0 && (
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h2
-              className="text-[15px] font-bold"
-              style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
-            >
-              Generated · {results.length} section{results.length > 1 ? "s" : ""}
-            </h2>
-            <CopyButton text={combined} label="📋 Copy All" />
+            <div className="min-w-0">
+              <h2
+                className="text-[15px] font-bold"
+                style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+              >
+                Generated · {results.length} section{results.length > 1 ? "s" : ""}
+              </h2>
+              <div className="text-[11px] text-[#A09AB8] mt-0.5">
+                Updates live — change any variation or copy above and these refresh instantly.
+              </div>
+            </div>
+            <CopyButton text={combined} label="📋 Copy All (separate)" className="shrink-0" />
+          </div>
+
+          {fullPrompt && (
+            <div className="rounded-[14px] border-2 border-[#7C5CFC] bg-[#1A1540] mb-5 overflow-hidden">
+              <div className="flex items-center justify-between gap-3 px-5 py-3 border-b border-[#2A2250]">
+                <div className="min-w-0">
+                  <div className="text-[13px] font-bold">🧩 Full Funnel — One Single HTML</div>
+                  <div className="text-[11.5px] text-[#A09AB8]">
+                    All {results.length} sections combined into one page, sharing one brand kit.
+                  </div>
+                </div>
+                <CopyButton text={fullPrompt} className="shrink-0" label="📋 Copy Full Prompt" />
+              </div>
+              <pre className="font-mono text-[11px] text-[#C0B8E0] leading-[1.7] whitespace-pre-wrap px-5 py-4 max-h-[360px] overflow-auto">
+                {fullPrompt}
+              </pre>
+            </div>
+          )}
+
+          <div className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A09AB8] mb-2">
+            Or build section-by-section
           </div>
           {results.map((r) => (
             <div
@@ -8393,6 +8657,135 @@ function FunnelBuilder() {
             </div>
           ))}
         </div>
+      )}
+      </>
+      )}
+
+      {/* Brand Check */}
+      {mode === "check" && (
+        <>
+          <section className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
+            <h2
+              className="text-[15px] font-bold mb-1"
+              style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+            >
+              <span className="text-[#7C5CFC]">2 ·</span> Paste Built HTML
+            </h2>
+            <p className="text-[12px] text-[#A09AB8] mb-4">
+              Checked against the Brand Kit colors above — add your brand colors first so swaps can be suggested.
+            </p>
+            <textarea
+              value={htmlIn}
+              onChange={(e) => setHtmlIn(e.target.value)}
+              rows={8}
+              placeholder="Paste the generated section / page HTML here..."
+              className={fieldCls}
+            />
+            <div className="flex flex-wrap items-center gap-3 mt-4">
+              <span className="text-[11.5px] text-[#5A5478]">{htmlIn.trim().length.toLocaleString()} chars</span>
+              <button
+                type="button"
+                onClick={runCheck}
+                disabled={htmlIn.trim().length < 10}
+                className="ml-auto rounded-md bg-[#7C5CFC] text-white text-[12.5px] font-bold px-5 py-2.5 transition hover:brightness-110 active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed"
+                style={{ fontFamily: "var(--font-space-grotesk, 'Space Grotesk', sans-serif)" }}
+              >
+                🎨 Run Brand Check
+              </button>
+            </div>
+          </section>
+
+          {check && (
+            <div>
+              <div className="rounded-[14px] border border-[#2A2250] bg-[#161330] p-6 mb-5">
+                <div className="flex flex-wrap gap-x-5 gap-y-1 text-[12.5px]">
+                  <span className="text-[#4ADE80] font-semibold">
+                    {check.onCount} on-brand color{check.onCount === 1 ? "" : "s"}
+                  </span>
+                  <span className={check.offColors.length ? "text-[#F87171] font-semibold" : "text-[#A09AB8]"}>
+                    {check.offColors.length} off-brand color{check.offColors.length === 1 ? "" : "s"}
+                  </span>
+                  <span className={check.offFonts.length ? "text-[#F5C842] font-semibold" : "text-[#A09AB8]"}>
+                    {check.offFonts.length} off-brand font{check.offFonts.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+                {check.brandHexes.length === 0 && (
+                  <p className="text-[12px] text-[#F5C842] mt-3">
+                    Add your brand colors in the Brand Kit panel above to enable swap suggestions.
+                  </p>
+                )}
+
+                {check.offColors.length > 0 && (
+                  <div className="mt-4">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A09AB8] mb-2">
+                      Off-brand colors → swap to
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      {check.offColors.map((o) => (
+                        <div key={o.hex} className="flex items-center gap-2.5 text-[12.5px] flex-wrap">
+                          <span className="inline-block w-5 h-5 rounded border border-white/15 shrink-0" style={{ background: o.hex }} />
+                          <code className="text-[#C0B8E0]">{o.hex}</code>
+                          <span className="text-[#5A5478]">×{o.count}</span>
+                          <span className="text-[#5A5478]">→</span>
+                          <span className="inline-block w-5 h-5 rounded border border-white/15 shrink-0" style={{ background: o.to || "transparent" }} />
+                          <select
+                            value={o.to}
+                            onChange={(e) => setSwap(o.hex, e.target.value)}
+                            className="rounded-md border border-[#2A2250] bg-[#0B091A] px-2 py-1 text-[12px] text-[#E8E4F5] focus:border-[#7C5CFC] focus:outline-none"
+                          >
+                            <option value="">keep as-is</option>
+                            {check.brandHexes.map((b) => (
+                              <option key={b} value={b}>{b}</option>
+                            ))}
+                          </select>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {check.offFonts.length > 0 && (
+                  <div className="mt-4">
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#A09AB8] mb-2">
+                      Off-brand fonts (replace manually)
+                    </div>
+                    <div className="text-[12.5px] text-[#C0B8E0]">{check.offFonts.join(" · ")}</div>
+                  </div>
+                )}
+
+                {check.offColors.length === 0 && check.offFonts.length === 0 ? (
+                  <p className="text-[13px] text-[#4ADE80] mt-3">
+                    ✓ All colors and fonts match the brand kit. Nothing to fix.
+                  </p>
+                ) : (
+                  check.offColors.some((o) => o.to) && (
+                    <div className="flex gap-2 mt-5">
+                      <button
+                        type="button"
+                        onClick={applySwaps}
+                        className="rounded-md bg-[#4ADE80] text-[#0D0B1F] text-[12.5px] font-bold px-5 py-2.5 transition hover:brightness-110 active:scale-[0.97]"
+                      >
+                        ✓ Apply Swaps → Corrected HTML
+                      </button>
+                    </div>
+                  )
+                )}
+              </div>
+
+              {fixedHtml && (
+                <div className="rounded-[14px] border border-[#2A2250] bg-[#161330] mb-4 overflow-hidden">
+                  <div className="flex items-center justify-between gap-3 px-5 py-3 border-b border-[#2A2250]">
+                    <div className="text-[13px] font-bold">Brand-corrected HTML</div>
+                    <CopyButton text={fixedHtml} className="shrink-0" />
+                  </div>
+                  <pre className="font-mono text-[11px] text-[#C0B8E0] leading-[1.7] whitespace-pre-wrap px-5 py-4 max-h-[340px] overflow-auto">
+                    {fixedHtml}
+                  </pre>
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </div>
   );
