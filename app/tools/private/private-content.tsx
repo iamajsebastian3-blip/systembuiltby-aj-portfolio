@@ -1137,7 +1137,7 @@ const CTA_TEXT   = "FREE STRATEGY SESSION";
 — TESTIMONIAL —
 const TEST_QUOTE = "In 6 months Marcus transformed our entire operating model. We doubled our revenue while cutting hours in half. Worth every dollar.";
 const TEST_NAME  = "Dianne Minn";
-const TEST_TITLE = "Founder, Lennage Skincare";
+const TEST_TITLE = "Founder, Lumivage Skincare";
 
 — FEATURED IN —
 const FEATURED_LABEL = "Marcus Has Been Featured In:";
@@ -1547,9 +1547,9 @@ Google Fonts only | GHL standalone custom code block
   - Eyebrow label uppercase, var(--accent) orange
   - H2: large bold, dark
   - Sub paragraph muted
-  - Pain bullets (red dots): "Putting in 60-hour weeks…", "Following advice that worked for others…"
-  - Solution bullet (green dot, last): "Until I stopped copying and built…"
-  - CTA: outlined orange pill with arrow
+  - 2 pain bullets, each with a red ✗ circle icon: "Putting in 60-hour weeks…", "Following advice that worked for others…"
+  - 1 resolution bullet with a green ✓ circle icon, rendered in bold: "Until I stopped copying and built…"
+  - CTA: solid orange pill with arrow
 
 === ANIMATIONS (IntersectionObserver) ===
 - Photo slides in from left (translateX -24px → 0) + fade
@@ -1586,15 +1586,15 @@ H2:    Three Years Ago, I Was Exactly in Your Shoes.
 
 Sub:   I had the drive, the ideas, and the work ethic. What I was missing was a proven system that connected all the dots. Here's what I kept running into:
 
-— PAIN BULLETS (red dots) —
+— PAIN BULLETS (red ✗ circle icon) —
 • Putting in 60-hour weeks with inconsistent revenue to show for it
 • Following advice that worked for others but never quite landed for me
 
-— SOLUTION BULLET (green dot, last) —
+— RESOLUTION BULLET (green ✓ circle icon, last · bold) —
 • Until I stopped copying and built a system designed for my strengths
 
 — CTA —
-Text: See How I Did It →`,
+Text: See How I Did It →  (solid orange pill)`,
   },
   {
     id: "empathy",
@@ -7938,13 +7938,13 @@ const STATS = [
   },
   {
     id: "empathy",
-    number: "AIA-03",
+    number: "02i",
     label: "EMPATHY",
-    title: "Pain Bullets + Photo",
+    title: "Empathy Variation 9",
     description:
-      "Split — instructor photo left with dark overlay, 5 pain bullet cards right, closing italic resolution line. AI Academy dark style.",
+      "Split — instructor photo left with dark overlay, 5 pain bullet cards right, closing italic resolution line. AI Academy dark/indigo style.",
     labelClass: labelClasses.empathy,
-    previewSrc: "/private/aia-empathy-thumb.webp",
+    previewSrc: "/private/empathy-v9-thumb.webp",
     funnelTypes: ["Course", "Coaching", "AI", "Photo Left"],
     basePrompt: `You are an expert frontend developer and funnel designer.
 
@@ -7979,7 +7979,7 @@ RIGHT (content):
 - Reuse the standard scroll-reveal observer
 - One file, no frameworks, no build step
 Build the complete file now.`,
-    varsPrompt: `Apply these client values to Pain Bullets + Photo.
+    varsPrompt: `Apply these client values to Empathy Variation 9 (Pain Bullets + Photo · dark).
 
 /* === CLIENT VARIABLES — EDIT HERE === */
 --accent:       #6366F1;
@@ -7998,6 +7998,86 @@ const PAIN_ITEMS   = [
   "You're still just consuming and 'learning', instead of monetizing the AI revolution."
 ];
 const CLOSING_LINE = "Don't worry, we'll fix that with you in [BRAND_NAME] so you are up and running within days instead of months.";`,
+  },
+  {
+    id: "empathy",
+    number: "02j",
+    label: "EMPATHY",
+    title: "Empathy Variation 10",
+    description:
+      "Split layout — two dark 'before/after' photo cards with a connecting orange arrow (left) + story headline, 3 orange check-circle bullets & CTA (right). Warm cream bg, transformation framing.",
+    labelClass: labelClasses.empathy,
+    previewSrc: "/private/empathy-v10-thumb.webp",
+    funnelTypes: ["Personal Brand", "Coach", "Transformation"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a premium Empathy section variation (before/after transformation). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 03-empathy-10.html
+All CSS in <style> | All JS in <script>
+Google Fonts only | GHL standalone custom code block
+
+=== LAYOUT ===
+- Warm cream section bg (#FFF8F3)
+- Container: max-width 1180px centered, padding 96px 24px
+- Grid: grid-template-columns 48% 52%, gap 56px, align-items center
+- LEFT: two dark photo cards side by side ("before" + "after"), each rounded 18px, subtle shadow:
+  - Card 1 (BEFORE): darker / desaturated photo; CARD_1_TITLE (bold white) + small caption pinned bottom-left
+  - Card 2 (AFTER): brighter photo; small filled orange badge/icon top-right; CARD_2_TITLE (bold white) + small caption bottom-left
+  - A curved var(--accent) orange arrow points from card 1 → card 2 (overlapping the gap between them)
+- RIGHT: content column
+  - Eyebrow label uppercase, var(--accent) orange
+  - H2: large bold dark
+  - 2 pain bullets with a red ✗ circle icon, then 1 resolution bullet with a green ✓ circle icon rendered in bold
+  - CTA: solid orange pill with arrow
+
+=== ANIMATIONS (IntersectionObserver) ===
+- Card 1 scales/fades in first; orange arrow draws/fades; card 2 scales/fades in second
+- Content fades in from right (translateX 16px → 0); bullets stagger (0.08s each)
+- prefers-reduced-motion: skip
+
+=== MOBILE (≤768px) ===
+- Grid collapses to single column; the two cards stay side by side (shrink) above the content
+- Center-align bullets on mobile
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Empathy V10 (Before/After Transformation · Warm) base component.
+
+— BRAND COLORS —
+--bg:        #FFF8F3
+--accent:    #EA580C
+--text:      #1C1917
+--muted:     #78716C
+--border:    #E7E5E4
+--card-bg:   #1C1917
+
+— FONTS —
+Heading & Body Font: Plus Jakarta Sans (Google Fonts)
+
+— PHOTOS (Unsplash placeholders) —
+CARD_1_PHOTO: https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80   (before — stressed / heads-down)
+CARD_2_PHOTO: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80   (after — confident)
+
+— CARDS —
+Card 1 Title:   Where I Started
+Card 1 Caption: Long hours. Little results. Following advice that wasn't made for me.
+Card 2 Title:   What Changed Everything
+Card 2 Caption: I built a system aligned with my strengths. Everything changed.
+
+— COPY —
+Label: I'VE BEEN WHERE YOU ARE
+H2:    Three Years Ago, I Was Exactly in Your Shoes.
+
+— PAIN BULLETS (red ✗ circle icon) —
+• Putting in 60-hour weeks with inconsistent revenue to show for it
+• Following advice that worked for others but never quite landed for me
+
+— RESOLUTION BULLET (green ✓ circle icon, last · bold) —
+• Until I stopped copying and built a system designed for my strengths
+
+— CTA —
+Text: See How I Did It →  (solid orange pill)`,
   },
   {
     id: "opportunity",
