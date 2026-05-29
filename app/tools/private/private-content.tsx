@@ -16,7 +16,8 @@ type SectionId =
   | "authority"
   | "urgency"
   | "faq"
-  | "footer";
+  | "footer"
+  | "gptimage";
 type TabId = SectionId | "builder";
 
 type Section = {
@@ -46,6 +47,7 @@ const labelClasses: Record<SectionId, string> = {
   urgency: "text-[#FF8585]",
   faq: "text-[#B8D8E0]",
   footer: "text-[#94A3B8]",
+  gptimage: "text-[#A3E635]",
 };
 
 const sections: Section[] = [
@@ -290,10 +292,10 @@ About | Mission | Events | Programs | Coaching | Shop | Blog
     label: "HERO",
     title: "Hero Variation 3",
     description:
-      "Split layout: big hero photo + dual CTA on the left, 2×2 program card grid on the right. Built for multi-offer pages.",
+      "Split layout: big hero photo + dual CTA on the left, 2×2 content-card grid (colored category tag + title + arrow) on the right. Teal accent. Built for churches, ministries & multi-offer hubs.",
     labelClass: labelClasses.hero,
     previewSrc: "/private/hero-v3-thumb.webp",
-    funnelTypes: ["Course Hub", "Coaching", "Multi-Offer"],
+    funnelTypes: ["Church / Ministry", "Course Hub", "Multi-Offer"],
     basePrompt: `You are an expert frontend developer and funnel designer.
 
 Build a premium funnel hero section. Production-ready, GHL-ready custom code block.
@@ -324,9 +326,9 @@ LEFT COLUMN (55% width):
 - EYEBROW — small muted uppercase (bottom left)
 - HEADLINE — large bold white (bottom left, 3 lines)
 - Two buttons side by side:
-  Button 1: var(--accent) bg — CTA_TEXT
-  Button 2: transparent — "▶ Watch Video"
-            (opens VIDEO_URL on click)
+  Button 1: var(--accent) bg — play icon ▶ + CTA_PRIMARY
+            (optionally opens VIDEO_URL on click)
+  Button 2: transparent outline (white border) — CTA_SECONDARY
 
 RIGHT COLUMN (45% width):
 - 2x2 grid of CARDS
@@ -389,48 +391,48 @@ const LOGO_IMG   = "______";                        ← optional logo image
 const VIDEO_URL  = "______";                        ← YouTube / Vimeo / Wistia URL
 
 — COPY —
-const EYEBROW    = "______";                        ← short eyebrow line
-const HEADLINE_1 = "______";                        ← first line of headline
-const HEADLINE_2 = "______";                        ← second line of headline
-const HEADLINE_3 = "______";                        ← third line of headline
-const CTA_TEXT   = "______";                        ← primary CTA button text
+const EYEBROW       = "Welcome to C3 Church";          ← short eyebrow line
+const HEADLINE_1    = "Build a Life of";               ← first line of headline
+const HEADLINE_2    = "Purpose, Power,";               ← second line of headline
+const HEADLINE_3    = "and Possibility";               ← third line of headline
+const CTA_PRIMARY   = "Watch Live";                    ← primary button (shows ▶ icon)
+const CTA_SECONDARY = "Explore Messages";              ← secondary outline button
 
 — NAVIGATION LINKS —
 const NAV_LINKS = [
-  { label: "About",     url: "#about"    },
-  { label: "Mission",   url: "#mission"  },
-  { label: "Events",    url: "#events"   },
-  { label: "Programs",  url: "#programs" },
-  { label: "Coaching",  url: "#coaching" },
-  { label: "Shop",      url: "#shop"     },
-  { label: "Blog",      url: "#blog"     }
+  { label: "Home",      url: "#home"      },
+  { label: "Messages",  url: "#messages"  },
+  { label: "Live On",   url: "#live"      },
+  { label: "Resources", url: "#resources" },
+  { label: "Giving",    url: "#giving"    },
+  { label: "More",      url: "#more"      }
 ];
 
-— PROGRAM CARDS (2x2 grid, right side) —
+— CONTENT CARDS (2x2 grid, right side — colored tag + title + arrow) —
 const CARDS = [
   {
     image:    "______",
-    category: "______",   ← e.g. "Mindset"
-    title:    "______",   ← short program title
-    url:      "#program-1"
+    category: "New",                       ← colored category tag (top-left)
+    title:    "Watch the Latest Message",  ← card title (bottom-left)
+    url:      "#message"
   },
   {
     image:    "______",
-    category: "______",
-    title:    "______",
-    url:      "#program-2"
+    category: "On Air",
+    title:    "Watch Live Sunday",
+    url:      "#live"
   },
   {
     image:    "______",
-    category: "______",
-    title:    "______",
-    url:      "#program-3"
+    category: "Events",
+    title:    "Latest Events & Tickets",
+    url:      "#events"
   },
   {
     image:    "______",
-    category: "______",
-    title:    "______",
-    url:      "#program-4"
+    category: "Grow",
+    title:    "Browse Our Resources",
+    url:      "#resources"
   }
 ];`,
   },
@@ -570,129 +572,122 @@ const QUOTE_TITLE  = "______";   ← person's title / role`,
     label: "HERO",
     title: "Hero Variation 5",
     description:
-      "Person-as-background fullscreen hero: full-bleed portrait + left-side overlay + bottom-left copy block (eyebrow + 3-line headline + subheadline + dual CTAs). Premium gold accent.",
+      "Executive serif split: dark text-left panel (gold eyebrow + serif headline with one italic gold highlight line + subheadline + dual CTA) and a clean person-right photo (no overlay), social icons in the nav. Premium gold accent.",
     labelClass: labelClasses.hero,
     previewSrc: "/private/hero-v5-thumb.webp",
-    funnelTypes: ["Luxury Coaching", "Personal Brand", "Authority"],
+    funnelTypes: ["Executive Coaching", "Luxury Brand", "Authority"],
     basePrompt: `You are an expert frontend developer and funnel designer.
 
-Build a premium fullscreen hero section with person-as-background layout. Production-ready, GHL-ready custom code block.
+Build a premium executive-coaching hero section with a serif headline and a split text-left / person-right layout. Production-ready, GHL-ready custom code block.
 
 === OUTPUT ===
-File: 02-hero-person-bg.html
+File: 02-hero-executive-serif.html
 All CSS in <style> | All JS in <script>
 Google Fonts only | GHL standalone custom code block
 
 === FIXED LAYOUT STRUCTURE ===
 
-LAYER 1 — Full Background
-- PERSON_IMG fills hero section
-- background-size: auto 100% (fits to height, preserves face — do NOT use cover which crops vertically)
-- background-position: right center (anchors person to right edge)
-- background-color: var(--bg) fills any leftover space on the left
-- Left gradient overlay heavy: dark 95% at far left → 35% at midpoint → fades to var(--overlay-right) (subtle) on the right where the person is visible
-- Dark vignette on all edges via radial gradient
-- Mobile: switch to background-size cover + background-position center top (face visible at top, content stacks below)
+LAYER 1 — Background
+- Section background: var(--bg) solid dark fills the entire section (especially the left/text side)
+- This is NOT a full-bleed photo background — the person image lives only in the right column
+- Optional: very subtle warm radial glow (low-opacity var(--accent)) behind the person
 
 LAYER 2 — Navigation (var(--nav-height))
-- LOGO_IMG + LOGO_TEXT — top left
-- NAV_LINKS — center
-- SOCIAL_LINKS icons — top right (circle bordered icons, small)
-- Transparent background always
-- Mobile: hamburger replaces nav + social
+- LOGO: small solid gold square mark (var(--accent)) + LOGO_TEXT in bold uppercase, top left
+- NAV_LINKS — horizontal, center / right of the nav bar
+- SOCIAL_LINKS — small circle-bordered icons, far top right
+- Transparent background always (no scroll change)
+- Mobile: hamburger replaces nav links + social icons
 
-LAYER 3 — Hero Content (bottom left)
-Positioned bottom-left, above bottom padding
+LAYER 3 — Hero Split Layout
 
-- EYEBROW
-  Small uppercase, var(--accent) color
-  Letter-spaced, bold
+CONTAINER:
+- Centered container: max-width 1600px, margin 0 auto, padding 0 64px
+- Grid: display grid, grid-template-columns: minmax(0, 620px) auto, align-items: center, justify-content: center, gap: 60px
+- min-height: calc(100vh - var(--nav-height))
 
-- HEADLINE (3 lines)
-  Large bold white
-  Tight line height
-  Max width: 55% of screen
-
-- SUBHEADLINE
-  Small muted text
-  Max width: 45% of screen
-  Light weight
-
-- TWO BUTTONS (side by side)
+LEFT COLUMN (text):
+- max-width 620px
+- EYEBROW — uppercase, var(--accent), 12.5px, letter-spacing 0.30em, bold
+- HEADLINE (3 lines) — SERIF display font var(--font-head), white, font-size clamp(46px, 6vw, 86px), line-height 1.06, letter-spacing -0.01em
+  · HEADLINE_2 is the highlight line: rendered in ITALIC + var(--accent) color
+- SUBHEADLINE — body font var(--font-body), var(--muted), font-size clamp(15px, 1.1vw, 17px), line-height 1.7, light weight, max-width 440px
+- TWO BUTTONS (side by side, gap 16px), body font, both pill-shaped:
   Button 1 (Primary):
-  - var(--accent) background
-  - Dark bold text
-  - Rounded pill shape
-  - CTA_PRIMARY text
-  - Hover: var(--accent-hover) + scale
-
+  - var(--accent) background, dark (#111) bold text, padding 16px 30px
+  - CTA_PRIMARY text + trailing arrow →
+  - Hover: var(--accent-hover) background + slight scale
   Button 2 (Secondary):
-  - Transparent background
-  - White border
-  - White text
+  - Transparent background, 1px white border, white text, padding 16px 30px
   - CTA_SECOND text
-  - Hover: white bg + dark text
+  - Hover: white background + dark text
 
-=== MOBILE LAYOUT ===
-- Person photo stays as bg (top portion visible)
-- Dark gradient heavier on bottom half
-- Content moves to bottom center (not left)
-- Text becomes center-aligned
-- Buttons stack vertically, full width
-- Nav → hamburger menu
-- Social icons hidden on mobile
+RIGHT COLUMN (person):
+- PERSON_IMG width: clamp(360px, 44vw, 640px), max-height calc(100vh - var(--nav-height))
+- object-fit: contain, object-position: center bottom
+- NO overlay, NO border, NO rounded crop on the face — clean subject on the dark bg
+- Subtle fade at the very bottom only (60px gradient down to var(--bg))
 
 === ANIMATIONS ===
-- Background photo: very subtle slow zoom (Ken Burns)
-- Eyebrow: fade in (0.3s)
+- Nav items: fade in from top (0.2s)
+- Eyebrow: fade up (0.3s)
 - Headlines: staggered fade up (0.4s, 0.5s, 0.6s)
 - Subheadline: fade up (0.7s)
 - Buttons: fade up side by side (0.8s)
-- Nav items: fade in from top (0.2s)
+- Person: fade in + slight slide in from the right (0.5s)
+
+=== MOBILE (768px) ===
+- Layout stacks: person photo on top (max-height 380px, centered, object-position top), text below
+- Text becomes center-aligned
+- Buttons stack vertically, full width
+- Nav → hamburger menu; social icons hidden
 
 === OUTPUT RULES ===
 - All colors, fonts, copy, assets, nav, and social links driven by the CLIENT VARIABLES block at the top
+- Headline MUST use a serif display font (e.g. Playfair Display); body/nav/buttons use a clean sans
 - Comment block at top with numbered edit steps
 - One file, no frameworks, no build step
 
 Build the complete file now.`,
-    varsPrompt: `Apply these client values to the Hero Variation 5 (Person-as-Background) base component.
+    varsPrompt: `Apply these client values to the Hero Variation 5 (Executive Serif Split) base component.
 
 /* ============================================
    CLIENT VARIABLES — EDIT BEFORE LAUNCH
 
-   1. PERSON_IMG    → person/avatar photo URL
-   2. LOGO_IMG      → logo image URL
-   3. LOGO_TEXT     → brand name text
+   1. PERSON_IMG    → person/avatar photo URL (clean cutout on dark looks best)
+   2. LOGO_TEXT     → brand name text
+   3. LOGO_IMG      → logo image URL (optional)
    4. Update COLORS → match client brand kit
-   5. Update NAV_LINKS
-   6. Update SOCIAL_LINKS
+   5. Update FONTS  → serif headline + sans body
+   6. Update NAV_LINKS + SOCIAL_LINKS
    7. Update all COPY
    ============================================ */
 
 — BRAND COLORS (CSS custom properties) —
---bg:             #0D0D0D
---accent:         #C9922A
---accent-hover:   #E0A830
---text:           #FFFFFF
---muted:          #B0B0B0
---overlay-left:   rgba(0, 0, 0, 0.75)
---overlay-right:  rgba(0, 0, 0, 0.15)
---nav-height:     65px
+--bg:           #0D0D0D
+--accent:       #C9922A
+--accent-hover: #E0A830
+--text:         #FFFFFF
+--muted:        #B0B0B0
+--nav-height:   68px
+
+— FONTS —
+--font-head: 'Playfair Display', serif;   ← serif display for the headline
+--font-body: 'Inter', sans-serif;         ← clean sans for body, nav & buttons
 
 — ASSETS —
-const PERSON_IMG  = "/private/hero-v5-person.webp";   ← swap for client photo
-const LOGO_IMG    = "______";                         ← logo image URL (optional)
-const LOGO_TEXT   = "______";                         ← brand name
+const PERSON_IMG = "/private/hero-v5-person.webp";   ← swap for client photo
+const LOGO_IMG   = "______";                         ← logo image URL (optional)
+const LOGO_TEXT  = "Marcus Hale";                    ← brand name
 
 — COPY —
-const EYEBROW     = "______";   ← short eyebrow text
-const HEADLINE_1  = "______";   ← first line of headline
-const HEADLINE_2  = "______";   ← second line of headline
-const HEADLINE_3  = "______";   ← third line of headline
-const SUBHEADLINE = "______";   ← short supporting description
-const CTA_PRIMARY = "______";   ← primary button text
-const CTA_SECOND  = "______";   ← secondary button text
+const EYEBROW     = "Elite Executive Coaching";
+const HEADLINE_1  = "Redefine What's";
+const HEADLINE_2  = "Possible";                      ← italic gold highlight line
+const HEADLINE_3  = "For Your Business";
+const SUBHEADLINE = "Strategic 1:1 coaching for ambitious founders who refuse to settle for ordinary results — businesses that scale without burning out.";
+const CTA_PRIMARY = "Apply Now";
+const CTA_SECOND  = "Learn More";
 
 — NAVIGATION LINKS —
 const NAV_LINKS = [
@@ -705,7 +700,7 @@ const NAV_LINKS = [
 
 — SOCIAL ICONS —
 const SOCIAL_LINKS = [
-  { icon: "facebook",  url: "______" },
+  { icon: "instagram", url: "______" },
   { icon: "linkedin",  url: "______" },
   { icon: "youtube",   url: "______" },
   { icon: "twitter",   url: "______" }
@@ -824,7 +819,7 @@ Build the complete file now.`,
 
 — BRAND COLORS (CSS custom properties) —
 --bg:             #0A0A0A
---accent:         #3B9EE8
+--accent:         #2563EB
 --text:           #FFFFFF
 --muted:          #9A9A9A
 --overlay:        rgba(0, 0, 0, 0.65)
@@ -834,16 +829,16 @@ Build the complete file now.`,
 const BG_IMAGE    = "/private/hero-v6-bg.webp";       ← swap for client background
 const PERSON_IMG  = "/private/hero-v6-person.webp";   ← swap for client person photo
 const LOGO_IMG    = "______";                         ← logo image URL (optional)
-const LOGO_TEXT   = "______";                         ← brand name
+const LOGO_TEXT   = "David Chen";                      ← brand name
 const VIDEO_URL   = "______";                         ← YouTube / Vimeo / Wistia URL
 
 — COPY —
-const EYEBROW     = "______";   ← short eyebrow text
-const HEADLINE_1  = "______";   ← first line of headline
-const HEADLINE_2  = "______";   ← second line of headline
-const HEADLINE_3  = "______";   ← third line of headline
-const SUBHEADLINE = "______";   ← short supporting description
-const CTA_PRIMARY = "______";   ← primary CTA button text
+const EYEBROW     = "Strategic Growth Partner";
+const HEADLINE_1  = "Scale Smarter.";   ← first line of headline
+const HEADLINE_2  = "Lead Bolder.";     ← middle line (rendered in accent blue)
+const HEADLINE_3  = "Win Bigger.";      ← third line of headline
+const SUBHEADLINE = "Helping ambitious founders turn complexity into clarity — and growth into momentum. Tailored 1:1 strategy for businesses ready for the next chapter.";
+const CTA_PRIMARY = "Book a Strategy Call";
 const CTA_WATCH   = "Watch";
 
 — NAVIGATION LINKS —
@@ -856,7 +851,7 @@ const NAV_LINKS = [
 ];
 
 — FEATURED IN —
-const FEATURED_LABEL = "______ Has Been Featured In:";
+const FEATURED_LABEL = "David Chen Has Been Featured In:";
 const FEATURED_NAMES = [
   "Forbes",
   "Entrepreneur",
@@ -908,7 +903,7 @@ CONTAINER:
 LEFT COLUMN (anchored to grid):
 - max-width: 680px, padding-bottom: 40px
 - EYEBROW — uppercase, var(--accent), 13px, letter-spacing 0.34em, no border
-- HEADLINE (4 lines) — font-family Inter, font-weight 800, font-size clamp(42px, 5.6vw, 72px), line-height 1.04, letter-spacing -0.01em. Line 3 uses var(--accent) + italic for the highlight phrase
+- HEADLINE (4 lines) — font-family Inter, font-weight 800, font-size clamp(42px, 5.6vw, 72px), line-height 1.04, letter-spacing -0.01em. Lines 3–4 use var(--accent) + italic for the highlight phrase
 - CTA BUTTON
   - Full width of text column (width: 100%)
   - var(--accent) background, dark bold uppercase text
@@ -992,18 +987,18 @@ const PERSON_IMG        = "https://images.unsplash.com/photo-1507003211169-0a1dd
 const TESTIMONIAL_AVATAR = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80";
 
 — COPY —
-const LOGO_TEXT   = "______";   ← client brand name
+const LOGO_TEXT   = "Alex Martin";
 const EYEBROW     = "FREE LIVE MASTERCLASS";
-const HEADLINE_1  = "______";   ← line 1
-const HEADLINE_2  = "______";   ← line 2
-const HEADLINE_3  = "______";   ← line 3
-const HEADLINE_4  = "______";   ← line 4
+const HEADLINE_1  = "Discover The Proven";
+const HEADLINE_2  = "Framework To Scale";
+const HEADLINE_3  = "Your Business To";       ← accent + italic highlight
+const HEADLINE_4  = "7 Figures (Faster)";     ← accent + italic highlight
 const CTA_TEXT    = "YES, RESERVE MY SPOT NOW";
 
 — TESTIMONIAL —
-const TEST_QUOTE  = "______";   ← short powerful quote about client
-const TEST_NAME   = "______";   ← testimonial person name
-const TEST_TITLE  = "______";   ← person title / authority
+const TEST_QUOTE  = "Alex's framework added $2.4M to our revenue in 8 months. Period.";
+const TEST_NAME   = "Sarah Johnson";
+const TEST_TITLE  = "Founder, Velocity Brands";
 
 — FEATURED IN —
 const FEATURED_LABEL = "Also Featured In:";
@@ -1025,7 +1020,7 @@ const FEATURED_NAMES = [
     label: "HERO",
     title: "Hero Variation 8",
     description:
-      "Dark business coach split: stacked 2-line logo + nav + bold 2-line headline + electric-blue CTA + testimonial (no avatar) + bottom-anchored person right + featured-in dark bar.",
+      "Dark business coach split: stacked 2-line logo + nav + bold 3-line headline (3rd line accent) + electric-blue CTA + blue-border testimonial (no avatar) + bottom-anchored person right + featured-in dark bar.",
     labelClass: labelClasses.hero,
     previewSrc: "/private/hero-v8-thumb.webp",
     funnelTypes: ["Business Coaching", "1-on-1", "High-Ticket"],
@@ -1060,10 +1055,10 @@ CONTAINER:
 
 LEFT COLUMN (anchored to grid):
 - max-width 640px, padding-bottom 50px
-- HEADLINE (2 lines) — very large bold white, clamp(46px, 6.6vw, 88px), line-height 1.02
+- HEADLINE (3 lines) — very large bold white, clamp(46px, 6.6vw, 88px), line-height 1.02. The 3rd line is rendered in var(--accent)
 - SUBHEAD (2 lines) — medium muted, clamp(15px, 1.2vw, 18px), line-height 1.55, max-width 480px
 - CTA BUTTON — electric blue var(--accent) pill, white bold uppercase, padding 18px 36px, font-size 14px, letter-spacing 0.16em. Hover: glow + scale up + var(--accent-hover)
-- TESTIMONIAL BLOCK (margin-top 32px) — no avatar, no border
+- TESTIMONIAL BLOCK (margin-top 32px) — no avatar, left border 3px var(--accent), padding-left 18px
   Italic quote in muted, font-size 14.5px, line-height 1.5
   NAME bold white below (13.5px)
   TITLE small muted below name (12px)
@@ -1080,8 +1075,8 @@ LAYER 4 — Featured In Bar (bottom, full width)
 
 === ANIMATIONS ===
 - BG: subtle slow Ken Burns
-- Headline: staggered fade up (0.3s, 0.4s)
-- Subhead: fade up (0.5s)
+- Headline: staggered fade up (0.3s, 0.4s, 0.5s)
+- Subhead: fade up (0.6s)
 - CTA: fade up + pulse glow (0.6s)
 - Testimonial: fade up (0.8s)
 - Person: fade in + slide right (0.5s)
@@ -1115,10 +1110,10 @@ Build the complete file now.`,
 --nav-height:    70px
 
 — ASSETS (local first, Unsplash fallback) —
-const LOGO_LINE1 = "______";
-const LOGO_LINE2 = "______";
-const BG_IMAGE   = "/private/hero-v8-bg.webp";        ← AB/Background 3.png
-const PERSON_IMG = "/private/hero-v8-person.webp";    ← AB/Man AI.png
+const LOGO_LINE1 = "MARCUS";
+const LOGO_LINE2 = "Reyes";
+const BG_IMAGE   = "/private/hero-v8-bg.webp";        ← city-skyline / dusk background
+const PERSON_IMG = "/private/hero-v8-person.webp";    ← client person cutout
 
 — NAVIGATION LINKS —
 const NAV_LINKS = [
@@ -1130,19 +1125,20 @@ const NAV_LINKS = [
 ];
 
 — COPY —
-const HEADLINE_1 = "______";
-const HEADLINE_2 = "______";
-const SUBHEAD_1  = "______";
-const SUBHEAD_2  = "______";
+const HEADLINE_1 = "Build A Business";
+const HEADLINE_2 = "That Pays You";
+const HEADLINE_3 = "Back.";              ← rendered in accent (blue)
+const SUBHEAD_1  = "Strategic coaching for founders ready to stop trading time for revenue.";
+const SUBHEAD_2  = "Frameworks that scale. Decisions that compound.";
 const CTA_TEXT   = "FREE STRATEGY SESSION";
 
 — TESTIMONIAL —
-const TEST_QUOTE = "______";
-const TEST_NAME  = "______";
-const TEST_TITLE = "______";
+const TEST_QUOTE = "In 6 months Marcus transformed our entire operating model. We doubled our revenue while cutting hours in half. Worth every dollar.";
+const TEST_NAME  = "Dianne Minn";
+const TEST_TITLE = "Founder, Lennage Skincare";
 
 — FEATURED IN —
-const FEATURED_LABEL = "______ Has Been Featured In:";
+const FEATURED_LABEL = "Marcus Has Been Featured In:";
 const FEATURED_NAMES = [
   { name: "Forbes",  style: "serif font-weight:700" },
   { name: "FORTUNE", style: "serif font-weight:400" },
@@ -7818,6 +7814,910 @@ Plan 2 — VIP PRIVATE (badge MOST POPULAR) — $9,997: ✓ Everything in Group 
 Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1,997 available · Guarantee: 30-day refund · $20K guarantee
 Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
   },
+  {
+    id: "hero",
+    number: "AIA-01",
+    label: "HERO",
+    title: "Announcement Ticker Bar",
+    description:
+      "CSS-only infinite scrolling announcement bar. Drop above any hero for launch urgency. Dark/indigo AI Academy style.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/aia-hero-ticker-thumb.webp",
+    funnelTypes: ["All Funnels", "Dark", "Ticker", "Launch Urgency"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a full-width announcement ticker bar. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 01-hero/hero-01-ticker.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5) · --border:rgba(255,255,255,0.08) · --card:rgba(255,255,255,0.03)
+
+=== FIXED LAYOUT STRUCTURE ===
+- Full-width single-row ticker bar; text scrolls infinitely left — PURE CSS, no JS required
+- Single-row flex container; duplicate MESSAGE content 2x inside for a seamless loop
+- @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  animation: marquee var(--speed) linear infinite
+- ✦ star separator between message repeats
+- Text: 11px, uppercase, letter-spacing 2px, color var(--ticker-color), bg var(--ticker-bg)
+- No hover-pause behavior
+
+=== MOBILE (768px) ===
+- Same behavior; text stays 11px, bar full width
+
+=== OUTPUT RULES ===
+- All colors, copy and speed driven by the CLIENT VARIABLES block at the top
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Announcement Ticker Bar.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--ticker-bg:    #0D0B3A;
+--ticker-color: #8B9FFF;
+--speed:        25s;
+
+const MESSAGE = "✦ AI ACADEMY IS LIVE — GET 40% OFF DURING LAUNCH";`,
+  },
+  {
+    id: "hero",
+    number: "AIA-02",
+    label: "HERO",
+    title: "Fullscreen Space Hero + Typewriter",
+    description:
+      "Fullscreen space/aurora bg, typewriter headline cycling 4 phrases, live countdown + 3 stat cards. Course / masterclass launch hero.",
+    labelClass: labelClasses.hero,
+    previewSrc: "/private/aia-hero-space-thumb.webp",
+    funnelTypes: ["Course", "Masterclass", "Countdown", "Typewriter"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a fullscreen space-themed hero with a typewriter headline and live countdown. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 01-hero/hero-02-main.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; typewriter line = Cormorant Garamond italic, accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Full viewport hero. Centered content column, max-width 700px.
+1. BG_IMAGE fills section; dark gradient overlay (bottom heavy); subtle Ken Burns slow zoom (CSS only)
+2. Nav (70px transparent): logo left | support EMAIL right
+3. Centered content top→bottom:
+   a. Social-proof pill badge (glass dark bg, star + STUDENTS count)
+   b. H1 line 1 — Inter 56px bold white (H1_LINE_1)
+   c. H1 line 2 — typewriter (JS): Cormorant Garamond italic 52px accent, cycles TYPEWRITER_PHRASES, 80ms/char, 3s pause, blinking cursor |
+   d. SUBTEXT — Inter 18px muted centered
+   e. CTA button — dark pill + accent border; hover: accent glow box-shadow
+   f. URGENCY line — tiny muted
+   g. Countdown — 4 glass boxes (live JS), tabular-nums, 32px bold
+   h. 3 STAT cards row — dark glass, equal width
+
+=== ANIMATIONS ===
+- Ken Burns scale 1.0→1.08 over 20s; content staggered fade-up on load; countdown live every second
+
+=== MOBILE (768px) ===
+- Font sizes scale down; countdown boxes stay in a row; stat cards single column
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets driven by the CLIENT VARIABLES block at the top
+- Reuse the standard initCountdown timer function
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Fullscreen Space Hero + Typewriter.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:        #6366F1;
+--btn-bg:        #1A1835;
+--btn-border:    rgba(99,102,241,0.5);
+--timer-color:   #FFFFFF;
+
+const BG_IMAGE    = "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1920&q=80";  ← space bg
+const LOGO_URL    = "";                 ← optional; if empty, show BRAND_NAME as text logo
+const BRAND_NAME  = "AI Academy";
+const EMAIL       = "support@gustensun.com";
+const STUDENTS    = "7,231+";
+const H1_LINE_1   = "Build a business you love,";
+const TYPEWRITER_PHRASES = ["with AI agents","with Vibe Coding","with AI Funnels","with one person"];
+const SUBTEXT     = "Join the best community, courses and coaching calls for mastering AI.";
+const CTA_TEXT    = "Join AI Academy — 40% OFF";
+const URGENCY     = "PRICE GOING UP JUNE 7TH";
+const DEADLINE    = "2026-08-01T23:59:59";
+const STATS = [
+  { num:"$15M+", label:"in verified member revenue" },
+  { num:"10+",   label:"years of business experience" },
+  { num:"50+",   label:"apps built using AI" }
+];`,
+  },
+  {
+    id: "empathy",
+    number: "AIA-03",
+    label: "EMPATHY",
+    title: "Pain Bullets + Photo",
+    description:
+      "Split — instructor photo left with dark overlay, 5 pain bullet cards right, closing italic resolution line. AI Academy dark style.",
+    labelClass: labelClasses.empathy,
+    previewSrc: "/private/aia-empathy-thumb.webp",
+    funnelTypes: ["Course", "Coaching", "AI", "Photo Left"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build an empathy / pain-point section (photo left, pain bullets right). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 02-empathy/empathy-01-pain-bullets.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Split layout — 40% photo | 60% content. Min-height 600px.
+LEFT (photo): COACH_PHOTO full height, rounded 12px; dark blue-tint overlay rgba(0,0,50,0.3); gradient fade to dark at bottom.
+RIGHT (content):
+1. LABEL — 11px uppercase muted, letter-spaced
+2. H2 two lines (Inter bold white | Cormorant italic accent)
+3. PAIN_ITEMS stacked cards — glass dark bg + rgba white border, red ✗ icon left + text right; hover border brightens
+4. CLOSING_LINE — full width centered, Cormorant Garamond italic white, BRAND_NAME highlighted in accent
+
+=== ANIMATIONS ===
+- Photo slideInLeft on scroll (0.4s); cards stagger from right (0.1s each); closing line fade-up last (0.45s delay)
+
+=== MOBILE (768px) ===
+- Stack: photo top 16:9, content below
+
+=== OUTPUT RULES ===
+- All colors, copy, assets driven by the CLIENT VARIABLES block at the top
+- Reuse the standard scroll-reveal observer
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Pain Bullets + Photo.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:       #6366F1;
+--danger:       #EF4444;
+
+const COACH_PHOTO  = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80";  ← instructor
+const BRAND_NAME   = "AI Academy";
+const LABEL        = "TRYING TO KEEP UP WITH AI IS TIRING...";
+const H2_LINE_1    = "Any of this sound";
+const H2_ACCENT    = "familiar to you?";
+const PAIN_ITEMS   = [
+  "You're trying to piece together AI tools and strategies from random YouTube videos...",
+  "You're always feeling 'behind' overwhelmed by new AI tools launching every single day...",
+  "You're still trading time for money feeling stuck, instead of building scalable products...",
+  "You know there's so many things AI can help you with, but you don't know where to start.",
+  "You're still just consuming and 'learning', instead of monetizing the AI revolution."
+];
+const CLOSING_LINE = "Don't worry, we'll fix that with you in [BRAND_NAME] so you are up and running within days instead of months.";`,
+  },
+  {
+    id: "opportunity",
+    number: "AIA-04",
+    label: "OPPORTUNITY",
+    title: "The AI Shift — Stats + Matrix",
+    description:
+      "4 giant Cormorant italic stats left, live JS random data-matrix visual right. Builds AI opportunity urgency. Dark/indigo.",
+    labelClass: labelClasses.opportunity,
+    previewSrc: "/private/aia-opportunity-shift-thumb.webp",
+    funnelTypes: ["AI", "Stats", "Animated Matrix"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build an "AI shift" opportunity section (stats left, animated data matrix right). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 03-opportunity/opportunity-01-ai-shift.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Split layout — 55% stats | 45% matrix. Min-height 500px.
+LEFT (stats):
+1. LABEL — tiny uppercase muted
+2. H2 two lines (Inter | Cormorant italic)
+3. 2×2 STATS grid — each STAT_NUM (Cormorant Garamond italic ~52px white) + STAT_LABEL (11px caps)
+4. Down-arrow icon at bottom (inline SVG)
+RIGHT (matrix):
+- Dark bordered container: bg rgba(255,255,255,0.02), border 0.5px rgba(255,255,255,0.08)
+- 20×20 CSS grid of character cells
+- JS setInterval 80ms: each cell randomly shows "0" "1" or "·"; random cells briefly get accent color
+- MATRIX_LABEL centered below container (tiny, muted)
+- Matrix starts animating on scroll entry
+
+=== ANIMATIONS ===
+- Left: stagger fade-up on scroll; matrix starts on IntersectionObserver, runs continuously once started
+
+=== MOBILE (768px) ===
+- Stack: content top, matrix below; matrix 15×15
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to The AI Shift — Stats + Matrix.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const LABEL       = "IT'S ALREADY HAPPENING";
+const H2_LINE_1   = "The AI shift.";
+const H2_ACCENT   = "A massive opportunity.";
+const STATS = [
+  { num:"10x",    label:"PRODUCTIVITY INCREASE" },
+  { num:"$15.7T", label:"AI IMPACT BY 2030" },
+  { num:"80%",    label:"TASKS AUTOMATED" },
+  { num:"24/7",   label:"OUTPUT WITHOUT BURNOUT" }
+];
+const MATRIX_LABEL = "AGENTS WORKING FOR YOU 24/7";`,
+  },
+  {
+    id: "opportunity",
+    number: "AIA-05",
+    label: "OPPORTUNITY",
+    title: "3-Step Method Cards",
+    description:
+      "Centered section with 3 numbered dark-glass method cards (icon + number + title + body). The 'how' behind the program. Hover border accent.",
+    labelClass: labelClasses.opportunity,
+    previewSrc: "/private/aia-opportunity-method-thumb.webp",
+    funnelTypes: ["Solution", "3-Step", "Method"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a 3-step method section (3 numbered glass cards). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 03-opportunity/opportunity-02-solution.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered column, max-width 900px.
+HEADER (centered): LABEL tiny uppercase muted; H2 two lines (Inter | Cormorant italic).
+3 CARDS — equal-width horizontal row. Each:
+- bg rgba(255,255,255,0.03); border 0.5px rgba(255,255,255,0.08); radius 12px; padding 24px
+- inline-SVG icon top (28px, accent)
+- number badge "01"/"02"/"03" (12px, accent)
+- title Inter 600 18px white; body Inter 15px muted
+- hover: border → rgba(accent,0.3); translateY(-2px)
+
+=== ANIMATIONS ===
+- Stagger fade-up (0.12s each card)
+
+=== MOBILE (768px) ===
+- Single column stack
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top; render the ti-* icon names as inline SVGs
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to 3-Step Method Cards.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const LABEL      = "THE SOLUTION";
+const H2_LINE_1  = "The best way to";
+const H2_ACCENT  = "mastering AI";
+const CARDS = [
+  { icon:"ti-school", num:"01", title:"Learn from real experts", body:"Watch over-the-shoulder as we build real businesses, software, and systems from scratch." },
+  { icon:"ti-layers", num:"02", title:"Model what they do",      body:"See the exact prompts, workflows, and strategies we use to generate revenue." },
+  { icon:"ti-copy",   num:"03", title:"Copy their templates",    body:"Don't start from scratch. Use our proven, plug-and-play templates to launch faster." }
+];`,
+  },
+  {
+    id: "usp",
+    number: "AIA-07",
+    label: "USP",
+    title: "Introducing + Laptop Mockup + 4 Features",
+    description:
+      "Pure-CSS laptop mockup centered + 4 dark feature cards (2×2) + CTA + live countdown. Full program intro section.",
+    labelClass: labelClasses.usp,
+    previewSrc: "/private/aia-usp-thumb.webp",
+    funnelTypes: ["Features", "Mockup", "Countdown"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a USP "introducing" section with a pure-CSS laptop mockup, 4 feature cards and a live countdown. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 05-usp/usp-01-introducing.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; accent line Cormorant Garamond italic.
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered column, max-width 900px.
+HEADER (centered): LABEL tiny uppercase muted; H2 multi-line (Inter | Cormorant italic); SUB 17px muted centered.
+CSS LAPTOP MOCKUP (centered): pure CSS device frame (no image); dark rounded container + border; inner screen shows BRAND_NAME centered; two floating glass pill badges overlapping (BADGE_1 top-right | BADGE_2 bottom-left, 12px).
+4 FEATURE CARDS (2×2): each dark glass bg + subtle white border; inline-SVG icon (24px accent); title Inter 600 white; body Inter 14px muted; CARDS[3] gets ACCENT border highlight.
+CTA + COUNTDOWN: CTA_TEXT button (dark pill + accent border); URGENCY tiny muted; 4-box live countdown (DEADLINE).
+
+=== ANIMATIONS ===
+- Mockup scale 0.95→1.0 on scroll; cards stagger fade-up (0.1s each); countdown live
+
+=== MOBILE (768px) ===
+- Cards → single column
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top; reuse initCountdown; render ti-* icons as inline SVGs
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Introducing + Laptop Mockup + 4 Features.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const BRAND_NAME = "AI Academy";
+const LABEL      = "INTRODUCING THE AI ACADEMY";
+const H2_LINE_1  = "Courses, Community, Coaching +";
+const H2_LINE_2  = "Resources to";
+const H2_ACCENT  = "Succeed Online";
+const SUB        = "Masterclasses, tutorials, live buildouts, templates, prompts, coaching calls and more.";
+const BADGE_1    = "Vibe Code Prompts";
+const BADGE_2    = "Remix Templates";
+const CARDS = [
+  { icon:"ti-video",      title:"The Masterclass Library", body:"Over 50+ hours of step-by-step video training covering everything from basic prompting to building complex AI SaaS." },
+  { icon:"ti-terminal-2", title:"Live Vibe Coding",        body:"Weekly live sessions where you watch me build real, profitable apps from scratch." },
+  { icon:"ti-template",   title:"Remix Templates",         body:"Clone and ship ready-made businesses with our plug-and-play template library." },
+  { icon:"ti-users",      title:"Private VIP Community",    body:"Network, collaborate, and get direct support from me and other 6 & 7-figure builders.", highlight:true }
+];
+const CTA_TEXT    = "Join AI Academy — 40% OFF";
+const URGENCY     = "PRICE GOING UP JUNE 7TH";
+const DEADLINE    = "2026-08-01T23:59:59";`,
+  },
+  {
+    id: "offer",
+    number: "AIA-08",
+    label: "OFFER",
+    title: "Pricing Card + Checklist + Countdown",
+    description:
+      "Centered indigo-bordered offer card: full checklist, price anchor, discount badge, CTA + live countdown. Launch pricing.",
+    labelClass: labelClasses.offer,
+    previewSrc: "/private/aia-offer-pricing-thumb.webp",
+    funnelTypes: ["Pricing", "Countdown", "Checklist", "Launch"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a pricing/offer card with checklist, price anchor and live countdown. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 06-offer/offer-01-pricing.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered column, max-width 700px.
+HEADER (centered): LABEL tiny pill badge muted; H2 two lines (Inter | Cormorant italic).
+OFFER CARD (centered, max-width 520px): bg rgba(99,102,241,0.08); border 0.5px rgba(99,102,241,0.25); radius 16px; accent glow box-shadow on entry.
+Inside:
+1. CARD_TITLE centered Inter 600 white
+2. OFFER_ITEMS checklist (✓ accent | text muted white; dashed separator between items)
+3. Price block centered: PRICE_WAS strikethrough muted small; PRICE_NOW large bold + DISCOUNT pill; PRICE_NOTE tiny muted
+4. CTA_TEXT button (full-width pill)
+5. Countdown below: URGENCY + 4 glass timer boxes (live)
+
+=== ANIMATIONS ===
+- Card scale 0.97→1.0 on scroll; CTA pulse glow once on entry; countdown live
+
+=== MOBILE (768px) ===
+- Full-width card
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top; reuse initCountdown
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Pricing Card + Checklist + Countdown.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:       #6366F1;
+--check-color:  #6366F1;
+
+const LABEL       = "LIMITED TIME OFFER";
+const H2_LINE_1   = "Everything you need,";
+const H2_ACCENT   = "in one place";
+const CARD_TITLE  = "What's included:";
+const OFFER_ITEMS = [
+  "Full AI Academy library + monthly updates",
+  "Live Vibe Coding sessions",
+  "Every Remix AI Template (clone & ship)",
+  "Vibe Coding Blueprint + Prompt Flows",
+  "Premium VIP-only Funnel templates",
+  "10+ years of Skills MD files",
+  "Private community + weekly group calls",
+  "My current AI tool stack",
+  "2 day event recordings",
+  "And much more"
+];
+const PRICE_WAS   = "$997 lifetime access";
+const PRICE_NOW   = "$597";
+const DISCOUNT    = "— 40% OFF";
+const PRICE_NOTE  = "Price going up to full price soon.";
+const CTA_TEXT    = "Join AI Academy — 40% OFF";
+const URGENCY     = "PRICE GOING UP JUNE 7TH";
+const DEADLINE    = "2026-08-01T23:59:59";`,
+  },
+  {
+    id: "offer",
+    number: "AIA-09",
+    label: "OFFER",
+    title: "Sneak Peek — Dashboard + Course Cards",
+    description:
+      "Dashboard screenshot + 6 course cards (2×3 grid) with progress bars. Creates desire before the buy.",
+    labelClass: labelClasses.offer,
+    previewSrc: "/private/aia-offer-sneak-thumb.webp",
+    funnelTypes: ["Preview", "Dashboard", "Courses"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a "sneak peek" section: dashboard screenshot + 6 course cards. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 06-offer/offer-02-sneak-peek.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered column, max-width 900px.
+HEADER (centered): LABEL tiny pill badge; H2 two lines (Inter | Cormorant italic).
+DASHBOARD: DASHBOARD_IMG centered; radius 12px; border 0.5px rgba(white,0.1); subtle accent glow box-shadow; max-width 800px.
+COURSE CARDS (2×3 grid): each dark bg + subtle border; colored gradient thumbnail top; COURSE_TITLE Inter 600 14px white; COURSE_DESC Inter 13px muted; progress bar 4px height dark, 0% fill.
+
+=== ANIMATIONS ===
+- Dashboard fade + scale 0.95→1 on scroll; cards stagger 0.08s each
+
+=== MOBILE (768px) ===
+- Dashboard full width; cards 1 col
+
+=== OUTPUT RULES ===
+- All colors, copy, assets driven by the CLIENT VARIABLES block at the top
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Sneak Peek — Dashboard + Course Cards.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const DASHBOARD_IMG = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80";  ← dashboard
+const LABEL         = "SNEAK PEEK";
+const H2_LINE_1     = "Here's exactly";
+const H2_ACCENT     = "what's inside.";
+const COURSES = [
+  { gradient:"linear-gradient(135deg,#1a0d4a,#3d1a8b)", title:"AI Solopreneur Model",   desc:"Productize your intelligence with agentic systems." },
+  { gradient:"linear-gradient(135deg,#0d2b3d,#1a6b5a)", title:"Vibe Coding Mastery",    desc:"3 levels of vibe coding mastery, start to finish." },
+  { gradient:"linear-gradient(135deg,#1a2b0d,#3d6b1a)", title:"AI Monetization Models", desc:"Scale your acquisition with AI-leveraged systems." },
+  { gradient:"linear-gradient(135deg,#2b1a0d,#6b3d1a)", title:"AI Softwares I Use",      desc:"Best AI tools and softwares for different cases." },
+  { gradient:"linear-gradient(135deg,#0d1a3d,#1a3d8b)", title:"Remix My Templates",      desc:"Copy-paste my best projects, apps and funnels." },
+  { gradient:"linear-gradient(135deg,#1a0d2b,#3d1a6b)", title:"Call Recordings",         desc:"Watch live calls you missed, always up to date." }
+];`,
+  },
+  {
+    id: "offer",
+    number: "AIA-10",
+    label: "OFFER",
+    title: "Discover Bullets 2-Col Grid",
+    description:
+      "2-col icon + text bullet grid (10 items) showing everything inside, with CTA + live countdown at the bottom.",
+    labelClass: labelClasses.offer,
+    previewSrc: "/private/aia-offer-discover-thumb.webp",
+    funnelTypes: ["Bullets", "Features", "What's Inside"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a "what you'll discover" 2-col bullet grid with CTA + live countdown. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 06-offer/offer-03-discover-bullets.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered column, max-width 900px. H2 centered, Inter bold white.
+BULLETS GRID (2 equal columns): each bullet dark glass card; padding 14px 16px; border 0.5px rgba(white,0.06); radius 8px; inline-SVG icon left (16px accent); text right Inter 14px muted white; hover border brightens.
+CTA + COUNTDOWN (centered below): CTA_TEXT button + URGENCY; 4-box live countdown (DEADLINE).
+
+=== ANIMATIONS ===
+- Bullets fade up in pairs (0.06s stagger); CTA fades up last; countdown live
+
+=== MOBILE (768px) ===
+- Single column
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top; reuse initCountdown; render ti-* icons as inline SVGs
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Discover Bullets 2-Col Grid.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const H2 = "Just a taste of what you'll discover...";
+const BULLETS = [
+  { icon:"ti-trending-up",   text:"The exact 4-step framework I use to run a 7-figure business solo." },
+  { icon:"ti-gift",          text:"How to design irresistible offers using the Offer Quadrant." },
+  { icon:"ti-layers",        text:"The 6 secret layers of AI Infra to automate your entire workflow." },
+  { icon:"ti-award",         text:"Which of the 3 levels of Vibe Coders are you? How to reach the top 1%." },
+  { icon:"ti-device-mobile", text:"Behind-the-scenes teardown of my custom Solopreneur OS App." },
+  { icon:"ti-file-text",     text:"Copy-paste master prompts I use for high-converting copy." },
+  { icon:"ti-player-play",   text:"Watch me build a profitable SaaS in a live vibe coding session." },
+  { icon:"ti-funnel",        text:"How to prompt AI to build entire sales funnels in minutes." },
+  { icon:"ti-bolt",          text:"Steal my top 20 high-income skills and let AI execute them for you." },
+  { icon:"ti-coin",          text:"My process for churning out digital assets that generate passive income." }
+];
+const CTA_TEXT = "Join AI Academy — 40% OFF";
+const URGENCY  = "PRICE GOING UP JUNE 7TH";
+const DEADLINE = "2026-08-01T23:59:59";`,
+  },
+  {
+    id: "social",
+    number: "AIA-11",
+    label: "SOCIAL PROOF",
+    title: "Proof of Concept — App Screenshots",
+    description:
+      "5 staggered floating app screenshots — center elevated, sides faded — with continuous float animation. Proves real results.",
+    labelClass: labelClasses.social,
+    previewSrc: "/private/aia-social-thumb.webp",
+    funnelTypes: ["Screenshots", "Proof", "Floating"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a proof-of-concept section: 5 staggered floating app screenshots. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 07-social-proof/socialproof-01-proof.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered column, max-width 1000px.
+HEADER (centered): LABEL tiny pill badge; H2 two lines (Inter | Cormorant italic); SUB Inter 17px muted, max-width 600px.
+5-SCREENSHOT CLUSTER (all absolutely positioned in a position:relative container, height 420px):
+- CENTER  z5 scale1.0  opacity1.0  x0           width 480px
+- LEFT-1  z4 scale0.88 opacity0.85 left calc(50% - 420px)  width 380px
+- LEFT-2  z3 scale0.75 opacity0.65 left calc(50% - 580px)  width 320px
+- RIGHT-1 z4 scale0.88 opacity0.85 left calc(50% + 80px)   width 380px
+- RIGHT-2 z3 scale0.75 opacity0.65 left calc(50% + 280px)  width 320px
+Each: rounded frame 12px + dark border. Center: subtle accent glow.
+@keyframes floatCenter { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} } — 3s ease-in-out infinite; side-1 delay 0.5s; side-2 delay 1s.
+On scroll entry: all fade + scale 0.92→1.
+
+=== MOBILE (768px) ===
+- Show only center + left-1 + right-1, smaller sizes
+
+=== OUTPUT RULES ===
+- All colors, copy, assets driven by the CLIENT VARIABLES block at the top
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Proof of Concept — App Screenshots.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const SC_CENTER  = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80";
+const SC_LEFT_1  = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80";
+const SC_LEFT_2  = "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&q=80";
+const SC_RIGHT_1 = "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=600&q=80";
+const SC_RIGHT_2 = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80";
+const LABEL      = "PROOF OF CONCEPT";
+const H2_LINE_1  = "I actually do this";
+const H2_ACCENT  = "for a living too";
+const SUB        = "Most people build stuff that collects dust. I built a new offer, vibe coded an app and grew it to $10,000 MRR in 30 days as a 1-person business. Now I'll show you how.";`,
+  },
+  {
+    id: "authority",
+    number: "AIA-12",
+    label: "AUTHORITY",
+    title: "Instructor Bio + Client Logos",
+    description:
+      "Split — tall photo left with name overlay, 3-paragraph bio right, client logo bar below. Cormorant italic on the name.",
+    labelClass: labelClasses.authority,
+    previewSrc: "/private/aia-authority-thumb.webp",
+    funnelTypes: ["Bio", "Coaching", "Instructor", "Logos"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build an instructor authority/bio section with a client logo bar. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 08-authority/authority-01-instructor.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; line 2 Cormorant Garamond italic accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Centered header + split layout (40% photo | 60% bio). Max-width 1000px.
+HEADER (centered, above split): LABEL tiny uppercase muted; H2 two lines (Inter | Cormorant italic large).
+LEFT (photo): COACH_PHOTO tall portrait, full column; radius 12px; dark frame; bottom gradient overlay with INSTRUCTOR_NAME (Cormorant italic large) + INSTRUCTOR_ROLE (tiny caps muted).
+RIGHT (bio): "Hey, nice to" (Inter muted) + MEET_PHRASE (Cormorant italic accent large); then BIO_PARAGRAPHS each Inter 16px line-height 1.7 muted white, margin between paragraphs.
+LOGOS BAR (full width, below split): LOGOS_LABEL tiny uppercase muted centered; LOGO_NAMES inline row, alternating weights (700/400/600), white opacity 0.45, gap 24px, centered.
+
+=== ANIMATIONS ===
+- Photo slideInLeft on scroll; bio paras stagger fade-up (0.12s each); logos stagger fade-in left→right (0.06s)
+
+=== MOBILE (768px) ===
+- Photo top 16:9 | bio below | logos wrap
+
+=== OUTPUT RULES ===
+- All colors, copy, assets driven by the CLIENT VARIABLES block at the top
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Instructor Bio + Client Logos.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+
+const COACH_PHOTO      = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80";  ← instructor
+const LABEL            = "BEHIND THE SCENES";
+const H2_LINE_1        = "Meet your instructor,";
+const H2_ACCENT        = "Gusten Sun";
+const INSTRUCTOR_NAME  = "Gusten Sun";
+const INSTRUCTOR_ROLE  = "FOUNDER OF AI ACADEMY";
+const MEET_PHRASE      = "meet ya!";
+const BIO_PARAGRAPHS   = [
+  "I've been called both the 'celebrity funnel builder' and the go-to AI Solopreneur for building a simple, lean, profitable 6-7 figure online business that lets you work from anywhere, part-time.",
+  "After making multiple 7 figures in sales myself, and going through multiple burnouts, I've learned it's not about how much you make, but HOW you make it.",
+  "In AI Academy, for the first time ever, you too can now get the same systems, AI prompts, templates and behind-the-scenes strategies that made this possible."
+];
+const LOGOS_LABEL = "PREVIOUS CLIENTS INCLUDE";
+const LOGO_NAMES  = ["ClickFunnels","Tony Robbins","Mastermind","Russell Brunson","Rich Dad","Magnetic Marketing","Steve J Larsen"];`,
+  },
+];
+
+
+// GPT Image-Background prompts — generate a premium scene around the client's REAL face.
+// Not part of the funnel-section catalog (kept out of the Funnel Builder on purpose).
+const gptImageCards: Section[] = [
+  {
+    id: "gptimage",
+    number: "IMG-01",
+    label: "GPT IMAGE",
+    title: "Executive Office — Golden Hour",
+    description:
+      "Drop the client into a warm, premium office (bookshelf, lamp glow, late-afternoon light) while keeping their real face 100% intact. Perfect for a coach/consultant hero photo.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/hero-v5-thumb.webp",
+    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
+    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
+
+GOAL
+Place the client (from the uploaded photo) into a premium executive OFFICE scene — without changing who they are.
+
+=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
+- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
+- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
+- Keep their natural expression and head angle unless a Client Variable overrides it.
+- Relight the face to match the new scene, but never alter the underlying identity.
+
+=== SCENE / BACKGROUND ===
+- Warm, upscale private office: floor-to-ceiling wood bookshelves softly out of focus behind the subject
+- A warm table lamp glowing in the background, subtle late-afternoon "golden hour" sun raking in from one side
+- Shallow depth of field (background gently blurred, f/2.0 look) so the subject pops
+
+=== LIGHTING ===
+- Soft key light on the face from the window side, warm fill, gentle rim/hair light to separate from the background
+- Flattering executive-portrait lighting; natural, not over-processed
+
+=== WARDROBE (default — overridable) ===
+- Tailored dark suit or smart-casual blazer; clean, premium, confident
+
+=== COMPOSITION ===
+- Subject framed waist-up, placed toward one third of the frame, facing camera
+- Leave clear NEGATIVE SPACE on the opposite side for headline text (this is a funnel hero background)
+- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
+
+=== OUTPUT ===
+- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
+- Warm cinematic color grade; no text, no logos, no watermarks in the image
+
+Generate the image now using the uploaded photo as the EXACT face reference.`,
+    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
+
+1. CLIENT_PHOTO → upload/paste the client's photo.
+   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
+2. WARDROBE     → e.g. "navy tailored suit, open collar, no tie"   (or: "keep the wardrobe from the photo")
+3. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
+4. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
+5. MOOD         → e.g. "confident, approachable, premium authority"
+6. SCENE_TWEAK  → optional change, e.g. "add a faint city skyline through a window behind the shelves"
+
+REMINDER FOR THE MODEL (paste this line too):
+"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-02",
+    label: "GPT IMAGE",
+    title: "Modern Boardroom — City Skyline",
+    description:
+      "Client in a glass-and-steel boardroom with a daytime city skyline through floor-to-ceiling windows. Real face preserved 100%. Great for 'strategic growth' / executive positioning.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/hero-v6-thumb.webp",
+    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
+    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
+
+GOAL
+Place the client (from the uploaded photo) into a modern CORPORATE / SKYLINE scene — without changing who they are.
+
+=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
+- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
+- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
+- Keep their natural expression and head angle unless a Client Variable overrides it.
+- Relight the face to match the new scene, but never alter the underlying identity.
+
+=== SCENE / BACKGROUND ===
+- High-floor modern office / boardroom with floor-to-ceiling windows
+- Daytime city skyline (glass towers) softly out of focus behind the subject
+- Clean, minimal, premium; subtle reflections, lots of natural daylight
+
+=== LIGHTING ===
+- Bright, soft daylight key from the windows, gentle fill, slight rim light for separation
+- Crisp, clean, modern editorial feel
+
+=== WARDROBE (default — overridable) ===
+- Sharp dark suit or modern blazer; polished and authoritative
+
+=== COMPOSITION ===
+- Subject framed waist-up, arms crossed or hand-in-pocket "confident leader" pose, toward one third of the frame
+- Leave clear NEGATIVE SPACE on the opposite side for headline text (funnel hero background)
+- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
+
+=== OUTPUT ===
+- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
+- Cool, clean color grade; no text, no logos, no watermarks in the image
+
+Generate the image now using the uploaded photo as the EXACT face reference.`,
+    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
+
+1. CLIENT_PHOTO → upload/paste the client's photo.
+   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
+2. WARDROBE     → e.g. "charcoal suit, white shirt, no tie"   (or: "keep the wardrobe from the photo")
+3. POSE         → e.g. "arms crossed, slight smile"  |  "one hand in pocket, looking at camera"
+4. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
+5. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
+6. SCENE_TWEAK  → optional, e.g. "switch skyline to dusk"  |  "add a glass conference table foreground"
+
+REMINDER FOR THE MODEL (paste this line too):
+"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-03",
+    label: "GPT IMAGE",
+    title: "Live Stage — Masterclass Spotlight",
+    description:
+      "Put the client on a dramatic dark stage under a spotlight (bokeh crowd / screen glow behind) while keeping their real face 100%. Built for webinar / masterclass registration heroes.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/hero-v7-thumb.webp",
+    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
+    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
+
+GOAL
+Place the client (from the uploaded photo) on a LIVE STAGE / masterclass scene — without changing who they are.
+
+=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
+- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
+- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
+- Keep their natural expression and head angle unless a Client Variable overrides it.
+- Relight the face to match the new scene, but never alter the underlying identity.
+
+=== SCENE / BACKGROUND ===
+- Dark conference / arena stage, dramatic theatrical lighting
+- Soft bokeh of an audience and/or a glowing presentation screen far behind the subject
+- Atmospheric haze, deep blacks, premium event feel
+
+=== LIGHTING ===
+- Strong directional spotlight / key on the subject from above-front, dark moody surroundings
+- Warm or gold rim light to separate the subject from the dark background; cinematic contrast
+
+=== WARDROBE (default — overridable) ===
+- Sharp dark suit or smart blazer; speaker/presenter energy
+
+=== COMPOSITION ===
+- Subject framed waist-up or 3/4, mid-gesture "presenting" pose (open hands) toward one third of the frame
+- Leave clear NEGATIVE SPACE on the opposite side for headline text (funnel hero background)
+- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
+
+=== OUTPUT ===
+- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
+- Cinematic, high-contrast color grade; no text, no logos, no watermarks in the image
+
+Generate the image now using the uploaded photo as the EXACT face reference.`,
+    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
+
+1. CLIENT_PHOTO → upload/paste the client's photo.
+   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
+2. WARDROBE     → e.g. "black suit, no tie"   (or: "keep the wardrobe from the photo")
+3. POSE         → e.g. "mid-gesture, open hands, presenting"  |  "standing confident, mic in hand"
+4. STAGE_GLOW   → accent color of the stage light → e.g. "gold"  |  "electric blue"  |  "warm white"
+5. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
+6. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
+
+REMINDER FOR THE MODEL (paste this line too):
+"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-04",
+    label: "GPT IMAGE",
+    title: "City Skyline — Blue Hour / Dusk",
+    description:
+      "Client against a cinematic blue-hour city skyline (cool blues + warm rim light) with their real face preserved 100%. Premium 'authority at dusk' look for high-ticket coaching heroes.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/hero-v8-thumb.webp",
+    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
+    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
+
+GOAL
+Place the client (from the uploaded photo) against a cinematic DUSK / BLUE-HOUR skyline — without changing who they are.
+
+=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
+- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
+- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
+- Keep their natural expression and head angle unless a Client Variable overrides it.
+- Relight the face to match the new scene, but never alter the underlying identity.
+
+=== SCENE / BACKGROUND ===
+- High-rise window or rooftop overlooking a city skyline at blue hour / dusk
+- City lights starting to glow, deep blue sky, glass towers softly out of focus behind the subject
+- Cool, moody, premium nighttime-business atmosphere
+
+=== LIGHTING ===
+- Cool blue ambient from the skyline + a warm key/rim light on the subject for contrast and separation
+- Cinematic, editorial; subject clearly lit while the city stays atmospheric
+
+=== WARDROBE (default — overridable) ===
+- Dark suit or premium blazer; polished, high-ticket presence
+
+=== COMPOSITION ===
+- Subject framed waist-up, hands-in-pockets or relaxed-confident pose toward one third of the frame
+- Leave clear NEGATIVE SPACE on the opposite side for headline text (funnel hero background)
+- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
+
+=== OUTPUT ===
+- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
+- Cool cinematic dusk color grade with warm subject lighting; no text, no logos, no watermarks in the image
+
+Generate the image now using the uploaded photo as the EXACT face reference.`,
+    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
+
+1. CLIENT_PHOTO → upload/paste the client's photo.
+   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
+2. WARDROBE     → e.g. "navy suit, open collar"   (or: "keep the wardrobe from the photo")
+3. POSE         → e.g. "hands in pockets, slight smile"  |  "looking out toward the city, head turned to camera"
+4. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
+5. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
+6. SCENE_TWEAK  → optional, e.g. "rooftop instead of window"  |  "add subtle rain on the glass"
+
+REMINDER FOR THE MODEL (paste this line too):
+"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
+  },
 ];
 
 const tabs: { id: TabId; label: string }[] = [
@@ -7834,6 +8734,7 @@ const tabs: { id: TabId; label: string }[] = [
   { id: "urgency", label: "⏰ Urgency" },
   { id: "faq", label: "❓ FAQ" },
   { id: "footer", label: "📄 Footer" },
+  { id: "gptimage", label: "🎨 GPT Image BG" },
 ];
 
 function CopyButton({
@@ -8887,7 +9788,7 @@ export function PrivateContent() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const showBuilder = tab === "builder";
-  const visibleSections = sections.filter((s) => tab === s.id);
+  const visibleSections = [...sections, ...gptImageCards].filter((s) => tab === s.id);
 
   return (
     <div className="relative min-h-[100dvh] bg-[#0D0B1F] text-white overflow-x-hidden">
