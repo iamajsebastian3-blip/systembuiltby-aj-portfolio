@@ -17,7 +17,8 @@ type SectionId =
   | "urgency"
   | "faq"
   | "footer"
-  | "gptimage";
+  | "gptimage"
+  | "carousel";
 type TabId = SectionId | "builder";
 
 type Section = {
@@ -48,6 +49,7 @@ const labelClasses: Record<SectionId, string> = {
   faq: "text-[#B8D8E0]",
   footer: "text-[#94A3B8]",
   gptimage: "text-[#A3E635]",
+  carousel: "text-[#67E8F9]",
 };
 
 const sections: Section[] = [
@@ -8720,6 +8722,263 @@ REMINDER FOR THE MODEL (paste this line too):
   },
 ];
 
+
+// Animated Carousel prompts — pure-CSS infinite marquees (inter-section elements).
+// Kept out of the 10P Funnel Builder catalog (own tab), like the GPT Image cards.
+const carouselCards: Section[] = [
+  {
+    id: "carousel",
+    number: "CAR-01",
+    label: "CAROUSEL",
+    title: "Marquee Ticker Bar",
+    description:
+      "Infinite scrolling single-row text ticker — pure CSS, no JS. Two variants in one file: bold announcement bar + subtle numbered feature list. Drop between any sections.",
+    labelClass: labelClasses.carousel,
+    previewSrc: "/private/carousel-ticker-thumb.webp",
+    funnelTypes: ["Ticker", "Marquee", "Announcement", "All Funnels"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a full-width marquee ticker bar (pure CSS infinite scroll, zero JS). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 00-animated-carousel/carousel-01-marquee-ticker.html
+All CSS in <style> | Minimal JS only if needed
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5) · --border:rgba(255,255,255,0.08) · --card:rgba(255,255,255,0.03)
+
+=== CORE CAROUSEL TECHNIQUE ===
+- Duplicate the row content 2x inside one flex row (total width 200%)
+- @keyframes scrollLeft { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} } → at -50% it resets seamlessly
+- will-change: transform; transform only (no left/margin); overflow hidden on outer container
+
+=== FIXED LAYOUT STRUCTURE ===
+Build TWO variants as separate <section> blocks in the same file:
+VARIANT A — Dark announcement: deep indigo bg var(--ticker-a-bg); single scrolling row; TICKER_A_ITEMS with ✦/dot separators; speed var(--speed-a).
+VARIANT B — Subtle dark: bg #030110; subtle border top + bottom; numbered items "01 · 02 · 03"; slightly slower var(--speed-b).
+BOTH: items 11px, uppercase, letter-spacing 2px; NO hover pause (always moving).
+
+=== MOBILE (768px) ===
+- Same single-row behavior; slightly slower
+
+=== OUTPUT RULES ===
+- All colors, copy, speed driven by the CLIENT VARIABLES block at the top
+- Content duplicated 2x for the seamless loop; one file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Marquee Ticker Bar.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+
+/* VARIANT A — Announcement style */
+--ticker-a-bg:     #0D0B3A;
+--ticker-a-color:  #8B9FFF;
+--speed-a:         22s;
+
+const TICKER_A_ITEMS = [
+  "✦ AI ACADEMY IS LIVE — GET 40% OFF DURING LAUNCH",
+  "✦ PRICE GOING UP JUNE 7TH",
+  "✦ JOIN 7,231+ STUDENTS TODAY"
+];
+
+/* VARIANT B — Feature list style */
+--ticker-b-bg:     #030110;
+--ticker-b-color:  rgba(255,255,255,0.4);
+--ticker-b-border: rgba(255,255,255,0.06);
+--speed-b:         30s;
+
+const TICKER_B_ITEMS = [
+  { num:"01", text:"Full AI Academy library" },
+  { num:"02", text:"Live Vibe Coding sessions" },
+  { num:"03", text:"Every Remix AI Template" },
+  { num:"04", text:"Daily Prompt Flows" },
+  { num:"05", text:"10+ years of Skills MD files" },
+  { num:"06", text:"Private VIP Community" }
+];`,
+  },
+  {
+    id: "carousel",
+    number: "CAR-02",
+    label: "CAROUSEL",
+    title: "Module Cards — Dual Row Infinite Scroll",
+    description:
+      "Two rows of gradient module cards scrolling opposite directions (row 1 left, row 2 right). Hover pauses both, edge-fade masks. AI Academy curriculum style.",
+    labelClass: labelClasses.carousel,
+    previewSrc: "/private/carousel-module-thumb.webp",
+    funnelTypes: ["Modules", "Course", "Dual Row", "Infinite Scroll"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a dual-row infinite module-card carousel (pure CSS). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 00-animated-carousel/carousel-02-module-cards.html
+All CSS in <style> | Minimal JS only if needed
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; accent line Cormorant Garamond italic.
+
+=== CORE CAROUSEL TECHNIQUE ===
+- Duplicate each row's content 2x; scrollLeft / scrollRight keyframes translateX 0↔-50% for seamless loop
+- will-change: transform; edge-fade masks via ::before/::after on the OUTER container (pointer-events none)
+- Hover on the wrapper: animation-play-state: paused on both rows
+
+=== FIXED LAYOUT STRUCTURE ===
+HEADER (centered): LABEL tiny pill badge muted; H2 two lines (Inter | Cormorant italic).
+ROW 1 scrolls LEFT (var(--speed-row-1)); ROW 2 scrolls RIGHT (var(--speed-row-2)), offset/staggered. Both = MODULE_CARDS × 2.
+EACH CARD: 220×130, flex-shrink 0, radius 12px, background = its gradient, overflow hidden, padding 10px 12px.
+Top: "AI Academy" micro label (8px, opacity .4) + module number badge right. Bottom: TITLE (Inter bold 18px white) +
+SUBTITLE (Cormorant italic 16px) + CATEGORY (8px muted caps). Hover scale 1.02. Gap 12px.
+
+=== MOBILE (768px) ===
+- Show Row 1 only; cards 180×110; slower speed (×1.5)
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top; cards duplicated 2x for the loop
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Module Cards — Dual Row.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:       #6366F1;
+--speed-row-1:  20s;
+--speed-row-2:  25s;
+
+const LABEL     = "CURRICULUM";
+const H2_LINE_1 = "Explore the modules,";
+const H2_ACCENT = "inside AI Academy";
+
+const MODULE_CARDS = [
+  { gradient:"linear-gradient(135deg,#0D0B3A 0%,#3D1A6B 100%)", num:"Module 01", title:"Agentic",   subtitle:"Systems",     category:"Freedom Guarantee" },
+  { gradient:"linear-gradient(135deg,#1A0D0D 0%,#6B3D1A 100%)", num:"Module 02", title:"1-Person",  subtitle:"Business",    category:"Lifestyle Design" },
+  { gradient:"linear-gradient(135deg,#0D1A0D 0%,#1A6B3D 100%)", num:"Module 03", title:"AI Copy",   subtitle:"Writing",     category:"Client Acquisition" },
+  { gradient:"linear-gradient(135deg,#0D0D1A 0%,#1A3D6B 100%)", num:"Module 04", title:"Digital",   subtitle:"Products",    category:"Production Yourself" },
+  { gradient:"linear-gradient(135deg,#1A0D1A 0%,#6B1A6B 100%)", num:"Module 05", title:"Vibe Code", subtitle:"Apps & Saas", category:"Agentic Systems" },
+  { gradient:"linear-gradient(135deg,#0D1A1A 0%,#1A6B6B 100%)", num:"Module 06", title:"Funnel",    subtitle:"Building",    category:"Customer Journeys" }
+];`,
+  },
+  {
+    id: "carousel",
+    number: "CAR-03",
+    label: "CAROUSEL",
+    title: "Templates Scroll — Device Frame Cards",
+    description:
+      "Single-row infinite scroll of template previews in dark device frames — screenshot bg + type badge + name. Hover pauses, edge fades. Plug & play showcase.",
+    labelClass: labelClasses.carousel,
+    previewSrc: "/private/carousel-templates-thumb.webp",
+    funnelTypes: ["Templates", "Device Frames", "Plug & Play"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a single-row infinite template-card carousel in device frames (pure CSS). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 00-animated-carousel/carousel-03-templates-scroll.html
+All CSS in <style> | Minimal JS only if needed
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; accent line Cormorant Garamond italic.
+
+=== CORE CAROUSEL TECHNIQUE ===
+- Duplicate the row content 2x; scrollLeft keyframe translateX 0→-50% for seamless loop; will-change: transform
+- Edge-fade masks via ::before/::after on the OUTER container (pointer-events none); hover pauses the row
+
+=== FIXED LAYOUT STRUCTURE ===
+HEADER (centered): LABEL pill badge muted; H2 two lines (Inter | Cormorant italic).
+EACH CARD: outer wrapper 260px, flex-shrink 0. Device frame: bg #111118, border 0.5px rgba(255,255,255,0.1), radius 12px, padding 8px (inner radius 8px).
+Screenshot inside: 100% width, height 160px, object-fit cover, radius 6px (gradient fallback if no image). Below frame: type badge (dark pill 10px muted) + name (Inter 600 14px white). Gap 16px. Hover card scale 1.02.
+
+=== MOBILE (768px) ===
+- Card 200px; slower speed (×1.3)
+
+=== OUTPUT RULES ===
+- All colors, copy, assets driven by the CLIENT VARIABLES block at the top; cards duplicated 2x for the loop
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Templates Scroll — Device Frame Cards.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:    #6366F1;
+--speed:     28s;
+
+const LABEL     = "PLUG & PLAY";
+const H2_LINE_1 = "Get these plug & play";
+const H2_ACCENT = "templates included";
+
+const TEMPLATES = [
+  { img:"https://images.unsplash.com/photo-1484807352052-23338990c6c6?w=400&q=80", gradient:"linear-gradient(135deg,#0D1A0D,#1a3d1a)", type:"Local Business Funnel", name:"Performance Gym" },
+  { img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80", gradient:"linear-gradient(135deg,#0D1A1A,#0d3d3d)", type:"Software Landing Page", name:"Pipeline SaaS" },
+  { img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80", gradient:"linear-gradient(135deg,#0D0D1A,#1a1a6b)", type:"Agency Funnel",        name:"AI Agency Pro" },
+  { img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80", gradient:"linear-gradient(135deg,#1A0D1A,#3d1a3d)", type:"Course Creator",      name:"Coaching Funnel" },
+  { img:"https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&q=80", gradient:"linear-gradient(135deg,#1A0D0D,#3d1a0d)", type:"E-commerce",         name:"Product Launch" },
+  { img:"https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?w=400&q=80", gradient:"linear-gradient(135deg,#0D1A0D,#0d3d1a)", type:"Lead Generation",    name:"VSL Funnel" }
+];`,
+  },
+  {
+    id: "carousel",
+    number: "CAR-04",
+    label: "CAROUSEL",
+    title: "Tag Pills — Dual Row Audience Marquee",
+    description:
+      "Two rows of scrolling pill tags (row 1 left, row 2 right) showing who the program is for. Pure CSS, always moving, full-bleed. Centered header above.",
+    labelClass: labelClasses.carousel,
+    previewSrc: "/private/carousel-tags-thumb.webp",
+    funnelTypes: ["Tags", "Pills", "Who It's For", "Audience"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a dual-row pill-tag marquee (pure CSS, always moving). Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 00-animated-carousel/carousel-04-tag-pills.html
+All CSS in <style> | Minimal JS only if needed
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; accent line Cormorant Garamond italic.
+
+=== CORE CAROUSEL TECHNIQUE ===
+- Duplicate each row's content 2x; scrollLeft / scrollRight keyframes translateX 0↔-50% for seamless loop; will-change: transform
+- NO hover pause (always moving). NO edge-fade masks (full-bleed rows look better for tags).
+
+=== FIXED LAYOUT STRUCTURE ===
+HEADER (centered, above rows): LABEL pill badge muted; H2 two lines (Inter | Cormorant italic).
+ROW 1 scrolls LEFT (var(--speed-row-1)) = TAG_ROW_1 × 2; ROW 2 scrolls RIGHT (var(--speed-row-2)) = TAG_ROW_2 × 2. Gap between rows 10px.
+EACH PILL: padding 8px 18px; border 0.5px rgba(255,255,255,0.12); radius 9999px; bg transparent; color rgba(255,255,255,0.45);
+Inter 11px uppercase letter-spacing 1px; white-space nowrap; flex-shrink 0; gap 8px. Hover pill: border rgba(accent,0.4) + color rgba(255,255,255,0.8).
+
+=== MOBILE (768px) ===
+- Show Row 1 only; smaller pills (padding 6px 14px)
+
+=== OUTPUT RULES ===
+- All colors, copy driven by the CLIENT VARIABLES block at the top; pills duplicated 2x for the loop
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to Tag Pills — Dual Row Audience Marquee.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:       #6366F1;
+--speed-row-1:  30s;
+--speed-row-2:  25s;
+
+const LABEL     = "WHO IS THIS FOR?";
+const H2_LINE_1 = "Great program for";
+const H2_ACCENT = "every entrepreneur";
+
+const TAG_ROW_1 = [
+  "LOCAL BUSINESSES","AGENCIES","COACHES & CONSULTANTS","EXPERTS","SPEAKERS",
+  "AUTHORS","COURSE CREATORS","INFLUENCERS","E-COMMERCE BRANDS"
+];
+
+const TAG_ROW_2 = [
+  "SAAS FOUNDERS","CONTENT CREATORS","SOLOPRENEURS","PODCASTERS","DESIGNERS",
+  "DEVELOPERS","MARKETERS","FREELANCERS","SERVICE PROVIDERS","STARTUPS","PHOTOGRAPHERS","FITNESS COACHES"
+];`,
+  },
+];
+
 const tabs: { id: TabId; label: string }[] = [
   { id: "builder", label: "🧩 Funnel Builder" },
   { id: "hero", label: "🏠 Hero" },
@@ -8735,6 +8994,7 @@ const tabs: { id: TabId; label: string }[] = [
   { id: "faq", label: "❓ FAQ" },
   { id: "footer", label: "📄 Footer" },
   { id: "gptimage", label: "🎨 GPT Image BG" },
+  { id: "carousel", label: "🎠 Carousels" },
 ];
 
 function CopyButton({
@@ -8884,7 +9144,7 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-[1400px] max-h-[90vh] aspect-video rounded-xl overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.6)] cursor-default"
       >
-        <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" priority />
+        <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" priority unoptimized />
       </div>
     </div>
   );
@@ -9788,7 +10048,7 @@ export function PrivateContent() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const showBuilder = tab === "builder";
-  const visibleSections = [...sections, ...gptImageCards].filter((s) => tab === s.id);
+  const visibleSections = [...sections, ...gptImageCards, ...carouselCards].filter((s) => tab === s.id);
 
   return (
     <div className="relative min-h-[100dvh] bg-[#0D0B1F] text-white overflow-x-hidden">
@@ -9866,6 +10126,7 @@ export function PrivateContent() {
                         fill
                         sizes="(max-width: 768px) 100vw, 380px"
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        unoptimized
                       />
                       <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-200 group-hover:bg-black/20" />
                       <span className="pointer-events-none absolute top-2 right-2 inline-flex items-center gap-1 rounded-md bg-black/55 backdrop-blur px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-white opacity-0 group-hover:opacity-100 transition-opacity">
