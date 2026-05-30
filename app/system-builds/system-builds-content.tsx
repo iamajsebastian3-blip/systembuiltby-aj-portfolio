@@ -76,6 +76,15 @@ const ajTutorials: SystemBuild[] = [
     image: "/system-builds/snapshot-tutorial.webp",
     videoId: "OQXXNVjJfgE",
   },
+  {
+    title: "Build High-Converting Funnels in 1 Hour",
+    category: "Funnel Tutorial",
+    description:
+      "Build a high-converting funnel from scratch — Attract · Engage · Convert · Retain. Built with HighLevel (built-in) or Vercel. Step-by-step, no experience needed.",
+    emoji: "🎯",
+    image: "/system-builds/funnel-tutorial.webp",
+    videoId: "iIZPsP7MTYs",
+  },
 ];
 
 function BuildCard({ build }: { build: SystemBuild }) {
