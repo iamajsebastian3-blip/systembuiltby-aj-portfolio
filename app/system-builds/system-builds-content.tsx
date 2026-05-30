@@ -19,7 +19,7 @@ type SystemBuild = {
   image?: string;
 };
 
-const builds: SystemBuild[] = [
+const clientProjects: SystemBuild[] = [
   {
     title: "Lead Capture → Conversion Pipeline",
     category: "GHL Workflow",
@@ -63,6 +63,18 @@ const builds: SystemBuild[] = [
     description:
       "Post-sale delivery system — welcome sequence, kickoff scheduling, milestone tracking, and testimonial capture.",
     emoji: "🏆",
+  },
+];
+
+const ajTutorials: SystemBuild[] = [
+  {
+    title: "Create Snapshot, Subaccount & Load It to a Subaccount",
+    category: "GHL Tutorial",
+    description:
+      "Step-by-step GHL workflow — capture a snapshot of an account, spin up a new subaccount, and load the snapshot in. Fast, easy, repeatable.",
+    emoji: "📸",
+    image: "/system-builds/snapshot-tutorial.webp",
+    videoId: "OQXXNVjJfgE",
   },
 ];
 
@@ -182,16 +194,54 @@ export function SystemBuildsContent() {
       <section className="relative py-14 md:py-20 px-5 sm:px-6">
         <div className="pointer-events-none absolute top-1/3 left-[15%] w-[400px] h-[400px] bg-persian/10 blur-[120px] rounded-full" />
 
-        <div className="relative max-w-7xl mx-auto">
-          <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {builds.map((build) => (
-              <BuildCard key={build.title} build={build} />
-            ))}
-          </StaggerChildren>
+        <div className="relative max-w-7xl mx-auto space-y-16 md:space-y-20">
+          {/* Section 1 — Clients Project */}
+          <div>
+            <ScrollReveal>
+              <div className="mb-8 md:mb-10">
+                <p className="text-yellow text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
+                  Section 01
+                </p>
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                  Clients <span className="text-persian-light">Project</span>
+                </h2>
+                <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
+                  Real systems I built for real clients — pipelines, automations, funnels.
+                </p>
+              </div>
+            </ScrollReveal>
+            <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {clientProjects.map((build) => (
+                <BuildCard key={build.title} build={build} />
+              ))}
+            </StaggerChildren>
+          </div>
+
+          {/* Section 2 — AJ Tutorial */}
+          <div>
+            <ScrollReveal>
+              <div className="mb-8 md:mb-10">
+                <p className="text-yellow text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
+                  Section 02
+                </p>
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                  AJ <span className="text-persian-light">Tutorial</span>
+                </h2>
+                <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
+                  Step-by-step how-tos. The exact moves I make, recorded raw.
+                </p>
+              </div>
+            </ScrollReveal>
+            <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {ajTutorials.map((build) => (
+                <BuildCard key={build.title} build={build} />
+              ))}
+            </StaggerChildren>
+          </div>
 
           {/* Footnote */}
           <ScrollReveal>
-            <p className="mt-10 md:mt-12 text-center text-sm text-white/40 px-4">
+            <p className="text-center text-sm text-white/40 px-4">
               New walkthroughs added regularly. Want a custom build recorded?{" "}
               <a
                 href="/consult"
