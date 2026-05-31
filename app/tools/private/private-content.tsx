@@ -18,7 +18,8 @@ type SectionId =
   | "faq"
   | "footer"
   | "gptimage"
-  | "carousel";
+  | "carousel"
+  | "local";
 type TabId = SectionId | "builder";
 
 type Section = {
@@ -50,6 +51,7 @@ const labelClasses: Record<SectionId, string> = {
   footer: "text-[#94A3B8]",
   gptimage: "text-[#A3E635]",
   carousel: "text-[#67E8F9]",
+  local: "text-[#10B981]",
 };
 
 const sections: Section[] = [
@@ -9059,6 +9061,509 @@ const TAG_ROW_2 = [
   },
 ];
 
+
+// Local Website prompts — single-page websites for local businesses (resorts, cafes, ...).
+// Own tab, kept out of the 10P Funnel Builder catalog.
+const localWebsiteCards: Section[] = [
+  {
+    id: "local",
+    number: "LOC-RES-01",
+    label: "LOCAL · RESORT",
+    title: "Lunara Beach Resort — Tropical Luxe",
+    description:
+      "Single-page resort website (9 sections): split hero with floating glass features card · welcome/about + 3-photo grid · 5-col 'why guests love' icon row · 4-col rooms carousel · special offer banner with overlap gold badge · testimonials · Instagram 5-photo grid · 4-col footer. Green/gold luxury hospitality with Playfair + Inter + Dancing Script.",
+    labelClass: labelClasses.local,
+    funnelTypes: ["Resort", "Hospitality", "Single-Page", "Luxury"],
+    basePrompt: `You are an expert frontend developer and web designer specializing in luxury hospitality websites.
+
+Build the LUNARA BEACH RESORT website as a single complete HTML file. Production-ready, fully responsive, GHL-compatible.
+All CSS in <style> | All JS in <script>. Google Fonts only — no external libraries. Tabler Icons CDN for icons.
+
+=== OUTPUT ===
+One file: lunara-beach-resort.html
+
+=== FONTS (load in <head>) ===
+Playfair Display — 400, 400i, 600, 700, 700i
+Inter — 300, 400, 500, 600
+Dancing Script — 400, 600
+All via Google Fonts.
+
+=== ICONS ===
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+=== DESIGN SYSTEM ===
+- H1/H2/H3: Playfair Display, serif
+- Body: Inter, sans-serif
+- Script accent lines: Dancing Script italic
+- Eyebrow labels: Inter 11px, uppercase, letter-spaced 3px, ACCENT color
+- Quote marks on testimonials: Playfair Display, oversized, ACCENT
+Spacing: generous (80–120px sections). Cards: white bg, subtle shadow, rounded 12px. Buttons: pill or slight radius. Hover: smooth 0.3s.
+Scroll animations: .reveal + .visible via IntersectionObserver. Stagger children .delay-1 … .delay-5.
+Mobile breakpoint 768px. Hamburger menu on mobile (JS toggle).
+
+=== SECTION 01 — NAVIGATION ===
+Fixed top, 80px. Transparent on top; on scroll (>50px) add .scrolled → white bg + box-shadow.
+- LEFT: palm icon (ti-tree) + BRAND_NAME (Playfair bold) + BRAND_SUBTITLE (Inter 10px muted)
+- CENTER (desktop): NAV_LINKS — Inter 13px uppercase letter-spaced 1px. Hover: accent underline from left. Active: accent.
+- RIGHT: CTA_NAV_TEXT button (ACCENT bg, white text, small pill) + hamburger (mobile only)
+- MOBILE: logo + hamburger only; full-screen overlay menu, dark bg, centered nav links, CTA below
+
+=== SECTION 02 — HERO ===
+Full viewport (100vh). Full-width BG_HERO_IMAGE with left dark gradient overlay:
+linear-gradient(to right, rgba(27,58,45,0.85) 0%, rgba(27,58,45,0.3) 60%, transparent 100%)
+
+LEFT CONTENT (padding-left 8%):
+1. HERO_EYEBROW (Inter 11px, accent, uppercase, letter-spaced 3px, gold em-dash before text)
+2. H1 HERO_HEADLINE (Playfair Display 700, 64px, white) — two lines
+3. HERO_SUBTEXT (Inter 16px, rgba white 0.8, max-width 420px)
+4. Two CTAs side by side:
+   CTA_PRIMARY (ACCENT bg, dark text, pill)
+   CTA_SECONDARY (transparent, white border, white text, ti-player-play icon before text)
+
+BOTTOM-RIGHT floating glass card (absolute, bottom-right):
+Dark semi-transparent rgba(27,58,45,0.85), 3 feature rows: icon + title + body from HERO_FEATURES, Tabler icons accent.
+
+=== SECTION 03 — WELCOME / ABOUT ===
+2-col (45% content | 55% photos). Light cream bg.
+LEFT: ABOUT_LABEL eyebrow + H2 ABOUT_HEADLINE (Playfair 600, 40px) + ABOUT_BODY (Inter 16px muted, line-height 1.8) + ABOUT_QUOTE (Dancing Script 24px dark italic, multi-line) + decorative leaf SVG watermark.
+RIGHT — CSS grid 1 large left + 2 stacked right: PHOTO_ABOUT_1 (spans full height) + PHOTO_ABOUT_2 (top right) + PHOTO_ABOUT_3 (bottom right). All radius 12px, object-fit cover.
+ANIM: left stagger fade-up; photos fade-in + scale 0.95→1.
+
+=== SECTION 04 — WHY GUESTS LOVE ===
+Light gray bg. Centered header + 5-col icon grid (no cards).
+HEADER: FEATURES_LABEL (eyebrow) + H2 FEATURES_HEADLINE (Playfair centered).
+5 columns from FEATURES: Tabler icon (32px accent) + TITLE (Inter 11px bold uppercase letter-spaced 1px) + BODY (Inter 13px muted centered). Hover translateY(-4px). Mobile: 2-col → 1-col.
+
+=== SECTION 05 — ACCOMMODATIONS ===
+White bg. Header row: left ROOMS_LABEL + H2, right prev/next arrows (40px dark circles, white icons, hover accent).
+4-col card grid (horizontal scroll on mobile). Each from ROOMS:
+  ROOM_IMAGE (h 220px cover, top-radius 12px) + ROOM_NAME (Playfair 20px dark) + ROOM_DESC (Inter 14 muted) + ROOM_PRICE (accent 13px). Hover: lift + shadow.
+VIEW ALL BUTTON below (centered): PRIMARY bg, white, uppercase letter-spaced 2px, pill. Hover accent.
+Arrows: JS translateX the cards container. Mobile: scroll-snap on horizontal overflow.
+
+=== SECTION 06 — SPECIAL OFFER BANNER ===
+2-col split (40% content | 60% photo). PRIMARY dark green bg.
+LEFT (padding 60px): OFFER_LABEL eyebrow + H2 OFFER_HEADLINE (Playfair 700 white large) + OFFER_BODY (Inter rgba white 0.75) + CTA_OFFER (ACCENT bg dark text pill).
+CENTER absolute gold circle badge: "UP TO" + OFFER_DISCOUNT (large Playfair white) + "OFF". Accent border + dark fill. CSS transform overlaps both cols.
+RIGHT: OFFER_IMAGE full-height cover, slight darken overlay.
+MOBILE: stack content over photo; badge repositions below headline.
+
+=== SECTION 07 — TESTIMONIALS ===
+Cream/off-white bg. Centered header + 3-col quote cards. Prev/next arrows on sides.
+HEADER: H2 REVIEWS_HEADLINE (Playfair centered) + ti-feather icon (accent 24px) below headline.
+3 cards from REVIEWS: oversized " (Playfair 80px accent opacity 0.3) + QUOTE_TEXT (Playfair italic 16px dark, line-height 1.8) + 40px accent separator + REVIEWER_AVATAR (circle 44px) + REVIEWER_NAME (Inter 600) + REVIEWER_LOCATION (Inter 13 muted). White bg, subtle shadow, radius 12px, padding 32px.
+ARROWS absolute sides: ti-chevron-left / ti-chevron-right. JS slide visible cards.
+
+=== SECTION 08 — INSTAGRAM / SOCIAL ===
+2-col (25% text | 75% photo grid). Cream bg.
+LEFT: SOCIAL_EYEBROW (caps muted) + SOCIAL_HEADLINE (Playfair dark 2 lines) + SOCIAL_HANDLE (Inter accent @handle) + FOLLOW_BTN (dark bg white text small pill).
+RIGHT: 5-col grid of equal squares — SOCIAL_PHOTOS (5 images), square cover radius 6px. Hover: brightness up + overlay with ti-external-link.
+MOBILE: photos wrap to 2–3 cols.
+
+=== SECTION 09 — FOOTER ===
+PRIMARY dark green bg. 4-col grid + bottom bar.
+COL 1 Brand: white logo + FOOTER_TAGLINE (Inter 14 muted white) + social row (ti-brand-facebook, ti-brand-instagram, ti-brand-tiktok, ti-brand-youtube) — circle border, hover accent.
+COL 2 Explore: "EXPLORE" header (Inter caps accent) + FOOTER_EXPLORE links (Inter 14 rgba white 0.6, hover white).
+COL 3 Contact Us: "CONTACT US" header + ti-map-pin address + ti-phone phone + ti-mail email + ti-clock hours.
+COL 4 Newsletter: "NEWSLETTER" header + NEWSLETTER_BODY + email input + arrow submit. Input: dark border transparent bg white text radius 4px. Submit: ACCENT bg arrow icon.
+BOTTOM BAR: border-top 1px rgba white 0.1. Left COPYRIGHT, right FOOTER_LEGAL (Privacy · Terms). Inter 12px rgba white 0.4.
+
+=== SCROLL & ANIMATIONS ===
+html { scroll-behavior: smooth; }. Nav anchors to #home #about #stay #experiences #dining #gallery #offers #contact. IntersectionObserver tracks visible section and highlights matching nav link.
+Page load: hero content stagger fade-up (0.2s each).
+Scroll: .reveal → .visible, opacity 0→1, translateY 24→0, 0.5s ease; children .delay-1 … .delay-5.
+Card hover translateY(-4px) + shadow. Image hover brightness + scale 1.02. Button active scale 0.98.
+
+=== MOBILE (768px / 480px) ===
+Hamburger nav + overlay. Hero single column. Welcome single column. Features 2–3 col grid. Rooms horizontal snap. Offer stack. Reviews 1 card + arrows. Social 2–3 col grid. Footer 2-col → single. 480px: fonts scale, padding 40px, cards full width.
+
+=== OUTPUT RULES ===
+1. Single HTML file — everything inline. 2. CLIENT VARIABLES at top of <script>; CSS vars in :root at top of <style>. 3. No external CSS beyond Google Fonts + Tabler Icons CDN. 4. Images object-fit cover, width/height 100%. 5. Use the exact Unsplash URLs in CLIENT VARIABLES (or swap for local assets). 6. Smooth scroll on anchor links. 7. Mobile hamburger + carousels + newsletter "Thank you!" message must work. 8. All scroll animations via IntersectionObserver (no GSAP). 9. Content visible without JS. 10. No placeholder text — fill in all copy.
+
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Lunara Beach Resort base component.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+
+/* ——— COLORS (in :root) ——— */
+--primary:       #1B3A2D;
+--primary-dark:  #142d22;
+--accent:        #C9A96E;
+--accent-dark:   #B8904F;
+--bg-white:      #FFFFFF;
+--bg-cream:      #F9F6F0;
+--bg-light:      #F2EEE8;
+--text-dark:     #1A1A1A;
+--text-muted:    #6B6B6B;
+--text-light:    rgba(255,255,255,0.75);
+
+/* ——— BRAND ——— */
+const BRAND_NAME     = "LUNARA";
+const BRAND_SUBTITLE = "BEACH RESORT · PHILIPPINES";
+const BRAND_LOGO_URL = "[LOGO_URL]";
+
+/* ——— NAVIGATION ——— */
+const NAV_LINKS = [
+  { label:"Home",         href:"#home" },
+  { label:"About",        href:"#about" },
+  { label:"Stay",         href:"#stay" },
+  { label:"Experiences",  href:"#experiences" },
+  { label:"Dining",       href:"#dining" },
+  { label:"Gallery",      href:"#gallery" },
+  { label:"Offers",       href:"#offers" },
+  { label:"Contact",      href:"#contact" }
+];
+const CTA_NAV_TEXT   = "Book Now";
+
+/* ——— HERO ——— */
+const BG_HERO_IMAGE  = "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80";
+const HERO_EYEBROW   = "STEP INTO SERENITY";
+const HERO_HEADLINE  = "Island Life,\\nRedefined.";
+const HERO_SUBTEXT   = "A private beach escape where crystal-clear waters, warm hospitality, and unforgettable moments await.";
+const CTA_PRIMARY    = "Book Your Escape";
+const CTA_SECONDARY  = "Watch Video";
+const HERO_FEATURES  = [
+  { icon:"ti-beach",            title:"PRIVATE BEACHFRONT",         body:"Direct access to pristine white sand" },
+  { icon:"ti-heart-handshake",  title:"WARM FILIPINO HOSPITALITY",  body:"Genuine service from the heart" },
+  { icon:"ti-leaf",             title:"NATURE ALL AROUND",          body:"Surrounded by the beauty of tropical paradise" }
+];
+
+/* ——— ABOUT ——— */
+const ABOUT_LABEL    = "WELCOME TO LUNARA";
+const ABOUT_HEADLINE = "Where the Ocean\\nMeets Tranquility";
+const ABOUT_BODY     = "Lunara Beach Resort is a coastal sanctuary in the Philippines designed for those who seek relaxation, adventure, and meaningful connections.";
+const ABOUT_QUOTE    = "Breathe in. Slow down.\\nYou're exactly where you\\nneed to be.";
+const PHOTO_ABOUT_1  = "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80";
+const PHOTO_ABOUT_2  = "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80";
+const PHOTO_ABOUT_3  = "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&q=80";
+
+/* ——— FEATURES ——— */
+const FEATURES_LABEL    = "WHY GUESTS LOVE LUNARA";
+const FEATURES_HEADLINE = "More Than a Stay,\\nIt's an Experience";
+const FEATURES = [
+  { icon:"ti-sunset",           title:"BEACHFRONT PARADISE",  body:"Wake up to stunning ocean views every day." },
+  { icon:"ti-bed",              title:"LUXURIOUS COMFORT",    body:"Elegant rooms designed for your ultimate rest." },
+  { icon:"ti-tools-kitchen-2",  title:"DELICIOUS CUISINE",    body:"Savor local flavors and international favorites." },
+  { icon:"ti-kayak",            title:"FUN & ADVENTURE",      body:"Exciting activities on land and in the water." },
+  { icon:"ti-spa",              title:"RELAX & REJUVENATE",   body:"Spa, wellness, and peaceful island vibes." }
+];
+
+/* ——— ACCOMMODATIONS ——— */
+const ROOMS_LABEL    = "REST IN PARADISE";
+const ROOMS_HEADLINE = "Our Accommodations";
+const ROOMS = [
+  { image:"https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80", name:"Deluxe Seaview Room",  desc:"Spacious and stylish with breathtaking ocean views.",            price:"₱6,500 / NIGHT" },
+  { image:"https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80", name:"Beachfront Villa",     desc:"Steps away from the beach with your own private terrace.",       price:"₱12,500 / NIGHT" },
+  { image:"https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80", name:"Pool Villa Suite",     desc:"Private pool, tropical garden, and unmatched privacy.",          price:"₱15,500 / NIGHT" },
+  { image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80", name:"Family Villa",         desc:"Perfect for families with plenty of space to unwind.",           price:"₱16,500 / NIGHT" }
+];
+const ROOMS_CTA      = "View All Accommodations";
+
+/* ——— SPECIAL OFFER ——— */
+const OFFER_LABEL    = "SPECIAL OFFER";
+const OFFER_HEADLINE = "Stay Longer,\\nSave More";
+const OFFER_BODY     = "Enjoy exclusive rates when you extend your paradise.";
+const OFFER_DISCOUNT = "20%";
+const OFFER_CTA      = "View Offers";
+const OFFER_IMAGE    = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80";
+
+/* ——— TESTIMONIALS ——— */
+const REVIEWS_HEADLINE = "What Our Guests Say";
+const REVIEWS = [
+  { quote:"Lunara is truly a slice of paradise! The staff were amazing and the views are unforgettable.", avatar:"https://i.pravatar.cc/80?img=1", name:"Andrea M.",     location:"Manila, Philippines" },
+  { quote:"We celebrated our anniversary here and it was perfect in every way. We'll definitely be back!", avatar:"https://i.pravatar.cc/80?img=3", name:"Jason & Lara",  location:"Cebu, Philippines" },
+  { quote:"The best beach resort experience we've had in the Philippines. Highly recommended!",            avatar:"https://i.pravatar.cc/80?img=5", name:"Mark D.",       location:"Davao, Philippines" }
+];
+
+/* ——— SOCIAL / INSTAGRAM ——— */
+const SOCIAL_EYEBROW  = "FOLLOW THE JOURNEY";
+const SOCIAL_HEADLINE = "Share Every\\nMoment";
+const SOCIAL_HANDLE   = "@lunarabeachresort";
+const FOLLOW_BTN      = "Follow Us";
+const SOCIAL_PHOTOS   = [
+  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80",
+  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80",
+  "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=400&q=80",
+  "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=80",
+  "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=400&q=80"
+];
+
+/* ——— FOOTER ——— */
+const FOOTER_TAGLINE  = "A hidden gem in the Philippines where luxury meets nature. Your escape awaits.";
+const FOOTER_EXPLORE  = ["About Us","Accommodations","Experiences","Dining","Gallery","Offers","Contact"];
+const FOOTER_ADDRESS  = "Sitio Deku, Barangay Poblacion, El Nido, Palawan, Philippines";
+const FOOTER_PHONE    = "+63 917 123 4567";
+const FOOTER_EMAIL    = "hello@lunarabeachresort.com";
+const FOOTER_HOURS    = "We are open 24/7";
+const NEWSLETTER_BODY = "Subscribe for exclusive offers and updates.";
+const COPYRIGHT       = "© 2024 Lunara Beach Resort. All Rights Reserved.";
+const FOOTER_LEGAL    = [ { label:"Privacy Policy", href:"#" }, { label:"Terms & Conditions", href:"#" } ];
+const SOCIAL_LINKS    = { facebook:"#", instagram:"#", tiktok:"#", youtube:"#" };`,
+  },
+  {
+    id: "local",
+    number: "LOC-RES-02",
+    label: "LOCAL · RESORT",
+    title: "Isla Serena Beach Resort — Coastal Boutique",
+    description:
+      "Single-page resort website (9 sections): full-bleed hero with 3-line headline (script accent) · floating BOOKING BAR (check-in / check-out / guests + JS counters) · about + floating quote card + decorative leaf SVG · 3-col rooms carousel (arrows + touch swipe) · experiences 4-photo grid with floating icon badges · 3-col testimonials carousel · CTA banner with arrow · 5-col footer. Teal/gold beachfront luxe.",
+    labelClass: labelClasses.local,
+    funnelTypes: ["Resort", "Hospitality", "Booking Widget", "Carousel"],
+    basePrompt: `You are an expert frontend developer and web designer specializing in luxury hospitality websites.
+
+Build the ISLA SERENA BEACH RESORT website as a single complete HTML file. Production-ready, fully responsive, GHL-compatible.
+All CSS in <style> | All JS in <script>. Google Fonts only — no external libraries. Tabler Icons CDN for icons.
+
+=== OUTPUT ===
+One file: isla-serena.html
+
+=== FONTS (load in <head>) ===
+Playfair Display — 400, 400i, 600, 700, 700i
+Inter — 300, 400, 500, 600
+Dancing Script — 400, 600
+
+=== ICONS ===
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+=== DESIGN SYSTEM ===
+- H1/H2/H3: Playfair Display serif
+- Body: Inter sans-serif
+- Script accent lines: Dancing Script italic
+- Eyebrow labels: Inter 11px uppercase letter-spaced 3px ACCENT
+- Quote marks: Playfair Display oversized ACCENT
+PRIMARY for nav/buttons/footer/banners; ACCENT for labels/price/icons/highlights; BG_CREAM alternating; TEXT_DARK #1A1A1A.
+Border radius 12px on cards/images; buttons radius 6–8px or pill; hover 0.3s ease.
+Scroll animations: .reveal { opacity:0; transform:translateY(24px); transition: opacity .5s, transform .5s; } .reveal.visible { opacity:1; transform:translateY(0); } .delay-1 … .delay-4 add transition-delay.
+IntersectionObserver triggers .visible. Mobile breakpoints 768px, 480px. Hamburger menu on mobile (JS toggle).
+
+=== SECTION 01 — NAVIGATION ===
+Fixed top 80px. Transparent on hero → white on scroll (.scrolled at 50px → white bg + box-shadow).
+LEFT: palm (ti-tree ACCENT) + BRAND_NAME (Playfair bold) + BRAND_SUBTITLE (Inter 10px muted).
+CENTER (desktop): NAV_LINKS Inter 13px uppercase letter-spaced 1px; hover ACCENT with underline; active section ACCENT underline.
+RIGHT: CTA_NAV_TEXT button (ACCENT bg dark text slight radius) + hamburger (mobile).
+MOBILE: full-screen overlay menu, PRIMARY bg, centered links (Playfair 24px white), CTA below, close X top-right.
+
+=== SECTION 02 — HERO ===
+Full viewport (min 100vh). BG_HERO_IMAGE full width+height (cover) with overlay:
+linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 55%, transparent 100%).
+
+CONTENT (left-aligned, padding-left 8%):
+1. H1 three lines:
+   HERO_LINE_1 (Playfair 700 68px white)
+   HERO_LINE_2 (Playfair 700 68px white)
+   HERO_LINE_3 — script accent (Dancing Script 600 64px ACCENT)
+2. HERO_SUBTEXT (Inter 16px rgba white 0.85, max-width 400px line-height 1.6)
+3. Two CTAs side by side:
+   CTA_PRIMARY (ACCENT bg dark text radius 6px, Inter 13px bold uppercase letter-spaced)
+   CTA_SECONDARY (transparent, white border white text, ti-player-play icon inside a 24px circle on left)
+
+=== SECTION 03 — BOOKING BAR ===
+White card, max-width 900px, centered. Position relative with margin-top: -40px and z-index 10 (overlaps hero bottom).
+Radius 12px, shadow 0 8px 40px rgba(0,0,0,0.12), padding 24px 32px.
+
+Flex row, 3 fields + button:
+- CHECK-IN: label "CHECK-IN" (Inter 10 uppercase muted) + ti-calendar-event (ACCENT 18px) + value BOOKING_CHECKIN_DEFAULT + ti-chevron-down
+- CHECK-OUT: same shape, value BOOKING_CHECKOUT_DEFAULT
+- GUESTS: label "GUESTS" + ti-user (ACCENT 18px) + value BOOKING_GUESTS_DEFAULT + chevron
+- 1px rgba gray dividers between fields
+- Button CHECK AVAILABILITY (PRIMARY bg white text uppercase letter-spaced 1px radius 8px full-height; hover slightly lighter PRIMARY)
+Date fields: <input type="date"> styled to match. Guest field: custom JS counter popup with Adults +/- and Children +/-.
+Slides up on entry: @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} } 0.6s 0.3s ease both.
+MOBILE: stack fields vertically + full-width button below.
+
+=== SECTION 04 — ABOUT / WELCOME ===
+BG_WHITE. 2-col (45% content | 55% photo). Max-width 1200px, padding 100px 5%.
+
+LEFT:
+1. ABOUT_LABEL (eyebrow ACCENT)
+2. H2 ABOUT_HEADLINE (Playfair 600 44px TEXT_DARK line-height 1.2)
+3. ABOUT_BODY (Inter 15px TEXT_MUTED line-height 1.8 max-width 380px)
+4. MINI FEATURES ROW — flex horizontal gap 24px margin-top 24px. 4 items from ABOUT_FEATURES:
+   Tabler icon (24px ACCENT) + label (Inter 10 uppercase letter-spaced 1px TEXT_DARK, center, max-width 70px). No card bg.
+5. CTA_ABOUT (margin-top 32px): PRIMARY bg white uppercase letter-spaced 2px radius 6px padding 14px 28px.
+
+RIGHT PHOTO:
+PHOTO_ABOUT (large aerial) full column height radius 12px cover.
+Floating quote card (absolute bottom-right of photo col): white bg subtle shadow radius 10px padding 20px 24px;
+  ABOUT_FLOAT_QUOTE_LINE_1 (Playfair 400 16px dark italic) + ABOUT_FLOAT_QUOTE_LINE_2 (Dancing Script 24px ACCENT).
+Decorative leaf SVG (absolute bottom-right area, low opacity ACCENT stroke, inline SVG path — tropical leaf outline, opacity 0.25).
+
+Animations: left stagger fade-up; photo fade-in + scale 0.97→1; float card fade-up 0.3s delay.
+MOBILE: stack single column, photo on top; float card centers below photo.
+
+=== SECTION 05 — ACCOMMODATIONS ===
+BG_CREAM. Centered header + 3-col card carousel. Max-width 1200px.
+HEADER (centered): ROOMS_LABEL eyebrow + H2 ROOMS_HEADLINE (Playfair centered) + small ACCENT divider icon (ti-sun or ti-flower).
+3-col carousel: prev/next arrows absolute on sides (40px dark circles, white chevron, hover ACCENT). JS slide one card on click. Overflow hidden + cards translateX.
+
+EACH ROOM CARD from ROOMS:
+ROOM_IMAGE (h 220px cover top-radius 12px) + body padding 20px:
+  ROOM_NAME (Playfair 600 20px dark), ROOM_DESC (Inter 13 muted line-height 1.6), 3 small ACCENT dots (6px circles inline), ROOM_PRICE (ACCENT Inter 13), CTA_ROOM_BTN "View Details" (PRIMARY bg white small radius full width).
+Hover: lift translateY(-4px), shadow deepens.
+MOBILE: single card visible + arrow nav + touch swipe (JS).
+
+=== SECTION 06 — EXPERIENCES ===
+BG_WHITE. Split 2-col (40% | 60%). Max-width 1200px, padding 100px 5%.
+LEFT: EXPERIENCES_LABEL eyebrow + H2 EXPERIENCES_HEADLINE (Playfair 600 44px TEXT_DARK max-width 380px) + CTA_EXPERIENCES (PRIMARY bg white uppercase letter-spaced radius 6px).
+RIGHT: 4-col photo grid (2×2 squares). Each from EXPERIENCES:
+  square photo (cover radius 10px) + circle icon badge (40px white circle shadow, centered bottom of photo with translateY 50%; Tabler icon inside ACCENT 18px) + label below (Inter 11 uppercase letter-spaced 1px center TEXT_DARK, margin-top 24px to clear the icon).
+Animations: left fade-up; photos stagger fade-in 0.1s each; icons scale 0→1 0.3s after photo.
+MOBILE: stack single column; photos 2-col grid.
+
+=== SECTION 07 — TESTIMONIALS ===
+BG_CREAM. Centered header + 3-col quote carousel. Max-width 1200px.
+HEADER: REVIEWS_LABEL eyebrow + H2 REVIEWS_HEADLINE (Playfair centered) + flower divider.
+CAROUSEL: arrows on sides, JS slide, touch swipe.
+EACH CARD from REVIEWS: white bg subtle shadow radius 12px padding 32px;
+  Opening " (Playfair 72px ACCENT opacity 0.4 display block margin-bottom -20px) + QUOTE_TEXT (Playfair italic 15px TEXT_DARK line-height 1.8) + 40px thin ACCENT line (margin 20px 0) + reviewer row (flex gap 12px):
+  REVIEWER_AVATAR (circle 44px img) + right column: "— REVIEWER_NAME" (Inter 600 14px dark) + REVIEWER_LOCATION (Inter 13 TEXT_MUTED).
+MOBILE: single card + arrows.
+
+=== SECTION 08 — BOTTOM CTA BANNER ===
+PRIMARY bg. BG_CTA_IMAGE subtle overlay (opacity 0.15 cover absolute full section). Padding 40px 8%.
+Single row (flex space-between):
+LEFT: ti-calendar-check (48px circle ACCENT bg, PRIMARY icon inside) + text block: CTA_BANNER_HEADLINE (Playfair 600 28px white) + CTA_BANNER_BODY (Inter 14 rgba white 0.7).
+RIGHT: CTA_BANNER_BTN (ACCENT bg dark text uppercase letter-spaced 2px, ti-arrow-right icon after text, radius 6px padding 16px 32px).
+MOBILE: stack centered, button full width.
+
+=== SECTION 09 — FOOTER ===
+PRIMARY bg. 5-col grid. Max-width 1200px, padding 80px 5% 40px.
+COL 1 Brand (25%): white logo + FOOTER_TAGLINE (Inter 14 rgba white 0.6 max-width 220px line-height 1.7) + social icons row (margin-top 20px) — each in 36px circle border (rgba white 0.2). Hover ACCENT border + icon color. Icons: ti-brand-facebook, ti-brand-instagram, ti-brand-tiktok, ti-brand-x.
+COL 2 Quick Links: "QUICK LINKS" header (Inter 11 uppercase letter-spaced 2px ACCENT) + FOOTER_QUICK_LINKS (Inter 14 rgba white 0.6; hover: white + translateX 4px).
+COL 3 Information: "INFORMATION" header + FOOTER_INFO_LINKS (same style).
+COL 4 Contact Us: "CONTACT US" header + 4 rows: ti-map-pin address, ti-phone phone, ti-mail email, ti-clock hours. Inter 13 rgba white 0.6; icon ACCENT 16.
+COL 5 Newsletter: "NEWSLETTER" header + NEWSLETTER_BODY (Inter 13 rgba white 0.6) + email input + ti-send submit. Input: border-bottom only (1px rgba white 0.3) transparent bg white text placeholder rgba white 0.4. Submit ACCENT no bg.
+BOTTOM BAR (margin-top 40px, border-top 1px rgba white 0.1, padding-top 24px): Left COPYRIGHT (Inter 12 rgba white 0.4) | Right FOOTER_LEGAL same style with " | " separator.
+
+=== SCROLL & INTERACTION ===
+html { scroll-behavior: smooth; }. Nav active state via IntersectionObserver: add .active to matching nav link when section is 50%+ visible.
+Carousel JS: track currentIndex, slide(dir, ...) clamps to bounds and translates the container 0.4s ease. Disable prev at start / next at end.
+Booking bar: date <input type="date">. Guest field: custom JS counter popup with Adults +/- and Children +/-.
+Touch swipe: record touchstart X; on touchend if diff > 50px slide (negative = next).
+Page load: hero headline lines stagger fade-up 0.15s apart.
+Scroll: .reveal → .visible for all section content on entry.
+Experience photos: stagger fade-in 0.1s each. Quote mark on testimonials: scale 0→1 on card entry.
+
+=== MOBILE (768 / 480) ===
+768: nav hamburger only; hero H1 → 44px, subtext max-width 100%; booking bar stacked vertical fields full-width; about single col; about mini features 2×2 grid; accommodations 1 card + arrows; experiences stacked photos 2×2; testimonials 1 card + arrows; CTA banner stacked; footer 2-col → single.
+480: H1 → 36px; section padding 60px 20px; cards full width.
+
+=== OUTPUT RULES ===
+Single HTML file, all inline. CLIENT VARIABLES at top of <script>; CSS vars in :root. No external CSS beyond Google Fonts + Tabler. Use the exact Unsplash URLs (or swap for local assets). Smooth scroll. Mobile hamburger + carousels + booking bar + newsletter form all functional. All scroll anims via IntersectionObserver. Inline decorative leaf SVG (simple path no fill ACCENT stroke opacity 0.2). No placeholder text. Works without JS.
+
+Build the complete single HTML file now.`,
+    varsPrompt: `Apply these client values to the Isla Serena Beach Resort base component.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+
+/* ——— COLORS (in :root) ——— */
+--primary:       #1B4F5C;
+--primary-dark:  #143d47;
+--accent:        #C9A96E;
+--accent-dark:   #B8904F;
+--bg-white:      #FFFFFF;
+--bg-cream:      #F8F5EF;
+--bg-light:      #F2EDE6;
+--text-dark:     #1A1A1A;
+--text-muted:    #6B6B6B;
+
+/* ——— BRAND ——— */
+const BRAND_NAME     = "ISLA SERENA";
+const BRAND_SUBTITLE = "BEACH RESORT · PHILIPPINES";
+const BRAND_LOGO_URL = "[LOGO_URL]";
+
+/* ——— NAVIGATION ——— */
+const NAV_LINKS = [
+  { label:"Home",            href:"#home" },
+  { label:"About",           href:"#about" },
+  { label:"Accommodations",  href:"#stay" },
+  { label:"Experiences",     href:"#experiences" },
+  { label:"Gallery",         href:"#gallery" },
+  { label:"Offers",          href:"#offers" },
+  { label:"Contact",         href:"#contact" }
+];
+const CTA_NAV_TEXT = "Book Now";
+
+/* ——— HERO ——— */
+const BG_HERO_IMAGE = "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80";
+const HERO_LINE_1   = "Your Escape.";
+const HERO_LINE_2   = "Your Paradise.";
+const HERO_LINE_3   = "Your Island.";
+const HERO_SUBTEXT  = "Unwind in a tropical sanctuary where the beach, comfort, and Filipino hospitality come together.";
+const CTA_PRIMARY   = "Book Your Stay";
+const CTA_SECONDARY = "Watch Video";
+
+/* ——— BOOKING BAR ——— */
+const BOOKING_CHECKIN_DEFAULT  = "May 24, 2024";
+const BOOKING_CHECKOUT_DEFAULT = "May 26, 2024";
+const BOOKING_GUESTS_DEFAULT   = "2 Adults, 0 Kids";
+const BOOKING_CTA_TEXT         = "Check Availability";
+
+/* ——— ABOUT ——— */
+const ABOUT_LABEL    = "WELCOME TO ISLA SERENA";
+const ABOUT_HEADLINE = "A Hidden Paradise\\nin the Philippines";
+const ABOUT_BODY     = "Isla Serena Beach Resort is a serene beachfront retreat where crystal-clear waters, powdery white sand, and warm Filipino hospitality create unforgettable memories.";
+const ABOUT_FEATURES = [
+  { icon:"ti-beach",            label:"BEACHFRONT\\nLOCATION" },
+  { icon:"ti-tools-kitchen-2",  label:"GREAT FOOD &\\nDRINKS" },
+  { icon:"ti-spa",              label:"RELAX &\\nREJUVENATE" },
+  { icon:"ti-heart-handshake",  label:"FILIPINO\\nHOSPITALITY" }
+];
+const CTA_ABOUT              = "Learn More About Us";
+const PHOTO_ABOUT            = "https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=900&q=80";
+const ABOUT_FLOAT_QUOTE_LINE_1 = "Where every moment";
+const ABOUT_FLOAT_QUOTE_LINE_2 = "feels like vacation.";
+
+/* ——— ACCOMMODATIONS ——— */
+const ROOMS_LABEL    = "STAY IN COMFORT";
+const ROOMS_HEADLINE = "Our Accommodations";
+const ROOMS = [
+  { image:"https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80", name:"Beachfront Villas",       desc:"Wake up to the sound of waves and stunning ocean views.",  price:"₱9,500 / NIGHT", cta:"View Details" },
+  { image:"https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80", name:"Deluxe Poolside Rooms",   desc:"Relax by the pool surrounded by lush tropical gardens.",   price:"₱7,000 / NIGHT", cta:"View Details" },
+  { image:"https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80", name:"Garden View Rooms",       desc:"Comfortable rooms with serene views of our gardens.",      price:"₱5,000 / NIGHT", cta:"View Details" }
+];
+
+/* ——— EXPERIENCES ——— */
+const EXPERIENCES_LABEL    = "EXPERIENCES";
+const EXPERIENCES_HEADLINE = "Make Every Moment\\nExtraordinary";
+const CTA_EXPERIENCES      = "Explore Experiences";
+const EXPERIENCES = [
+  { image:"https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=400&q=80", icon:"ti-wave-sine",         label:"ISLAND HOPPING &\\nSNORKELING" },
+  { image:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80", icon:"ti-tools-kitchen-2", label:"BEACHFRONT\\nDINING" },
+  { image:"https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&q=80", icon:"ti-spa",               label:"RELAXING SPA\\nTREATMENTS" },
+  { image:"https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&q=80", icon:"ti-kayak",           label:"FUN WATER\\nACTIVITIES" }
+];
+
+/* ——— TESTIMONIALS ——— */
+const REVIEWS_LABEL    = "GUEST LOVE";
+const REVIEWS_HEADLINE = "What Our Guests Say";
+const REVIEWS = [
+  { quote:"The best beach resort experience we've had in the Philippines. The staff are so warm and accommodating!", avatar:"https://i.pravatar.cc/80?img=10", name:"Janelle & Mark", location:"Manila, Philippines" },
+  { quote:"From the beautiful rooms to the amazing food, everything was perfect. We can't wait to come back!",        avatar:"https://i.pravatar.cc/80?img=12", name:"Christian D.",   location:"Cebu, Philippines" },
+  { quote:"A true paradise! The beach is pristine and the sunsets are absolutely magical.",                            avatar:"https://i.pravatar.cc/80?img=9",  name:"Trisha L.",      location:"Davao, Philippines" }
+];
+
+/* ——— CTA BANNER ——— */
+const BG_CTA_IMAGE        = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80";
+const CTA_BANNER_HEADLINE = "Ready for your escape?";
+const CTA_BANNER_BODY     = "Book directly with us for the best rates and exclusive perks.";
+const CTA_BANNER_BTN      = "Book Now";
+
+/* ——— FOOTER ——— */
+const FOOTER_TAGLINE = "A tropical haven in the Philippines where luxury meets nature and memories last a lifetime.";
+const FOOTER_QUICK_LINKS = ["Home","About Us","Accommodations","Experiences","Offers","Gallery","Contact"];
+const FOOTER_INFO_LINKS  = ["Amenities","Dining","Spa","Weddings & Events","FAQ","Blog","Careers"];
+const FOOTER_ADDRESS  = "Sitio Daku, Barangay Poblacion, El Nido, Palawan, Philippines";
+const FOOTER_PHONE    = "+63 917 123 4567";
+const FOOTER_EMAIL    = "hello@islaserena.com";
+const FOOTER_HOURS    = "We are open 24/7";
+const NEWSLETTER_BODY = "Subscribe for exclusive offers and updates.";
+const COPYRIGHT       = "© 2024 Isla Serena Beach Resort. All Rights Reserved.";
+const FOOTER_LEGAL    = [ { label:"Privacy Policy", href:"#" }, { label:"Terms & Conditions", href:"#" } ];
+const SOCIAL_LINKS    = { facebook:"#", instagram:"#", tiktok:"#", twitter:"#" };`,
+  },
+];
+
 const tabs: { id: TabId; label: string }[] = [
   { id: "builder", label: "🧩 Funnel Builder" },
   { id: "hero", label: "🏠 Hero" },
@@ -9075,6 +9580,7 @@ const tabs: { id: TabId; label: string }[] = [
   { id: "footer", label: "📄 Footer" },
   { id: "gptimage", label: "🎨 GPT Image BG" },
   { id: "carousel", label: "🎠 Carousels" },
+  { id: "local", label: "🏡 Local Website" },
 ];
 
 function CopyButton({
@@ -10128,7 +10634,7 @@ export function PrivateContent() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   const showBuilder = tab === "builder";
-  const visibleSections = [...sections, ...gptImageCards, ...carouselCards].filter((s) => tab === s.id);
+  const visibleSections = [...sections, ...gptImageCards, ...carouselCards, ...localWebsiteCards].filter((s) => tab === s.id);
 
   return (
     <div className="relative min-h-[100dvh] bg-[#0D0B1F] text-white overflow-x-hidden">
