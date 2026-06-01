@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { Fragment, useCallback, useEffect, useState, type ReactNode } from "react";
 import { lock } from "./actions";
 
 type SectionId =
@@ -30,6 +30,7 @@ type Section = {
   description: string;
   labelClass: string;
   category?: string;
+  group?: string;
   preview?: ReactNode;
   previewSrc?: string;
   funnelTypes?: string[];
@@ -8848,6 +8849,7 @@ const localWebsiteCards: Section[] = [
     number: "LOC-RES-01",
     label: "LOCAL · RESORT",
     title: "Layout 1",
+    group: "Resort",
     category: "Beach Resort · Luxury",
     description:
       "Lunara Beach Resort — single-page resort website (9 sections): split hero with floating glass features card · welcome/about + 3-photo grid · 5-col 'why guests love' icon row · 4-col rooms carousel · special offer banner with overlap gold badge · testimonials · Instagram 5-photo grid · 4-col footer. Green/gold luxury hospitality with Playfair + Inter + Dancing Script.",
@@ -9084,6 +9086,7 @@ const SOCIAL_LINKS    = { facebook:"#", instagram:"#", tiktok:"#", youtube:"#" }
     number: "LOC-RES-02",
     label: "LOCAL · RESORT",
     title: "Layout 2",
+    group: "Resort",
     category: "Beach Resort · Boutique",
     description:
       "Isla Serena Beach Resort — single-page resort website (9 sections): full-bleed hero with 3-line headline (script accent) · floating BOOKING BAR (check-in / check-out / guests + JS counters) · about + floating quote card + decorative leaf SVG · 3-col rooms carousel (arrows + touch swipe) · experiences 4-photo grid with floating icon badges · 3-col testimonials carousel · CTA banner with arrow · 5-col footer. Teal/gold beachfront luxe.",
@@ -9347,6 +9350,7 @@ const SOCIAL_LINKS    = { facebook:"#", instagram:"#", tiktok:"#", twitter:"#" }
     number: "LOC-RES-03",
     label: "LOCAL · RESORT",
     title: "Layout 3",
+    group: "Resort",
     category: "Resort & Events · Filipino",
     description:
       "Kampo ni DOK Resort & Events Place — single-page resort + events venue (11 sections): full-viewport hero with split brand name · flush booking bar (check-in/out · guests · room) · 6-col 'perfect getaway' icon row · dark rooms scroller with price badges · 6-col amenities photo tiles · dark gallery with dot pagination + lightbox · 5-col events & occasions · why-choose testimonials · find-us contact + Google Map · 4-col newsletter footer. Bold red/black with Oswald + Inter + Dancing Script.",
@@ -9621,6 +9625,7 @@ const LEGAL_LINKS = [
     number: "LOC-MUN-01",
     label: "LOCAL · MUNICIPALITY",
     title: "Layout 1",
+    group: "Municipality",
     category: "Municipality · LGU · Government",
     description:
       "Bayan ng San Antonio, Zambales — official LGU / municipal government website (9 sections): red/gold/navy gov theme · top utility bar + sticky nav with dropdowns · hero with split place name + vertical FAB stack · quick-access service cards + about stats · destinations grid · news + emergency hotlines with 911 bar · municipal leadership row (mayor/vice/councilors) · dark transparency hub · 4-col footer. Accessibility-conscious, print-friendly. Inter + Oswald.",
@@ -9879,6 +9884,268 @@ Beach/cove:     https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&
 Island:         https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&q=80
 News fallback:  https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=400&q=80
 Mayor placeholder: https://i.pravatar.cc/150?img=60
+*/`,
+  },
+  {
+    id: "local",
+    number: "LOC-MUN-02",
+    label: "LOCAL · MUNICIPALITY",
+    title: "Layout 2",
+    group: "Municipality",
+    category: "Municipality · LGU · Government",
+    description:
+      "Bayan ng San Antonio, Zambales — LGU website, Layout 2 variation (9 sections). vs Layout 1: 3-line stacked logo · horizontal stats strip below hero · Mayor's Message sidebar (with Dancing Script signature) · service cards with 'VIEW MORE' links · 3-col bottom row (news + upcoming events + transparency list) · full-width dark emergency-hotlines section with 911 panel · footer newsletter subscribe. Inter + Oswald + Dancing Script.",
+    labelClass: labelClasses.local,
+    previewSrc: "/private/layout-muni-2-san-antonio.webp",
+    basePrompt: `You are an expert frontend developer specializing in government and local government unit (LGU) websites.
+
+Build the BAYAN NG SAN ANTONIO ZAMBALES Official Municipal Website — LAYOUT 2 as a single complete HTML file. Production-ready, fully responsive, accessibility-conscious, GHL-compatible.
+All CSS in <style> | All JS in <script>. Google Fonts only — no external libraries. Tabler Icons CDN for icons.
+
+=== OUTPUT ===
+One file: sanantonio-zambales-layout2.html
+
+=== LAYOUT 2 vs LAYOUT 1 — 7 DIFFERENCES ===
+1. Logo: 3-line stacked (Bayan ng / SAN ANTONIO / ZAMBALES)
+2. Stats: horizontal strip BELOW hero (not inside About)
+3. Right sidebar: Mayor's Message (not About stats)
+4. Service cards: each has "VIEW MORE →" link at bottom
+5. 3-col bottom row: News + Upcoming Events + Transparency Hub
+6. Emergency Hotlines: full-width dedicated dark section
+7. Footer col 4: Newsletter subscribe (not just Follow Us)
+
+=== FONTS (load in <head>) ===
+Inter — 300, 400, 500, 600, 700
+Oswald — 500, 600, 700
+Dancing Script — 400, 600 (mayor's signature only)
+All via Google Fonts.
+
+=== ICONS ===
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+=== DESIGN SYSTEM ===
+- PRIMARY_RED: top bar, nav active, CTAs, badges, emergency section, footer bg
+- GOLD: hero 2nd CTA, section accent underlines, 911 bar, highlight words
+- BG_DARK: footer, emergency section · BG_WHITE / BG_LIGHT content sections · TEXT_DARK / TEXT_MUTED body
+H2: Oswald 700 uppercase + 1 accent word (PRIMARY_RED) + 40px GOLD underline below.
+Scroll anim: .reveal → .visible (IntersectionObserver), opacity 0→1 + translateY 20px→0 (.5s). .delay-1…4.
+Mobile breakpoints: 1024px, 768px, 480px.
+
+=== SECTION 01 — TOP UTILITY BAR ===
+PRIMARY_RED bg, height 36px. Left TAGLINE_TEXT (Inter 12px rgba white .85). Right UTILITY_LINKS + social icons in 24px circular containers (rgba white .2 border; ti-brand-facebook/instagram/youtube 14px white).
+MOBILE: hide tagline.
+
+=== SECTION 02 — NAVIGATION ===
+Sticky, white bg, 80px, box-shadow 0 2px 12px rgba(0,0,0,0.08).
+LEFT logo — 3-LINE STACKED (key difference): SEAL_IMAGE 60px circle + text: line 1 MUNICIPALITY_UPPER (Inter 700 10px TEXT_DARK uppercase letter-spaced 2px), line 2 MUNICIPALITY_MAIN (Oswald 800 24px PRIMARY_RED uppercase), line 3 MUNICIPALITY_PROVINCE (Oswald 600 16px TEXT_DARK uppercase). No "Official Website" line.
+RIGHT nav: NAV_ITEMS with dropdowns, active PRIMARY_RED + underline, search icon (ti-search) right.
+MOBILE: hamburger overlay.
+
+=== SECTION 03 — HERO ===
+Min 65vh. BG_HERO_IMAGE_2 (beach/shoreline level view). Overlay linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 60%, transparent 100%).
+CONTENT: 1. HERO_WELCOME_LINE (Inter uppercase muted) 2. H1 HERO_PLACE_NAME (Oswald 700 64px white, honors \\n) 3. HERO_SUBTITLE (Inter 18px rgba white .85) 4. CTAs: CTA_TOURISM (Type A red) + CTA_SERVICES (Type B gold).
+RIGHT FABs: full rectangular buttons 160px, icon left 20px + title (Oswald 600 12px uppercase) / subtitle (Inter 10px rgba white .7) + ti-chevron-right at right edge, rounded left only. Hover slide left 4px.
+
+=== SECTION 04 — STATS BAR (NEW) ===
+White bg strip flush below hero (no top gap), box-shadow 0 4px 16px rgba(0,0,0,0.08), padding 24px 5%.
+4-col flex row from ABOUT_STATS: icon (24px PRIMARY_RED) + STAT_VALUE (Oswald 700 26px TEXT_DARK) + STAT_LABEL (Inter 12px TEXT_MUTED uppercase letter-spaced 1px) + STAT_SUBLABEL. Vertical 1px dividers between. JS count-up on scroll (0→value, 1.5s).
+MOBILE: 2×2 grid.
+
+=== SECTION 05 — QUICK ACCESS SERVICES + MAYOR'S MESSAGE ===
+BG_WHITE padding 60px 5%. Split 60% services | 40% mayor, gap 40px.
+LEFT services: H2 SERVICES_H2_PART1 + SERVICES_H2_ACCENT (PRIMARY_RED) + GOLD underline. 2×4 grid of QUICK_SERVICES cards: white bg border radius 8px padding 20px 16px centered; 52px icon box radius 10px + Tabler icon 28px (icon_color); CARD_TITLE (Oswald 600 13px uppercase); CARD_DESC (Inter 13px TEXT_MUTED); "VIEW MORE →" link at bottom (Inter 600 12px PRIMARY_RED, ti-arrow-right, border-top 1px rgba(0,0,0,0.07), padding-top 10px margin-top 10px). Hover shadow + translateY(-2px).
+RIGHT mayor: H2 MAYOR_MSG_H2_PART1 + MAYOR_MSG_H2_ACCENT (PRIMARY_RED) + GOLD underline. Inner split 45% photo | 55% text: MAYOR_PHOTO (square radius 6px cover h 180px) + MAYOR_MESSAGE_QUOTE (Inter 14px TEXT_DARK italic line-height 1.7). Below row: MAYOR_SIGNATURE (Dancing Script 28px TEXT_DARK block, margin-top 16px) + MAYOR_FULL_NAME (Oswald 700 14px uppercase) + MAYOR_TITLE (Inter 13px TEXT_MUTED). CTA MAYOR_MSG_CTA Type A (red filled, full width, margin-top 16px).
+MOBILE: stack single column.
+
+=== SECTION 06 — DISCOVER SAN ANTONIO ===
+BG_LIGHT padding 60px 5%. H2 DEST_H2_PART1 + DEST_H2_ACCENT (PRIMARY_RED, shorter than Layout 1) + GOLD underline.
+5-col destination cards (from DESTINATIONS): white bg subtle border 1px rgba(0,0,0,0.08) radius 8px overflow hidden; DEST_IMAGE h 180px cover; body padding 14px: ti-map-pin (PRIMARY_RED 14px) + DEST_NAME (Oswald 600 14px uppercase) + DEST_DESC (Inter 13px TEXT_MUTED). Hover shadow lift only (NO image scale). Centered DEST_CTA "VIEW ALL DESTINATIONS →" Type A.
+MOBILE: 2-col.
+
+=== SECTION 07 — 3-COLUMN BOTTOM (NEW) ===
+BG_WHITE padding 60px 5%. 3-col grid 40% | 30% | 30%, gap 32px.
+COL 1 LATEST NEWS: header row — H2 NEWS_H2_PART1 + NEWS_H2_ACCENT (PRIMARY_RED) + GOLD underline | "VIEW ALL NEWS →" (Inter 600 12px PRIMARY_RED). 3 NEWS_ITEMS stacked: flex row IMAGE (80×70 radius 6px cover, flex-shrink 0) + text: "NEWS" badge (PRIMARY_RED bg white 9px radius 3px) + date (Inter 11px TEXT_MUTED) · NEWS_TITLE (Inter 600 13px line-height 1.4) · "READ MORE →" (PRIMARY_RED 11px Inter 600). Border-bottom between.
+COL 2 UPCOMING EVENTS: H2 EVENTS_H2 (Oswald 700) + GOLD underline. 3 UPCOMING_EVENTS stacked: DATE_BOX (52×52 PRIMARY_RED bg radius 6px: DAY_NUM Oswald 700 20px white + MONTH Inter 600 10px rgba white .8 uppercase) + details: EVENT_TITLE (Inter 600 14px) + EVENT_LOCATION (ti-map-pin 12px + Inter 12px TEXT_MUTED). Border-bottom between. Hover DATE_BOX scale 1.05 + shadow.
+COL 3 TRANSPARENCY HUB: H2 TRANSP_H2 (Oswald 700) + GOLD underline. 5 TRANSPARENCY_ITEMS list rows: ICON (36px BG_LIGHT radius 6px + Tabler 18px PRIMARY_RED) | TEXT (ITEM_TITLE Inter 600 13px + ITEM_DESC Inter 12px TEXT_MUTED) | ti-chevron-right (16px TEXT_MUTED). Full row clickable, hover bg rgba(0,0,0,0.03) + arrow PRIMARY_RED. Border-bottom between.
+
+=== SECTION 08 — EMERGENCY HOTLINES (FULL-WIDTH, NEW) ===
+BG_DARK (near black), padding 0, 3-col horizontal.
+COL 1 label (25%, padding 36px 30px): 52px circle PRIMARY_RED bg + ti-phone-call (white 24px) + "EMERGENCY HOTLINES" (Oswald 700 20px white uppercase) + EMERGENCY_SUBTEXT (Inter 13px rgba white .6).
+COL 2 hotlines (50%, padding 28px 20px, white inner panel): 4 HOTLINES in a row, each centered: icon circle (48px icon_bg tint + Tabler 22px icon_color) + HOTLINE_NAME (Inter 600 11px TEXT_DARK uppercase) + HOTLINE_NUMBER (Inter 700 13px PRIMARY_RED). Dividers between.
+COL 3 911 panel (25%, GOLD bg, padding 28px 20px, relative overflow hidden): BG_911_IMAGE absolute right very low opacity. Left content: 44px circle (rgba white .2 border) + ti-phone (white 22px); "FOR ALL EMERGENCIES" / "PLEASE CALL" (Inter 600 12px TEXT_DARK uppercase); "911" (Oswald 800 52px TEXT_DARK).
+MOBILE: stack vertically full width.
+
+=== SECTION 09 — FOOTER ===
+BG_DARK (deep red/maroon tint), padding 50px 5% 0, 4-col grid.
+COL 1 Brand: SEAL_IMAGE 50px + MUNICIPALITY_UPPER (Inter 700 11px white uppercase) + MUNICIPALITY_MAIN (Oswald 700 18px white) + MUNICIPALITY_PROVINCE (Oswald 600 14px rgba white .7) + FOOTER_TAGLINE (Inter 13px rgba white .55 max-width 220px) + social circles (40px rgba white .15 bg, ti-brand-facebook/instagram/youtube 16px white, hover GOLD bg).
+COL 2 Quick Links (2-col sub-grid): "QUICK LINKS" header (Oswald 600 13px white uppercase letter-spaced 2px) + FOOTER_QUICK_LINKS split two columns (Inter 13px rgba white .55, hover white + translateX(3px)).
+COL 3 Contact Information: 4 rows (ti-map-pin ADDRESS · ti-phone PHONE · ti-mail EMAIL · ti-clock HOURS), icons white 16px, text Inter 13px rgba white .55.
+COL 4 Newsletter (NEW): "SUBSCRIBE TO OUR NEWSLETTER" (Oswald 600 13px white uppercase) + NEWSLETTER_BODY (Inter 13px rgba white .55) + email input row (input flex:1 padding 11px 14px white bg TEXT_DARK radius 4px 0 0 4px placeholder NEWSLETTER_PLACEHOLDER + SUBSCRIBE button PRIMARY_RED bg white Oswald 600 12px uppercase radius 0 4px 4px 0 padding 11px 16px, hover darken). JS preventDefault + inline green "Thank you! You're subscribed." fade in.
+BOTTOM BAR (margin-top 32px, border-top 1px rgba white .15, padding 16px 0 20px, flex space-between): left COPYRIGHT (Inter 12px rgba white .4) | right LEGAL_LINKS (" | " separator).
+
+=== INTERACTIONS & JS ===
+Smooth scroll. Active nav (IntersectionObserver). Dropdowns hover desktop / click accordion mobile. FABs hover slideLeft 4px. Stats bar count-up on scroll (0→value 1.5s). Event date boxes hover scale 1.05 + shadow. Transparency rows hover bg tint + arrow color. Newsletter preventDefault + green success inline. Mobile hamburger JS toggle overlay.
+
+=== BUILD RULES ===
+1. Single HTML file, all inline. 2. CLIENT VARIABLES at top of <script>. 3. CSS :root vars at top of <style>. 4. Only Google Fonts + Tabler Icons. 5. [PLACEHOLDER_URL] images: use Unsplash fallbacks in CLIENT VARIABLES. 6. All images object-fit cover. 7. Semantic HTML (main/nav/section/footer), aria-labels, alt text, keyboard navigable. 8. Works without JS (content visible). 9. Mobile hamburger JS toggle.
+Build the complete single HTML file now.`,
+    varsPrompt: `/* === CLIENT VARIABLES — EDIT HERE === */
+
+/* ——— COLORS ——— */
+--primary:        #C62828;
+--primary-dark:   #A01010;
+--gold:           #F0A500;
+--gold-dark:      #D08E00;
+--navy:           #1A2A6C;
+--bg-dark:        #1A1A2E;
+--bg-white:       #FFFFFF;
+--bg-light:       #F7F7F7;
+--text-dark:      #1A1A1A;
+--text-muted:     #666666;
+
+/* ——— BRAND (3-line stacked logo) ——— */
+const SEAL_IMAGE            = "[MUNICIPAL_SEAL_URL]";
+const MUNICIPALITY_UPPER    = "BAYAN NG";
+const MUNICIPALITY_MAIN     = "SAN ANTONIO";
+const MUNICIPALITY_PROVINCE = "ZAMBALES";
+const FOOTER_TAGLINE        = "Premier Agri-Eco Tourism Destination of Central Luzon";
+
+/* ——— TOP BAR ——— */
+const TAGLINE_TEXT  = "Premier Agri-Eco Tourism Destination of Central Luzon";
+const UTILITY_LINKS = [
+  { label:"Accessibility", href:"#" },
+  { label:"Sitemap",       href:"#" },
+  { label:"Contact Us",    href:"#contact" }
+];
+const SOCIAL_LINKS = { facebook:"#", instagram:"#", youtube:"#" };
+
+/* ——— NAVIGATION ——— */
+const NAV_ITEMS = [
+  { label:"Home",         href:"#home",         dropdown:false },
+  { label:"About",        href:"#about",        dropdown:true,  items:["About San Antonio","History","Vision & Mission","Officials"] },
+  { label:"Government",   href:"#govt",         dropdown:true,  items:["Mayor's Office","Vice Mayor","Sangguniang Bayan","Departments"] },
+  { label:"Services",     href:"#services",     dropdown:true,  items:["Business Permit","Civil Registry","Health Services","MDRRMO"] },
+  { label:"Tourism",      href:"#tourism",      dropdown:true,  items:["Destinations","Accommodations","Events","Tourism Office"] },
+  { label:"News",         href:"#news",         dropdown:false },
+  { label:"Transparency", href:"#transparency", dropdown:false },
+  { label:"Contact",      href:"#contact",      dropdown:false }
+];
+
+/* ——— HERO ——— */
+const BG_HERO_IMAGE_2   = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80";
+const HERO_WELCOME_LINE = "WELCOME TO";
+const HERO_PLACE_NAME   = "SAN ANTONIO,\\nZAMBALES";
+const HERO_SUBTITLE     = "Premier Agri-Eco Tourism Destination of Central Luzon";
+const CTA_TOURISM       = "Explore Tourism";
+const CTA_SERVICES      = "Government Services";
+const FAB_BUTTONS = [
+  { bg:"#C62828", icon:"ti-phone-call",     title:"EMERGENCY", subtitle:"HOTLINES",   href:"#hotlines" },
+  { bg:"#1A5276", icon:"ti-shield-check",   title:"COVID-19",  subtitle:"UPDATES",    href:"#" },
+  { bg:"#1E7E34", icon:"ti-message-report", title:"REPORT",    subtitle:"A CONCERN",  href:"#contact" }
+];
+
+/* ——— STATS BAR (below hero) ——— */
+const ABOUT_STATS = [
+  { icon:"ti-users", value:"93,273",        label:"POPULATION",   sublabel:"(2020 Census)" },
+  { icon:"ti-home",  value:"14",            label:"BARANGAYS",    sublabel:"" },
+  { icon:"ti-map",   value:"111.58 sq. km.", label:"LAND AREA",    sublabel:"" },
+  { icon:"ti-award", value:"1st Class",      label:"MUNICIPALITY", sublabel:"" }
+];
+
+/* ——— QUICK ACCESS SERVICES ——— */
+const SERVICES_H2_PART1  = "QUICK ACCESS";
+const SERVICES_H2_ACCENT = "SERVICES";
+const QUICK_SERVICES = [
+  { icon:"ti-building-community", icon_color:"#C62828", icon_bg:"#FDECEA", title:"MAYOR'S OFFICE",  desc:"Programs and initiatives",            href:"#" },
+  { icon:"ti-beach",              icon_color:"#1565C0", icon_bg:"#E3F2FD", title:"TOURISM OFFICE",  desc:"Discover places and attractions",     href:"#" },
+  { icon:"ti-file-invoice",       icon_color:"#E65100", icon_bg:"#FFF3E0", title:"BUSINESS PERMIT", desc:"Apply and renew permits online",      href:"#" },
+  { icon:"ti-users",              icon_color:"#2E7D32", icon_bg:"#E8F5E9", title:"CIVIL REGISTRY",  desc:"Birth, Marriage, Death Certificates", href:"#" },
+  { icon:"ti-first-aid-kit",      icon_color:"#C62828", icon_bg:"#FDECEA", title:"HEALTH SERVICES", desc:"Health programs and services",        href:"#" },
+  { icon:"ti-plant-2",            icon_color:"#2E7D32", icon_bg:"#E8F5E9", title:"AGRICULTURE",     desc:"Programs for farmers and fishermen",  href:"#" },
+  { icon:"ti-shield",             icon_color:"#1565C0", icon_bg:"#E3F2FD", title:"MDRRMO",          desc:"Disaster preparedness and response",  href:"#" },
+  { icon:"ti-download",           icon_color:"#C62828", icon_bg:"#FDECEA", title:"DOWNLOADS",       desc:"Forms, documents and publications",   href:"#" }
+];
+
+/* ——— MAYOR'S MESSAGE ——— */
+const MAYOR_MSG_H2_PART1  = "MAYOR'S";
+const MAYOR_MSG_H2_ACCENT = "MESSAGE";
+const MAYOR_PHOTO         = "[MAYOR_PHOTO_URL]";
+const MAYOR_MESSAGE_QUOTE = "As we continue to build a progressive and sustainable San Antonio, let us work together for a brighter future for our municipality. Mabuhay ang San Antonio!";
+const MAYOR_SIGNATURE     = "Arvin Antipolo";
+const MAYOR_FULL_NAME     = "HON. ARVIN ANTIPOLO";
+const MAYOR_TITLE         = "Municipal Mayor";
+const MAYOR_MSG_CTA       = "Message from the Mayor";
+
+/* ——— DESTINATIONS ——— */
+const DEST_H2_PART1  = "DISCOVER";
+const DEST_H2_ACCENT = "SAN ANTONIO";
+const DESTINATIONS = [
+  { image:"[PUNDAQUIT_IMG]", name:"PUNDAQUIT BEACH", desc:"Surf, relax and enjoy the crystal clear water", href:"#" },
+  { image:"[ANAWANGIN_IMG]", name:"ANAWANGIN COVE",  desc:"A hiking paradise with a breathtaking view",    href:"#" },
+  { image:"[NAGSASA_IMG]",   name:"NAGSASA COVE",    desc:"Experience serenity like no other",             href:"#" },
+  { image:"[CAPONES_IMG]",   name:"CAPONES ISLAND",  desc:"Home of the historic Capones Lighthouse",       href:"#" },
+  { image:"[CAMARA_IMG]",    name:"CAMARA ISLAND",   desc:"An island escape worth discovering",            href:"#" }
+];
+const DEST_CTA = "View All Destinations";
+
+/* ——— LATEST NEWS ——— */
+const NEWS_H2_PART1  = "LATEST NEWS &";
+const NEWS_H2_ACCENT = "ANNOUNCEMENTS";
+const NEWS_ITEMS = [
+  { image:"[NEWS_IMG_1]", date:"May 15, 2024", title:"San Antonio Town Fiesta 2024 Schedule of Activities", href:"#" },
+  { image:"[NEWS_IMG_2]", date:"May 10, 2024", title:"LGU San Antonio Conducts Coastal Clean-Up Drive",     href:"#" },
+  { image:"[NEWS_IMG_3]", date:"May 5, 2024",  title:"Free Medical Mission for Barangay Residents",         href:"#" }
+];
+
+/* ——— UPCOMING EVENTS ——— */
+const EVENTS_H2 = "UPCOMING EVENTS";
+const UPCOMING_EVENTS = [
+  { day:"12", month:"JUN", title:"124th Founding Anniversary",  location:"San Antonio, Zambales Municipal Grounds" },
+  { day:"13", month:"JUN", title:"Farmers' Training Program",   location:"Capitol Covered Court" },
+  { day:"20", month:"JUN", title:"Coastal Cleanup Drive",       location:"Pundaquit Beach" }
+];
+
+/* ——— TRANSPARENCY HUB ——— */
+const TRANSP_H2 = "TRANSPARENCY HUB";
+const TRANSPARENCY_ITEMS = [
+  { icon:"ti-report-money",     title:"Budget Transparency",   desc:"View annual budget and expenditures" },
+  { icon:"ti-shopping-cart",    title:"Procurement",           desc:"Bidding opportunities and contracts" },
+  { icon:"ti-trophy",           title:"Bids & Awards",         desc:"Winning bids and awards" },
+  { icon:"ti-file-certificate", title:"Citizen Charter",       desc:"Your rights and our commitment" },
+  { icon:"ti-eye",              title:"Full Disclosure Policy", desc:"LGU Full Disclosure Policy Portal" }
+];
+
+/* ——— EMERGENCY HOTLINES ——— */
+const EMERGENCY_SUBTEXT = "For your safety, we are just a call away.";
+const HOTLINES = [
+  { icon:"ti-shield",            icon_bg:"#E3F2FD", icon_color:"#1565C0", name:"PNP SAN ANTONIO",   number:"(047) 602-0123" },
+  { icon:"ti-fire-extinguisher", icon_bg:"#FDECEA", icon_color:"#C62828", name:"BFP SAN ANTONIO",   number:"(047) 602-0456" },
+  { icon:"ti-alert-triangle",    icon_bg:"#E8F5E9", icon_color:"#2E7D32", name:"MDRRMO",            number:"(047) 602-0108" },
+  { icon:"ti-first-aid-kit",     icon_bg:"#FFF3E0", icon_color:"#E65100", name:"RURAL HEALTH UNIT", number:"(047) 602-0430" }
+];
+const BG_911_IMAGE = "[LIGHTHOUSE_IMG]";
+
+/* ——— FOOTER ——— */
+const FOOTER_QUICK_LINKS     = ["Home","About Us","Government","Services","Tourism","News","Transparency","Contact Us"];
+const FOOTER_ADDRESS         = "Poblacion, San Antonio, Zambales 2206 Philippines";
+const FOOTER_PHONE           = "(047) 602-0101";
+const FOOTER_EMAIL           = "lgusanantoniozambales@gmail.com";
+const FOOTER_HOURS           = "Mon - Fri: 8:00 AM - 5:00 PM";
+const NEWSLETTER_BODY        = "Get the latest updates and announcements";
+const NEWSLETTER_PLACEHOLDER = "Enter your email address";
+const COPYRIGHT              = "© 2024 Municipality of San Antonio, Zambales. All Rights Reserved.";
+const LEGAL_LINKS = [
+  { label:"Privacy Policy",         href:"#" },
+  { label:"Terms of Use",           href:"#" },
+  { label:"Accessibility Statement", href:"#" }
+];
+
+/* ——— UNSPLASH FALLBACKS ———
+Hero beach shore: https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80
+Destinations:     https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80 · https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&q=80
+News fallback:    https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=200&q=80
+Mayor placeholder: https://i.pravatar.cc/200?img=60
+Lighthouse:       https://images.unsplash.com/photo-1501436513145-30f24e19fcc8?w=400&q=80
 */`,
   },
 ];
@@ -11012,9 +11279,17 @@ export function PrivateContent() {
         {/* Grid */}
         {!showBuilder && (
         <div className="grid gap-[22px] px-6 pb-14 max-w-[1180px] mx-auto" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))" }}>
-          {visibleSections.map((s) => (
+          {visibleSections.map((s, i) => (
+            <Fragment key={`${s.id}-${s.number}`}>
+            {s.group && s.group !== visibleSections[i - 1]?.group && (
+              <div className="col-span-full flex items-center gap-3 mt-3 first:mt-0">
+                <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#10B981]">
+                  {s.group}
+                </span>
+                <span className="h-px flex-1 bg-gradient-to-r from-[#2A2250] to-transparent" />
+              </div>
+            )}
             <article
-              key={`${s.id}-${s.number}`}
               className="flex flex-col overflow-hidden rounded-[14px] border border-[#2A2250] bg-[#161330] transition-all hover:border-[#4A3A8A] hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
             >
               {(s.preview || s.previewSrc) && (
@@ -11070,6 +11345,7 @@ export function PrivateContent() {
                 <SectionPromptTabs base={s.basePrompt} vars={s.varsPrompt} />
               </div>
             </article>
+            </Fragment>
           ))}
 
         </div>
