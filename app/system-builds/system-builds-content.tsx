@@ -86,10 +86,10 @@ const ajTutorials: SystemBuild[] = [
     videoId: "iIZPsP7MTYs",
   },
   {
-    title: "How to Use Claude",
+    title: "How to Use GHL Using Claude",
     category: "AI Tutorial",
     description:
-      "A practical walkthrough of Claude — how to set it up, prompt it well, and put it to work building real systems. Step-by-step, beginner-friendly.",
+      "Connect Claude to GoHighLevel via the GHL MCP and run your account with AI — lead research, content creation, automations, and follow-ups. Step-by-step, beginner-friendly.",
     emoji: "🤖",
     image: "/system-builds/how-to-use-claude.webp",
     videoId: "T0k6_C2s1JM",
