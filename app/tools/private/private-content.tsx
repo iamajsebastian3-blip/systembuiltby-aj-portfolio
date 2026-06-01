@@ -8459,8 +8459,115 @@ const LOGO_NAMES  = ["ClickFunnels","Tony Robbins","Mastermind","Russell Brunson
 
 // GPT Image-Background prompts — generate a premium scene around the client's REAL face.
 // Not part of the funnel-section catalog (kept out of the Funnel Builder on purpose).
+// No system/base prompt — the copy-paste prompt lives in the "Client Variables" tab.
+// Always paste it together with the client's photo (the 100% facial reference).
+const GPT_IMAGE_BASE = `No system/base prompt needed — open the "Client Variables" tab and paste that prompt straight into ChatGPT (or your image model) TOGETHER WITH the client's photo.
+
+The attached photo is the 100% FACIAL REFERENCE:
+- Keep the SAME person — face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
+- Do NOT beautify, slim, age, de-age, smooth, or re-render the face. Only relight it to match the new scene.
+- Only the design, layout, background, wardrobe, lighting and composition in the Client Variables prompt should be generated.`;
+
 const gptImageCards: Section[] = [
-  // Cleared — new GPT Image-Background prompts to be added.
+  {
+    id: "gptimage",
+    number: "IMG-01",
+    label: "GPT IMAGE",
+    title: "Before / After — Transformation Story Cards",
+    category: "Personal Brand · Story",
+    description:
+      "Two dark vertical cards side by side of the SAME person — a moody 'Where I Started' struggle shot and a confident, mid-gesture 'What Changed Everything' shot — with an orange arrow between them. Face stays 100% the client's. Built for story / origin sections.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: GPT_IMAGE_BASE,
+    varsPrompt: `Use the ATTACHED IMAGE as the exact 100% facial reference — keep the SAME person (face shape, eyes, nose, mouth, eyebrows, skin tone, facial hair, hairstyle, unique marks). Do not beautify, slim, or re-render the face; only relight it to match each scene.
+
+GOAL — A "before / after" transformation graphic: TWO vertical rounded cards side by side, the SAME person in both, with a hand-drawn orange arrow curving from the left card to the right card.
+
+=== LEFT CARD — the struggle ===
+- Mood: dark, moody, low-key. Desaturated, cool shadows.
+- Subject: the attached person in a plain dark/black shirt, head tilted slightly down, tired / discouraged, looking away from camera. Dramatic single-side shadow lighting.
+- Background: near-black with a soft vignette.
+- Headline (bottom, bold white): "Where I Started"
+- Sub-line (small, muted grey): "Long hours. Little results. Following advice that wasn't made for me."
+
+=== RIGHT CARD — the breakthrough ===
+- Mood: brighter, confident, energetic.
+- Subject: the SAME attached person in a fitted black t-shirt, mid-gesture with both hands open (explaining / presenting), genuine confident smile, facing forward.
+- Background: dark charcoal with a subtle warm glow.
+- Small ORANGE rounded-square badge in the TOP-RIGHT corner with a white upward growth-chart / line-arrow icon.
+- Headline (bottom, bold white): "What Changed Everything"
+- Sub-line (small, muted grey): "I built a system aligned with my strengths. Everything changed."
+
+=== LAYOUT ===
+- Two equal vertical cards, rounded corners (~20px), small gap, on a plain dark background.
+- A curved ORANGE arrow pointing from the left card to the right card (upper area).
+- Portrait 4:5 overall canvas. Clean, premium personal-brand style.
+
+Photorealistic, natural skin texture, no extra text or logos beyond the two headlines + sub-lines. Generate using the attached photo as the EXACT face.
+
+↳ EDIT: swap the two headlines and sub-lines for the client's own before/after story.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-02",
+    label: "GPT IMAGE",
+    title: "Coaching Brand Hero — Neon Signature",
+    category: "Personal Brand · Hero",
+    description:
+      "Premium hero portrait: client in a clean white V-neck, arms crossed, warm smile, on a navy→purple gradient with a glowing rounded frame and a neon cursive signature behind. Face stays 100% the client's. Built for coach / consultant hero sections.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: GPT_IMAGE_BASE,
+    varsPrompt: `Use the ATTACHED IMAGE as the exact 100% facial reference — keep the SAME person (face shape, eyes, nose, mouth, eyebrows, skin tone, facial hair, hairstyle, unique marks). Do not beautify or change identity; only relight to match the scene.
+
+GOAL — A premium personal-brand HERO portrait for a coach / consultant.
+
+=== SUBJECT ===
+- The attached person in a clean, fitted WHITE V-neck t-shirt, arms confidently crossed, warm genuine smile, facing camera. Framed waist-up, centered.
+- Flattering soft key light on the face + a gentle purple/blue rim light on the shoulders to separate from the dark background.
+
+=== BACKGROUND ===
+- Deep navy-to-purple gradient, dark and premium.
+- A subtle glowing rounded-rectangle frame/outline (soft violet glow) around the subject, with a faint dotted-grid texture in one corner.
+- A cursive NEON SCRIPT signature glowing in purple/blue, placed behind the subject at mid-shoulder height, slightly out of focus.
+
+=== SIGNATURE TEXT ===
+- Signature reads: "Coach Bai"   ← change to the client's name / brand.
+
+=== STYLE ===
+- Vertical 4:5 portrait, cinematic, high-end coaching brand aesthetic.
+- Photorealistic, natural skin texture (no plastic/waxy skin). No extra text or logos other than the signature.
+
+Generate using the attached photo as the EXACT face.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-03",
+    label: "GPT IMAGE",
+    title: "Approachable Portrait — Warm Abstract Shapes",
+    category: "Personal Brand · About",
+    description:
+      "Warm, candid portrait: client in a black button-up, seated, hands clasped, looking off-camera with a relaxed smile, on a backdrop of orange + cream abstract rounded shapes. Face stays 100% the client's. Built for friendly 'About' / bio sections.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: GPT_IMAGE_BASE,
+    varsPrompt: `Use the ATTACHED IMAGE as the exact 100% facial reference — keep the SAME person (face shape, eyes, nose, mouth, eyebrows, skin tone, facial hair, hairstyle, unique marks). Do not beautify or change identity; only relight to match the scene.
+
+GOAL — A warm, approachable personal-brand portrait (great for an "About" / bio section).
+
+=== SUBJECT ===
+- The attached person in a black button-up shirt, seated, leaning slightly forward with hands clasped / fingers interlocked, a wristwatch visible.
+- Relaxed, friendly half-smile, looking slightly OFF-camera (3/4 to the side), natural and candid.
+- Soft, natural daylight; gentle shadows; editorial lifestyle feel.
+
+=== BACKGROUND ===
+- Modern abstract geometric backdrop: a large ORANGE / terracotta rounded square behind the subject, layered with soft CREAM / off-white rounded shapes. Clean, minimal, warm.
+- Subject clearly separated from the shapes (subtle drop shadow / cut-out look).
+
+=== STYLE ===
+- Roughly 4:5 framing, waist-up. Bright, warm, premium-but-friendly coaching brand aesthetic.
+- Photorealistic, natural skin texture. No text or logos.
+
+Generate using the attached photo as the EXACT face.`,
+  },
 ];
 
 
