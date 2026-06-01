@@ -8470,6 +8470,7 @@ const gptImageCards: Section[] = [
     description:
       "Design: two side-by-side rounded cards of the SAME person — a dark, low-key 'before' and a bright, confident 'after' — with an orange arrow between them. Attach the client photo; GPT builds both cards around their real face. For story / origin sections.",
     labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-01.webp",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -8494,6 +8495,7 @@ Captions (edit per client):
     description:
       "Design: deep navy→purple gradient, a glowing rounded BORDER-BOX frame around the subject, and a cursive NEON SIGNATURE behind them. Attach the client photo; GPT builds this hero treatment around their real face. For coach / consultant hero sections.",
     labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-02.webp",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8518,6 +8520,7 @@ Vertical 4:5 portrait, cinematic, high-end coaching aesthetic. Photorealistic, n
     description:
       "Design: a cut-out portrait on a backdrop of large ORANGE/terracotta + soft CREAM abstract rounded shapes. Warm, friendly, editorial. Attach the client photo; GPT builds this shape-backdrop look around their real face. For 'About' / bio sections.",
     labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-03.webp",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8528,6 +8531,167 @@ BACKGROUND: a modern abstract geometric backdrop — a large ORANGE / terracotta
 SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed friendly half-smile, looking slightly OFF-camera (3/4 to the side). Soft natural daylight, gentle shadows, editorial lifestyle feel.
 
 Roughly 4:5, waist-up. Bright, warm, premium-but-friendly. Photorealistic, natural skin, no text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-04",
+    label: "GPT IMAGE",
+    title: "Origin Story — L1 · Orange Blob (Light)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: light cream background with a big soft ORANGE organic blob + small dotted accent behind the cut-out subject. Bright, warm, minimal. Attach the client photo; GPT builds this treatment around their real face. Matches reference grid Layout 1.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-04.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Soft, flattering light.
+
+DESIGN: light cream / off-white background. A large soft ORANGE organic blob shape behind the subject (upper-right area) plus a small cluster of tiny orange dots as accent. Subject cleanly cut out and separated from the background. Bright, warm, minimal.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-05",
+    label: "GPT IMAGE",
+    title: "Origin Story — L2 · Orange Ring (Dark)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: near-black background with a single thin ORANGE ring/halo outline behind the subject. Moody, premium, low-key with a warm rim light. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 2.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-05.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Low-key lighting with a warm rim light separating him from the dark background.
+
+DESIGN: near-black dark background. A single thin ORANGE circle / ring outline behind the subject (like a halo / portal), subtle and concentric. Moody, premium, cinematic.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-06",
+    label: "GPT IMAGE",
+    title: "Origin Story — L4 · Tilted Orange Gradient Panel (Dark)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: dark charcoal background with the subject inside a slightly tilted rounded panel filled with a warm ORANGE→dark gradient glow (spotlight-card look). Cinematic, premium. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 4.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-06.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Warm key light.
+
+DESIGN: dark charcoal background. The subject sits inside a slightly TILTED (rotated a few degrees) rounded-rectangle panel filled with a warm ORANGE-to-dark gradient glow — like a softly lit spotlight card behind him. Dark, cinematic, premium.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-07",
+    label: "GPT IMAGE",
+    title: "Origin Story — L5 · Cream Panel + Orange Shape (Light)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: light cream background with a soft cream rounded panel + an ORANGE organic blob peeking behind + dotted accent. Layered shapes, bright and warm. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 5.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-07.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Soft, flattering light.
+
+DESIGN: light cream background. A soft CREAM rounded panel behind the subject, with an ORANGE organic blob shape peeking out from behind it plus a small dotted-dot accent. Layered shapes, bright and warm; subject cut out in front.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-08",
+    label: "GPT IMAGE",
+    title: "Origin Story — L6 · Orange Neon Frame (Dark)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: dark background with the subject framed inside a glowing ORANGE NEON rounded-rectangle outline (slightly tilted), subject breaking the frame edge. Modern, high-end. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 6.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-08.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Low-key lighting with a subtle warm glow.
+
+DESIGN: dark background. The subject framed inside a GLOWING ORANGE NEON rounded-rectangle outline (slightly tilted), the neon casting a soft warm glow. The subject slightly overlaps / breaks the frame edge for depth. Dark, modern, high-end.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-09",
+    label: "GPT IMAGE",
+    title: "Origin Story — L7 · Stacked Photo Cards (Light)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: light cream background, the subject presented on a stack of white photo prints (polaroid-style, offset/rotated) with a small orange corner accent. Tactile, editorial. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 7.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-09.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Soft, flattering light.
+
+DESIGN: light cream background. The subject presented on a STACK of white photo prints / cards (polaroid-style), slightly offset and rotated for a layered paper look, with a small ORANGE corner accent peeking from behind the stack. Bright, tactile, editorial.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-10",
+    label: "GPT IMAGE",
+    title: "Origin Story — L9 · Circle Portal (Light)",
+    category: "Personal Brand · Origin Story",
+    description:
+      "Design: light cream background with the subject inside a thin circular ring / portal frame, head and shoulders breaking out over the top edge. Clean, bright, minimal. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 9.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-10.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a styled personal-brand portrait (origin-story section image).
+
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed confident smile, looking slightly OFF-camera (3/4 to the side). Soft, flattering light.
+
+DESIGN: light cream background. The subject inside a thin CIRCULAR ring / portal frame (light grey/white circle outline), with the head and shoulders breaking out over the top edge of the circle for depth. Clean, bright, minimal.
+
+SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
+
+Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
   },
 ];
 
