@@ -8457,116 +8457,77 @@ const LOGO_NAMES  = ["ClickFunnels","Tony Robbins","Mastermind","Russell Brunson
 ];
 
 
-// GPT Image-Background prompts — generate a premium scene around the client's REAL face.
-// Not part of the funnel-section catalog (kept out of the Funnel Builder on purpose).
-// No system/base prompt — the copy-paste prompt lives in the "Client Variables" tab.
-// Always paste it together with the client's photo (the 100% facial reference).
-const GPT_IMAGE_BASE = `No system/base prompt needed — open the "Client Variables" tab and paste that prompt straight into ChatGPT (or your image model) TOGETHER WITH the client's photo.
-
-The attached photo is the 100% FACIAL REFERENCE:
-- Keep the SAME person — face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
-- Do NOT beautify, slim, age, de-age, smooth, or re-render the face. Only relight it to match the new scene.
-- Only the design, layout, background, wardrobe, lighting and composition in the Client Variables prompt should be generated.`;
-
+// GPT Image-Background prompts — generate a premium STYLE/DESIGN around the client's REAL face.
+// No base prompt — each card is a single copy-paste prompt. Attach ONLY the client's photo;
+// the prompt describes the design/layout to generate around their 100% real face.
 const gptImageCards: Section[] = [
   {
     id: "gptimage",
     number: "IMG-01",
     label: "GPT IMAGE",
-    title: "Before / After — Transformation Story Cards",
+    title: "Before / After — Transformation Cards",
     category: "Personal Brand · Story",
     description:
-      "Two dark vertical cards side by side of the SAME person — a moody 'Where I Started' struggle shot and a confident, mid-gesture 'What Changed Everything' shot — with an orange arrow between them. Face stays 100% the client's. Built for story / origin sections.",
+      "Design: two side-by-side rounded cards of the SAME person — a dark, low-key 'before' and a bright, confident 'after' — with an orange arrow between them. Attach the client photo; GPT builds both cards around their real face. For story / origin sections.",
     labelClass: labelClasses.gptimage,
-    basePrompt: GPT_IMAGE_BASE,
-    varsPrompt: `Use the ATTACHED IMAGE as the exact 100% facial reference — keep the SAME person (face shape, eyes, nose, mouth, eyebrows, skin tone, facial hair, hairstyle, unique marks). Do not beautify, slim, or re-render the face; only relight it to match each scene.
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
-GOAL — A "before / after" transformation graphic: TWO vertical rounded cards side by side, the SAME person in both, with a hand-drawn orange arrow curving from the left card to the right card.
+Generate a BEFORE / AFTER transformation graphic — the SAME person shown twice in two side-by-side rounded cards, with a curved ORANGE arrow pointing from the left card to the right.
 
-=== LEFT CARD — the struggle ===
-- Mood: dark, moody, low-key. Desaturated, cool shadows.
-- Subject: the attached person in a plain dark/black shirt, head tilted slightly down, tired / discouraged, looking away from camera. Dramatic single-side shadow lighting.
-- Background: near-black with a soft vignette.
-- Headline (bottom, bold white): "Where I Started"
-- Sub-line (small, muted grey): "Long hours. Little results. Following advice that wasn't made for me."
+LEFT CARD ("before"): dark, moody, low-key lighting. Person in a plain black shirt, head slightly down, discouraged, looking away. Near-black background with a soft vignette. Bold white caption near the bottom + a small grey sub-line under it.
 
-=== RIGHT CARD — the breakthrough ===
-- Mood: brighter, confident, energetic.
-- Subject: the SAME attached person in a fitted black t-shirt, mid-gesture with both hands open (explaining / presenting), genuine confident smile, facing forward.
-- Background: dark charcoal with a subtle warm glow.
-- Small ORANGE rounded-square badge in the TOP-RIGHT corner with a white upward growth-chart / line-arrow icon.
-- Headline (bottom, bold white): "What Changed Everything"
-- Sub-line (small, muted grey): "I built a system aligned with my strengths. Everything changed."
+RIGHT CARD ("after"): brighter, confident. Same person in a fitted black tee, mid-gesture with open hands, genuine smile, facing forward. Dark charcoal background with a soft warm glow + a small ORANGE rounded-square icon badge (white upward growth-chart arrow) in the top-right corner. Bold white caption near the bottom + grey sub-line.
 
-=== LAYOUT ===
-- Two equal vertical cards, rounded corners (~20px), small gap, on a plain dark background.
-- A curved ORANGE arrow pointing from the left card to the right card (upper area).
-- Portrait 4:5 overall canvas. Clean, premium personal-brand style.
+LAYOUT: two equal vertical cards, rounded ~20px corners, small gap, on a flat dark background, with a hand-drawn orange arrow curving left → right. Portrait 4:5. Photorealistic, natural skin, no logos.
 
-Photorealistic, natural skin texture, no extra text or logos beyond the two headlines + sub-lines. Generate using the attached photo as the EXACT face.
-
-↳ EDIT: swap the two headlines and sub-lines for the client's own before/after story.`,
+Captions (edit per client):
+• Left — "Where I Started" / "Long hours. Little results. Following advice that wasn't made for me."
+• Right — "What Changed Everything" / "I built a system aligned with my strengths. Everything changed."`,
   },
   {
     id: "gptimage",
     number: "IMG-02",
     label: "GPT IMAGE",
-    title: "Coaching Brand Hero — Neon Signature",
+    title: "Brand Hero — Glowing Border Box + Signature",
     category: "Personal Brand · Hero",
     description:
-      "Premium hero portrait: client in a clean white V-neck, arms crossed, warm smile, on a navy→purple gradient with a glowing rounded frame and a neon cursive signature behind. Face stays 100% the client's. Built for coach / consultant hero sections.",
+      "Design: deep navy→purple gradient, a glowing rounded BORDER-BOX frame around the subject, and a cursive NEON SIGNATURE behind them. Attach the client photo; GPT builds this hero treatment around their real face. For coach / consultant hero sections.",
     labelClass: labelClasses.gptimage,
-    basePrompt: GPT_IMAGE_BASE,
-    varsPrompt: `Use the ATTACHED IMAGE as the exact 100% facial reference — keep the SAME person (face shape, eyes, nose, mouth, eyebrows, skin tone, facial hair, hairstyle, unique marks). Do not beautify or change identity; only relight to match the scene.
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
-GOAL — A premium personal-brand HERO portrait for a coach / consultant.
+Generate a premium personal-brand HERO portrait with this DESIGN:
 
-=== SUBJECT ===
-- The attached person in a clean, fitted WHITE V-neck t-shirt, arms confidently crossed, warm genuine smile, facing camera. Framed waist-up, centered.
-- Flattering soft key light on the face + a gentle purple/blue rim light on the shoulders to separate from the dark background.
+BACKGROUND: deep navy-to-purple gradient, dark and premium, with a faint dotted-grid texture in one corner.
 
-=== BACKGROUND ===
-- Deep navy-to-purple gradient, dark and premium.
-- A subtle glowing rounded-rectangle frame/outline (soft violet glow) around the subject, with a faint dotted-grid texture in one corner.
-- A cursive NEON SCRIPT signature glowing in purple/blue, placed behind the subject at mid-shoulder height, slightly out of focus.
+BORDER BOX: a glowing rounded-rectangle frame (soft violet neon outline) framing the subject — like a luminous card/portal around them.
 
-=== SIGNATURE TEXT ===
-- Signature reads: "Coach Bai"   ← change to the client's name / brand.
+SIGNATURE: a cursive NEON SCRIPT signature glowing purple/blue, placed BEHIND the subject at mid-shoulder height, slightly out of focus. Text: "Coach Bai"  ← change to the client's name / brand.
 
-=== STYLE ===
-- Vertical 4:5 portrait, cinematic, high-end coaching brand aesthetic.
-- Photorealistic, natural skin texture (no plastic/waxy skin). No extra text or logos other than the signature.
+SUBJECT: the person in a clean fitted WHITE V-neck tee, arms crossed, warm smile, facing camera, waist-up centered. Soft key light on the face + purple/blue rim light on the shoulders to separate from the dark background.
 
-Generate using the attached photo as the EXACT face.`,
+Vertical 4:5 portrait, cinematic, high-end coaching aesthetic. Photorealistic, natural skin (no plastic/waxy look). No other text or logos besides the signature.`,
   },
   {
     id: "gptimage",
     number: "IMG-03",
     label: "GPT IMAGE",
-    title: "Approachable Portrait — Warm Abstract Shapes",
+    title: "Portrait — Orange & Cream Abstract Shapes",
     category: "Personal Brand · About",
     description:
-      "Warm, candid portrait: client in a black button-up, seated, hands clasped, looking off-camera with a relaxed smile, on a backdrop of orange + cream abstract rounded shapes. Face stays 100% the client's. Built for friendly 'About' / bio sections.",
+      "Design: a cut-out portrait on a backdrop of large ORANGE/terracotta + soft CREAM abstract rounded shapes. Warm, friendly, editorial. Attach the client photo; GPT builds this shape-backdrop look around their real face. For 'About' / bio sections.",
     labelClass: labelClasses.gptimage,
-    basePrompt: GPT_IMAGE_BASE,
-    varsPrompt: `Use the ATTACHED IMAGE as the exact 100% facial reference — keep the SAME person (face shape, eyes, nose, mouth, eyebrows, skin tone, facial hair, hairstyle, unique marks). Do not beautify or change identity; only relight to match the scene.
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
-GOAL — A warm, approachable personal-brand portrait (great for an "About" / bio section).
+Generate a warm, approachable personal-brand portrait with this DESIGN:
 
-=== SUBJECT ===
-- The attached person in a black button-up shirt, seated, leaning slightly forward with hands clasped / fingers interlocked, a wristwatch visible.
-- Relaxed, friendly half-smile, looking slightly OFF-camera (3/4 to the side), natural and candid.
-- Soft, natural daylight; gentle shadows; editorial lifestyle feel.
+BACKGROUND: a modern abstract geometric backdrop — a large ORANGE / terracotta rounded square behind the subject, layered with soft CREAM / off-white rounded shapes. Clean, minimal, warm. The subject is cleanly separated from the shapes (cut-out look with a subtle drop shadow).
 
-=== BACKGROUND ===
-- Modern abstract geometric backdrop: a large ORANGE / terracotta rounded square behind the subject, layered with soft CREAM / off-white rounded shapes. Clean, minimal, warm.
-- Subject clearly separated from the shapes (subtle drop shadow / cut-out look).
+SUBJECT: the person in a black button-up shirt, seated, leaning slightly forward with hands clasped (wristwatch visible), relaxed friendly half-smile, looking slightly OFF-camera (3/4 to the side). Soft natural daylight, gentle shadows, editorial lifestyle feel.
 
-=== STYLE ===
-- Roughly 4:5 framing, waist-up. Bright, warm, premium-but-friendly coaching brand aesthetic.
-- Photorealistic, natural skin texture. No text or logos.
-
-Generate using the attached photo as the EXACT face.`,
+Roughly 4:5, waist-up. Bright, warm, premium-but-friendly. Photorealistic, natural skin, no text or logos.`,
   },
 ];
 
@@ -10341,7 +10302,14 @@ function PromptBlock({ text }: { text: string }) {
 }
 
 function SectionPromptTabs({ base, vars }: { base: string; vars: string }) {
-  const [active, setActive] = useState<"base" | "vars">("base");
+  const hasBase = base.trim().length > 0;
+  const [active, setActive] = useState<"base" | "vars">(hasBase ? "base" : "vars");
+
+  // Single-prompt cards (no base prompt) — show just the prompt, no tab toggle.
+  if (!hasBase) {
+    return <PromptBlock text={vars} />;
+  }
+
   const text = active === "base" ? base : vars;
   return (
     <>
