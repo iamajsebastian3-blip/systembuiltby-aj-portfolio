@@ -8923,6 +8923,66 @@ DESIGN / BACKGROUND: dark background with a warm GOLD accent shape along the lef
 
 Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
   },
+  {
+    id: "gptimage",
+    number: "IMG-21",
+    label: "GPT IMAGE",
+    title: "Avatar — Late 20s Man",
+    category: "Late 20s · Male",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Good-looking man in his late 20s, clean studio headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of a good-looking man in his late 20s, [ETHNICITY]. Fit, clean-cut with light stubble, modern hairstyle. Warm confident smile, friendly approachable eyes, looking straight at camera. Wardrobe: smart-casual — a fitted dark blazer over a plain crew-neck tee (or open-collar white shirt). Soft flattering studio lighting (large softbox key + gentle rim light), shallow depth of field. Clean neutral background — soft light-grey or subtle gradient. Natural skin texture (no plastic / over-smooth), sharp focus on the eyes. Modern personal-brand / coaching look. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipino", "mixed Asian-European", "Latino"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-22",
+    label: "GPT IMAGE",
+    title: "Avatar — Late 20s Woman",
+    category: "Late 20s · Female",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Good-looking woman in her late 20s, clean studio headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of a good-looking woman in her late 20s, [ETHNICITY]. Polished, fresh, healthy glow, modern hairstyle (loose waves or sleek). Warm genuine smile, bright friendly eyes, looking at camera. Wardrobe: smart-casual professional — a tailored blazer over a simple top, minimal jewelry. Soft flattering studio lighting, shallow depth of field. Clean neutral background — soft light-grey or subtle gradient. Natural skin texture, sharp focus on the eyes. Modern coaching / personal-brand aesthetic. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-23",
+    label: "GPT IMAGE",
+    title: "Avatar — ~40s Man",
+    category: "~40 · Male",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Handsome, established man around 40, executive-coach headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of a handsome, established man around 40, [ETHNICITY]. Well-groomed, mature and confident — short neat hair (a touch of grey at the temples), light beard or clean-shaven. Calm authoritative yet approachable expression, slight smile, direct eye contact. Wardrobe: premium — a well-fitted navy or charcoal blazer with an open-collar shirt. Soft directional studio lighting, shallow depth of field. Clean neutral background — soft grey or subtle dark-to-light gradient. Natural skin texture with realistic detail, sharp focus on the eyes. High-status executive-coach look. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipino", "mixed Asian-European", "Latino"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-24",
+    label: "GPT IMAGE",
+    title: "Avatar — ~40s Woman",
+    category: "~40 · Female",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Elegant, established woman around 40, mentor/coach headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of an elegant, attractive woman around 40, [ETHNICITY]. Confident and established — polished hairstyle, refined makeup. Warm, assured expression with a gentle smile, direct eye contact. Wardrobe: premium professional — a tailored blazer in a neutral tone, tasteful minimal jewelry. Soft flattering studio lighting, shallow depth of field. Clean neutral background — soft grey or subtle gradient. Natural skin texture (realistic, age-appropriate), sharp focus on the eyes. Sophisticated mentor / coach aesthetic. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
 ];
 
 
