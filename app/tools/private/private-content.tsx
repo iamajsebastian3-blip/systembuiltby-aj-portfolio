@@ -29,6 +29,7 @@ type Section = {
   title: string;
   description: string;
   labelClass: string;
+  category?: string;
   preview?: ReactNode;
   previewSrc?: string;
   funnelTypes?: string[];
@@ -8846,11 +8847,12 @@ const localWebsiteCards: Section[] = [
     id: "local",
     number: "LOC-RES-01",
     label: "LOCAL · RESORT",
-    title: "Lunara Beach Resort — Tropical Luxe",
+    title: "Layout 1",
+    category: "Beach Resort · Luxury",
     description:
-      "Single-page resort website (9 sections): split hero with floating glass features card · welcome/about + 3-photo grid · 5-col 'why guests love' icon row · 4-col rooms carousel · special offer banner with overlap gold badge · testimonials · Instagram 5-photo grid · 4-col footer. Green/gold luxury hospitality with Playfair + Inter + Dancing Script.",
+      "Lunara Beach Resort — single-page resort website (9 sections): split hero with floating glass features card · welcome/about + 3-photo grid · 5-col 'why guests love' icon row · 4-col rooms carousel · special offer banner with overlap gold badge · testimonials · Instagram 5-photo grid · 4-col footer. Green/gold luxury hospitality with Playfair + Inter + Dancing Script.",
     labelClass: labelClasses.local,
-    funnelTypes: ["Resort", "Hospitality", "Single-Page", "Luxury"],
+    previewSrc: "/private/layout-1-lunara.webp",
     basePrompt: `You are an expert frontend developer and web designer specializing in luxury hospitality websites.
 
 Build the LUNARA BEACH RESORT website as a single complete HTML file. Production-ready, fully responsive, GHL-compatible.
@@ -9081,11 +9083,12 @@ const SOCIAL_LINKS    = { facebook:"#", instagram:"#", tiktok:"#", youtube:"#" }
     id: "local",
     number: "LOC-RES-02",
     label: "LOCAL · RESORT",
-    title: "Isla Serena Beach Resort — Coastal Boutique",
+    title: "Layout 2",
+    category: "Beach Resort · Boutique",
     description:
-      "Single-page resort website (9 sections): full-bleed hero with 3-line headline (script accent) · floating BOOKING BAR (check-in / check-out / guests + JS counters) · about + floating quote card + decorative leaf SVG · 3-col rooms carousel (arrows + touch swipe) · experiences 4-photo grid with floating icon badges · 3-col testimonials carousel · CTA banner with arrow · 5-col footer. Teal/gold beachfront luxe.",
+      "Isla Serena Beach Resort — single-page resort website (9 sections): full-bleed hero with 3-line headline (script accent) · floating BOOKING BAR (check-in / check-out / guests + JS counters) · about + floating quote card + decorative leaf SVG · 3-col rooms carousel (arrows + touch swipe) · experiences 4-photo grid with floating icon badges · 3-col testimonials carousel · CTA banner with arrow · 5-col footer. Teal/gold beachfront luxe.",
     labelClass: labelClasses.local,
-    funnelTypes: ["Resort", "Hospitality", "Booking Widget", "Carousel"],
+    previewSrc: "/private/layout-2-isla-serena.webp",
     basePrompt: `You are an expert frontend developer and web designer specializing in luxury hospitality websites.
 
 Build the ISLA SERENA BEACH RESORT website as a single complete HTML file. Production-ready, fully responsive, GHL-compatible.
@@ -9339,6 +9342,280 @@ const COPYRIGHT       = "© 2024 Isla Serena Beach Resort. All Rights Reserved."
 const FOOTER_LEGAL    = [ { label:"Privacy Policy", href:"#" }, { label:"Terms & Conditions", href:"#" } ];
 const SOCIAL_LINKS    = { facebook:"#", instagram:"#", tiktok:"#", twitter:"#" };`,
   },
+  {
+    id: "local",
+    number: "LOC-RES-03",
+    label: "LOCAL · RESORT",
+    title: "Layout 3",
+    category: "Resort & Events · Filipino",
+    description:
+      "Kampo ni DOK Resort & Events Place — single-page resort + events venue (11 sections): full-viewport hero with split brand name · flush booking bar (check-in/out · guests · room) · 6-col 'perfect getaway' icon row · dark rooms scroller with price badges · 6-col amenities photo tiles · dark gallery with dot pagination + lightbox · 5-col events & occasions · why-choose testimonials · find-us contact + Google Map · 4-col newsletter footer. Bold red/black with Oswald + Inter + Dancing Script.",
+    labelClass: labelClasses.local,
+    previewSrc: "/private/layout-3-kampo.webp",
+    basePrompt: `You are an expert frontend developer and web designer specializing in resort and events venue websites.
+
+Build the KAMPO NI DOK RESORT & EVENTS PLACE website as a single complete HTML file. Production-ready, fully responsive, GHL-compatible.
+All CSS in <style> | All JS in <script>. Google Fonts only — no external libraries. Tabler Icons CDN for icons.
+
+=== OUTPUT ===
+One file: kamponidok.html
+
+=== FONTS (load in <head>) ===
+Oswald — 400, 500, 600, 700
+Inter — 300, 400, 500, 600
+Dancing Script — 400, 600, 700
+All via Google Fonts.
+
+=== ICONS ===
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+=== DESIGN SYSTEM ===
+- H1/H2: Oswald 700, uppercase, letter-spacing 1–2px
+- Script accents: Dancing Script italic, PRIMARY_COLOR, smaller than H2, always ABOVE the H2
+- Body: Inter 400 · Labels/eyebrows: Inter 600, uppercase, letter-spaced 2px
+- Accent pattern: H2 has 1–2 words in PRIMARY_COLOR, rest in TEXT_DARK or white per bg
+- PRIMARY_COLOR: buttons, accents, price badges, active nav, icons, H2 accent words, script lines
+- BG_DARK alternating sections (Rooms, Gallery, Why Choose, Footer); BG_WHITE/BG_LIGHT for others
+- Text on dark: white + muted white · on light: TEXT_DARK + TEXT_MUTED
+Buttons:
+- Type A Filled: PRIMARY bg, white text, uppercase Inter 600 letter-spaced 1px, radius 4–6px, ti-arrow-right after text, hover darken
+- Type B Outlined: transparent bg, BG_DARK (or white on dark) border + text, same font, arrow after text, hover fill
+Scroll anim: .reveal { opacity:0; translateY(24px); transition .5s } → .reveal.visible { opacity:1; translateY(0) }. .delay-1…4 stagger. IntersectionObserver fires .visible at 15%+.
+Mobile breakpoints: 768px, 480px.
+
+=== SECTION 01 — NAVIGATION ===
+Fixed top, 70px, white bg, box-shadow 0 2px 12px rgba(0,0,0,0.08).
+LEFT: LOGO_IMAGE or 40px circle BG_DARK placeholder + text: BRAND_NAME_1 (Inter 700 18px BG_DARK) + " ni " + BRAND_NAME_2 (PRIMARY) · BRAND_SUBTITLE below (Inter 10px uppercase letter-spaced 1px).
+CENTER: NAV_LINKS — Inter 600 13px uppercase letter-spaced 1px, default TEXT_DARK, active/hover PRIMARY (HOME PRIMARY by default).
+RIGHT: NAV_CTA_TEXT (Type A, smaller padding) + ti-calendar icon left.
+MOBILE: logo + hamburger → full white overlay menu, centered stacked links (Oswald 24px), CTA below.
+
+=== SECTION 02 — HERO ===
+Full viewport (100vh). BG_HERO_IMAGE cover center. Overlay linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.2) 100%).
+CONTENT left-aligned, padding 14% 6% 8%:
+1. HERO_SCRIPT_LINE (Dancing Script 700 28px PRIMARY, block)
+2. H1 two lines: H1_PART_1 (Oswald 700 80px white, line-height .95 uppercase) + H1_PART_2 (same, PRIMARY)
+3. HERO_SUBTITLE (Inter 400 22px rgba white .85, margin-top 8px)
+4. HERO_BODY (Inter 400 15px rgba white .65, max-width 380px, line-height 1.7, margin-top 16px)
+5. Two CTAs (gap 12px, margin-top 32px): CTA_PRIMARY (Type A) + CTA_SECONDARY (Type B white outlined)
+MOBILE: padding 20% 5% 10%, H1 52px, body hidden on smallest.
+
+=== SECTION 03 — BOOKING BAR ===
+White card, full width, margin-top -1px (flush below hero), box-shadow 0 4px 20px rgba(0,0,0,0.1), padding 20px 40px.
+Flex row, 4 fields + button, 1px rgba(0,0,0,0.1) dividers between fields.
+Field 1 CHECK-IN: ti-calendar (PRIMARY 20px) + "CHECK-IN" label (Inter 10px uppercase TEXT_MUTED letter-spaced 1px) + BOOKING_CHECKIN_DEFAULT (Inter 500 15px TEXT_DARK).
+Field 2 CHECK-OUT: same, BOOKING_CHECKOUT_DEFAULT.
+Field 3 GUESTS: ti-users + "GUESTS" + BOOKING_GUESTS_DEFAULT + ti-chevron-down.
+Field 4 ROOM: ti-door + "ROOM" + BOOKING_ROOM_DEFAULT + dropdown arrow.
+Button CHECK AVAILABILITY: PRIMARY bg white text, Oswald 600 uppercase letter-spaced 1px, full bar height (no radius), min-width 180px, hover darken.
+MOBILE: 2×2 grid + full-width button.
+
+=== SECTION 04 — PERFECT GETAWAY FEATURES ===
+BG_WHITE, centered, padding 70px 5%.
+HEADER: FEATURES_SCRIPT (Dancing Script PRIMARY 22px) + H2 FEATURES_H2_PART1 (Oswald 700 TEXT_DARK) + FEATURES_H2_ACCENT (PRIMARY) + FEATURES_H2_PART2 (TEXT_DARK).
+6-col icon grid (margin-top 40px), each FEATURE: Tabler icon (32px PRIMARY) + TITLE (Oswald 600 13px TEXT_DARK uppercase letter-spaced 1px, margin-top 12px) + BODY (Inter 13px TEXT_MUTED centered max-width 130px line-height 1.5). No card bg, hover icon scale 1.1.
+MOBILE: 2×3 grid.
+
+=== SECTION 05 — OUR ROOMS ===
+BG_DARK, padding 70px 5%. Split 28% left | 72% right.
+LEFT: ROOMS_SCRIPT (Dancing Script PRIMARY 22px) + H2 ROOMS_H2_PART1 (white Oswald 700 40px) + ROOMS_H2_ACCENT (PRIMARY) + ROOMS_BODY (Inter 14px rgba white .55 max-width 240px line-height 1.7, margin 16px 0 28px) + CTA "VIEW ALL ROOMS" (Type B white border/text).
+RIGHT: 4 ROOM cards (horizontal scroll flex), each: relative overflow hidden radius 8px min-width 200px flex 1. ROOM_IMAGE (h 200px cover) + gradient overlay (to top rgba(0,0,0,0.85)→transparent) + price badge top-right (PRIMARY bg white, Inter 600 11px "₱[price] / night", padding 4px 8px, radius 0 0 0 6px) + bottom info: ROOM_NAME (Oswald 600 15px white) + specs row (ti-users ROOM_GUESTS · ti-bed ROOM_BED · ti-maximize ROOM_SIZE, Inter 11px rgba white .65). Hover image scale 1.05.
+MOBILE: horizontal scroll-snap, one card visible.
+
+=== SECTION 06 — AMENITIES & FACILITIES ===
+BG_WHITE, padding 70px 5%.
+HEADER left: AMENITIES_SCRIPT (Dancing Script PRIMARY 22px) + H2 AMENITIES_HEADLINE (Oswald 700 36px TEXT_DARK).
+6-col photo tiles grid (gap 6px), each AMENITY: square (padding-bottom 100%), AMENITY_IMAGE fill, dark gradient overlay bottom (to top rgba(0,0,0,0.75)→transparent 55%), AMENITY_LABEL (absolute bottom 12px left 12px, Oswald 700 13px white uppercase letter-spaced 1px). Hover image scale 1.06 + 2px solid PRIMARY border.
+MOBILE: 2×3 grid.
+
+=== SECTION 07 — GALLERY ===
+BG_DARK, padding 70px 5%. Split 28% left | 72% right.
+LEFT: GALLERY_SCRIPT (Dancing Script PRIMARY 22px) + H2 GALLERY_HEADLINE (Oswald 700 40px white) + GALLERY_BODY (Inter 14px rgba white .55 max-width 240px line-height 1.7, margin 16px 0 28px) + CTA "VIEW FULL GALLERY" (Type B white).
+RIGHT: 4 photos in a row (equal width, h 200px cover, radius 6px, pointer), hover brightness 1.1 scale 1.02.
+DOT PAGINATION below (GALLERY_DOT_COUNT dots, active PRIMARY filled, inactive rgba white .3 outline, 8px gap 6px centered) — JS cycles photo sets (fade .3s).
+LIGHTBOX (JS): click photo → full-screen dark overlay, centered large image, X top-right, prev/next arrows, ESC closes.
+MOBILE: 2×2 grid, horizontal scroll.
+
+=== SECTION 08 — EVENTS & OCCASIONS ===
+BG_WHITE, padding 70px 5%. Split 30% left | 70% right.
+LEFT: EVENTS_SCRIPT (Dancing Script PRIMARY 22px) + H2 EVENTS_HEADLINE (Oswald 700 36px TEXT_DARK line-height 1.1) + EVENTS_BODY (Inter 14px TEXT_MUTED max-width 260px line-height 1.7, margin 16px 0 28px) + CTA "LEARN MORE" (Type A).
+RIGHT: 5 event columns, each EVENT: Tabler icon (36px PRIMARY centered) + TITLE (Oswald 600 13px TEXT_DARK uppercase letter-spaced 1px centered, margin-top 12px) + BODY (Inter 13px TEXT_MUTED centered max-width 110px line-height 1.5). Hover icon scale 1.1 + darken.
+MOBILE: 2×3 grid (5 items).
+
+=== SECTION 09 — WHY CHOOSE US ===
+BG_DARK, padding 70px 5%. Split 38% left | 62% right.
+LEFT: WHY_SCRIPT (Dancing Script PRIMARY 22px) + H2 WHY_H2_PART1 (Oswald 700 36px white) + WHY_H2_ACCENT (PRIMARY) + "?" + WHY_BODY (Inter 14px rgba white .55 max-width 300px line-height 1.7).
+RIGHT: 3 testimonial cards (white bg, radius 10px, padding 24px, flex gap 16px), each REVIEW: 5 stars (★ PRIMARY 16px) + QUOTE_TEXT (Inter 14px TEXT_DARK italic line-height 1.7, margin 12px 0) + reviewer row (REVIEWER_AVATAR circle 36px + REVIEWER_NAME Inter 600 14px TEXT_DARK + REVIEW_DATE Inter 12px TEXT_MUTED). Hover translateY(-3px) + deeper shadow.
+MOBILE: single column.
+
+=== SECTION 10 — FIND US HERE ===
+BG_WHITE, padding 70px 5%. Split 38% left | 62% right.
+LEFT: CONTACT_SCRIPT (Dancing Script PRIMARY 22px) + H2 CONTACT_HEADLINE (Oswald 700 40px TEXT_DARK) + contact list (margin-top 24px): 4 CONTACT_INFO rows (flex gap 12px margin-bottom 16px), each 36px circle PRIMARY border + Tabler icon (PRIMARY 18px) + text (Inter 14px TEXT_DARK/MUTED). Social row (margin-top 24px): SOCIAL_LINKS each 40px circle dark border/bg + brand icon (white 18px), hover PRIMARY bg.
+RIGHT: Google Maps <iframe> MAPS_EMBED_URL, width 100% height 380px, radius 10px, border none.
+MOBILE: stack contact top, map below (h 280px).
+
+=== SECTION 11 — FOOTER ===
+BG_DARK, padding 60px 5% 30px, 4-col grid.
+COL 1 Brand (25%): logo (mascot + brand name) + FOOTER_TAGLINE (Inter 14px rgba white .55 max-width 220px line-height 1.7).
+COL 2 Quick Links: header "QUICK LINKS" (Oswald 600 14px white uppercase letter-spaced 2px) + FOOTER_QUICK_LINKS (Inter 14px rgba white .55, hover white + translateX(4px)).
+COL 3 Contact Us: header "CONTACT US" + 4 rows (ti-map-pin ADDRESS · ti-phone PHONE · ti-mail EMAIL · ti-clock HOURS), icon PRIMARY 16px, text Inter 13px rgba white .55.
+COL 4 Newsletter: header "NEWSLETTER" + NEWSLETTER_BODY (Inter 13px rgba white .55) + input/button row (input white bg TEXT_DARK border 1px rgba white .15 radius 4px padding 10px 14px flex 1 · "SUBSCRIBE" button PRIMARY bg white Oswald 600 13px uppercase radius 0 4px 4px 0, hover darken) — JS preventDefault + inline "Subscribed!".
+BOTTOM BAR (margin-top 40px, border-top 1px rgba white .1, padding-top 20px, flex space-between): left COPYRIGHT (Inter 12px rgba white .35), right LEGAL_LINKS (same, " | " separator).
+
+=== INTERACTIONS & JS ===
+Smooth scroll (html scroll-behavior smooth). Active nav via IntersectionObserver (.active matching link). Gallery dots cycle sets of 4 (fade .3s). Gallery lightbox open on click, close ESC/X, arrows/keyboard nav. Booking bar: Guests counter popup (Adults/Children +/-), Room dropdown list. Testimonials mobile: scroll-snap or prev/next arrows.
+
+=== BUILD RULES ===
+1. Single HTML file, all inline. 2. CLIENT VARIABLES at very top of <script>. 3. CSS :root vars at top of <style>. 4. No external CSS — only Google Fonts + Tabler Icons CDN. 5. [PLACEHOLDER_URL] images: Unsplash fallbacks (resort night photo-1566073771259-6a8506099945, rooms photo-1631049307264-da0ec9d70304, pool photo-1571896349842-33c89424de2d, garden photo-1582268611958-ebfd161ef9cf). 6. All images object-fit cover. 7. Room price format "₱[price] / night". 8. All Oswald headings uppercase. 9. Dancing Script always PRIMARY. 10. Maps embed: real iframe src. 11. Works without JS (content visible). 12. Mobile hamburger JS toggle overlay.
+Build the complete single HTML file now.`,
+    varsPrompt: `/* === CLIENT VARIABLES — EDIT HERE === */
+
+/* ——— COLORS ——— */
+--primary:       #CC1B1B;
+--primary-dark:  #AA1515;
+--bg-dark:       #111111;
+--bg-white:      #FFFFFF;
+--bg-light:      #F5F5F5;
+--text-dark:     #111111;
+--text-muted:    #777777;
+
+/* ——— BRAND ——— */
+const BRAND_NAME_1   = "Kampo ni";
+const BRAND_NAME_2   = "DOK";
+const BRAND_SUBTITLE = "RESORT & EVENTS PLACE";
+const LOGO_IMAGE     = "[MASCOT_LOGO_URL]";
+
+/* ——— NAVIGATION ——— */
+const NAV_LINKS = [
+  { label:"Home",      href:"#home",       active:true },
+  { label:"About",     href:"#about",      active:false },
+  { label:"Rooms",     href:"#rooms",      active:false },
+  { label:"Amenities", href:"#amenities",  active:false },
+  { label:"Gallery",   href:"#gallery",    active:false },
+  { label:"Events",    href:"#events",     active:false },
+  { label:"Blog",      href:"#blog",       active:false },
+  { label:"Contact",   href:"#contact",    active:false }
+];
+const NAV_CTA_TEXT = "Book Now";
+
+/* ——— HERO ——— */
+const BG_HERO_IMAGE    = "[RESORT_NIGHT_PHOTO_URL]";
+const HERO_SCRIPT_LINE = "Welcome to";
+const H1_PART_1        = "KAMPO NI";
+const H1_PART_2        = "DOK";
+const HERO_SUBTITLE    = "Your Home Away from Home";
+const HERO_BODY        = "Relax, unwind, and create unforgettable memories in our peaceful resort and events place.";
+const CTA_PRIMARY      = "Book a Stay";
+const CTA_SECONDARY    = "Explore Rooms";
+
+/* ——— BOOKING BAR ——— */
+const BOOKING_CHECKIN_DEFAULT  = "May 18, 2024";
+const BOOKING_CHECKOUT_DEFAULT = "May 19, 2024";
+const BOOKING_GUESTS_DEFAULT   = "2 Adults";
+const BOOKING_ROOM_DEFAULT     = "1 Room";
+const BOOKING_CTA_TEXT         = "Check Availability";
+
+/* ——— FEATURES (PERFECT GETAWAY) ——— */
+const FEATURES_SCRIPT    = "Experience Relaxation";
+const FEATURES_H2_PART1  = "YOUR";
+const FEATURES_H2_ACCENT = "PERFECT";
+const FEATURES_H2_PART2  = "GETAWAY";
+const FEATURES = [
+  { icon:"ti-bed",          title:"Comfortable Rooms",   body:"Cozy and clean rooms for a relaxing stay." },
+  { icon:"ti-swimming",     title:"Great Amenities",     body:"Enjoy our pool, function hall, and other facilities." },
+  { icon:"ti-confetti",     title:"Events & Occasions",  body:"Perfect venue for birthdays, reunions, and celebrations." },
+  { icon:"ti-mood-smile",   title:"Friendly Service",    body:"We are here to make your stay memorable." },
+  { icon:"ti-shield-check", title:"Safe & Secure",       body:"Your safety and comfort are our top priority." },
+  { icon:"ti-car",          title:"Free Parking",        body:"Spacious parking area for your convenience." }
+];
+
+/* ——— ROOMS ——— */
+const ROOMS_SCRIPT    = "Rest in Comfort";
+const ROOMS_H2_PART1  = "OUR";
+const ROOMS_H2_ACCENT = "ROOMS";
+const ROOMS_BODY      = "Choose from our well-appointed rooms designed for your comfort and relaxation.";
+const ROOMS_CTA       = "View All Rooms";
+const ROOMS = [
+  { image:"[STANDARD_ROOM_IMG]", name:"Standard Room", price:"2,500", guests:"2 Guests", bed:"1 Bed",  size:"20 m²" },
+  { image:"[DELUXE_ROOM_IMG]",   name:"Deluxe Room",   price:"3,000", guests:"2 Guests", bed:"1 Bed",  size:"25 m²" },
+  { image:"[FAMILY_SUITE_IMG]",  name:"Family Suite",  price:"9,500", guests:"4 Guests", bed:"2 Beds", size:"40 m²" },
+  { image:"[PREMIER_SUITE_IMG]", name:"Premier Suite", price:"4,500", guests:"4 Guests", bed:"1 Bed",  size:"50 m²" }
+];
+
+/* ——— AMENITIES ——— */
+const AMENITIES_SCRIPT   = "Enjoy Our";
+const AMENITIES_HEADLINE = "Amenities & Facilities";
+const AMENITIES = [
+  { image:"[POOL_IMG]",       label:"Swimming Pool" },
+  { image:"[HALL_IMG]",       label:"Function Hall" },
+  { image:"[RESTO_IMG]",      label:"Restaurant" },
+  { image:"[PLAYGROUND_IMG]", label:"Playground" },
+  { image:"[KARAOKE_IMG]",    label:"Karaoke Room" },
+  { image:"[WIFI_IMG]",       label:"WiFi Access" }
+];
+
+/* ——— GALLERY ——— */
+const GALLERY_SCRIPT    = "Captivating Memories";
+const GALLERY_HEADLINE  = "Gallery";
+const GALLERY_BODY      = "Take a glimpse of the beautiful moments and places you can experience at Kampo ni DOK.";
+const GALLERY_CTA       = "View Full Gallery";
+const GALLERY_DOT_COUNT = 3;
+const GALLERY_PHOTOS = [
+  "[GALLERY_1]", "[GALLERY_2]", "[GALLERY_3]",  "[GALLERY_4]",
+  "[GALLERY_5]", "[GALLERY_6]", "[GALLERY_7]",  "[GALLERY_8]",
+  "[GALLERY_9]", "[GALLERY_10]","[GALLERY_11]", "[GALLERY_12]"
+];
+
+/* ——— EVENTS ——— */
+const EVENTS_SCRIPT   = "Celebrate With Us";
+const EVENTS_HEADLINE = "Events & Occasions";
+const EVENTS_BODY     = "From intimate gatherings to grand celebrations, we provide the perfect venue for unforgettable events.";
+const EVENTS_CTA      = "Learn More";
+const EVENTS = [
+  { icon:"ti-cake",        title:"Birthdays",         body:"Celebrate another year of life in a special way." },
+  { icon:"ti-users-group", title:"Family Reunions",   body:"Reconnect and create lasting memories." },
+  { icon:"ti-rings",       title:"Weddings",          body:"Make your dream wedding a reality." },
+  { icon:"ti-briefcase",   title:"Corporate Events",  body:"Host meetings, seminars, and team buildings." },
+  { icon:"ti-star",        title:"Special Occasions", body:"Anniversaries, baptisms, and more." }
+];
+
+/* ——— WHY CHOOSE US ——— */
+const WHY_SCRIPT    = "About Us";
+const WHY_H2_PART1  = "WHY CHOOSE KAMPO NI";
+const WHY_H2_ACCENT = "DOK";
+const WHY_BODY      = "Kampo ni DOK is more than just a resort. It's a place where families and friends come together to relax, celebrate, and make lasting memories.";
+const REVIEWS = [
+  { quote:"Great place to relax and unwind. The rooms are clean and the staff are very accommodating.", avatar:"https://i.pravatar.cc/80?img=1", name:"Maria Santos",    date:"May 2024" },
+  { quote:"Perfect venue for our family reunion. Highly recommended!",                                  avatar:"https://i.pravatar.cc/80?img=3", name:"Juan dela Cruz", date:"April 2024" },
+  { quote:"We celebrated my birthday here and it was amazing!",                                         avatar:"https://i.pravatar.cc/80?img=5", name:"Ana Reyes",      date:"May 2024" }
+];
+
+/* ——— CONTACT / FIND US ——— */
+const CONTACT_SCRIPT   = "What Our Guests Say";
+const CONTACT_HEADLINE = "Find Us Here";
+const CONTACT_INFO = [
+  { icon:"ti-map-pin", text:"Poblacion, San Antonio, Zambales, Philippines 2206" },
+  { icon:"ti-phone",   text:"+63 912 345 6789" },
+  { icon:"ti-mail",    text:"info@kamponidok.com" },
+  { icon:"ti-clock",   text:"Mon - Sun: 8:00 AM - 10:00 PM" }
+];
+const SOCIAL_LINKS = { facebook:"#", instagram:"#", tiktok:"#", email:"mailto:info@kamponidok.com" };
+const MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3868.0!2d120.0!3d15.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sKampo+ni+DOK!5e0!3m2!1sen!2sph!4v1620000000000!5m2!1sen!2sph";
+
+/* ——— FOOTER ——— */
+const FOOTER_TAGLINE     = "Your home away from home. Relax, unwind, and enjoy a memorable stay with us.";
+const FOOTER_QUICK_LINKS = ["Home","About Us","Rooms","Amenities","Gallery","Events","Blog","Contact"];
+const FOOTER_ADDRESS     = "Poblacion, San Antonio, Zambales, Philippines 2206";
+const FOOTER_PHONE       = "+63 912 345 6789";
+const FOOTER_EMAIL       = "info@kamponidok.com";
+const FOOTER_HOURS       = "Mon - Sun: 8:00 AM - 10:00 PM";
+const NEWSLETTER_BODY    = "Subscribe to get updates and promos!";
+const COPYRIGHT          = "© 2024 Kampo ni DOK Resort & Events Place. All Rights Reserved.";
+const LEGAL_LINKS = [
+  { label:"Privacy Policy",     href:"#" },
+  { label:"Terms & Conditions", href:"#" }
+];`,
+  },
 ];
 
 const tabs: { id: TabId; label: string }[] = [
@@ -9505,9 +9782,10 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
       </button>
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[1400px] max-h-[90vh] aspect-video rounded-xl overflow-hidden border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.6)] cursor-default"
+        className="relative max-w-[1100px] max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-xl border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.6)] cursor-default bg-[#0B091A] [scrollbar-width:thin]"
       >
-        <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" priority unoptimized />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt={alt} className="block w-full h-auto" />
       </div>
     </div>
   );
@@ -10511,7 +10789,9 @@ export function PrivateContent() {
               )}
               <div className="p-5 flex flex-col flex-1">
                 <div className={`text-[10px] font-semibold uppercase tracking-[0.13em] mb-1.5 ${s.labelClass}`}>
-                  {s.funnelTypes
+                  {s.category
+                    ? s.category.toUpperCase()
+                    : s.funnelTypes
                     ? s.funnelTypes.join(" · ").toUpperCase()
                     : `${s.number} · ${s.label}`}
                 </div>
