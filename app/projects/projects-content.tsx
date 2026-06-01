@@ -13,10 +13,9 @@ import {
 /* ------------------------------------------------------------------ */
 
 const tabs = [
-  { id: "automations", label: "\u26A1 Automations" },
+  { id: "automations", label: "\uD83D\uDDFA\uFE0F Process Map" },
   { id: "funnels", label: "\uD83C\uDFAF Funnels" },
   { id: "websites", label: "\uD83C\uDF10 Websites" },
-  { id: "apps", label: "\uD83D\uDCF1 Apps" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -319,39 +318,6 @@ const websites = [
   },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  Data — Apps                                                        */
-/* ------------------------------------------------------------------ */
-
-const apps = [
-  {
-    emoji: "\uD83D\uDCCA",
-    title: "Analytics Tool",
-    subtitle: "Revenue Leak Calculator",
-    description:
-      "Identifies where revenue leaks happen in a sales pipeline and quantifies the dollar impact per stage.",
-    chips: ["React", "Vite", "Custom Logic"],
-    light: true,
-  },
-  {
-    emoji: "\uD83D\uDD0D",
-    title: "Research Tool",
-    subtitle: "Amazon OA Product Research",
-    description:
-      "Automates product research for Amazon Online Arbitrage using AI analysis and live pricing data.",
-    chips: ["Node.js", "Claude API", "Keepa API"],
-    light: false,
-  },
-  {
-    emoji: "\uD83D\uDCCB",
-    title: "CRM Tool",
-    subtitle: "Client Onboarding Tracker",
-    description:
-      "Tracks new client onboarding steps, sends status updates, and syncs with CRM records automatically.",
-    chips: ["GHL API", "Zapier", "Google Sheets"],
-    light: false,
-  },
-];
 
 /* ------------------------------------------------------------------ */
 /*  Lazy-mount hook — only render iframes after the card enters view   */
@@ -709,46 +675,6 @@ function WebsiteCard({
   );
 }
 
-function AppCard({
-  emoji,
-  title,
-  subtitle,
-  description,
-  chips,
-  light,
-}: (typeof apps)[number]) {
-  const thumbBg = light
-    ? "bg-gradient-to-br from-[#27187E] to-[#3f2db5]"
-    : "bg-gradient-to-br from-[#0f0a3d] to-[#27187E]";
-
-  return (
-    <div className="group overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
-      {/* Emoji thumbnail */}
-      <div className={`flex h-40 items-center justify-center ${thumbBg}`}>
-        <span className="text-5xl">{emoji}</span>
-      </div>
-      {/* Body */}
-      <div className="p-5">
-        <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
-        <p className="mb-2 text-sm text-white/50">{subtitle}</p>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
-          {description}
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {chips.map((chip) => (
-            <span
-              key={chip}
-              className="rounded-full border border-white/[0.1] bg-white/[0.06] px-2.5 py-1 text-[0.68rem] font-bold text-white/50"
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ------------------------------------------------------------------ */
 /*  Tab content panels                                                 */
 /* ------------------------------------------------------------------ */
@@ -765,15 +691,52 @@ function AutomationsPanel() {
   );
 }
 
+function CategoryHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-6 flex items-center gap-3">
+      <h2 className="shrink-0 text-sm font-bold uppercase tracking-widest text-white/70">
+        {children}
+      </h2>
+      <span className="h-px flex-1 bg-gradient-to-r from-white/15 to-transparent" />
+    </div>
+  );
+}
+
 function FunnelsPanel() {
   return (
-    <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {funnels.map((f) => (
-        <StaggerItem key={f.title}>
-          <FunnelCard {...f} />
-        </StaggerItem>
-      ))}
-    </StaggerChildren>
+    <div className="space-y-14">
+      {/* Category — Types of Funnels */}
+      <div>
+        <CategoryHeading>Types of Funnels</CategoryHeading>
+        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {funnels.map((f) => (
+            <StaggerItem key={f.title}>
+              <FunnelCard {...f} />
+            </StaggerItem>
+          ))}
+        </StaggerChildren>
+      </div>
+
+      {/* Category — Premium Coaching Funnels (coming soon) */}
+      <div>
+        <CategoryHeading>Premium Coaching Funnels</CategoryHeading>
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/[0.02] px-8 py-14 text-center">
+          <span className="mb-3 text-4xl opacity-70">👑</span>
+          <h3 className="mb-1.5 text-lg font-bold text-white">
+            High-Ticket Coaching Funnels
+          </h3>
+          <p className="mb-5 max-w-md text-sm leading-relaxed text-white/50">
+            Premium, conversion-engineered funnels built for coaches and
+            consultants. Live builds are launching soon — they&apos;ll be added
+            here as deployed Vercel links.
+          </p>
+          <span className="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-4 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-wider text-yellow">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-yellow" />
+            Coming Soon
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -789,23 +752,10 @@ function WebsitesPanel() {
   );
 }
 
-function AppsPanel() {
-  return (
-    <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {apps.map((a) => (
-        <StaggerItem key={a.title}>
-          <AppCard {...a} />
-        </StaggerItem>
-      ))}
-    </StaggerChildren>
-  );
-}
-
 const panels: Record<TabId, () => React.JSX.Element> = {
   automations: AutomationsPanel,
   funnels: FunnelsPanel,
   websites: WebsitesPanel,
-  apps: AppsPanel,
 };
 
 /* ------------------------------------------------------------------ */

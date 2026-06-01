@@ -259,16 +259,17 @@ export function SystemBuildsContent() {
 
           {/* Footnote */}
           <ScrollReveal>
-            <p className="text-center text-sm text-white/40 px-4">
-              New walkthroughs added regularly. Want a custom build recorded?{" "}
+            <div className="flex flex-col items-center gap-5 px-4">
+              <p className="text-center text-sm text-white/40">
+                New walkthroughs added regularly. Want a custom build recorded?
+              </p>
               <a
                 href="/consult"
-                className="text-yellow hover:underline font-medium"
+                className="inline-flex items-center gap-2 px-7 py-3 bg-yellow text-black rounded-[9px] text-sm font-extrabold hover:bg-yellow-dark hover:translate-y-[-2px] hover:shadow-[0_8px_28px_rgba(246,203,31,0.35)] transition-all duration-200"
               >
-                Book a free consultation
+                Book a Free Consultation →
               </a>
-              .
-            </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
