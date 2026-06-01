@@ -8471,6 +8471,7 @@ const gptImageCards: Section[] = [
       "Design: two side-by-side rounded cards of the SAME person — a dark, low-key 'before' and a bright, confident 'after' — with an orange arrow between them. Attach the client photo; GPT builds both cards around their real face. For story / origin sections.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-01.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -8496,6 +8497,7 @@ Captions (edit per client):
       "Design: deep navy→purple gradient, a glowing rounded BORDER-BOX frame around the subject, and a cursive NEON SIGNATURE behind them. Attach the client photo; GPT builds this hero treatment around their real face. For coach / consultant hero sections.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-02.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8521,6 +8523,7 @@ Vertical 4:5 portrait, cinematic, high-end coaching aesthetic. Photorealistic, n
       "Design: a cut-out portrait on a backdrop of large ORANGE/terracotta + soft CREAM abstract rounded shapes. Warm, friendly, editorial. Attach the client photo; GPT builds this shape-backdrop look around their real face. For 'About' / bio sections.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-03.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8542,6 +8545,7 @@ Roughly 4:5, waist-up. Bright, warm, premium-but-friendly. Photorealistic, natur
       "Design: light cream background with a big soft ORANGE organic blob + small dotted accent behind the cut-out subject. Bright, warm, minimal. Attach the client photo; GPT builds this treatment around their real face. Matches reference grid Layout 1.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-04.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8565,6 +8569,7 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
       "Design: near-black background with a single thin ORANGE ring/halo outline behind the subject. Moody, premium, low-key with a warm rim light. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 2.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-05.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8588,6 +8593,7 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
       "Design: dark charcoal background with the subject inside a slightly tilted rounded panel filled with a warm ORANGE→dark gradient glow (spotlight-card look). Cinematic, premium. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 4.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-06.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8611,6 +8617,7 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
       "Design: light cream background with a soft cream rounded panel + an ORANGE organic blob peeking behind + dotted accent. Layered shapes, bright and warm. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 5.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-07.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8634,6 +8641,7 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
       "Design: dark background with the subject framed inside a glowing ORANGE NEON rounded-rectangle outline (slightly tilted), subject breaking the frame edge. Modern, high-end. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 6.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-08.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8657,6 +8665,7 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
       "Design: light cream background, the subject presented on a stack of white photo prints (polaroid-style, offset/rotated) with a small orange corner accent. Tactile, editorial. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 7.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-09.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8680,6 +8689,7 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
       "Design: light cream background with the subject inside a thin circular ring / portal frame, head and shoulders breaking out over the top edge. Clean, bright, minimal. Attach the client photo; GPT builds this around their real face. Matches reference grid Layout 9.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-10.webp",
+    group: "About Section",
     basePrompt: "",
     varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8692,6 +8702,226 @@ DESIGN: light cream background. The subject inside a thin CIRCULAR ring / portal
 SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
 
 Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-11",
+    label: "GPT IMAGE",
+    title: "Green Energy Full-Body (Dark)",
+    category: "Dark · Green Energy",
+    group: "Hero Section",
+    description:
+      "Hero background: full-body subject in a dark suit on a near-black stage with dramatic green diagonal light beams + haze. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-11.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a sharp tailored dark/black suit, full-body, standing, body turned slightly side-on with a confident stance, placed on the RIGHT third.
+
+DESIGN / BACKGROUND: near-black studio with dramatic GREEN diagonal light beams / streaks and soft atmospheric haze/smoke. Cool green rim light on the subject; deep shadows.
+
+Photorealistic, natural skin, cinematic premium personal-brand hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-12",
+    label: "GPT IMAGE",
+    title: "Finance Charts (Dark)",
+    category: "Dark · Finance Charts",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a leather jacket, arms crossed, on a dark backdrop of trading candlestick/bar-chart graphics with a warm gold glow. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-12.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a black leather jacket, arms crossed, confident smile, framed waist-up on the RIGHT side.
+
+DESIGN / BACKGROUND: dark backdrop layered with subtle financial CANDLESTICK / BAR-CHART graphics and trading-line overlays, with a warm gold/amber glow on the right behind the subject. Modern fintech / trading authority feel.
+
+Photorealistic, natural skin, cinematic premium hero. No real text/numbers or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-13",
+    label: "GPT IMAGE",
+    title: "Gold Arc — Warm (Dark)",
+    category: "Dark · Warm Gold",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a crisp white suit, hands in pockets, on a dark backdrop with a large warm gold arc/ring and diagonal light streaks. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-13.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a crisp WHITE blazer / suit, hands in pockets, relaxed confident smile, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark background with a large warm GOLD ARC / ring shape behind the subject and diagonal warm light streaks / soft lens flares. Premium, warm, editorial.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-14",
+    label: "GPT IMAGE",
+    title: "Luxe Gold Architectural (Dark)",
+    category: "Dark · Luxe Gold",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a sharp black blazer, arms crossed, in a dark luxe interior with warm gold architectural lighting + subtle emblem. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-14.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a sharp black blazer, arms crossed, composed expression, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark LUXE interior with warm GOLD architectural panel lighting and geometric dark surfaces, plus a subtle faint emblem / monogram graphic. Moody, expensive, high-status.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-15",
+    label: "GPT IMAGE",
+    title: "Maroon Authority — Ghosted Scenes",
+    category: "Warm · Authority",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a burgundy suit on a warm maroon backdrop with a circular arc and faded ghosted background scenes + portrait. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-15.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a burgundy / maroon suit, hands in pockets, standing, centered slightly RIGHT.
+
+DESIGN / BACKGROUND: warm dark MAROON / deep-red toned background with a soft circular ARC frame, plus faded ghosted background scenes (e.g. an interview / lifestyle moment) and a large softly-faded portrait of the subject. Editorial "authority / featured" feel.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-16",
+    label: "GPT IMAGE",
+    title: "Keynote Stage — Gold Swoosh",
+    category: "Dark · Keynote",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a navy suit on a dark backdrop with sweeping gold swoosh lines and a faded speaker-on-stage / crowd silhouette. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-16.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a dark navy suit, hands clasped in front, confident, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark background with sweeping GOLD swoosh / arc lines and, in the negative-space area, a faded silhouette of a speaker on a big stage in front of a huge crowd / arena. Keynote-authority feel.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-17",
+    label: "GPT IMAGE",
+    title: "Minimal Dark Studio",
+    category: "Dark · Minimal",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a black tee seated in a leather chair, leaning forward, on a plain dark studio backdrop with a single soft key light. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-17.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a plain black t-shirt, seated in a black leather chair, leaning forward with hands loosely clasped, looking directly at camera. Placed centered-to-RIGHT.
+
+DESIGN / BACKGROUND: plain dark charcoal studio backdrop, a single soft directional key light, gentle vignette. Minimal, intimate, premium portrait mood.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-18",
+    label: "GPT IMAGE",
+    title: "Gold Geometric Stage",
+    category: "Dark · Gold Geometric",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a black suit on a dark backdrop with gold diagonal geometric lines/panels and a faded stage/crowd scene. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-18.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a sharp black suit, standing, hands relaxed, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark background with GOLD diagonal geometric lines / angular panels on the left and a faded stage / crowd scene behind. Sharp, modern, premium event aesthetic.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-19",
+    label: "GPT IMAGE",
+    title: "Clean Light Corporate",
+    category: "Light · Corporate",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a black blazer, hands clasped, seated, on a bright white backdrop with a subtle hexagon/tech pattern. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-19.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a black blazer over a white shirt, hands clasped on a surface, seated, warm professional smile, on the RIGHT side.
+
+DESIGN / BACKGROUND: bright LIGHT / near-white background with a subtle HEXAGON / tech grid pattern and faint soft graphics. Clean, corporate, trustworthy.
+
+Photorealistic, natural skin, bright premium corporate hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-20",
+    label: "GPT IMAGE",
+    title: "Elegant Gold — Ghosted Portrait",
+    category: "Dark · Elegant Gold",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in an elegant cream outfit on the LEFT, dark backdrop with a gold accent edge and a faded ghosted duplicate portrait. Negative space on the right for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-20.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the RIGHT for headline text.
+
+SUBJECT: the person in an elegant cream / off-white outfit, standing, poised, on the LEFT side.
+
+DESIGN / BACKGROUND: dark background with a warm GOLD accent shape along the left edge and a large softly-faded ghosted duplicate portrait of the subject behind. Elegant, warm, high-end personal-brand feel.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
   },
 ];
 
@@ -11538,14 +11768,14 @@ export function PrivateContent() {
                       type="button"
                       onClick={() => setLightbox({ src: s.previewSrc!, alt: s.title })}
                       aria-label={`Open ${s.title} preview full screen`}
-                      className="group relative block w-full aspect-[2/1] overflow-hidden rounded-md cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC]"
+                      className={`group relative block w-full ${s.id === "gptimage" ? "aspect-[4/3]" : "aspect-[2/1]"} overflow-hidden rounded-md cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C5CFC]`}
                     >
                       <Image
                         src={s.previewSrc}
                         alt={`${s.title} thumbnail`}
                         fill
                         sizes="(max-width: 768px) 100vw, 380px"
-                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        className={`${s.id === "gptimage" ? "object-contain" : "object-cover"} transition-transform duration-300 group-hover:scale-[1.03]`}
                         unoptimized
                       />
                       <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-200 group-hover:bg-black/20" />
