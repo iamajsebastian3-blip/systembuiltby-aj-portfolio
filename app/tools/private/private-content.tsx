@@ -7819,126 +7819,6 @@ Trust: 30-day money-back guarantee · $20K Revenue Guarantee · 3 payments of $1
 Footer: Logo "Revenue Architecture" · Privacy Policy | Terms of Service | Disclaimer | Contact · © 2026 Revenue Architecture. All rights reserved.`,
   },
   {
-    id: "hero",
-    number: "AIA-01",
-    label: "HERO",
-    title: "Announcement Ticker Bar",
-    description:
-      "CSS-only infinite scrolling announcement bar. Drop above any hero for launch urgency. Dark/indigo AI Academy style.",
-    labelClass: labelClasses.hero,
-    previewSrc: "/private/aia-hero-ticker-thumb.webp",
-    funnelTypes: ["All Funnels", "Dark", "Ticker", "Launch Urgency"],
-    basePrompt: `You are an expert frontend developer and funnel designer.
-
-Build a full-width announcement ticker bar. Production-ready, GHL-ready custom code block.
-
-=== OUTPUT ===
-File: 01-hero/hero-01-ticker.html
-All CSS in <style> | All JS in <script>
-Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
-
-=== BRAND (AI Academy — dark / indigo) ===
---bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5) · --border:rgba(255,255,255,0.08) · --card:rgba(255,255,255,0.03)
-
-=== FIXED LAYOUT STRUCTURE ===
-- Full-width single-row ticker bar; text scrolls infinitely left — PURE CSS, no JS required
-- Single-row flex container; duplicate MESSAGE content 2x inside for a seamless loop
-- @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-  animation: marquee var(--speed) linear infinite
-- ✦ star separator between message repeats
-- Text: 11px, uppercase, letter-spacing 2px, color var(--ticker-color), bg var(--ticker-bg)
-- No hover-pause behavior
-
-=== MOBILE (768px) ===
-- Same behavior; text stays 11px, bar full width
-
-=== OUTPUT RULES ===
-- All colors, copy and speed driven by the CLIENT VARIABLES block at the top
-- One file, no frameworks, no build step
-Build the complete file now.`,
-    varsPrompt: `Apply these client values to the Announcement Ticker Bar.
-
-/* === CLIENT VARIABLES — EDIT HERE === */
---ticker-bg:    #0D0B3A;
---ticker-color: #8B9FFF;
---speed:        25s;
-
-const MESSAGE = "✦ AI ACADEMY IS LIVE — GET 40% OFF DURING LAUNCH";`,
-  },
-  {
-    id: "hero",
-    number: "AIA-02",
-    label: "HERO",
-    title: "Fullscreen Space Hero + Typewriter",
-    description:
-      "Fullscreen space/aurora bg, typewriter headline cycling 4 phrases, live countdown + 3 stat cards. Course / masterclass launch hero.",
-    labelClass: labelClasses.hero,
-    previewSrc: "/private/aia-hero-space-thumb.webp",
-    funnelTypes: ["Course", "Masterclass", "Countdown", "Typewriter"],
-    basePrompt: `You are an expert frontend developer and funnel designer.
-
-Build a fullscreen space-themed hero with a typewriter headline and live countdown. Production-ready, GHL-ready custom code block.
-
-=== OUTPUT ===
-File: 01-hero/hero-02-main.html
-All CSS in <style> | All JS in <script>
-Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
-
-=== BRAND (AI Academy — dark / indigo) ===
---bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
-Heading pattern: line 1 Inter bold white; typewriter line = Cormorant Garamond italic, accent.
-
-=== FIXED LAYOUT STRUCTURE ===
-Full viewport hero. Centered content column, max-width 700px.
-1. BG_IMAGE fills section; dark gradient overlay (bottom heavy); subtle Ken Burns slow zoom (CSS only)
-2. Nav (70px transparent): logo left | support EMAIL right
-3. Centered content top→bottom:
-   a. Social-proof pill badge (glass dark bg, star + STUDENTS count)
-   b. H1 line 1 — Inter 56px bold white (H1_LINE_1)
-   c. H1 line 2 — typewriter (JS): Cormorant Garamond italic 52px accent, cycles TYPEWRITER_PHRASES, 80ms/char, 3s pause, blinking cursor |
-   d. SUBTEXT — Inter 18px muted centered
-   e. CTA button — dark pill + accent border; hover: accent glow box-shadow
-   f. URGENCY line — tiny muted
-   g. Countdown — 4 glass boxes (live JS), tabular-nums, 32px bold
-   h. 3 STAT cards row — dark glass, equal width
-
-=== ANIMATIONS ===
-- Ken Burns scale 1.0→1.08 over 20s; content staggered fade-up on load; countdown live every second
-
-=== MOBILE (768px) ===
-- Font sizes scale down; countdown boxes stay in a row; stat cards single column
-
-=== OUTPUT RULES ===
-- All colors, fonts, copy, assets driven by the CLIENT VARIABLES block at the top
-- Reuse the standard initCountdown timer function
-- One file, no frameworks, no build step
-Build the complete file now.`,
-    varsPrompt: `Apply these client values to the Fullscreen Space Hero + Typewriter.
-
-/* === CLIENT VARIABLES — EDIT HERE === */
---accent:        #6366F1;
---btn-bg:        #1A1835;
---btn-border:    rgba(99,102,241,0.5);
---timer-color:   #FFFFFF;
-
-const BG_IMAGE    = "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1920&q=80";  ← space bg
-const LOGO_URL    = "";                 ← optional; if empty, show BRAND_NAME as text logo
-const BRAND_NAME  = "AI Academy";
-const EMAIL       = "support@gustensun.com";
-const STUDENTS    = "7,231+";
-const H1_LINE_1   = "Build a business you love,";
-const TYPEWRITER_PHRASES = ["with AI agents","with Vibe Coding","with AI Funnels","with one person"];
-const SUBTEXT     = "Join the best community, courses and coaching calls for mastering AI.";
-const CTA_TEXT    = "Join AI Academy — 40% OFF";
-const URGENCY     = "PRICE GOING UP JUNE 7TH";
-const DEADLINE    = "2026-08-01T23:59:59";
-const STATS = [
-  { num:"$15M+", label:"in verified member revenue" },
-  { num:"10+",   label:"years of business experience" },
-  { num:"50+",   label:"apps built using AI" }
-];`,
-  },
-  {
     id: "empathy",
     number: "02i",
     label: "EMPATHY",
@@ -8578,230 +8458,7 @@ const LOGO_NAMES  = ["ClickFunnels","Tony Robbins","Mastermind","Russell Brunson
 // GPT Image-Background prompts — generate a premium scene around the client's REAL face.
 // Not part of the funnel-section catalog (kept out of the Funnel Builder on purpose).
 const gptImageCards: Section[] = [
-  {
-    id: "gptimage",
-    number: "IMG-01",
-    label: "GPT IMAGE",
-    title: "Executive Office — Golden Hour",
-    description:
-      "Drop the client into a warm, premium office (bookshelf, lamp glow, late-afternoon light) while keeping their real face 100% intact. Perfect for a coach/consultant hero photo.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/hero-v5-thumb.webp",
-    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
-    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
-
-GOAL
-Place the client (from the uploaded photo) into a premium executive OFFICE scene — without changing who they are.
-
-=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
-- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
-- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
-- Keep their natural expression and head angle unless a Client Variable overrides it.
-- Relight the face to match the new scene, but never alter the underlying identity.
-
-=== SCENE / BACKGROUND ===
-- Warm, upscale private office: floor-to-ceiling wood bookshelves softly out of focus behind the subject
-- A warm table lamp glowing in the background, subtle late-afternoon "golden hour" sun raking in from one side
-- Shallow depth of field (background gently blurred, f/2.0 look) so the subject pops
-
-=== LIGHTING ===
-- Soft key light on the face from the window side, warm fill, gentle rim/hair light to separate from the background
-- Flattering executive-portrait lighting; natural, not over-processed
-
-=== WARDROBE (default — overridable) ===
-- Tailored dark suit or smart-casual blazer; clean, premium, confident
-
-=== COMPOSITION ===
-- Subject framed waist-up, placed toward one third of the frame, facing camera
-- Leave clear NEGATIVE SPACE on the opposite side for headline text (this is a funnel hero background)
-- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
-
-=== OUTPUT ===
-- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
-- Warm cinematic color grade; no text, no logos, no watermarks in the image
-
-Generate the image now using the uploaded photo as the EXACT face reference.`,
-    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
-
-1. CLIENT_PHOTO → upload/paste the client's photo.
-   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
-2. WARDROBE     → e.g. "navy tailored suit, open collar, no tie"   (or: "keep the wardrobe from the photo")
-3. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
-4. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
-5. MOOD         → e.g. "confident, approachable, premium authority"
-6. SCENE_TWEAK  → optional change, e.g. "add a faint city skyline through a window behind the shelves"
-
-REMINDER FOR THE MODEL (paste this line too):
-"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-02",
-    label: "GPT IMAGE",
-    title: "Modern Boardroom — City Skyline",
-    description:
-      "Client in a glass-and-steel boardroom with a daytime city skyline through floor-to-ceiling windows. Real face preserved 100%. Great for 'strategic growth' / executive positioning.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/hero-v6-thumb.webp",
-    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
-    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
-
-GOAL
-Place the client (from the uploaded photo) into a modern CORPORATE / SKYLINE scene — without changing who they are.
-
-=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
-- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
-- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
-- Keep their natural expression and head angle unless a Client Variable overrides it.
-- Relight the face to match the new scene, but never alter the underlying identity.
-
-=== SCENE / BACKGROUND ===
-- High-floor modern office / boardroom with floor-to-ceiling windows
-- Daytime city skyline (glass towers) softly out of focus behind the subject
-- Clean, minimal, premium; subtle reflections, lots of natural daylight
-
-=== LIGHTING ===
-- Bright, soft daylight key from the windows, gentle fill, slight rim light for separation
-- Crisp, clean, modern editorial feel
-
-=== WARDROBE (default — overridable) ===
-- Sharp dark suit or modern blazer; polished and authoritative
-
-=== COMPOSITION ===
-- Subject framed waist-up, arms crossed or hand-in-pocket "confident leader" pose, toward one third of the frame
-- Leave clear NEGATIVE SPACE on the opposite side for headline text (funnel hero background)
-- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
-
-=== OUTPUT ===
-- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
-- Cool, clean color grade; no text, no logos, no watermarks in the image
-
-Generate the image now using the uploaded photo as the EXACT face reference.`,
-    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
-
-1. CLIENT_PHOTO → upload/paste the client's photo.
-   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
-2. WARDROBE     → e.g. "charcoal suit, white shirt, no tie"   (or: "keep the wardrobe from the photo")
-3. POSE         → e.g. "arms crossed, slight smile"  |  "one hand in pocket, looking at camera"
-4. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
-5. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
-6. SCENE_TWEAK  → optional, e.g. "switch skyline to dusk"  |  "add a glass conference table foreground"
-
-REMINDER FOR THE MODEL (paste this line too):
-"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-03",
-    label: "GPT IMAGE",
-    title: "Live Stage — Masterclass Spotlight",
-    description:
-      "Put the client on a dramatic dark stage under a spotlight (bokeh crowd / screen glow behind) while keeping their real face 100%. Built for webinar / masterclass registration heroes.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/hero-v7-thumb.webp",
-    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
-    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
-
-GOAL
-Place the client (from the uploaded photo) on a LIVE STAGE / masterclass scene — without changing who they are.
-
-=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
-- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
-- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
-- Keep their natural expression and head angle unless a Client Variable overrides it.
-- Relight the face to match the new scene, but never alter the underlying identity.
-
-=== SCENE / BACKGROUND ===
-- Dark conference / arena stage, dramatic theatrical lighting
-- Soft bokeh of an audience and/or a glowing presentation screen far behind the subject
-- Atmospheric haze, deep blacks, premium event feel
-
-=== LIGHTING ===
-- Strong directional spotlight / key on the subject from above-front, dark moody surroundings
-- Warm or gold rim light to separate the subject from the dark background; cinematic contrast
-
-=== WARDROBE (default — overridable) ===
-- Sharp dark suit or smart blazer; speaker/presenter energy
-
-=== COMPOSITION ===
-- Subject framed waist-up or 3/4, mid-gesture "presenting" pose (open hands) toward one third of the frame
-- Leave clear NEGATIVE SPACE on the opposite side for headline text (funnel hero background)
-- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
-
-=== OUTPUT ===
-- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
-- Cinematic, high-contrast color grade; no text, no logos, no watermarks in the image
-
-Generate the image now using the uploaded photo as the EXACT face reference.`,
-    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
-
-1. CLIENT_PHOTO → upload/paste the client's photo.
-   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
-2. WARDROBE     → e.g. "black suit, no tie"   (or: "keep the wardrobe from the photo")
-3. POSE         → e.g. "mid-gesture, open hands, presenting"  |  "standing confident, mic in hand"
-4. STAGE_GLOW   → accent color of the stage light → e.g. "gold"  |  "electric blue"  |  "warm white"
-5. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
-6. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
-
-REMINDER FOR THE MODEL (paste this line too):
-"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-04",
-    label: "GPT IMAGE",
-    title: "City Skyline — Blue Hour / Dusk",
-    description:
-      "Client against a cinematic blue-hour city skyline (cool blues + warm rim light) with their real face preserved 100%. Premium 'authority at dusk' look for high-ticket coaching heroes.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/hero-v8-thumb.webp",
-    funnelTypes: ["ChatGPT-4o", "Midjourney", "Flux / Nano Banana"],
-    basePrompt: `You are a professional photo-compositing assistant for high-end coaching & personal-brand funnels.
-
-GOAL
-Place the client (from the uploaded photo) against a cinematic DUSK / BLUE-HOUR skyline — without changing who they are.
-
-=== NON-NEGOTIABLE · FACE & IDENTITY LOCK ===
-- Preserve 100% of the uploaded person's facial features: face shape, eyes, nose, mouth, eyebrows, skin tone & complexion, facial hair, hairstyle, and any unique marks (moles, scars, glasses).
-- DO NOT beautify, slim, age, de-age, smooth, or re-render the face. It must stay clearly the SAME person.
-- Keep their natural expression and head angle unless a Client Variable overrides it.
-- Relight the face to match the new scene, but never alter the underlying identity.
-
-=== SCENE / BACKGROUND ===
-- High-rise window or rooftop overlooking a city skyline at blue hour / dusk
-- City lights starting to glow, deep blue sky, glass towers softly out of focus behind the subject
-- Cool, moody, premium nighttime-business atmosphere
-
-=== LIGHTING ===
-- Cool blue ambient from the skyline + a warm key/rim light on the subject for contrast and separation
-- Cinematic, editorial; subject clearly lit while the city stays atmospheric
-
-=== WARDROBE (default — overridable) ===
-- Dark suit or premium blazer; polished, high-ticket presence
-
-=== COMPOSITION ===
-- Subject framed waist-up, hands-in-pockets or relaxed-confident pose toward one third of the frame
-- Leave clear NEGATIVE SPACE on the opposite side for headline text (funnel hero background)
-- Default aspect ratio 16:9 landscape; also offer a 4:5 and 9:16 crop on request
-
-=== OUTPUT ===
-- Photorealistic, high resolution, sharp focus on the subject, natural skin texture (NO plastic / waxy skin)
-- Cool cinematic dusk color grade with warm subject lighting; no text, no logos, no watermarks in the image
-
-Generate the image now using the uploaded photo as the EXACT face reference.`,
-    varsPrompt: `CLIENT VARIABLES — fill in before generating, then paste the whole thing into your image model.
-
-1. CLIENT_PHOTO → upload/paste the client's photo.
-   ↳ Tell the model: "Use 100% of the facial features from this photo. Keep the SAME person — do not change the face."
-2. WARDROBE     → e.g. "navy suit, open collar"   (or: "keep the wardrobe from the photo")
-3. POSE         → e.g. "hands in pockets, slight smile"  |  "looking out toward the city, head turned to camera"
-4. TEXT_SIDE    → which side to keep empty for the headline → "left"  |  "right"
-5. ASPECT       → "16:9" (desktop hero)  |  "4:5" (feed)  |  "9:16" (mobile / story)
-6. SCENE_TWEAK  → optional, e.g. "rooftop instead of window"  |  "add subtle rain on the glass"
-
-REMINDER FOR THE MODEL (paste this line too):
-"The face, hair, skin tone and identity must match the uploaded photo exactly — only the background, lighting and wardrobe may change."`,
-  },
+  // Cleared — new GPT Image-Background prompts to be added.
 ];
 
 
@@ -9057,6 +8714,126 @@ const TAG_ROW_1 = [
 const TAG_ROW_2 = [
   "SAAS FOUNDERS","CONTENT CREATORS","SOLOPRENEURS","PODCASTERS","DESIGNERS",
   "DEVELOPERS","MARKETERS","FREELANCERS","SERVICE PROVIDERS","STARTUPS","PHOTOGRAPHERS","FITNESS COACHES"
+];`,
+  },
+  {
+    id: "carousel",
+    number: "CAR-05",
+    label: "CAROUSEL",
+    title: "Announcement Ticker Bar",
+    description:
+      "CSS-only infinite scrolling announcement bar. Drop above any hero for launch urgency. Dark/indigo AI Academy style.",
+    labelClass: labelClasses.carousel,
+    previewSrc: "/private/aia-hero-ticker-thumb.webp",
+    funnelTypes: ["All Funnels", "Dark", "Ticker", "Launch Urgency"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a full-width announcement ticker bar. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 01-hero/hero-01-ticker.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5) · --border:rgba(255,255,255,0.08) · --card:rgba(255,255,255,0.03)
+
+=== FIXED LAYOUT STRUCTURE ===
+- Full-width single-row ticker bar; text scrolls infinitely left — PURE CSS, no JS required
+- Single-row flex container; duplicate MESSAGE content 2x inside for a seamless loop
+- @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  animation: marquee var(--speed) linear infinite
+- ✦ star separator between message repeats
+- Text: 11px, uppercase, letter-spacing 2px, color var(--ticker-color), bg var(--ticker-bg)
+- No hover-pause behavior
+
+=== MOBILE (768px) ===
+- Same behavior; text stays 11px, bar full width
+
+=== OUTPUT RULES ===
+- All colors, copy and speed driven by the CLIENT VARIABLES block at the top
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Announcement Ticker Bar.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--ticker-bg:    #0D0B3A;
+--ticker-color: #8B9FFF;
+--speed:        25s;
+
+const MESSAGE = "✦ AI ACADEMY IS LIVE — GET 40% OFF DURING LAUNCH";`,
+  },
+  {
+    id: "carousel",
+    number: "CAR-06",
+    label: "CAROUSEL",
+    title: "Fullscreen Space Hero + Typewriter",
+    description:
+      "Fullscreen space/aurora bg, typewriter headline cycling 4 phrases, live countdown + 3 stat cards. Course / masterclass launch hero.",
+    labelClass: labelClasses.carousel,
+    previewSrc: "/private/aia-hero-space-thumb.webp",
+    funnelTypes: ["Course", "Masterclass", "Countdown", "Typewriter"],
+    basePrompt: `You are an expert frontend developer and funnel designer.
+
+Build a fullscreen space-themed hero with a typewriter headline and live countdown. Production-ready, GHL-ready custom code block.
+
+=== OUTPUT ===
+File: 01-hero/hero-02-main.html
+All CSS in <style> | All JS in <script>
+Google Fonts only (Inter + Cormorant Garamond) | GHL standalone custom code block
+
+=== BRAND (AI Academy — dark / indigo) ===
+--bg:#030110 · --accent:#6366F1 · --text:#FFFFFF · --muted:rgba(255,255,255,0.5)
+Heading pattern: line 1 Inter bold white; typewriter line = Cormorant Garamond italic, accent.
+
+=== FIXED LAYOUT STRUCTURE ===
+Full viewport hero. Centered content column, max-width 700px.
+1. BG_IMAGE fills section; dark gradient overlay (bottom heavy); subtle Ken Burns slow zoom (CSS only)
+2. Nav (70px transparent): logo left | support EMAIL right
+3. Centered content top→bottom:
+   a. Social-proof pill badge (glass dark bg, star + STUDENTS count)
+   b. H1 line 1 — Inter 56px bold white (H1_LINE_1)
+   c. H1 line 2 — typewriter (JS): Cormorant Garamond italic 52px accent, cycles TYPEWRITER_PHRASES, 80ms/char, 3s pause, blinking cursor |
+   d. SUBTEXT — Inter 18px muted centered
+   e. CTA button — dark pill + accent border; hover: accent glow box-shadow
+   f. URGENCY line — tiny muted
+   g. Countdown — 4 glass boxes (live JS), tabular-nums, 32px bold
+   h. 3 STAT cards row — dark glass, equal width
+
+=== ANIMATIONS ===
+- Ken Burns scale 1.0→1.08 over 20s; content staggered fade-up on load; countdown live every second
+
+=== MOBILE (768px) ===
+- Font sizes scale down; countdown boxes stay in a row; stat cards single column
+
+=== OUTPUT RULES ===
+- All colors, fonts, copy, assets driven by the CLIENT VARIABLES block at the top
+- Reuse the standard initCountdown timer function
+- One file, no frameworks, no build step
+Build the complete file now.`,
+    varsPrompt: `Apply these client values to the Fullscreen Space Hero + Typewriter.
+
+/* === CLIENT VARIABLES — EDIT HERE === */
+--accent:        #6366F1;
+--btn-bg:        #1A1835;
+--btn-border:    rgba(99,102,241,0.5);
+--timer-color:   #FFFFFF;
+
+const BG_IMAGE    = "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1920&q=80";  ← space bg
+const LOGO_URL    = "";                 ← optional; if empty, show BRAND_NAME as text logo
+const BRAND_NAME  = "AI Academy";
+const EMAIL       = "support@gustensun.com";
+const STUDENTS    = "7,231+";
+const H1_LINE_1   = "Build a business you love,";
+const TYPEWRITER_PHRASES = ["with AI agents","with Vibe Coding","with AI Funnels","with one person"];
+const SUBTEXT     = "Join the best community, courses and coaching calls for mastering AI.";
+const CTA_TEXT    = "Join AI Academy — 40% OFF";
+const URGENCY     = "PRICE GOING UP JUNE 7TH";
+const DEADLINE    = "2026-08-01T23:59:59";
+const STATS = [
+  { num:"$15M+", label:"in verified member revenue" },
+  { num:"10+",   label:"years of business experience" },
+  { num:"50+",   label:"apps built using AI" }
 ];`,
   },
 ];
