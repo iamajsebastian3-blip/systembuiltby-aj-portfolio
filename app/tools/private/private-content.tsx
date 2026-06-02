@@ -8463,6 +8463,226 @@ const LOGO_NAMES  = ["ClickFunnels","Tony Robbins","Mastermind","Russell Brunson
 const gptImageCards: Section[] = [
   {
     id: "gptimage",
+    number: "IMG-11",
+    label: "GPT IMAGE",
+    title: "Green Energy Full-Body (Dark)",
+    category: "Dark · Green Energy",
+    group: "Hero Section",
+    description:
+      "Hero background: full-body subject in a dark suit on a near-black stage with dramatic green diagonal light beams + haze. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-11.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a sharp tailored dark/black suit, full-body, standing, body turned slightly side-on with a confident stance, placed on the RIGHT third.
+
+DESIGN / BACKGROUND: near-black studio with dramatic GREEN diagonal light beams / streaks and soft atmospheric haze/smoke. Cool green rim light on the subject; deep shadows.
+
+Photorealistic, natural skin, cinematic premium personal-brand hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-12",
+    label: "GPT IMAGE",
+    title: "Finance Charts (Dark)",
+    category: "Dark · Finance Charts",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a leather jacket, arms crossed, on a dark backdrop of trading candlestick/bar-chart graphics with a warm gold glow. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-12.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a black leather jacket, arms crossed, confident smile, framed waist-up on the RIGHT side.
+
+DESIGN / BACKGROUND: dark backdrop layered with subtle financial CANDLESTICK / BAR-CHART graphics and trading-line overlays, with a warm gold/amber glow on the right behind the subject. Modern fintech / trading authority feel.
+
+Photorealistic, natural skin, cinematic premium hero. No real text/numbers or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-13",
+    label: "GPT IMAGE",
+    title: "Gold Arc — Warm (Dark)",
+    category: "Dark · Warm Gold",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a crisp white suit, hands in pockets, on a dark backdrop with a large warm gold arc/ring and diagonal light streaks. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-13.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a crisp WHITE blazer / suit, hands in pockets, relaxed confident smile, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark background with a large warm GOLD ARC / ring shape behind the subject and diagonal warm light streaks / soft lens flares. Premium, warm, editorial.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-14",
+    label: "GPT IMAGE",
+    title: "Luxe Gold Architectural (Dark)",
+    category: "Dark · Luxe Gold",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a sharp black blazer, arms crossed, in a dark luxe interior with warm gold architectural lighting + subtle emblem. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-14.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a sharp black blazer, arms crossed, composed expression, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark LUXE interior with warm GOLD architectural panel lighting and geometric dark surfaces, plus a subtle faint emblem / monogram graphic. Moody, expensive, high-status.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-15",
+    label: "GPT IMAGE",
+    title: "Maroon Authority — Ghosted Scenes",
+    category: "Warm · Authority",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a burgundy suit on a warm maroon backdrop with a circular arc and faded ghosted background scenes + portrait. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-15.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a burgundy / maroon suit, hands in pockets, standing, centered slightly RIGHT.
+
+DESIGN / BACKGROUND: warm dark MAROON / deep-red toned background with a soft circular ARC frame, plus faded ghosted background scenes (e.g. an interview / lifestyle moment) and a large softly-faded portrait of the subject. Editorial "authority / featured" feel.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-16",
+    label: "GPT IMAGE",
+    title: "Keynote Stage — Gold Swoosh",
+    category: "Dark · Keynote",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a navy suit on a dark backdrop with sweeping gold swoosh lines and a faded speaker-on-stage / crowd silhouette. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-16.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a dark navy suit, hands clasped in front, confident, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark background with sweeping GOLD swoosh / arc lines and, in the negative-space area, a faded silhouette of a speaker on a big stage in front of a huge crowd / arena. Keynote-authority feel.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-17",
+    label: "GPT IMAGE",
+    title: "Minimal Dark Studio",
+    category: "Dark · Minimal",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a black tee seated in a leather chair, leaning forward, on a plain dark studio backdrop with a single soft key light. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-17.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a plain black t-shirt, seated in a black leather chair, leaning forward with hands loosely clasped, looking directly at camera. Placed centered-to-RIGHT.
+
+DESIGN / BACKGROUND: plain dark charcoal studio backdrop, a single soft directional key light, gentle vignette. Minimal, intimate, premium portrait mood.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-18",
+    label: "GPT IMAGE",
+    title: "Gold Geometric Stage",
+    category: "Dark · Gold Geometric",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a black suit on a dark backdrop with gold diagonal geometric lines/panels and a faded stage/crowd scene. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-18.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a sharp black suit, standing, hands relaxed, on the RIGHT side.
+
+DESIGN / BACKGROUND: dark background with GOLD diagonal geometric lines / angular panels on the left and a faded stage / crowd scene behind. Sharp, modern, premium event aesthetic.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-19",
+    label: "GPT IMAGE",
+    title: "Clean Light Corporate",
+    category: "Light · Corporate",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in a black blazer, hands clasped, seated, on a bright white backdrop with a subtle hexagon/tech pattern. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-19.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
+
+SUBJECT: the person in a black blazer over a white shirt, hands clasped on a surface, seated, warm professional smile, on the RIGHT side.
+
+DESIGN / BACKGROUND: bright LIGHT / near-white background with a subtle HEXAGON / tech grid pattern and faint soft graphics. Clean, corporate, trustworthy.
+
+Photorealistic, natural skin, bright premium corporate hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-20",
+    label: "GPT IMAGE",
+    title: "Elegant Gold — Ghosted Portrait",
+    category: "Dark · Elegant Gold",
+    group: "Hero Section",
+    description:
+      "Hero background: subject in an elegant cream outfit on the LEFT, dark backdrop with a gold accent edge and a faded ghosted duplicate portrait. Negative space on the right for headline. Attach the client photo; GPT builds this around their real face.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-20.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+
+Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the RIGHT for headline text.
+
+SUBJECT: the person in an elegant cream / off-white outfit, standing, poised, on the LEFT side.
+
+DESIGN / BACKGROUND: dark background with a warm GOLD accent shape along the left edge and a large softly-faded ghosted duplicate portrait of the subject behind. Elegant, warm, high-end personal-brand feel.
+
+Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-01",
     label: "GPT IMAGE",
     title: "Before / After — Transformation Cards",
@@ -8702,290 +8922,6 @@ DESIGN: light cream background. The subject inside a thin CIRCULAR ring / portal
 SIGNATURE: cursive orange script reading "Zach Bai" in the bottom-right of the image  ← change to the client's name.
 
 Output a clean standalone image (no headline/body text), photorealistic, natural skin, no logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-11",
-    label: "GPT IMAGE",
-    title: "Green Energy Full-Body (Dark)",
-    category: "Dark · Green Energy",
-    group: "Hero Section",
-    description:
-      "Hero background: full-body subject in a dark suit on a near-black stage with dramatic green diagonal light beams + haze. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-11.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a sharp tailored dark/black suit, full-body, standing, body turned slightly side-on with a confident stance, placed on the RIGHT third.
-
-DESIGN / BACKGROUND: near-black studio with dramatic GREEN diagonal light beams / streaks and soft atmospheric haze/smoke. Cool green rim light on the subject; deep shadows.
-
-Photorealistic, natural skin, cinematic premium personal-brand hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-12",
-    label: "GPT IMAGE",
-    title: "Finance Charts (Dark)",
-    category: "Dark · Finance Charts",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a leather jacket, arms crossed, on a dark backdrop of trading candlestick/bar-chart graphics with a warm gold glow. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-12.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a black leather jacket, arms crossed, confident smile, framed waist-up on the RIGHT side.
-
-DESIGN / BACKGROUND: dark backdrop layered with subtle financial CANDLESTICK / BAR-CHART graphics and trading-line overlays, with a warm gold/amber glow on the right behind the subject. Modern fintech / trading authority feel.
-
-Photorealistic, natural skin, cinematic premium hero. No real text/numbers or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-13",
-    label: "GPT IMAGE",
-    title: "Gold Arc — Warm (Dark)",
-    category: "Dark · Warm Gold",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a crisp white suit, hands in pockets, on a dark backdrop with a large warm gold arc/ring and diagonal light streaks. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-13.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a crisp WHITE blazer / suit, hands in pockets, relaxed confident smile, on the RIGHT side.
-
-DESIGN / BACKGROUND: dark background with a large warm GOLD ARC / ring shape behind the subject and diagonal warm light streaks / soft lens flares. Premium, warm, editorial.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-14",
-    label: "GPT IMAGE",
-    title: "Luxe Gold Architectural (Dark)",
-    category: "Dark · Luxe Gold",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a sharp black blazer, arms crossed, in a dark luxe interior with warm gold architectural lighting + subtle emblem. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-14.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a sharp black blazer, arms crossed, composed expression, on the RIGHT side.
-
-DESIGN / BACKGROUND: dark LUXE interior with warm GOLD architectural panel lighting and geometric dark surfaces, plus a subtle faint emblem / monogram graphic. Moody, expensive, high-status.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-15",
-    label: "GPT IMAGE",
-    title: "Maroon Authority — Ghosted Scenes",
-    category: "Warm · Authority",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a burgundy suit on a warm maroon backdrop with a circular arc and faded ghosted background scenes + portrait. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-15.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a burgundy / maroon suit, hands in pockets, standing, centered slightly RIGHT.
-
-DESIGN / BACKGROUND: warm dark MAROON / deep-red toned background with a soft circular ARC frame, plus faded ghosted background scenes (e.g. an interview / lifestyle moment) and a large softly-faded portrait of the subject. Editorial "authority / featured" feel.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-16",
-    label: "GPT IMAGE",
-    title: "Keynote Stage — Gold Swoosh",
-    category: "Dark · Keynote",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a navy suit on a dark backdrop with sweeping gold swoosh lines and a faded speaker-on-stage / crowd silhouette. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-16.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a dark navy suit, hands clasped in front, confident, on the RIGHT side.
-
-DESIGN / BACKGROUND: dark background with sweeping GOLD swoosh / arc lines and, in the negative-space area, a faded silhouette of a speaker on a big stage in front of a huge crowd / arena. Keynote-authority feel.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-17",
-    label: "GPT IMAGE",
-    title: "Minimal Dark Studio",
-    category: "Dark · Minimal",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a black tee seated in a leather chair, leaning forward, on a plain dark studio backdrop with a single soft key light. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-17.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a plain black t-shirt, seated in a black leather chair, leaning forward with hands loosely clasped, looking directly at camera. Placed centered-to-RIGHT.
-
-DESIGN / BACKGROUND: plain dark charcoal studio backdrop, a single soft directional key light, gentle vignette. Minimal, intimate, premium portrait mood.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-18",
-    label: "GPT IMAGE",
-    title: "Gold Geometric Stage",
-    category: "Dark · Gold Geometric",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a black suit on a dark backdrop with gold diagonal geometric lines/panels and a faded stage/crowd scene. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-18.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a sharp black suit, standing, hands relaxed, on the RIGHT side.
-
-DESIGN / BACKGROUND: dark background with GOLD diagonal geometric lines / angular panels on the left and a faded stage / crowd scene behind. Sharp, modern, premium event aesthetic.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-19",
-    label: "GPT IMAGE",
-    title: "Clean Light Corporate",
-    category: "Light · Corporate",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in a black blazer, hands clasped, seated, on a bright white backdrop with a subtle hexagon/tech pattern. Negative space for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-19.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
-
-SUBJECT: the person in a black blazer over a white shirt, hands clasped on a surface, seated, warm professional smile, on the RIGHT side.
-
-DESIGN / BACKGROUND: bright LIGHT / near-white background with a subtle HEXAGON / tech grid pattern and faint soft graphics. Clean, corporate, trustworthy.
-
-Photorealistic, natural skin, bright premium corporate hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-20",
-    label: "GPT IMAGE",
-    title: "Elegant Gold — Ghosted Portrait",
-    category: "Dark · Elegant Gold",
-    group: "Hero Section",
-    description:
-      "Hero background: subject in an elegant cream outfit on the LEFT, dark backdrop with a gold accent edge and a faded ghosted duplicate portrait. Negative space on the right for headline. Attach the client photo; GPT builds this around their real face.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-20.webp",
-    basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
-
-Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the RIGHT for headline text.
-
-SUBJECT: the person in an elegant cream / off-white outfit, standing, poised, on the LEFT side.
-
-DESIGN / BACKGROUND: dark background with a warm GOLD accent shape along the left edge and a large softly-faded ghosted duplicate portrait of the subject behind. Elegant, warm, high-end personal-brand feel.
-
-Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-21",
-    label: "GPT IMAGE",
-    title: "Avatar — Late 20s Man",
-    category: "Late 20s · Male",
-    group: "Avatars",
-    description:
-      "Generate-from-scratch fictional coach avatar — NO photo attached. Good-looking man in his late 20s, clean studio headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-21.webp",
-    basePrompt: "",
-    varsPrompt: `Photorealistic professional headshot of a good-looking man in his late 20s, [ETHNICITY]. Fit, clean-cut with light stubble, modern hairstyle. Warm confident smile, friendly approachable eyes, looking straight at camera. Wardrobe: smart-casual — a fitted dark blazer over a plain crew-neck tee (or open-collar white shirt). Soft flattering studio lighting (large softbox key + gentle rim light), shallow depth of field. Clean neutral background — soft light-grey or subtle gradient. Natural skin texture (no plastic / over-smooth), sharp focus on the eyes. Modern personal-brand / coaching look. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
-
-↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipino", "mixed Asian-European", "Latino"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-22",
-    label: "GPT IMAGE",
-    title: "Avatar — Late 20s Woman",
-    category: "Late 20s · Female",
-    group: "Avatars",
-    description:
-      "Generate-from-scratch fictional coach avatar — NO photo attached. Good-looking woman in her late 20s, clean studio headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-22.webp",
-    basePrompt: "",
-    varsPrompt: `Photorealistic professional headshot of a good-looking woman in her late 20s, [ETHNICITY]. Polished, fresh, healthy glow, modern hairstyle (loose waves or sleek). Warm genuine smile, bright friendly eyes, looking at camera. Wardrobe: smart-casual professional — a tailored blazer over a simple top, minimal jewelry. Soft flattering studio lighting, shallow depth of field. Clean neutral background — soft light-grey or subtle gradient. Natural skin texture, sharp focus on the eyes. Modern coaching / personal-brand aesthetic. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
-
-↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-23",
-    label: "GPT IMAGE",
-    title: "Avatar — ~40s Man",
-    category: "~40 · Male",
-    group: "Avatars",
-    description:
-      "Generate-from-scratch fictional coach avatar — NO photo attached. Handsome, established man around 40, executive-coach headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-23.webp",
-    basePrompt: "",
-    varsPrompt: `Photorealistic professional headshot of a handsome, established man around 40, [ETHNICITY]. Well-groomed, mature and confident — short neat hair (a touch of grey at the temples), light beard or clean-shaven. Calm authoritative yet approachable expression, slight smile, direct eye contact. Wardrobe: premium — a well-fitted navy or charcoal blazer with an open-collar shirt. Soft directional studio lighting, shallow depth of field. Clean neutral background — soft grey or subtle dark-to-light gradient. Natural skin texture with realistic detail, sharp focus on the eyes. High-status executive-coach look. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
-
-↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipino", "mixed Asian-European", "Latino"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
-  },
-  {
-    id: "gptimage",
-    number: "IMG-24",
-    label: "GPT IMAGE",
-    title: "Avatar — ~40s Woman",
-    category: "~40 · Female",
-    group: "Avatars",
-    description:
-      "Generate-from-scratch fictional coach avatar — NO photo attached. Elegant, established woman around 40, mentor/coach headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
-    labelClass: labelClasses.gptimage,
-    previewSrc: "/private/gpt-img-24.webp",
-    basePrompt: "",
-    varsPrompt: `Photorealistic professional headshot of an elegant, attractive woman around 40, [ETHNICITY]. Confident and established — polished hairstyle, refined makeup. Warm, assured expression with a gentle smile, direct eye contact. Wardrobe: premium professional — a tailored blazer in a neutral tone, tasteful minimal jewelry. Soft flattering studio lighting, shallow depth of field. Clean neutral background — soft grey or subtle gradient. Natural skin texture (realistic, age-appropriate), sharp focus on the eyes. Sophisticated mentor / coach aesthetic. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
-
-↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
   },
   {
     id: "gptimage",
@@ -9262,6 +9198,70 @@ BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep sha
 FRAMING: half-body (waist-up), centered.
 
 Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-21",
+    label: "GPT IMAGE",
+    title: "Avatar — Late 20s Man",
+    category: "Late 20s · Male",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Good-looking man in his late 20s, clean studio headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-21.webp",
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of a good-looking man in his late 20s, [ETHNICITY]. Fit, clean-cut with light stubble, modern hairstyle. Warm confident smile, friendly approachable eyes, looking straight at camera. Wardrobe: smart-casual — a fitted dark blazer over a plain crew-neck tee (or open-collar white shirt). Soft flattering studio lighting (large softbox key + gentle rim light), shallow depth of field. Clean neutral background — soft light-grey or subtle gradient. Natural skin texture (no plastic / over-smooth), sharp focus on the eyes. Modern personal-brand / coaching look. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipino", "mixed Asian-European", "Latino"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-22",
+    label: "GPT IMAGE",
+    title: "Avatar — Late 20s Woman",
+    category: "Late 20s · Female",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Good-looking woman in her late 20s, clean studio headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-22.webp",
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of a good-looking woman in her late 20s, [ETHNICITY]. Polished, fresh, healthy glow, modern hairstyle (loose waves or sleek). Warm genuine smile, bright friendly eyes, looking at camera. Wardrobe: smart-casual professional — a tailored blazer over a simple top, minimal jewelry. Soft flattering studio lighting, shallow depth of field. Clean neutral background — soft light-grey or subtle gradient. Natural skin texture, sharp focus on the eyes. Modern coaching / personal-brand aesthetic. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-23",
+    label: "GPT IMAGE",
+    title: "Avatar — ~40s Man",
+    category: "~40 · Male",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Handsome, established man around 40, executive-coach headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-23.webp",
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of a handsome, established man around 40, [ETHNICITY]. Well-groomed, mature and confident — short neat hair (a touch of grey at the temples), light beard or clean-shaven. Calm authoritative yet approachable expression, slight smile, direct eye contact. Wardrobe: premium — a well-fitted navy or charcoal blazer with an open-collar shirt. Soft directional studio lighting, shallow depth of field. Clean neutral background — soft grey or subtle dark-to-light gradient. Natural skin texture with realistic detail, sharp focus on the eyes. High-status executive-coach look. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipino", "mixed Asian-European", "Latino"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-24",
+    label: "GPT IMAGE",
+    title: "Avatar — ~40s Woman",
+    category: "~40 · Female",
+    group: "Avatars",
+    description:
+      "Generate-from-scratch fictional coach avatar — NO photo attached. Elegant, established woman around 40, mentor/coach headshot for landing pages. Fill [ETHNICITY] to lock a consistent look.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-24.webp",
+    basePrompt: "",
+    varsPrompt: `Photorealistic professional headshot of an elegant, attractive woman around 40, [ETHNICITY]. Confident and established — polished hairstyle, refined makeup. Warm, assured expression with a gentle smile, direct eye contact. Wardrobe: premium professional — a tailored blazer in a neutral tone, tasteful minimal jewelry. Soft flattering studio lighting, shallow depth of field. Clean neutral background — soft grey or subtle gradient. Natural skin texture (realistic, age-appropriate), sharp focus on the eyes. Sophisticated mentor / coach aesthetic. Vertical 4:5 portrait, high resolution. No text, no logos, no watermark.
+
+↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
   },
 ];
 
