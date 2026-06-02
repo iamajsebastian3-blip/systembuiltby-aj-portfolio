@@ -9217,17 +9217,18 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 
 GOAL — Recreate IMAGE 1 (the reference mockup) as closely as possible, but REPLACE the content shown inside the phone with IMAGE 2 (the funnel). Same style, new funnel.
 
-COPY FROM IMAGE 1 — style only:
-• The 1:1 square composition and the angled PORTRAIT phone — same position, perspective, shadow and neon glow.
-• The TITLE block placement (top-left) and the BRANDING block (bottom-left).
-• The dark background treatment and overall premium look.
+COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
+• The 1:1 square composition and the angled PORTRAIT phone — same position, perspective, shadow and glow shape.
+• The TITLE block placement (top-left) and the BRANDING block (bottom-left), and the overall premium look.
 
-TAKE FROM IMAGE 2 — the new content + brand:
+TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • Put IMAGE 2 INSIDE the phone screen, faithfully — same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screen.
 • TITLE above the phone = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
-• BACKGROUND colour + NEON GLOW = IMAGE 2's brand colours, sampled from it (accent glow — not a generic purple).
+• BACKGROUND colour + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
-DO NOT copy IMAGE 1's screen content, headline wording, or person — those come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / STYLE only.
+⚠ RE-COLOUR TO MATCH THE FUNNEL: the whole mockup — background, the title's accent words, and the neon glow — must use IMAGE 2's colours, NOT image 1's. If image 1's colour differs from the funnel's (e.g. image 1 is PURPLE but the funnel is GREEN), the final mockup must match the FUNNEL (green) — never keep image 1's colour.
+
+DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
 
 BRANDING (bottom-left, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
 
@@ -9255,17 +9256,18 @@ Photorealistic, clean, premium. Output a 1:1 square.
 
 GOAL — Recreate IMAGE 1 (the reference mockup) as closely as possible, but REPLACE the device screens with IMAGE 2 (the funnel). Same style, new funnel.
 
-COPY FROM IMAGE 1 — style only:
-• The wide landscape composition; the laptop-centre + phone-right placement, angle, reflections and neon glow.
-• The TITLE + BRANDING block placement (left column).
-• The dark background treatment and overall premium look.
+COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
+• The wide landscape composition; the laptop-centre + phone-right placement, angle, reflections and glow shape.
+• The TITLE + BRANDING block placement (left column), and the overall premium look.
 
-TAKE FROM IMAGE 2 — the new content + brand:
+TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
 • TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
-• BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it (accent glow — not a generic purple).
+• BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
-DO NOT copy IMAGE 1's screen content, headline wording, or person — those come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / STYLE only.
+⚠ RE-COLOUR TO MATCH THE FUNNEL: the whole mockup — background, the title's accent words, and the neon glow — must use IMAGE 2's colours, NOT image 1's. If image 1's colour differs from the funnel's (e.g. image 1 is PURPLE but the funnel is GREEN), the final mockup must match the FUNNEL (green) — never keep image 1's colour.
+
+DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
 
 BRANDING (left column, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
 
