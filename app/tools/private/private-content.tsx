@@ -9207,26 +9207,31 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     category: "Mockup · Phone · Square",
     group: "Mockup",
     description:
-      "Square social-post mockup: an angled portrait phone showing YOUR attached funnel hero, with the title + colors auto-matched to that funnel and a branding block bottom-left. Paste the prompt + hero image (+ full page).",
+      "Square phone social-post mockup. Attach 2 images: (1) the reference mockup to copy the style, (2) your funnel hero to drop into the phone. GPT keeps the layout/branding, swaps in your funnel + its colors.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-37.webp",
     basePrompt: "",
-    varsPrompt: `You will receive ATTACHED IMAGE(S) of the funnel — the HERO section and/or the full landing page. Build a 1:1 SQUARE social-post mockup AROUND them.
+    varsPrompt: `You will attach TWO images:
+  • IMAGE 1 = the REFERENCE MOCKUP (copy this exact style / layout).
+  • IMAGE 2 = the FUNNEL to feature (its HERO section; optionally the full page).
 
-⚠ CRITICAL — THE PHONE SCREEN *IS* THE ATTACHED IMAGE:
-Place the attached HERO section INSIDE the phone screen exactly as-is. Reproduce it faithfully — same layout, same person, same colours, same text. DO NOT invent, redesign, regenerate, translate, or add any other webpage, person, icon, or wording on the screen. The screen must look IDENTICAL to the attachment, only mapped onto the phone with correct perspective. (No "Página de Captura", no stock people, no random UI.)
+GOAL — Recreate IMAGE 1 (the reference mockup) as closely as possible, but REPLACE the content shown inside the phone with IMAGE 2 (the funnel). Same style, new funnel.
 
-PHONE: one modern smartphone in PORTRAIT orientation, tilted at a slight 3D angle (lying on a surface, screen facing up), filling the lower-centre of the frame, with a soft NEON GLOW + subtle shadow beneath it.
+COPY FROM IMAGE 1 — style only:
+• The 1:1 square composition and the angled PORTRAIT phone — same position, perspective, shadow and neon glow.
+• The TITLE block placement (top-left) and the BRANDING block (bottom-left).
+• The dark background treatment and overall premium look.
 
-MATCH THE FUNNEL — read these FROM the attached image, do NOT hardcode:
-• TITLE (top-left, large bold): the funnel's OWN hero headline, word-for-word, with the SAME white + accent-colour split shown in the attachment. (Do NOT write "Command Your Market" unless that is literally the attached funnel's headline.)
-• SUB-LINE (small, uppercase, light grey): the funnel's sub-headline.
-• BACKGROUND: the funnel's dark brand background colour, sampled from the attachment, as a clean solid backdrop.
-• NEON GLOW under the phone: use the funnel's ACCENT colour (the same highlight colour as the accent words / button in the attachment) — not a generic purple.
+TAKE FROM IMAGE 2 — the new content + brand:
+• Put IMAGE 2 INSIDE the phone screen, faithfully — same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screen.
+• TITLE above the phone = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• BACKGROUND colour + NEON GLOW = IMAGE 2's brand colours, sampled from it (accent glow — not a generic purple).
 
-BRANDING (bottom-left, white): handle "[HANDLE]" + a row of social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+DO NOT copy IMAGE 1's screen content, headline wording, or person — those come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / STYLE only.
 
-Photorealistic phone, clean premium composition. The ONLY text you create is the title / sub-line (copied from the funnel) and the branding line — everything on the phone screen comes from the attached image.
+BRANDING (bottom-left, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic, clean, premium. Output a 1:1 square.
 
 /* === BRANDING (edit) === */
 [HANDLE]  = "@Ajbactad29"
@@ -9240,26 +9245,31 @@ Photorealistic phone, clean premium composition. The ONLY text you create is the
     category: "Mockup · Laptop + Phone · Wide",
     group: "Mockup",
     description:
-      "Wide device-showcase mockup: a laptop (YOUR full landing page) center + a phone (YOUR hero) right, with title + colors auto-matched to the funnel and branding on the left. Paste the prompt + hero image + full-page image.",
+      "Wide laptop + phone showcase mockup. Attach 2 images: (1) the reference mockup to copy the style, (2) your funnel (full page → laptop, hero → phone). GPT keeps the layout/branding, swaps in your funnel + its colors.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-38.webp",
     basePrompt: "",
-    varsPrompt: `You will receive ATTACHED IMAGE(S) of the funnel — the full LANDING PAGE and/or the HERO section. Build a WIDE (landscape) device-showcase mockup AROUND them.
+    varsPrompt: `You will attach TWO images:
+  • IMAGE 1 = the REFERENCE MOCKUP (copy this laptop + phone style / layout).
+  • IMAGE 2 = the FUNNEL (full LANDING PAGE; optionally the HERO for the phone).
 
-⚠ CRITICAL — THE SCREENS *ARE* THE ATTACHED IMAGES:
-Place the attached FULL landing page INSIDE the laptop screen and the HERO (mobile crop) INSIDE the phone screen, exactly as-is. Reproduce them faithfully — same layout, same person, same colours, same text. DO NOT invent, redesign, regenerate, translate, or add any other webpage, person, icon, or wording on the screens. The screens must look IDENTICAL to the attachments, only mapped onto the devices with correct perspective. (No stock people, no random UI, no placeholder text.)
+GOAL — Recreate IMAGE 1 (the reference mockup) as closely as possible, but REPLACE the device screens with IMAGE 2 (the funnel). Same style, new funnel.
 
-DEVICES: a realistic MacBook / laptop in the CENTRE (full landing page, desktop view) + a smartphone in PORTRAIT to its right (hero, mobile view). Subtle reflections + soft shadows + a soft NEON GLOW behind the devices, premium studio feel.
+COPY FROM IMAGE 1 — style only:
+• The wide landscape composition; the laptop-centre + phone-right placement, angle, reflections and neon glow.
+• The TITLE + BRANDING block placement (left column).
+• The dark background treatment and overall premium look.
 
-MATCH THE FUNNEL — read these FROM the attached image, do NOT hardcode:
-• TITLE (left column, large bold): the funnel's OWN hero headline, word-for-word, with the SAME white + accent-colour split shown in the attachment. (Do NOT write "Command Your Market" unless that is literally the attached funnel's headline.)
-• SUB-LINE (small, uppercase, light grey): the funnel's sub-headline.
-• BACKGROUND: the funnel's dark brand background colour, sampled from the attachment.
-• NEON GLOW behind the devices: use the funnel's ACCENT colour (sampled from the attachment) — not a generic purple.
+TAKE FROM IMAGE 2 — the new content + brand:
+• Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
+• TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it (accent glow — not a generic purple).
 
-BRANDING (left column, below the title, white): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+DO NOT copy IMAGE 1's screen content, headline wording, or person — those come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / STYLE only.
 
-Photorealistic devices, clean premium composition. The ONLY text you create is the title / sub-line (copied from the funnel) and the branding line — everything on the screens comes from the attached images.
+BRANDING (left column, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic devices, clean, premium. Output a wide landscape image.
 
 /* === BRANDING (edit) === */
 [HANDLE]  = "@Ajbactad29"
