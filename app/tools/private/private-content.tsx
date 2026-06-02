@@ -9279,6 +9279,87 @@ Photorealistic devices, clean, premium. Output a wide landscape image.
   },
   {
     id: "gptimage",
+    number: "IMG-39",
+    label: "GPT IMAGE",
+    title: "Mockup — Laptop + Phone (Device Focus)",
+    category: "Mockup · Laptop + Phone · Wide",
+    group: "Mockup",
+    description:
+      "Wide device-focus showcase: large laptop (full page) + phone (hero), headline + branding left. Attach 2 images: (1) this reference, (2) your funnel. GPT copies the layout, swaps in your funnel + its colors.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-39.webp",
+    basePrompt: "",
+    varsPrompt: `You will attach TWO images:
+  • IMAGE 1 = the REFERENCE MOCKUP (copy this laptop + phone style / layout).
+  • IMAGE 2 = the FUNNEL (full LANDING PAGE; optionally the HERO for the phone).
+
+GOAL — Recreate IMAGE 1 (the reference mockup) as closely as possible, but REPLACE the device screens with IMAGE 2 (the funnel). Same style, new funnel.
+
+COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
+• The wide landscape composition; the large laptop-centre + phone-right placement, angle, reflections and glow shape.
+• The TITLE + BRANDING block placement (left column), and the overall premium look.
+
+TAKE FROM IMAGE 2 — the new content AND the colour scheme:
+• Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
+• TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it.
+
+⚠ RE-COLOUR TO MATCH THE FUNNEL: the whole mockup — background, the title's accent words, and the neon glow — must use IMAGE 2's colours, NOT image 1's. If image 1's colour differs from the funnel's (e.g. image 1 is GREEN but the funnel is PURPLE), the final mockup must match the FUNNEL — never keep image 1's colour.
+
+DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
+
+BRANDING (left column, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic devices, clean, premium. Output a wide landscape image.
+
+/* === BRANDING (edit) === */
+[HANDLE]  = "@Ajbactad29"
+[WEBSITE] = "workwithaj.ajautomate.co"`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-40",
+    label: "GPT IMAGE",
+    title: "Mockup — 3-Phone (Hero in the Middle)",
+    category: "Mockup · 3 Phones · Square",
+    group: "Mockup",
+    description:
+      "Square 3-phone showcase: HERO in the CENTRE phone, ABOUT + FEATURES on the side phones. Attach this reference + your hero / about / features sections. GPT copies the layout, swaps in your sections + colors.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-40.webp",
+    basePrompt: "",
+    varsPrompt: `You will attach the REFERENCE MOCKUP (IMAGE 1) plus your funnel SECTION screenshots: the HERO, the ABOUT section, and the FEATURES section.
+
+GOAL — Recreate IMAGE 1 (the 3-phone showcase) as closely as possible, but put YOUR funnel sections into the three phones. Same style, new funnel, re-coloured to the funnel.
+
+THREE PHONES (portrait, in a row):
+• CENTRE phone (the most prominent, slightly forward / larger) = the HERO section.
+• LEFT phone = the ABOUT section.
+• RIGHT phone = the FEATURES section.
+Each phone screen is a FAITHFUL render of its attached section — same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
+
+COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
+• The 1:1 square composition, the three-phone arrangement, angles, spacing, shadows and glow shape.
+• The TITLE block placement (top-left) and the BRANDING block (bottom-left), and the premium look.
+
+TAKE FROM THE FUNNEL — content AND colour scheme:
+• TITLE (top-left) = the funnel's HERO headline, word-for-word, with its white + accent-colour split.
+• BACKGROUND + glow = the funnel's brand colours, sampled from the attachments.
+
+⚠ RE-COLOUR TO MATCH THE FUNNEL: background, the title's accent words and the glow must use the FUNNEL's colours, NOT image 1's. If image 1 is GREEN but the funnel is PURPLE, the final mockup must be PURPLE — never keep image 1's colour.
+
+DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those come from your funnel sections. From IMAGE 1 you copy the LAYOUT only.
+
+BRANDING (bottom-left, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic, clean, premium. Output a 1:1 square.
+
+/* === BRANDING (edit) === */
+[HANDLE]  = "@Ajbactad29"
+[WEBSITE] = "workwithaj.ajautomate.co"`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-21",
     label: "GPT IMAGE",
     title: "Avatar — Late 20s Man",
