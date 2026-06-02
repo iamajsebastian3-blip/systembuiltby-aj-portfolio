@@ -9226,7 +9226,7 @@ TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • TITLE above the phone = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
 • BACKGROUND colour + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
-⚠ RE-COLOUR TO MATCH THE FUNNEL: the whole mockup — background, the title's accent words, and the neon glow — must use IMAGE 2's colours, NOT image 1's. If image 1's colour differs from the funnel's (e.g. image 1 is PURPLE but the funnel is GREEN), the final mockup must match the FUNNEL (green) — never keep image 1's colour.
+⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
 
 DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
 
@@ -9265,7 +9265,7 @@ TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
 • BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
-⚠ RE-COLOUR TO MATCH THE FUNNEL: the whole mockup — background, the title's accent words, and the neon glow — must use IMAGE 2's colours, NOT image 1's. If image 1's colour differs from the funnel's (e.g. image 1 is PURPLE but the funnel is GREEN), the final mockup must match the FUNNEL (green) — never keep image 1's colour.
+⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
 
 DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
 
@@ -9304,7 +9304,7 @@ TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
 • BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
-⚠ RE-COLOUR TO MATCH THE FUNNEL: the whole mockup — background, the title's accent words, and the neon glow — must use IMAGE 2's colours, NOT image 1's. If image 1's colour differs from the funnel's (e.g. image 1 is GREEN but the funnel is PURPLE), the final mockup must match the FUNNEL — never keep image 1's colour.
+⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
 
 DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
 
@@ -9346,7 +9346,7 @@ TAKE FROM THE FUNNEL — content AND colour scheme:
 • TITLE (top-left) = the funnel's HERO headline, word-for-word, with its white + accent-colour split.
 • BACKGROUND + glow = the funnel's brand colours, sampled from the attachments.
 
-⚠ RE-COLOUR TO MATCH THE FUNNEL: background, the title's accent words and the glow must use the FUNNEL's colours, NOT image 1's. If image 1 is GREEN but the funnel is PURPLE, the final mockup must be PURPLE — never keep image 1's colour.
+⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel section screens. The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
 
 DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those come from your funnel sections. From IMAGE 1 you copy the LAYOUT only.
 
