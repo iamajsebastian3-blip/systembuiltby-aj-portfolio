@@ -9223,7 +9223,7 @@ COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
 
 TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • Put IMAGE 2 INSIDE the phone screen, faithfully — same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screen.
-• TITLE above the phone = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• TITLE above the phone = the FUNNEL's hero headline — copy these EXACT words from IMAGE 2 (the funnel), with its white + accent-colour split. Do NOT reuse the reference's title text (e.g. "Página de Captura" or "Command Your Market"); from IMAGE 1 take only the title's position / style, never its words.
 • BACKGROUND colour + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
 ⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
@@ -9262,7 +9262,7 @@ COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
 
 TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
-• TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• TITLE (left) = the FUNNEL's hero headline — copy these EXACT words from IMAGE 2 (the funnel), with its white + accent-colour split. Do NOT reuse the reference's title text (e.g. "Página de Captura" or "Command Your Market"); from IMAGE 1 take only the title's position / style, never its words.
 • BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
 ⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
@@ -9301,7 +9301,7 @@ COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
 
 TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
-• TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• TITLE (left) = the FUNNEL's hero headline — copy these EXACT words from IMAGE 2 (the funnel), with its white + accent-colour split. Do NOT reuse the reference's title text (e.g. "Página de Captura" or "Command Your Market"); from IMAGE 1 take only the title's position / style, never its words.
 • BACKGROUND + NEON GLOW = IMAGE 2's brand colours, sampled from it.
 
 ⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
@@ -9343,7 +9343,7 @@ COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
 • The TITLE block placement (top-left) and the BRANDING block (bottom-left), and the premium look.
 
 TAKE FROM THE FUNNEL — content AND colour scheme:
-• TITLE (top-left) = the funnel's HERO headline, word-for-word, with its white + accent-colour split.
+• TITLE (top-left) = the FUNNEL's hero headline — copy these EXACT words from the funnel's HERO section, with its white + accent-colour split. Do NOT reuse the reference's title text (e.g. "Página de Captura" or "Command Your Market"); from IMAGE 1 take only the title's position / style, never its words.
 • BACKGROUND + glow = the funnel's brand colours, sampled from the attachments.
 
 ⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel section screens. The mockup's background, the title's accent words, and the glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
@@ -9383,7 +9383,7 @@ COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
 
 TAKE FROM IMAGE 2 — the new content AND the colour scheme:
 • Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
-• TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• TITLE (left) = the FUNNEL's hero headline — copy these EXACT words from IMAGE 2 (the funnel), with its white + accent-colour split. Do NOT reuse the reference's title text (e.g. "Página de Captura" or "Command Your Market"); from IMAGE 1 take only the title's position / style, never its words.
 • BACKGROUND + ARC GLOW = IMAGE 2's brand colours, sampled from it.
 
 ⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the arc glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
