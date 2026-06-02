@@ -9207,29 +9207,29 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     category: "Mockup · Phone · Square",
     group: "Mockup",
     description:
-      "Square social-post mockup: brand headline on top, a phone showing your funnel's HERO, branding block (handle + socials + URL) bottom-left. Paste the prompt + hero image + full-page image — colors match your funnel.",
+      "Square social-post mockup: an angled portrait phone showing YOUR attached funnel hero, with the title + colors auto-matched to that funnel and a branding block bottom-left. Paste the prompt + hero image (+ full page).",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-37.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGES as the EXACT screen content — render the funnel page faithfully (do NOT redesign, restyle, re-colour, or rewrite any text). You may be given the HERO section and the FULL landing page; for this mockup use the HERO section on the phone screen, keeping its exact layout, colours and text.
+    varsPrompt: `You will receive ATTACHED IMAGE(S) of the funnel — the HERO section and/or the full landing page. Build a 1:1 SQUARE social-post mockup AROUND them.
 
-Build a 1:1 SQUARE social-post mockup:
-• BACKGROUND — solid dark brand background that MATCHES the funnel: [BG_COLOR] (deep purple-black, same family as the attached page). Subtle soft glow, no clutter.
-• TOP HEADLINE — match the funnel's title colours exactly: main lines in WHITE, the accent line in [ACCENT] (the funnel's purple).
-   Headline: "[HEADLINE]"
-   Sub-line (small, uppercase, light grey): "[SUBTITLE]"
-• DEVICE — one modern smartphone, centred and slightly lower, screen showing the attached HERO; realistic subtle shadow / reflection.
-• BRANDING (bottom-left): handle "[HANDLE]" + a row of social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]", all white.
+⚠ CRITICAL — THE PHONE SCREEN *IS* THE ATTACHED IMAGE:
+Place the attached HERO section INSIDE the phone screen exactly as-is. Reproduce it faithfully — same layout, same person, same colours, same text. DO NOT invent, redesign, regenerate, translate, or add any other webpage, person, icon, or wording on the screen. The screen must look IDENTICAL to the attachment, only mapped onto the phone with correct perspective. (No "Página de Captura", no stock people, no random UI.)
 
-MUST MATCH: the mockup background colour and the headline text colours = the funnel's brand (as seen in the attached page); the phone screen = a faithful render of the attached hero (same colours, same text — not a redesign). Photorealistic device, clean, premium.
+PHONE: one modern smartphone in PORTRAIT orientation, tilted at a slight 3D angle (lying on a surface, screen facing up), filling the lower-centre of the frame, with a soft purple glow + subtle shadow beneath it.
 
-/* === EDIT TO MATCH YOUR FUNNEL === */
-[BG_COLOR] = #0D0B1F
-[ACCENT]   = #7C5CFC
-[HEADLINE] = "Command Your Market. Lead with Absolute Authority."
-[SUBTITLE] = "Executive Leadership. Real Results."
-[HANDLE]   = "@Ajbactad29"
-[WEBSITE]  = "workwithaj.ajautomate.co"`,
+MATCH THE FUNNEL — read these FROM the attached image, do NOT hardcode:
+• TITLE (top-left, large bold): the funnel's OWN hero headline, word-for-word, with the SAME white + accent-colour split shown in the attachment. (Do NOT write "Command Your Market" unless that is literally the attached funnel's headline.)
+• SUB-LINE (small, uppercase, light grey): the funnel's sub-headline.
+• BACKGROUND: the funnel's dark brand background colour, sampled from the attachment, as a clean solid backdrop.
+
+BRANDING (bottom-left, white): handle "[HANDLE]" + a row of social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic phone, clean premium composition. The ONLY text you create is the title / sub-line (copied from the funnel) and the branding line — everything on the phone screen comes from the attached image.
+
+/* === BRANDING (edit) === */
+[HANDLE]  = "@Ajbactad29"
+[WEBSITE] = "workwithaj.ajautomate.co"`,
   },
   {
     id: "gptimage",
@@ -9239,28 +9239,29 @@ MUST MATCH: the mockup background colour and the headline text colours = the fun
     category: "Mockup · Laptop + Phone · Wide",
     group: "Mockup",
     description:
-      "Wide device-showcase mockup: headline + branding on the left, a laptop (full landing page) center, a phone (hero/mobile) right. Paste the prompt + hero image + full-page image — colors match your funnel.",
+      "Wide device-showcase mockup: a laptop (YOUR full landing page) center + a phone (YOUR hero) right, with title + colors auto-matched to the funnel and branding on the left. Paste the prompt + hero image + full-page image.",
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-38.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGES as the EXACT screen content — render the funnel page faithfully (do NOT redesign, restyle, re-colour, or rewrite any text). Put the FULL landing page on the laptop and the HERO (mobile crop) on the phone, keeping exact layout, colours and text.
+    varsPrompt: `You will receive ATTACHED IMAGE(S) of the funnel — the full LANDING PAGE and/or the HERO section. Build a WIDE (landscape) device-showcase mockup AROUND them.
 
-Build a WIDE (landscape ~21:9) device-showcase mockup:
-• BACKGROUND — solid dark brand background MATCHING the funnel: [BG_COLOR]. Subtle soft glow.
-• LEFT column — headline in the funnel's title colours (white + [ACCENT] accent line): "[HEADLINE]", sub-line "[SUBTITLE]"; below it a branding block — handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]" (white).
-• CENTRE — a realistic MacBook / laptop, screen showing the attached FULL landing page (desktop view).
-• RIGHT — a smartphone showing the attached HERO (mobile view).
-• Subtle reflections + soft shadows, premium studio feel.
+⚠ CRITICAL — THE SCREENS *ARE* THE ATTACHED IMAGES:
+Place the attached FULL landing page INSIDE the laptop screen and the HERO (mobile crop) INSIDE the phone screen, exactly as-is. Reproduce them faithfully — same layout, same person, same colours, same text. DO NOT invent, redesign, regenerate, translate, or add any other webpage, person, icon, or wording on the screens. The screens must look IDENTICAL to the attachments, only mapped onto the devices with correct perspective. (No stock people, no random UI, no placeholder text.)
 
-MUST MATCH: mockup background + headline colours = the funnel brand (per the attached page); BOTH device screens = faithful renders of the attached page (same colours / text). Photorealistic devices, clean, premium.
+DEVICES: a realistic MacBook / laptop in the CENTRE (full landing page, desktop view) + a smartphone in PORTRAIT to its right (hero, mobile view). Subtle reflections + soft shadows, premium studio feel.
 
-/* === EDIT TO MATCH YOUR FUNNEL === */
-[BG_COLOR] = #0D0B1F
-[ACCENT]   = #7C5CFC
-[HEADLINE] = "Command Your Market. Lead with Absolute Authority."
-[SUBTITLE] = "Executive Leadership. Real Results."
-[HANDLE]   = "@Ajbactad29"
-[WEBSITE]  = "workwithaj.ajautomate.co"`,
+MATCH THE FUNNEL — read these FROM the attached image, do NOT hardcode:
+• TITLE (left column, large bold): the funnel's OWN hero headline, word-for-word, with the SAME white + accent-colour split shown in the attachment. (Do NOT write "Command Your Market" unless that is literally the attached funnel's headline.)
+• SUB-LINE (small, uppercase, light grey): the funnel's sub-headline.
+• BACKGROUND: the funnel's dark brand background colour, sampled from the attachment.
+
+BRANDING (left column, below the title, white): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic devices, clean premium composition. The ONLY text you create is the title / sub-line (copied from the funnel) and the branding line — everything on the screens comes from the attached images.
+
+/* === BRANDING (edit) === */
+[HANDLE]  = "@Ajbactad29"
+[WEBSITE] = "workwithaj.ajautomate.co"`,
   },
   {
     id: "gptimage",
