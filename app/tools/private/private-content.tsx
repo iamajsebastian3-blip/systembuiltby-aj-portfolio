@@ -9216,12 +9216,13 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 ⚠ CRITICAL — THE PHONE SCREEN *IS* THE ATTACHED IMAGE:
 Place the attached HERO section INSIDE the phone screen exactly as-is. Reproduce it faithfully — same layout, same person, same colours, same text. DO NOT invent, redesign, regenerate, translate, or add any other webpage, person, icon, or wording on the screen. The screen must look IDENTICAL to the attachment, only mapped onto the phone with correct perspective. (No "Página de Captura", no stock people, no random UI.)
 
-PHONE: one modern smartphone in PORTRAIT orientation, tilted at a slight 3D angle (lying on a surface, screen facing up), filling the lower-centre of the frame, with a soft purple glow + subtle shadow beneath it.
+PHONE: one modern smartphone in PORTRAIT orientation, tilted at a slight 3D angle (lying on a surface, screen facing up), filling the lower-centre of the frame, with a soft NEON GLOW + subtle shadow beneath it.
 
 MATCH THE FUNNEL — read these FROM the attached image, do NOT hardcode:
 • TITLE (top-left, large bold): the funnel's OWN hero headline, word-for-word, with the SAME white + accent-colour split shown in the attachment. (Do NOT write "Command Your Market" unless that is literally the attached funnel's headline.)
 • SUB-LINE (small, uppercase, light grey): the funnel's sub-headline.
 • BACKGROUND: the funnel's dark brand background colour, sampled from the attachment, as a clean solid backdrop.
+• NEON GLOW under the phone: use the funnel's ACCENT colour (the same highlight colour as the accent words / button in the attachment) — not a generic purple.
 
 BRANDING (bottom-left, white): handle "[HANDLE]" + a row of social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
 
@@ -9248,12 +9249,13 @@ Photorealistic phone, clean premium composition. The ONLY text you create is the
 ⚠ CRITICAL — THE SCREENS *ARE* THE ATTACHED IMAGES:
 Place the attached FULL landing page INSIDE the laptop screen and the HERO (mobile crop) INSIDE the phone screen, exactly as-is. Reproduce them faithfully — same layout, same person, same colours, same text. DO NOT invent, redesign, regenerate, translate, or add any other webpage, person, icon, or wording on the screens. The screens must look IDENTICAL to the attachments, only mapped onto the devices with correct perspective. (No stock people, no random UI, no placeholder text.)
 
-DEVICES: a realistic MacBook / laptop in the CENTRE (full landing page, desktop view) + a smartphone in PORTRAIT to its right (hero, mobile view). Subtle reflections + soft shadows, premium studio feel.
+DEVICES: a realistic MacBook / laptop in the CENTRE (full landing page, desktop view) + a smartphone in PORTRAIT to its right (hero, mobile view). Subtle reflections + soft shadows + a soft NEON GLOW behind the devices, premium studio feel.
 
 MATCH THE FUNNEL — read these FROM the attached image, do NOT hardcode:
 • TITLE (left column, large bold): the funnel's OWN hero headline, word-for-word, with the SAME white + accent-colour split shown in the attachment. (Do NOT write "Command Your Market" unless that is literally the attached funnel's headline.)
 • SUB-LINE (small, uppercase, light grey): the funnel's sub-headline.
 • BACKGROUND: the funnel's dark brand background colour, sampled from the attachment.
+• NEON GLOW behind the devices: use the funnel's ACCENT colour (sampled from the attachment) — not a generic purple.
 
 BRANDING (left column, below the title, white): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
 
