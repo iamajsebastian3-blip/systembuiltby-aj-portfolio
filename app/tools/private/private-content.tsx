@@ -8983,6 +8983,282 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
 
 ↳ NO photo needed — this generates a brand-new fictional person. Fill [ETHNICITY] (e.g. "Filipina", "mixed Asian-European", "Latina"). Generate 3–4 and pick the best; reuse the chosen image as the face reference for the Hero/About prompts.`,
   },
+  {
+    id: "gptimage",
+    number: "IMG-25",
+    label: "GPT IMAGE",
+    title: "Coach — Hands in Pockets",
+    category: "Standing · 3/4 Body",
+    group: "Coach Section",
+    description:
+      "Pose: standing 3/4 turn, both hands in pockets, looking off to the side — relaxed, confident, editorial. Dark suit, dark studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-25.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a premium dark-studio COACH portrait — relaxed, confident, editorial.
+
+POSE: standing, body angled in a slight 3/4 turn, BOTH hands relaxed in the trouser pockets, head turned to look off to the side. Calm and self-assured.
+WARDROBE: tailored black suit jacket over an open black shirt, black trousers with belt.
+BACKGROUND & LIGHT: dark charcoal studio, dramatic low-key side lighting with a soft rim light separating the subject from the background.
+FRAMING: 3/4 body (knees-up), subject centered.
+
+Photorealistic, natural skin texture, cinematic premium personal-brand portrait. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-26",
+    label: "GPT IMAGE",
+    title: "Coach — Seated on Stool",
+    category: "Seated · Leaning In",
+    group: "Coach Section",
+    description:
+      "Pose: seated on a stool, leaning forward, forearms on thighs, looking at camera — approachable, engaged. Dark suit, dark studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-26.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a premium dark-studio COACH portrait — approachable, engaged.
+
+POSE: seated on a simple stool, leaning slightly forward, forearms resting on the thighs with hands loosely together, looking directly at camera with a calm confident expression.
+WARDROBE: tailored black suit jacket over an open black shirt, black trousers.
+BACKGROUND & LIGHT: dark charcoal studio, dramatic low-key side lighting + soft rim light.
+FRAMING: 3/4 to full body, subject centered.
+
+Photorealistic, natural skin texture, cinematic premium portrait. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-27",
+    label: "GPT IMAGE",
+    title: "Coach — Arms Crossed",
+    category: "Standing · Authoritative",
+    group: "Coach Section",
+    description:
+      "Pose: standing, facing camera, arms crossed, strong direct gaze — authoritative and confident. Dark suit, dark studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-27.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a premium dark-studio COACH portrait — authoritative, confident.
+
+POSE: standing tall, facing camera straight on, ARMS CROSSED over the chest (wristwatch visible), strong direct gaze.
+WARDROBE: tailored black suit jacket over an open black shirt.
+BACKGROUND & LIGHT: dark charcoal studio, dramatic low-key side lighting + soft rim light.
+FRAMING: waist-up to 3/4 body, centered.
+
+Photorealistic, natural skin texture, cinematic premium portrait. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-28",
+    label: "GPT IMAGE",
+    title: "Coach — Adjusting Jacket",
+    category: "Standing · Editorial",
+    group: "Coach Section",
+    description:
+      "Pose: 3/4 turn, one hand adjusting the jacket lapel/button, other hand in pocket, looking to the side — sharp, GQ editorial. Dark suit, dark studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-28.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a premium dark-studio COACH portrait — sharp, editorial GQ feel.
+
+POSE: standing in a 3/4 turn, one hand raised to adjust the jacket button / lapel, the other hand in the trouser pocket, looking off to the side. Polished and deliberate.
+WARDROBE: tailored black suit jacket over an open black shirt, black trousers with belt.
+BACKGROUND & LIGHT: dark charcoal studio, dramatic low-key side lighting + soft rim light.
+FRAMING: 3/4 body, centered.
+
+Photorealistic, natural skin texture, cinematic premium portrait. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-29",
+    label: "GPT IMAGE",
+    title: "Coach — Relaxed Stance",
+    category: "Standing · Natural",
+    group: "Coach Section",
+    description:
+      "Pose: relaxed 3/4 stance, arms loose at the sides, open shoulders, looking toward camera — natural and poised. Dark suit, dark studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-29.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a premium dark-studio COACH portrait — natural, poised.
+
+POSE: standing in a relaxed 3/4 stance, arms loose at the sides (one hand near the pocket), shoulders open, looking toward camera with an easy confident expression.
+WARDROBE: tailored black suit jacket over an open black shirt.
+BACKGROUND & LIGHT: dark charcoal studio, dramatic low-key side lighting + soft rim light.
+FRAMING: 3/4 body, centered.
+
+Photorealistic, natural skin texture, cinematic premium portrait. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-30",
+    label: "GPT IMAGE",
+    title: "Coach — Profile Look-Back",
+    category: "Standing · Cinematic",
+    group: "Coach Section",
+    description:
+      "Pose: body in near-profile, head turned back over the shoulder toward camera, hands in pockets — dramatic, cinematic. Dark suit, dark studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-30.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a premium dark-studio COACH portrait — dramatic, cinematic.
+
+POSE: body turned to a near-side PROFILE, head turned back over the shoulder toward camera, both hands in the trouser pockets. Strong jawline, intense look.
+WARDROBE: tailored black suit jacket over an open black shirt.
+BACKGROUND & LIGHT: dark charcoal studio, dramatic low-key side lighting carving the profile, soft rim light.
+FRAMING: 3/4 body, centered.
+
+Photorealistic, natural skin texture, cinematic premium portrait. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-31",
+    label: "GPT IMAGE",
+    title: "Coach — Direct Gaze (Head & Shoulders)",
+    category: "Portrait · Distinguished",
+    group: "Coach Section",
+    description:
+      "Pose: head-and-shoulders squared to camera, calm authoritative direct gaze — distinguished mentor. Dark blazer, moody near-black studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-31.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — distinguished, mentor presence.
+
+POSE: head-and-shoulders, squared to camera, calm authoritative direct gaze. Reserved, experienced.
+WARDROBE: dark shirt under a dark blazer (keep the client's own eyewear if any).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key lighting with a soft glow on one side of the face; deep shadows.
+FRAMING: head-and-shoulders / chest-up, centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-32",
+    label: "GPT IMAGE",
+    title: "Coach — Hands on Hips",
+    category: "Half-Body · Commanding",
+    group: "Coach Section",
+    description:
+      "Pose: half-body, hands resting on the hips/belt, intense direct gaze — commanding and strong. Dark blazer over open shirt, moody studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-32.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — commanding, strong.
+
+POSE: half-body, hands resting on the hips / at the belt, squared to camera, intense direct gaze.
+WARDROBE: dark blazer over an open dark shirt.
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (hips-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-33",
+    label: "GPT IMAGE",
+    title: "Coach — Hands Clasped",
+    category: "Half-Body · Executive",
+    group: "Coach Section",
+    description:
+      "Pose: half-body, hands clasped in front at the waist (watch visible), looking at camera — sophisticated executive. Dark suit, moody studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-33.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — sophisticated, executive.
+
+POSE: half-body, hands clasped together in front at the waist (adjusting watch / cufflink), looking at camera with a composed expression.
+WARDROBE: tailored dark suit over a dark shirt.
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-34",
+    label: "GPT IMAGE",
+    title: "Coach — Arms Crossed (Portrait)",
+    category: "Half-Body · Poised",
+    group: "Coach Section",
+    description:
+      "Pose: half-body, arms crossed, looking at camera — poised and confident. Dark blazer, moody studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-34.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — poised, confident.
+
+POSE: half-body, ARMS CROSSED over the chest, squared to camera, calm assured gaze.
+WARDROBE: tailored dark blazer over a dark top.
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-35",
+    label: "GPT IMAGE",
+    title: "Coach — Hand to Chin",
+    category: "Half-Body · Thoughtful",
+    group: "Coach Section",
+    description:
+      "Pose: half-body, one hand raised to the chin, looking off to the side — thoughtful, contemplative. Dark blazer, moody studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-35.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — thoughtful, contemplative.
+
+POSE: half-body, one hand raised to the chin / jaw (reflective gesture), head turned to look off to the side. Elegant and considered.
+WARDROBE: tailored dark blazer over a dark top.
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-36",
+    label: "GPT IMAGE",
+    title: "Coach — Arms Crossed (Suit & Tie)",
+    category: "Half-Body · Strong",
+    group: "Coach Section",
+    description:
+      "Pose: half-body, arms crossed (watch visible), looking at camera in a full suit & tie — strong, formal. Moody studio. Attach the client photo; GPT puts their real face into this pose.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-36.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — strong, formal.
+
+POSE: half-body, ARMS CROSSED over the chest (wristwatch visible), squared to camera, confident direct gaze.
+WARDROBE: full dark suit with a dark shirt and tie.
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
 ];
 
 
