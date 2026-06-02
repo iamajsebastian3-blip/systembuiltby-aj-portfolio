@@ -15,6 +15,7 @@ type SystemBuild = {
   description: string;
   duration?: string;
   videoId?: string;
+  vimeoId?: string;
   emoji: string;
   image?: string;
 };
@@ -92,13 +93,16 @@ const ajTutorials: SystemBuild[] = [
       "Connect Claude to GoHighLevel via the GHL MCP and run your account with AI — lead research, content creation, automations, and follow-ups. Step-by-step, beginner-friendly.",
     emoji: "🤖",
     image: "/system-builds/how-to-use-claude.webp",
-    videoId: "T0k6_C2s1JM",
+    vimeoId: "1197634726",
   },
 ];
 
 function BuildCard({ build }: { build: SystemBuild }) {
   const [playing, setPlaying] = useState(false);
-  const hasVideo = Boolean(build.videoId);
+  const hasVideo = Boolean(build.videoId || build.vimeoId);
+  const embedSrc = build.vimeoId
+    ? `https://player.vimeo.com/video/${build.vimeoId}?autoplay=1`
+    : `https://www.youtube.com/embed/${build.videoId}?autoplay=1`;
 
   return (
     <StaggerItem>
@@ -107,7 +111,7 @@ function BuildCard({ build }: { build: SystemBuild }) {
         <div className="relative aspect-[3/2] bg-gradient-to-br from-persian/20 via-[#1a0845]/40 to-[#2a0f6a]/30 flex items-center justify-center overflow-hidden">
           {playing && hasVideo ? (
             <iframe
-              src={`https://www.youtube.com/embed/${build.videoId}?autoplay=1`}
+              src={embedSrc}
               title={build.title}
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
