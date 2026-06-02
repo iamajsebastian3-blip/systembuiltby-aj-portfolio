@@ -9201,6 +9201,69 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
   },
   {
     id: "gptimage",
+    number: "IMG-37",
+    label: "GPT IMAGE",
+    title: "Mockup — Phone Social Post (1:1)",
+    category: "Mockup · Phone · Square",
+    group: "Mockup",
+    description:
+      "Square social-post mockup: brand headline on top, a phone showing your funnel's HERO, branding block (handle + socials + URL) bottom-left. Paste the prompt + hero image + full-page image — colors match your funnel.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-37.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGES as the EXACT screen content — render the funnel page faithfully (do NOT redesign, restyle, re-colour, or rewrite any text). You may be given the HERO section and the FULL landing page; for this mockup use the HERO section on the phone screen, keeping its exact layout, colours and text.
+
+Build a 1:1 SQUARE social-post mockup:
+• BACKGROUND — solid dark brand background that MATCHES the funnel: [BG_COLOR] (deep purple-black, same family as the attached page). Subtle soft glow, no clutter.
+• TOP HEADLINE — match the funnel's title colours exactly: main lines in WHITE, the accent line in [ACCENT] (the funnel's purple).
+   Headline: "[HEADLINE]"
+   Sub-line (small, uppercase, light grey): "[SUBTITLE]"
+• DEVICE — one modern smartphone, centred and slightly lower, screen showing the attached HERO; realistic subtle shadow / reflection.
+• BRANDING (bottom-left): handle "[HANDLE]" + a row of social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]", all white.
+
+MUST MATCH: the mockup background colour and the headline text colours = the funnel's brand (as seen in the attached page); the phone screen = a faithful render of the attached hero (same colours, same text — not a redesign). Photorealistic device, clean, premium.
+
+/* === EDIT TO MATCH YOUR FUNNEL === */
+[BG_COLOR] = #0D0B1F
+[ACCENT]   = #7C5CFC
+[HEADLINE] = "Command Your Market. Lead with Absolute Authority."
+[SUBTITLE] = "Executive Leadership. Real Results."
+[HANDLE]   = "@Ajbactad29"
+[WEBSITE]  = "workwithaj.ajautomate.co"`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-38",
+    label: "GPT IMAGE",
+    title: "Mockup — Laptop + Phone (Wide)",
+    category: "Mockup · Laptop + Phone · Wide",
+    group: "Mockup",
+    description:
+      "Wide device-showcase mockup: headline + branding on the left, a laptop (full landing page) center, a phone (hero/mobile) right. Paste the prompt + hero image + full-page image — colors match your funnel.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-38.webp",
+    basePrompt: "",
+    varsPrompt: `Use the ATTACHED IMAGES as the EXACT screen content — render the funnel page faithfully (do NOT redesign, restyle, re-colour, or rewrite any text). Put the FULL landing page on the laptop and the HERO (mobile crop) on the phone, keeping exact layout, colours and text.
+
+Build a WIDE (landscape ~21:9) device-showcase mockup:
+• BACKGROUND — solid dark brand background MATCHING the funnel: [BG_COLOR]. Subtle soft glow.
+• LEFT column — headline in the funnel's title colours (white + [ACCENT] accent line): "[HEADLINE]", sub-line "[SUBTITLE]"; below it a branding block — handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]" (white).
+• CENTRE — a realistic MacBook / laptop, screen showing the attached FULL landing page (desktop view).
+• RIGHT — a smartphone showing the attached HERO (mobile view).
+• Subtle reflections + soft shadows, premium studio feel.
+
+MUST MATCH: mockup background + headline colours = the funnel brand (per the attached page); BOTH device screens = faithful renders of the attached page (same colours / text). Photorealistic devices, clean, premium.
+
+/* === EDIT TO MATCH YOUR FUNNEL === */
+[BG_COLOR] = #0D0B1F
+[ACCENT]   = #7C5CFC
+[HEADLINE] = "Command Your Market. Lead with Absolute Authority."
+[SUBTITLE] = "Executive Leadership. Real Results."
+[HANDLE]   = "@Ajbactad29"
+[WEBSITE]  = "workwithaj.ajautomate.co"`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-21",
     label: "GPT IMAGE",
     title: "Avatar — Late 20s Man",
