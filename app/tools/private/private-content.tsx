@@ -9360,6 +9360,46 @@ Photorealistic, clean, premium. Output a 1:1 square.
   },
   {
     id: "gptimage",
+    number: "IMG-41",
+    label: "GPT IMAGE",
+    title: "Mockup — Laptop + Phone (Glow Arc)",
+    category: "Mockup · Laptop + Phone · Wide",
+    group: "Mockup",
+    description:
+      "Wide laptop + phone showcase with a glowing arc/halo behind the devices, headline + branding left. Attach 2 images: (1) this reference, (2) your funnel. GPT copies the layout, swaps in your funnel + its colors.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-41.webp",
+    basePrompt: "",
+    varsPrompt: `You will attach TWO images:
+  • IMAGE 1 = the REFERENCE MOCKUP (copy this laptop + phone style / layout).
+  • IMAGE 2 = the FUNNEL (full LANDING PAGE; optionally the HERO for the phone).
+
+GOAL — Recreate IMAGE 1 (the reference mockup) as closely as possible, but REPLACE the device screens with IMAGE 2 (the funnel). Same style, new funnel.
+
+COPY FROM IMAGE 1 — LAYOUT / COMPOSITION ONLY (not its colours):
+• The wide landscape composition; the laptop-centre + phone-right placement, angle and reflections.
+• The glowing ARC / halo behind the devices, and the TITLE + BRANDING block (left column).
+• The overall premium look.
+
+TAKE FROM IMAGE 2 — the new content AND the colour scheme:
+• Put IMAGE 2's full landing page on the laptop, and its hero (mobile crop) on the phone — faithfully; same layout, person, colours and text. Do NOT redesign, translate, regenerate, or invent UI on the screens.
+• TITLE (left) = IMAGE 2's hero headline, word-for-word, with its white + accent-colour split.
+• BACKGROUND + ARC GLOW = IMAGE 2's brand colours, sampled from it.
+
+⚠ RE-COLOUR TO MATCH THE FUNNEL — critical: sample the accent + background colours DIRECTLY from the attached funnel screen(s). The mockup's background, the title's accent words, and the arc glow MUST be the SAME colour family as the funnel (funnel blue → mockup blue; teal → teal; green → green; etc.). Do NOT introduce any colour that is not in the funnel, and do NOT default to purple / violet. IMAGE 1 is a LAYOUT reference only — ignore its colours entirely.
+
+DO NOT copy IMAGE 1's screen content, headline wording, person, or COLOURS — those all come from IMAGE 2. From IMAGE 1 you copy the LAYOUT / composition only.
+
+BRANDING (left column, as in IMAGE 1 — editable): handle "[HANDLE]" + social icons (LinkedIn, Instagram, YouTube, Facebook, Threads) + website "[WEBSITE]".
+
+Photorealistic devices, clean, premium. Output a wide landscape image.
+
+/* === BRANDING (edit) === */
+[HANDLE]  = "@Ajbactad29"
+[WEBSITE] = "workwithaj.ajautomate.co"`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-21",
     label: "GPT IMAGE",
     title: "Avatar — Late 20s Man",
