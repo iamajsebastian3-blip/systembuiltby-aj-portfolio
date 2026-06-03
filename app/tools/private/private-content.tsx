@@ -8522,7 +8522,9 @@ Start with STEP 1 now.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-11.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8546,7 +8548,9 @@ Photorealistic, natural skin, cinematic premium personal-brand hero. No text or 
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-12.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8570,7 +8574,9 @@ Photorealistic, natural skin, cinematic premium hero. No real text/numbers or lo
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-13.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8594,7 +8600,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-14.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8618,7 +8626,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-15.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8642,7 +8652,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-16.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8666,7 +8678,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-17.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8690,7 +8704,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-18.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8714,7 +8730,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-19.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8738,7 +8756,9 @@ Photorealistic, natural skin, bright premium corporate hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-20.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8762,7 +8782,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     previewSrc: "/private/gpt-img-01.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -8790,7 +8812,9 @@ Captions (edit per client):
     previewSrc: "/private/gpt-img-02.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8818,7 +8842,9 @@ Vertical 4:5 portrait, cinematic, high-end coaching aesthetic. Photorealistic, n
     previewSrc: "/private/gpt-img-03.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8842,7 +8868,9 @@ Roughly 4:5, waist-up. Bright, warm, premium-but-friendly. Photorealistic, natur
     previewSrc: "/private/gpt-img-04.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8868,7 +8896,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-05.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8894,7 +8924,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-06.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8920,7 +8952,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-07.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8946,7 +8980,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-08.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8972,7 +9008,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-09.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8998,7 +9036,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-10.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -9024,7 +9064,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-25.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9049,7 +9091,9 @@ Photorealistic, natural skin texture, cinematic premium personal-brand portrait.
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-26.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9074,7 +9118,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-27.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9099,7 +9145,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-28.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9124,7 +9172,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-29.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9149,7 +9199,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-30.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9174,7 +9226,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-31.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9199,7 +9253,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-32.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9224,7 +9280,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-33.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9249,7 +9307,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-34.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9274,7 +9334,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-35.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9299,7 +9361,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-36.webp",
     basePrompt: "",
-    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
