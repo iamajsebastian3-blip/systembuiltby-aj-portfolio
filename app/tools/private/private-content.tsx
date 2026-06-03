@@ -8463,6 +8463,55 @@ const LOGO_NAMES  = ["ClickFunnels","Tony Robbins","Mastermind","Russell Brunson
 const gptImageCards: Section[] = [
   {
     id: "gptimage",
+    number: "COPY-01",
+    label: "GPT COPY",
+    title: "Coaching Landing Page — Copywriter (Interactive)",
+    category: "Copywrite · Interactive",
+    group: "Copywrite",
+    description:
+      "Guided build: GPT asks your niche (5–7 options) → brand colors + 3 fonts (5 options) → coach man/woman + 5 name options → then generates a logo and a FULL high-converting, SEO-friendly landing-page copy. Paste into ChatGPT and answer step by step.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: "",
+    varsPrompt: `You are an elite direct-response copywriter and brand strategist. We will build a COMPLETE, high-converting, SEO-friendly COACHING landing page together — STEP BY STEP. Ask ONE question at a time, show numbered options, and WAIT for my answer before continuing. Never skip ahead or assume my answers.
+
+━━ STEP 1 · NICHE ━━
+Ask: "What is the coaching about?" Give 5–7 numbered options, e.g.:
+  1) Business / Executive coaching   2) Life & purpose   3) Health & fitness
+  4) Relationship & dating   5) Mindset / high performance   6) Career & leadership   7) Money / wealth
+Let me pick a number or type my own. Then WAIT.
+
+━━ STEP 2 · BRAND LOOK ━━
+Based on my niche, give 5 numbered BRAND STYLES. Each option = a 2-COLOUR palette (colour name + HEX for each) PLUS 3 FONTS labelled Headline / Subheadline / Body (real Google Fonts). Make the 5 distinct (e.g. bold-modern, elegant-luxury, warm-approachable, dark-premium, clean-minimal). WAIT for my pick.
+
+━━ STEP 3 · PERSONA + NAME ━━
+Ask: "Is the coach a man or a woman?" After I answer, give 5 numbered NAME options (first + last) that fit the niche and feel premium and credible. WAIT for my pick.
+
+━━ STEP 4 · GENERATE EVERYTHING ━━
+Once I've chosen niche + brand + name, deliver ALL of this:
+
+A) LOGO — design and GENERATE a clean wordmark / logo image from the chosen name, using the chosen colours + headline font. Also give me a one-paragraph logo prompt I can reuse elsewhere.
+
+B) FULL LANDING PAGE COPY — high-converting AND SEO-friendly, written in the coach's voice, weaving the niche's primary keyword in naturally. Deliver these sections, each clearly labelled:
+  • SEO — primary keyword · meta title (≤60 chars) · meta description (≤155 chars)
+  • HERO — eyebrow · H1 headline (mark the accent words) · subheadline · primary CTA · secondary CTA
+  • PROBLEM / EMPATHY — short headline + 3 pain bullets
+  • SOLUTION / MECHANISM — name the method + how it works in 3 steps
+  • ABOUT THE COACH — short, credible first-person bio
+  • OFFER (WHAT YOU GET) — 4–6 benefit-led bullets
+  • SOCIAL PROOF — 3 testimonial placeholders (name · role · concrete result)
+  • OUTCOMES / TRANSFORMATION — before → after
+  • FAQ — 5 objection-handling Q&As
+  • FINAL CTA — urgency-led headline + button label
+  • FOOTER — one-line tagline + nav labels
+
+Copy rules: persuasive, benefit-led, conversational (≈8th-grade readability); specific over generic; lead with the reader's desire/pain; every section earns the scroll. Keep the brand name, colours and voice consistent throughout.
+
+After you deliver, remind me: for the HERO background and the ABOUT-ME photo, use the Hero / About image prompts in this same tool (attach the reference design + my face).
+
+Start with STEP 1 now.`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-11",
     label: "GPT IMAGE",
     title: "Green Energy Full-Body (Dark)",
