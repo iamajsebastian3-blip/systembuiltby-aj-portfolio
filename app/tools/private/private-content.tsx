@@ -8473,7 +8473,9 @@ const gptImageCards: Section[] = [
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-11.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8495,7 +8497,9 @@ Photorealistic, natural skin, cinematic premium personal-brand hero. No text or 
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-12.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8517,7 +8521,9 @@ Photorealistic, natural skin, cinematic premium hero. No real text/numbers or lo
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-13.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8539,7 +8545,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-14.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8561,7 +8569,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-15.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8583,7 +8593,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-16.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8605,7 +8617,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-17.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8627,7 +8641,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-18.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8649,7 +8665,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-19.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
 
@@ -8671,7 +8689,9 @@ Photorealistic, natural skin, bright premium corporate hero. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-20.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the RIGHT for headline text.
 
@@ -8693,7 +8713,9 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     previewSrc: "/private/gpt-img-01.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a BEFORE / AFTER transformation graphic — the SAME person shown twice in two side-by-side rounded cards, with a curved ORANGE arrow pointing from the left card to the right.
 
@@ -8719,7 +8741,9 @@ Captions (edit per client):
     previewSrc: "/private/gpt-img-02.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a premium personal-brand HERO portrait with this DESIGN:
 
@@ -8745,7 +8769,9 @@ Vertical 4:5 portrait, cinematic, high-end coaching aesthetic. Photorealistic, n
     previewSrc: "/private/gpt-img-03.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a warm, approachable personal-brand portrait with this DESIGN:
 
@@ -8767,7 +8793,9 @@ Roughly 4:5, waist-up. Bright, warm, premium-but-friendly. Photorealistic, natur
     previewSrc: "/private/gpt-img-04.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8791,7 +8819,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-05.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8815,7 +8845,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-06.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8839,7 +8871,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-07.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8863,7 +8897,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-08.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8887,7 +8923,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-09.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8911,7 +8949,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     previewSrc: "/private/gpt-img-10.webp",
     group: "About Section",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
 
@@ -8935,7 +8975,9 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-25.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — relaxed, confident, editorial.
 
@@ -8958,7 +9000,9 @@ Photorealistic, natural skin texture, cinematic premium personal-brand portrait.
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-26.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — approachable, engaged.
 
@@ -8981,7 +9025,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-27.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — authoritative, confident.
 
@@ -9004,7 +9050,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-28.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — sharp, editorial GQ feel.
 
@@ -9027,7 +9075,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-29.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — natural, poised.
 
@@ -9050,7 +9100,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-30.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — dramatic, cinematic.
 
@@ -9073,7 +9125,9 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-31.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — distinguished, mentor presence.
 
@@ -9096,7 +9150,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-32.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — commanding, strong.
 
@@ -9119,7 +9175,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-33.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — sophisticated, executive.
 
@@ -9142,7 +9200,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-34.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — poised, confident.
 
@@ -9165,7 +9225,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-35.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — thoughtful, contemplative.
 
@@ -9188,7 +9250,9 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     labelClass: labelClasses.gptimage,
     previewSrc: "/private/gpt-img-36.webp",
     basePrompt: "",
-    varsPrompt: `Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, wardrobe, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — strong, formal.
 
@@ -11522,20 +11586,23 @@ function FunnelBuilder() {
         `the background as the page base. Do NOT introduce any unrelated hue.`
       : "";
     const fontBlock = hasFonts
-      ? `— FONTS (apply each to its role; load via Google Fonts) —\n` +
-        `Headline font: ${fontHead.trim() || "(strong display font)"}  → H1/H2 and section titles\n` +
+      ? `— FONTS · MANDATORY (load via a Google Fonts <link>; set as CSS variables and apply to EVERY text element) —\n` +
+        `Headline font: ${fontHead.trim() || "(strong display font)"}  → ALL H1/H2 and section titles\n` +
         `Subheadline font: ${fontSub.trim() || "(use the body or headline font)"}  → eyebrows, sub-headings, labels\n` +
-        `Body font: ${fontBody.trim() || "(clean readable sans)"}  → paragraphs, lists, buttons, UI text`
+        `Body font: ${fontBody.trim() || "(clean readable sans)"}  → paragraphs, lists, buttons, nav, all UI text\n` +
+        `Use ONLY these fonts. IGNORE every other font named anywhere in the spec (e.g. Inter, Playfair Display, Cormorant Garamond, DM Sans, Manrope, Montserrat, Space Grotesk) — those are placeholders.`
       : "";
 
     // Authoritative brand kit — leads the prompt so the building AI applies it
     // instead of the variation's illustrative example palette.
     const brandKit = hasBrand
       ? `╔══ BRAND KIT — AUTHORITATIVE · OVERRIDES EVERY COLOR & FONT BELOW ══╗\n` +
-        `RULE: The spec below names specific colors and fonts — treat ALL of them as illustrative\n` +
-        `placeholders only. Re-skin the ENTIRE section in this brand kit: backgrounds, text,\n` +
-        `accents, buttons, borders, gradients, hovers — every color and font. Keep the spec's\n` +
-        `LAYOUT, STRUCTURE and ANIMATIONS exactly; change only the palette + typography to this:\n\n` +
+        `RULE: The spec below names specific colors and fonts (e.g. Inter, Playfair Display,\n` +
+        `Cormorant Garamond, DM Sans, Manrope, Montserrat, Space Grotesk) — treat EVERY one of\n` +
+        `them as an illustrative placeholder ONLY. IGNORE those font names entirely and use the\n` +
+        `BRAND KIT fonts below for ALL text. Re-skin the ENTIRE section in this brand kit:\n` +
+        `backgrounds, text, accents, buttons, borders, gradients, hovers — every color and font.\n` +
+        `Keep the spec's LAYOUT, STRUCTURE and ANIMATIONS exactly; change only palette + typography to this:\n\n` +
         `${colorBlock ? colorBlock + "\n\n" : ""}` +
         `${fontBlock ? fontBlock + "\n" : ""}` +
         `${images.trim() ? `\n— IMAGES / LOGO —\n${images.trim()}\n` : ""}` +
