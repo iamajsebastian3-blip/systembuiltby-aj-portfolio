@@ -9540,6 +9540,107 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
   },
   {
     id: "gptimage",
+    number: "COMPOSE-01",
+    label: "GPT COMPOSE",
+    title: "Composer — Pose × Design × Face (3 images)",
+    category: "Composer · Mix & Match",
+    group: "Composer",
+    description:
+      "Mix ANY pose × design × outfit. Attach 4 images: POSE REF (a Coach image), DESIGN REF (an About image), the client's FACE, and OUTFIT REF (an Outfit image). GPT merges pose + background + face + outfit. No more being locked to one pose per design.",
+    labelClass: labelClasses.gptimage,
+    basePrompt: "",
+    varsPrompt: `FOUR images are attached — identified by ROLE, not by number:
+  • POSE REF   = the pose to copy (a Coach Section image).
+  • DESIGN REF = the background / design treatment to copy (an About Section image).
+  • FACE       = the client's photo (the 100% facial reference).
+  • OUTFIT REF = the outfit to dress the person in (an Outfit image).
+
+GOAL — Generate ONE photorealistic portrait that MERGES all four:
+
+① POSE — replicate the pose, body angle, gesture, framing and camera distance from POSE REF.
+
+② BACKGROUND / DESIGN — replicate the backdrop and design treatment from DESIGN REF (its shapes, frame, glow, colour treatment, signature, layout). Use ONLY its background — do NOT copy the person, pose, face or wardrobe shown in DESIGN REF.
+
+③ FACE / IDENTITY — keep 100% of FACE: face shape, skin tone, hair, facial hair and unique marks. Do NOT beautify, slim, or alter identity; only relight to fit the scene.
+
+④ OUTFIT — dress the person in the outfit shown in OUTFIT REF. If OUTFIT REF shows several options, use the one I name (e.g. "outfit #7 Burgundy"); if I don't name one, pick the option that best fits the design and the face's gender. Keep it gender-appropriate and premium.
+
+LIGHTING & COLOUR — one cohesive grade: light the person + outfit to match DESIGN REF's background so it reads as a SINGLE photo (not a cut-out paste). Match the design's accent / colour family.
+
+Output: photorealistic, natural skin texture, sharp focus on the face. No extra text or logos beyond what DESIGN REF's design already includes.
+
+↳ Attach in this order: 1) POSE REF (a Coach image) · 2) DESIGN REF (an About image) · 3) FACE (the client) · 4) OUTFIT REF (an Outfit image). Optionally tell me which outfit number to use. Pick any pose × any design × any outfit.`,
+  },
+  {
+    id: "gptimage",
+    number: "OUTFIT-01",
+    label: "GPT OUTFIT",
+    title: "Outfit — Men's Suits (6 looks)",
+    category: "Outfit · Men",
+    group: "Outfit",
+    description:
+      "Outfit reference sheet — 6 premium men's suit looks (dark, moody). Attach it to the Composer as the 4th image (OUTFIT REF) and tell GPT which look to use, or let it pick the best fit for the design.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-48.webp",
+    basePrompt: "",
+    varsPrompt: `OUTFIT REFERENCE — this is an attachment for the Composer (Mix & Match), not a standalone prompt.
+
+In the Composer, attach this image as the 4th image (OUTFIT REF). It shows 6 premium men's suit looks (dark / moody studio). Tell GPT which one to use — by position (e.g. "top-left black", "bottom-right grey") — or let it pick the option that best fits the chosen design. The person will be dressed in that outfit, kept gender-appropriate and matched to the design's lighting.`,
+  },
+  {
+    id: "gptimage",
+    number: "OUTFIT-02",
+    label: "GPT OUTFIT",
+    title: "Outfit — Men's Suit Colours (12 numbered)",
+    category: "Outfit · Men",
+    group: "Outfit",
+    description:
+      "Outfit reference sheet — 12 NUMBERED men's suit colours (Black, Navy, Charcoal, Light Gray, Tan, Olive, Burgundy, White/Cream, Brown, Blue Check, Beige DB, Pinstripe). Attach to the Composer and name the number, e.g. 'use outfit #2 Navy'.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-49.webp",
+    basePrompt: "",
+    varsPrompt: `OUTFIT REFERENCE — this is an attachment for the Composer (Mix & Match), not a standalone prompt.
+
+In the Composer, attach this image as the 4th image (OUTFIT REF). It shows 12 NUMBERED men's suit colours:
+1) Black on Black  2) Navy Blue  3) Charcoal Gray  4) Light Gray  5) Tan / Beige  6) Olive Green  7) Burgundy / Wine  8) White / Cream  9) Brown  10) Blue Checked  11) Beige Double-Breasted  12) Pinstripe.
+Tell GPT which one to use, e.g. "use outfit #7 (Burgundy)". The person will be dressed in that suit, matched to the design's lighting.`,
+  },
+  {
+    id: "gptimage",
+    number: "OUTFIT-03",
+    label: "GPT OUTFIT",
+    title: "Outfit — Women's Suit Colours (12 numbered)",
+    category: "Outfit · Women",
+    group: "Outfit",
+    description:
+      "Outfit reference sheet — 12 NUMBERED women's outfit colours (Black DB, Ivory, Camel, Blush Pink, Navy, Emerald, Burgundy, White Blazer Dress, Charcoal Pantsuit, Sage, Champagne Satin, Chocolate Brown). Attach to the Composer and name the number.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-50.webp",
+    basePrompt: "",
+    varsPrompt: `OUTFIT REFERENCE — this is an attachment for the Composer (Mix & Match), not a standalone prompt.
+
+In the Composer, attach this image as the 4th image (OUTFIT REF). It shows 12 NUMBERED women's outfit colours:
+1) Black Double-Breasted  2) Ivory / Cream  3) Camel / Beige  4) Blush Pink Belted  5) Navy Power Suit  6) Emerald Green  7) Burgundy / Wine  8) White Blazer Dress  9) Charcoal Pantsuit  10) Sage Green  11) Champagne Satin Lapel  12) Chocolate Brown.
+Tell GPT which one to use, e.g. "use outfit #6 (Emerald Green)". The person will be dressed in that outfit, matched to the design's lighting.`,
+  },
+  {
+    id: "gptimage",
+    number: "OUTFIT-04",
+    label: "GPT OUTFIT",
+    title: "Outfit — Women's Outfits (6 looks)",
+    category: "Outfit · Women",
+    group: "Outfit",
+    description:
+      "Outfit reference sheet — 6 premium women's blazer / outfit looks. Attach it to the Composer as the 4th image (OUTFIT REF) and tell GPT which look to use, or let it pick the best fit for the design.",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-51.webp",
+    basePrompt: "",
+    varsPrompt: `OUTFIT REFERENCE — this is an attachment for the Composer (Mix & Match), not a standalone prompt.
+
+In the Composer, attach this image as the 4th image (OUTFIT REF). It shows 6 premium women's blazer / outfit looks. Tell GPT which one to use — by position (e.g. "top-right cream", "bottom-left grey") — or let it pick the option that best fits the chosen design. The person will be dressed in that outfit, kept feminine and matched to the design's lighting.`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-37",
     label: "GPT IMAGE",
     title: "Mockup — Phone Social Post (1:1)",
