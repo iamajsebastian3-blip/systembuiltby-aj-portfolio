@@ -9568,7 +9568,18 @@ LIGHTING & COLOUR — one cohesive grade so it reads as a SINGLE real photo (not
 
 Output: photorealistic, natural skin texture, sharp focus on FACE's face, clearly the same person as FACE. No extra text or logos beyond what DESIGN REF's design already includes.
 
-↳ Attach in this order: 1) POSE REF (a Coach image) · 2) DESIGN REF (an About image) · 3) FACE (the client) · 4) OUTFIT REF (an Outfit image). Optionally name the outfit number. If the face drifts, regenerate — FACE's identity is non-negotiable.`,
+↳ Attach in this order: 1) POSE REF (a Coach image) · 2) DESIGN REF (an About image) · 3) FACE (the client) · 4) OUTFIT REF (an Outfit image). Optionally name the outfit number. If the face drifts, regenerate — FACE's identity is non-negotiable.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IF THE FACE OR POSE STILL DRIFTS, USE THIS 2-STEP METHOD (more reliable — fewer faces per generation):
+
+STEP 1 — attach ONLY two images: POSE REF + FACE.
+Prompt: "Put the person from FACE into the EXACT pose / body angle / framing of POSE REF, on a plain dark studio background, wearing a simple dark outfit. The face, head, hair, skin tone and unique marks must be 100% FACE's — clearly the same person; ignore POSE REF's face entirely. Photorealistic." → Regenerate until the face is a perfect match.
+
+STEP 2 — attach the STEP 1 RESULT + DESIGN REF (+ OUTFIT REF if changing clothes).
+Prompt: "Keep this person's FACE, identity and POSE EXACTLY as they are — do not change them. Only replace the background with the design/treatment from DESIGN REF (background only, ignore its person), and dress them in OUTFIT REF (use outfit #__). One cohesive lighting grade."
+
+Because Step 2 starts from an already-locked face, the identity holds.`,
   },
   {
     id: "gptimage",
