@@ -11827,6 +11827,7 @@ function FunnelBuilder() {
   const [analyzeErr, setAnalyzeErr] = useState<string | null>(null);
   const [reasons, setReasons] = useState<Record<string, string>>({});
   const [meta, setMeta] = useState<{ niche: string; vibe: string } | null>(null);
+  const [vPreview, setVPreview] = useState<{ src: string; alt: string } | null>(null);
   const [htmlIn, setHtmlIn] = useState("");
   const [check, setCheck] = useState<{
     offColors: { hex: string; count: number; to: string }[];
@@ -12252,16 +12253,6 @@ function FunnelBuilder() {
             />
           </div>
         </div>
-        <div className="mt-4">
-          <label className={labelCls}>Images / Logo</label>
-          <textarea
-            value={images}
-            onChange={(e) => setImages(e.target.value)}
-            rows={2}
-            placeholder="Placeholder-first. Add URLs/notes if you have them, e.g. Logo: ____ · Hero photo: ____"
-            className={fieldCls}
-          />
-        </div>
       </section>
 
       {mode !== "check" && (
@@ -12283,6 +12274,7 @@ function FunnelBuilder() {
         <div className="flex flex-col gap-2.5">
           {builderGroups.map((g) => {
             const s = sel[g.id];
+            const v = g.variations.find((x) => x.number === s?.variation) ?? g.variations[0];
             return (
               <div
                 key={g.id}
@@ -12324,6 +12316,26 @@ function FunnelBuilder() {
                     <span className="font-bold text-[#9B82FF] shrink-0">★ AI pick:</span>
                     <span className="text-[#A09AB8]">{reasons[g.id]}</span>
                   </div>
+                )}
+                {s.enabled && v.previewSrc && (
+                  <button
+                    type="button"
+                    onClick={() => setVPreview({ src: v.previewSrc!, alt: v.title })}
+                    aria-label={`Preview ${v.title}`}
+                    className="group relative mt-3 block w-full max-w-[460px] aspect-[2/1] overflow-hidden rounded-md border border-[#2A2250] bg-[#0B091A] cursor-zoom-in hover:border-[#7C5CFC] transition"
+                  >
+                    <Image
+                      src={v.previewSrc}
+                      alt={`${v.title} preview`}
+                      fill
+                      sizes="460px"
+                      className="object-cover"
+                      unoptimized
+                    />
+                    <span className="pointer-events-none absolute top-1.5 right-1.5 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                      ⤢ Expand
+                    </span>
+                  </button>
                 )}
                 {s.enabled && (
                   <textarea
@@ -12561,6 +12573,10 @@ function FunnelBuilder() {
             </div>
           )}
         </>
+      )}
+
+      {vPreview && (
+        <Lightbox src={vPreview.src} alt={vPreview.alt} onClose={() => setVPreview(null)} />
       )}
     </div>
   );
