@@ -9549,27 +9549,26 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
       "Mix ANY pose × design × outfit. Attach 4 images: POSE REF (a Coach image), DESIGN REF (an About image), the client's FACE, and OUTFIT REF (an Outfit image). GPT merges pose + background + face + outfit. No more being locked to one pose per design.",
     labelClass: labelClasses.gptimage,
     basePrompt: "",
-    varsPrompt: `FOUR images are attached — identified by ROLE, not by number:
-  • POSE REF   = the pose to copy (a Coach Section image).
-  • DESIGN REF = the background / design treatment to copy (an About Section image).
-  • FACE       = the client's photo (the 100% facial reference).
-  • OUTFIT REF = the outfit to dress the person in (an Outfit image).
+    varsPrompt: `FOUR images are attached. Only ONE of them (FACE) defines WHO the person is. The other three are PROPS — references for pose, background and clothing only. The people shown in those three are models you must IGNORE: do NOT copy their faces, heads, hair or identity.
 
-GOAL — Generate ONE photorealistic portrait that MERGES all four:
+  • POSE REF   = a POSE MANNEQUIN. Copy ONLY the body pose, angle, gesture, framing and camera distance. IGNORE this model's face, head and hair.
+  • DESIGN REF = a BACKGROUND PLATE. Copy ONLY the backdrop / design treatment (shapes, frame, glow, colour, signature, layout). IGNORE its person completely.
+  • OUTFIT REF = a CLOTHING RACK. Copy ONLY the garment / outfit. IGNORE the model's face, head and body.
+  • FACE       = the ONLY real person. The output face is 100% THIS person.
 
-① POSE — replicate the pose, body angle, gesture, framing and camera distance from POSE REF.
+⚠ IDENTITY LOCK — the single most important rule:
+The generated person's face, head shape, skin tone, hairstyle & hair colour, eyebrows, eyes, nose, mouth, facial hair and any unique marks must come ENTIRELY from FACE and look unmistakably like the SAME person in FACE. Do NOT blend, average, beautify, slim, age, or borrow ANY facial feature from POSE REF, OUTFIT REF or DESIGN REF — their faces are irrelevant. Only relight FACE's face to fit the scene. If anything competes, FACE's identity wins.
 
-② BACKGROUND / DESIGN — replicate the backdrop and design treatment from DESIGN REF (its shapes, frame, glow, colour treatment, signature, layout). Use ONLY its background — do NOT copy the person, pose, face or wardrobe shown in DESIGN REF.
+BUILD THE PORTRAIT — put FACE's person:
+① into the EXACT body pose, gesture, framing and camera distance from POSE REF (copy the body, not the face);
+② onto the backdrop & design treatment from DESIGN REF (background only);
+③ dressed in the outfit from OUTFIT REF — if it shows several options use the one I name (e.g. "outfit #7 Burgundy"); otherwise pick the best fit. Gender-appropriate, premium.
 
-③ FACE / IDENTITY — keep 100% of FACE: face shape, skin tone, hair, facial hair and unique marks. Do NOT beautify, slim, or alter identity; only relight to fit the scene.
+LIGHTING & COLOUR — one cohesive grade so it reads as a SINGLE real photo (not a paste). Match the design's accent / colour family.
 
-④ OUTFIT — dress the person in the outfit shown in OUTFIT REF. If OUTFIT REF shows several options, use the one I name (e.g. "outfit #7 Burgundy"); if I don't name one, pick the option that best fits the design and the face's gender. Keep it gender-appropriate and premium.
+Output: photorealistic, natural skin texture, sharp focus on FACE's face, clearly the same person as FACE. No extra text or logos beyond what DESIGN REF's design already includes.
 
-LIGHTING & COLOUR — one cohesive grade: light the person + outfit to match DESIGN REF's background so it reads as a SINGLE photo (not a cut-out paste). Match the design's accent / colour family.
-
-Output: photorealistic, natural skin texture, sharp focus on the face. No extra text or logos beyond what DESIGN REF's design already includes.
-
-↳ Attach in this order: 1) POSE REF (a Coach image) · 2) DESIGN REF (an About image) · 3) FACE (the client) · 4) OUTFIT REF (an Outfit image). Optionally tell me which outfit number to use. Pick any pose × any design × any outfit.`,
+↳ Attach in this order: 1) POSE REF (a Coach image) · 2) DESIGN REF (an About image) · 3) FACE (the client) · 4) OUTFIT REF (an Outfit image). Optionally name the outfit number. If the face drifts, regenerate — FACE's identity is non-negotiable.`,
   },
   {
     id: "gptimage",
