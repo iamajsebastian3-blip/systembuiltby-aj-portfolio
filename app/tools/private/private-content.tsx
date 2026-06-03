@@ -9378,6 +9378,168 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
   },
   {
     id: "gptimage",
+    number: "IMG-42",
+    label: "GPT IMAGE",
+    title: "Coach (Woman) — Hand to Chin",
+    category: "Half-Body · Elegant",
+    group: "Coach Section",
+    description:
+      "Women's pose: half-body, fingertips to the chin, the other arm across the waist, poised and contemplative — moody dark studio. Attach this reference + the client's face; GPT replicates the pose with their real face (outfit adapts to gender).",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-42.webp",
+    basePrompt: "",
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — elegant, contemplative.
+
+POSE: half-body, one hand raised with the fingertips resting against the chin / jaw, the other arm across the waist, head slightly tilted, looking at camera.
+WARDROBE: elegant tailored dark blazer over a dark top (premium, feminine).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-43",
+    label: "GPT IMAGE",
+    title: "Coach (Woman) — Direct Gaze",
+    category: "Portrait · Composed",
+    group: "Coach Section",
+    description:
+      "Women's pose: chest-up, squared to camera, calm confident direct gaze — moody dark studio. Attach this reference + the client's face; GPT replicates the pose with their real face (outfit adapts to gender).",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-43.webp",
+    basePrompt: "",
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — composed, confident.
+
+POSE: chest-up, squared to camera, shoulders relaxed, calm confident direct gaze.
+WARDROBE: elegant tailored dark blazer over a dark top (premium, feminine).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: head-and-shoulders / chest-up, centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-44",
+    label: "GPT IMAGE",
+    title: "Coach (Woman) — Arms Crossed (Side Look)",
+    category: "Half-Body · Poised",
+    group: "Coach Section",
+    description:
+      "Women's pose: half-body, arms crossed, head turned to look off to the side — poised, confident, moody dark studio. Attach this reference + the client's face; GPT replicates the pose with their real face (outfit adapts to gender).",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-44.webp",
+    basePrompt: "",
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — poised, confident.
+
+POSE: half-body, ARMS CROSSED, head turned to look off to the side (3/4), calm assured expression.
+WARDROBE: elegant tailored dark blazer over a dark top (premium, feminine).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-45",
+    label: "GPT IMAGE",
+    title: "Coach (Woman) — Hands Clasped",
+    category: "Half-Body · Confident",
+    group: "Coach Section",
+    description:
+      "Women's pose: half-body, hands lightly clasped in front at the waist, looking at camera — assured, moody dark studio. Attach this reference + the client's face; GPT replicates the pose with their real face (outfit adapts to gender).",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-45.webp",
+    basePrompt: "",
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — assured, professional.
+
+POSE: half-body, hands lightly clasped / adjusting in front at the waist, looking at camera with a confident expression.
+WARDROBE: elegant tailored dark blazer over a dark top (premium, feminine).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-46",
+    label: "GPT IMAGE",
+    title: "Coach (Woman) — Seated, Hand to Chin",
+    category: "Seated · Thoughtful",
+    group: "Coach Section",
+    description:
+      "Women's pose: seated, elbow on knee with chin resting on the hand, looking at camera — thoughtful, elegant, moody dark studio. Attach this reference + the client's face; GPT replicates the pose with their real face (outfit adapts to gender).",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-46.webp",
+    basePrompt: "",
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — thoughtful, elegant.
+
+POSE: seated, leaning slightly forward with the elbow on the knee and the chin resting on the hand, looking at camera.
+WARDROBE: elegant tailored dark blazer over a dark top (premium, feminine).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: 3/4 body, seated, centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
+    number: "IMG-47",
+    label: "GPT IMAGE",
+    title: "Coach (Woman) — Hands in Pockets",
+    category: "Half-Body · Relaxed",
+    group: "Coach Section",
+    description:
+      "Women's pose: standing, both hands in pockets, looking at camera — relaxed, confident, moody dark studio. Attach this reference + the client's face; GPT replicates the pose with their real face (outfit adapts to gender).",
+    labelClass: labelClasses.gptimage,
+    previewSrc: "/private/gpt-img-47.webp",
+    basePrompt: "",
+    varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
+
+WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
+
+Generate a moody dark-studio COACH portrait — relaxed, confident.
+
+POSE: standing, both hands in pockets, looking at camera with an easy confident expression.
+WARDROBE: elegant tailored dark blazer over a dark top (premium, feminine).
+BACKGROUND & LIGHT: near-black studio, dramatic low-key side lighting + deep shadows.
+FRAMING: half-body (waist-up), centered.
+
+Photorealistic, natural skin texture, cinematic. No text or logos.`,
+  },
+  {
+    id: "gptimage",
     number: "IMG-37",
     label: "GPT IMAGE",
     title: "Mockup — Phone Social Post (1:1)",
