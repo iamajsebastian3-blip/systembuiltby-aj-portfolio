@@ -8481,10 +8481,10 @@ Ask: "What is the coaching about?" Give 5–7 numbered options, e.g.:
 I pick a number or type my own. Then WAIT.
 
 ━━ STEP 2 · BRAND LOOK ━━
-Based on my niche, give 5 numbered BRAND STYLES. Each = a 2-COLOUR palette (colour name + HEX for each) PLUS 3 FONTS labelled Headline / Subheadline / Body (real Google Fonts). Make the 5 distinct (bold-modern, elegant-luxury, warm-approachable, dark-premium, clean-minimal). WAIT.
+Based on my niche, give 5 numbered BRAND STYLES. Each = a 2-COLOUR palette (colour name + HEX for each) PLUS 3 FONTS labelled Headline / Subheadline / Body (real Google Fonts). Make the 5 distinct (bold-modern, elegant-luxury, warm-approachable, dark-premium, clean-minimal). ALWAYS add a final line: "Or type your own — just send your colours + fonts, e.g. #D6BEA8 + #2A1C17, Merriweather / Poppins / Open Sans." If I type my own, use those exactly. WAIT.
 
 ━━ STEP 3 · PERSONA + NAME ━━
-Ask: "Is the coach a man or a woman?" Then give 5 numbered NAME options (first + last) that fit the niche and feel premium and credible. WAIT.
+Ask: "Is the coach a man or a woman?" Based on my answer, give 5 numbered NAME options OF THAT GENDER (man → men's names; woman → women's names), first + last, premium and credible. ALWAYS add a final line: "Or type your own name." If I type my own, use it. WAIT.
 
 ━━ STEP 4 · CLIENT + PROMISE ━━
 Ask these two together, each with 3–4 suggested options (based on the niche) so I can just pick a number:
@@ -8535,6 +8535,8 @@ Start with STEP 1 now.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
@@ -8560,6 +8562,8 @@ Photorealistic, natural skin, cinematic premium personal-brand hero. No text or 
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8587,6 +8591,8 @@ Photorealistic, natural skin, cinematic premium hero. No real text/numbers or lo
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
@@ -8612,6 +8618,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8639,6 +8647,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
@@ -8664,6 +8674,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8691,6 +8703,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
@@ -8716,6 +8730,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8743,6 +8759,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the LEFT for headline text.
@@ -8769,6 +8787,8 @@ Photorealistic, natural skin, bright premium corporate hero. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a wide HERO-SECTION background (landscape ~16:9). Leave clear NEGATIVE SPACE on the RIGHT for headline text.
@@ -8794,6 +8814,8 @@ Photorealistic, natural skin, cinematic premium hero. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -8825,6 +8847,8 @@ Captions (edit per client):
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a premium personal-brand HERO portrait with this DESIGN:
@@ -8855,6 +8879,8 @@ Vertical 4:5 portrait, cinematic, high-end coaching aesthetic. Photorealistic, n
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a warm, approachable personal-brand portrait with this DESIGN:
@@ -8880,6 +8906,8 @@ Roughly 4:5, waist-up. Bright, warm, premium-but-friendly. Photorealistic, natur
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8909,6 +8937,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
@@ -8936,6 +8966,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -8965,6 +8997,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
@@ -8992,6 +9026,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -9021,6 +9057,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
 Generate a styled personal-brand portrait (origin-story section image).
@@ -9048,6 +9086,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit the scene.
 
@@ -9077,6 +9117,8 @@ Output a clean standalone image (no headline/body text), photorealistic, natural
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — relaxed, confident, editorial.
@@ -9103,6 +9145,8 @@ Photorealistic, natural skin texture, cinematic premium personal-brand portrait.
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9131,6 +9175,8 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — authoritative, confident.
@@ -9157,6 +9203,8 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9185,6 +9233,8 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a premium dark-studio COACH portrait — natural, poised.
@@ -9211,6 +9261,8 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9239,6 +9291,8 @@ Photorealistic, natural skin texture, cinematic premium portrait. No text or log
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — distinguished, mentor presence.
@@ -9265,6 +9319,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9293,6 +9349,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — sophisticated, executive.
@@ -9319,6 +9377,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9347,6 +9407,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — thoughtful, contemplative.
@@ -9373,6 +9435,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9401,6 +9465,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — elegant, contemplative.
@@ -9427,6 +9493,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9455,6 +9523,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — poised, confident.
@@ -9481,6 +9551,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
@@ -9509,6 +9581,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
 
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
+
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
 Generate a moody dark-studio COACH portrait — thoughtful, elegant.
@@ -9535,6 +9609,8 @@ Photorealistic, natural skin texture, cinematic. No text or logos.`,
     varsPrompt: `TWO images are attached — IMAGE 1 = the REFERENCE DESIGN (copy it as exactly as possible: pose, framing, background, lighting, colour grade, composition); IMAGE 2 = the CLIENT's photo. Recreate IMAGE 1's look but with IMAGE 2's face / identity. Everywhere below, "the attached image" / "100% facial reference" means IMAGE 2 (the face); the design to copy is IMAGE 1.
 
 WARDROBE — ADAPT TO IMAGE 2's GENDER: keep the same colour and level of formality as the outfit shown/described below, but dress the person in a flattering, gender-appropriate version. If IMAGE 2 is a WOMAN, use an elegant feminine equivalent (e.g. a tailored dark blazer with a silk blouse, a chic dark dress, or smart dark separates) — do NOT put her in a boxy men's suit or men's shirt. If IMAGE 2 is a MAN, use the men's version. The outfit must never look like the wrong gender.
+
+BRAND COLOURS — OPTIONAL: if I give you brand colours (e.g. "#D6BEA8 + #2A1C17"), RE-COLOUR the background / scene to those colours AND dress the subject in an outfit that fits the brand palette (one of the brand colours, or a clean neutral that complements them). Keep the same design, layout, pose and lighting — only swap the COLOURS. This OVERRIDES the reference image's colours. If I give no colours, keep the reference's colours.
 
 Use the ATTACHED IMAGE as the 100% facial reference — same person; keep the face, skin tone, hair, facial hair and unique marks unchanged. Do not beautify or alter identity; only relight to fit each side.
 
