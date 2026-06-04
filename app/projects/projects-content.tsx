@@ -430,14 +430,20 @@ function AutomationCard({
         onClick={image ? () => setShowPreview(true) : undefined}
       >
         {image && (
-          <div className="mb-4 -mx-7 -mt-7 rounded-t-2xl overflow-hidden relative h-36 bg-gradient-to-br from-persian/15 via-[#1a0845]/30 to-persian/10 flex items-center justify-center group-hover:from-persian/25 group-hover:via-[#1a0845]/40 group-hover:to-persian/15 transition-all duration-300">
-            <div className="text-center">
-              <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/[0.08] border border-white/[0.15] flex items-center justify-center group-hover:bg-persian/30 group-hover:border-persian/40 transition-all duration-300">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-all">
+          <div className="mb-4 -mx-7 -mt-7 rounded-t-2xl overflow-hidden relative h-40 bg-[#0B091A]">
+            <img
+              src={image}
+              alt={title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-300 flex items-center justify-center">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-1.5 bg-white text-black text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                 </svg>
-              </div>
-              <p className="text-xs font-semibold text-white/30 uppercase tracking-widest group-hover:text-white/60 transition-colors">Click to Preview</p>
+                Click to Preview
+              </span>
             </div>
           </div>
         )}
