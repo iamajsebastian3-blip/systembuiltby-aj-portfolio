@@ -231,6 +231,47 @@ const funnels = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Data — Premium Coaching Funnels (with mockup galleries)            */
+/* ------------------------------------------------------------------ */
+
+const coachingFunnels = [
+  {
+    title: "Zack Andrei",
+    subtitle: "High-Performance Coaching",
+    pages: "Full landing page · Hero → Story → Offer → CTA",
+    gradientFrom: "#1a0b2e",
+    gradientTo: "#3a1d6b",
+    emoji: "👑",
+    url: "https://zack-andrei-funnel.vercel.app/",
+    isLive: true,
+    thumbnail: "/mockups/zack-andrei-a.webp",
+    mockups: [
+      "/mockups/zack-andrei-a.webp",
+      "/mockups/zack-andrei-b.webp",
+      "/mockups/zack-andrei-c.webp",
+      "/mockups/zack-andrei-d.webp",
+    ],
+  },
+  {
+    title: "Ava Sterling",
+    subtitle: "Mindset & High Performance Coaching",
+    pages: "Full landing page · Hero → Story → Offer → CTA",
+    gradientFrom: "#0f1f1a",
+    gradientTo: "#2e4d3f",
+    emoji: "✨",
+    url: "https://ava-sterling-coaching.vercel.app/",
+    isLive: true,
+    thumbnail: "/mockups/ava-sterling-a.webp",
+    mockups: [
+      "/mockups/ava-sterling-a.webp",
+      "/mockups/ava-sterling-b.webp",
+      "/mockups/ava-sterling-c.webp",
+      "/mockups/ava-sterling-d.webp",
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
 /*  Data — Websites                                                    */
 /* ------------------------------------------------------------------ */
 
@@ -494,6 +535,123 @@ function AutomationCard({
   );
 }
 
+function MockupGallery({
+  title,
+  mockups,
+  url,
+  onClose,
+}: {
+  title: string;
+  mockups: string[];
+  url?: string;
+  onClose: () => void;
+}) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft") setI((p) => (p - 1 + mockups.length) % mockups.length);
+      else if (e.key === "ArrowRight") setI((p) => (p + 1) % mockups.length);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose, mockups.length]);
+
+  return (
+    <div
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${title} mockups`}
+      className="fixed inset-0 z-[200] flex flex-col bg-black/[0.92] backdrop-blur-sm p-4 sm:p-6"
+    >
+      {/* Top bar */}
+      <div className="mb-3 flex shrink-0 items-center justify-between text-white">
+        <div>
+          <span className="text-sm font-bold">{title}</span>
+          <span className="ml-2 text-xs text-white/50">
+            Mockup {i + 1} / {mockups.length}
+          </span>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20"
+        >
+          ✕
+        </button>
+      </div>
+      {/* Main image */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative flex min-h-0 flex-1 items-center justify-center"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={mockups[i]}
+          alt={`${title} mockup ${i + 1}`}
+          className="max-h-full max-w-full rounded-lg object-contain shadow-[0_20px_80px_rgba(0,0,0,0.6)]"
+        />
+        {mockups.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => setI((p) => (p - 1 + mockups.length) % mockups.length)}
+              aria-label="Previous mockup"
+              className="absolute left-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-2xl text-white transition hover:bg-black/70"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              onClick={() => setI((p) => (p + 1) % mockups.length)}
+              aria-label="Next mockup"
+              className="absolute right-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-2xl text-white transition hover:bg-black/70"
+            >
+              ›
+            </button>
+          </>
+        )}
+      </div>
+      {/* Bottom: thumbnails + view live */}
+      <div onClick={(e) => e.stopPropagation()} className="mt-3 flex shrink-0 flex-col items-center gap-3">
+        <div className="flex gap-2">
+          {mockups.map((m, idx) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setI(idx)}
+              aria-label={`View mockup ${idx + 1}`}
+              className={`h-12 w-12 overflow-hidden rounded-md border transition ${
+                idx === i ? "border-persian" : "border-white/15 opacity-60 hover:opacity-100"
+              }`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={m} alt="" className="h-full w-full object-cover" />
+            </button>
+          ))}
+        </div>
+        {url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-2.5 text-sm font-bold text-black transition hover:-translate-y-[1px] hover:bg-white/90"
+          >
+            View Live Funnel →
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function FunnelCard({
   title,
   subtitle,
@@ -504,8 +662,23 @@ function FunnelCard({
   url,
   isLive,
   thumbnail,
-}: (typeof funnels)[number] & { url?: string; isLive?: boolean; thumbnail?: string }) {
-  const Wrapper = url
+  mockups,
+}: (typeof funnels)[number] & {
+  url?: string;
+  isLive?: boolean;
+  thumbnail?: string;
+  mockups?: string[];
+}) {
+  const [gallery, setGallery] = useState(false);
+  const hasMockups = Array.isArray(mockups) && mockups.length > 0;
+
+  const Wrapper = hasMockups
+    ? ({ children, className }: { children: React.ReactNode; className: string }) => (
+        <button type="button" onClick={() => setGallery(true)} className={`${className} w-full text-left`}>
+          {children}
+        </button>
+      )
+    : url
     ? ({ children, className }: { children: React.ReactNode; className: string }) => (
         <a href={url} target="_blank" rel="noopener noreferrer" className={className}>
           {children}
@@ -518,6 +691,7 @@ function FunnelCard({
   const { ref: thumbRef, inView } = useInViewOnce<HTMLDivElement>();
 
   return (
+    <>
     <Wrapper className="group block overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       {/* Thumbnail */}
       <div
@@ -527,7 +701,7 @@ function FunnelCard({
           background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`,
         }}
       >
-        {isLive && url ? (
+        {isLive && (url || hasMockups) ? (
           <>
             {thumbnail ? (
               <img
@@ -538,7 +712,7 @@ function FunnelCard({
               />
             ) : (
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {inView ? (
+                {inView && url ? (
                   <iframe
                     src={url}
                     title={`${title} preview`}
@@ -558,9 +732,17 @@ function FunnelCard({
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
               <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-                View Live →
+                {hasMockups ? "View Mockups →" : "View Live →"}
               </span>
             </div>
+            {/* Mockup-count badge */}
+            {hasMockups && (
+              <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-1 z-10">
+                <span className="text-[0.6rem] font-bold text-white uppercase tracking-wider">
+                  {mockups!.length} Mockups
+                </span>
+              </div>
+            )}
             {/* Live badge */}
             <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-1 z-10">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -587,6 +769,10 @@ function FunnelCard({
         <p className="text-xs text-white/45">{pages}</p>
       </div>
     </Wrapper>
+    {hasMockups && gallery && (
+      <MockupGallery title={title} mockups={mockups!} url={url} onClose={() => setGallery(false)} />
+    )}
+    </>
   );
 }
 
@@ -717,24 +903,19 @@ function FunnelsPanel() {
         </StaggerChildren>
       </div>
 
-      {/* Category — Premium Coaching Funnels (coming soon) */}
+      {/* Category — Premium Coaching Funnels */}
       <div>
         <CategoryHeading>Premium Coaching Funnels</CategoryHeading>
-        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/[0.02] px-8 py-14 text-center">
-          <span className="mb-3 text-4xl opacity-70">👑</span>
-          <h3 className="mb-1.5 text-lg font-bold text-white">
-            High-Ticket Coaching Funnels
-          </h3>
-          <p className="mb-5 max-w-md text-sm leading-relaxed text-white/50">
-            Premium, conversion-engineered funnels built for coaches and
-            consultants. Live builds are launching soon — they&apos;ll be added
-            here as deployed Vercel links.
-          </p>
-          <span className="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-4 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-wider text-yellow">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-yellow" />
-            Coming Soon
-          </span>
-        </div>
+        <p className="-mt-4 mb-6 text-sm text-white/45">
+          High-ticket coaching funnels — tap a card to preview the mockups, then view the live build.
+        </p>
+        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {coachingFunnels.map((f) => (
+            <StaggerItem key={f.title}>
+              <FunnelCard {...f} />
+            </StaggerItem>
+          ))}
+        </StaggerChildren>
       </div>
     </div>
   );
