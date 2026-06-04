@@ -897,18 +897,6 @@ function CategoryHeading({ children }: { children: React.ReactNode }) {
 function FunnelsPanel() {
   return (
     <div className="space-y-14">
-      {/* Category — Types of Funnels */}
-      <div>
-        <CategoryHeading>Types of Funnels</CategoryHeading>
-        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {funnels.map((f) => (
-            <StaggerItem key={f.title}>
-              <FunnelCard {...f} />
-            </StaggerItem>
-          ))}
-        </StaggerChildren>
-      </div>
-
       {/* Category — Premium Coaching Funnels */}
       <div>
         <CategoryHeading>Premium Coaching Funnels</CategoryHeading>
@@ -917,6 +905,18 @@ function FunnelsPanel() {
         </p>
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {coachingFunnels.map((f) => (
+            <StaggerItem key={f.title}>
+              <FunnelCard {...f} />
+            </StaggerItem>
+          ))}
+        </StaggerChildren>
+      </div>
+
+      {/* Category — Types of Funnels */}
+      <div>
+        <CategoryHeading>Types of Funnels</CategoryHeading>
+        <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {funnels.map((f) => (
             <StaggerItem key={f.title}>
               <FunnelCard {...f} />
             </StaggerItem>
