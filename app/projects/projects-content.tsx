@@ -244,7 +244,7 @@ const coachingFunnels = [
     emoji: "👑",
     url: "https://zack-andrei-funnel.vercel.app/",
     isLive: true,
-    thumbnail: "/mockups/zack-andrei-a.webp",
+    thumbnail: "/mockups/zack-andrei-d.webp",
     mockups: [
       "/mockups/zack-andrei-a.webp",
       "/mockups/zack-andrei-b.webp",
@@ -261,7 +261,7 @@ const coachingFunnels = [
     emoji: "✨",
     url: "https://ava-sterling-coaching.vercel.app/",
     isLive: true,
-    thumbnail: "/mockups/ava-sterling-a.webp",
+    thumbnail: "/mockups/ava-sterling-d.webp",
     mockups: [
       "/mockups/ava-sterling-a.webp",
       "/mockups/ava-sterling-b.webp",
@@ -642,9 +642,9 @@ function MockupGallery({
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-2.5 text-sm font-bold text-black transition hover:-translate-y-[1px] hover:bg-white/90"
+            className="cta-glow inline-flex items-center gap-2.5 rounded-full bg-white px-10 py-4 text-base font-extrabold text-black transition-transform duration-200 hover:-translate-y-0.5 sm:text-lg"
           >
-            View Live Funnel →
+            View Live Funnel <span aria-hidden>→</span>
           </a>
         )}
       </div>

@@ -215,6 +215,22 @@
   animation-play-state: paused;
 }
 
+/* Glowing CTA pulse (for "View Live Funnel") */
+@keyframes cta-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 16px 2px rgba(124, 92, 252, 0.5), 0 0 38px 6px rgba(124, 92, 252, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 30px 6px rgba(124, 92, 252, 0.85), 0 0 64px 16px rgba(124, 92, 252, 0.45);
+  }
+}
+.cta-glow {
+  animation: cta-glow-pulse 2s ease-in-out infinite;
+}
+.cta-glow:hover {
+  box-shadow: 0 0 34px 8px rgba(124, 92, 252, 0.9), 0 0 72px 18px rgba(124, 92, 252, 0.5);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
