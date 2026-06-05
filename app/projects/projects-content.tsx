@@ -269,6 +269,23 @@ const coachingFunnels = [
       "/mockups/ava-sterling-d.webp",
     ],
   },
+  {
+    title: "Kurious Group",
+    subtitle: "Your Partners in Growth · Small Business",
+    pages: "Full landing page · Hero → Story → Offer → CTA",
+    gradientFrom: "#08201d",
+    gradientTo: "#1d4d44",
+    emoji: "📈",
+    url: "https://kurious-group-funnel.vercel.app/",
+    isLive: true,
+    thumbnail: "/mockups/kurious-d.webp",
+    mockups: [
+      "/mockups/kurious-a.webp",
+      "/mockups/kurious-b.webp",
+      "/mockups/kurious-c.webp",
+      "/mockups/kurious-d.webp",
+    ],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -897,11 +914,11 @@ function CategoryHeading({ children }: { children: React.ReactNode }) {
 function FunnelsPanel() {
   return (
     <div className="space-y-14">
-      {/* Category — Premium Coaching Funnels */}
+      {/* Category — Premium Client Funnels */}
       <div>
-        <CategoryHeading>Premium Coaching Funnels</CategoryHeading>
+        <CategoryHeading>Premium Client Funnels</CategoryHeading>
         <p className="-mt-4 mb-6 text-sm text-white/45">
-          High-ticket coaching funnels — tap a card to preview the mockups, then view the live build.
+          Live client builds — coaching, personal brand & business growth. Tap a card to preview the mockups, then view the live build.
         </p>
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {coachingFunnels.map((f) => (
