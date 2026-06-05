@@ -42,6 +42,15 @@ const revenueTools = [
     cta: "Enter Passcode",
     badge: "PRIVATE",
   },
+  {
+    href: "https://ai-specialist-learning-hub.vercel.app/",
+    icon: "🎓",
+    title: "AI Specialist — Learning Hub",
+    description:
+      "My personal learning hub for mastering AI-specialist skills — lessons, references, and resources. Same passcode as the Funnel Section Builder.",
+    cta: "Open Learning Hub",
+    badge: "PRIVATE",
+  },
 ];
 
 export function ToolsContent() {
@@ -114,12 +123,11 @@ export function ToolsContent() {
             Revenue Tools
           </p>
           <StaggerChildren className="space-y-5">
-            {revenueTools.map((t) => (
-              <StaggerItem key={t.href}>
-                <Link
-                  href={t.href}
-                  className="block group relative overflow-hidden rounded-2xl border border-persian/30 bg-gradient-to-br from-persian/15 via-persian/[0.08] to-transparent p-6 sm:p-8 transition-all hover:border-persian/50 hover:shadow-[0_12px_40px_rgba(94,23,235,0.25)] hover:-translate-y-[2px]"
-                >
+            {revenueTools.map((t) => {
+              const isExternal = t.href.startsWith("http");
+              const cardCls =
+                "block group relative overflow-hidden rounded-2xl border border-persian/30 bg-gradient-to-br from-persian/15 via-persian/[0.08] to-transparent p-6 sm:p-8 transition-all hover:border-persian/50 hover:shadow-[0_12px_40px_rgba(94,23,235,0.25)] hover:-translate-y-[2px]";
+              const inner = (
                   <div className="flex items-start gap-4">
                     <span className="shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-yellow/20 border border-yellow/40 text-2xl">
                       {t.icon}
@@ -143,9 +151,21 @@ export function ToolsContent() {
                       </span>
                     </div>
                   </div>
-                </Link>
-              </StaggerItem>
-            ))}
+              );
+              return (
+                <StaggerItem key={t.href}>
+                  {isExternal ? (
+                    <a href={t.href} target="_blank" rel="noopener noreferrer" className={cardCls}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link href={t.href} className={cardCls}>
+                      {inner}
+                    </Link>
+                  )}
+                </StaggerItem>
+              );
+            })}
           </StaggerChildren>
         </div>
       </section>
