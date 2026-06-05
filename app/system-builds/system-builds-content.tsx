@@ -31,13 +31,6 @@ const clientProjects: SystemBuild[] = [
     videoId: "SlZROJx4Obo",
   },
   {
-    title: "Lead Capture → Conversion Pipeline",
-    category: "GHL Workflow",
-    description:
-      "How I architect a full lead-capture system — from form trigger to qualification, auto-tagging, and conversion-stage routing.",
-    emoji: "🔥",
-  },
-  {
     title: "Appointment Booking Automation",
     category: "GHL Workflow",
     description:
@@ -45,34 +38,6 @@ const clientProjects: SystemBuild[] = [
     emoji: "📅",
     image: "/system-builds/appointment-booking.webp",
     videoId: "9FOymB9sZEs",
-  },
-  {
-    title: "Sales Pipeline (High-Ticket)",
-    category: "GHL Workflow",
-    description:
-      "Engineered for high-ticket offers — discovery, proposal, negotiation, and close stages with automated follow-up logic.",
-    emoji: "💰",
-  },
-  {
-    title: "Re-engagement Nurture Sequence",
-    category: "Automation",
-    description:
-      "Wakes up cold leads with a 14–30 day multi-touch nurture — SMS, email, reply detection, and re-qualification.",
-    emoji: "🔁",
-  },
-  {
-    title: "Webinar Funnel Build",
-    category: "Funnel",
-    description:
-      "Full webinar funnel walkthrough — registration page, confirmation flow, replay logic, and post-event sequence.",
-    emoji: "🎯",
-  },
-  {
-    title: "Client Onboarding System",
-    category: "Pipeline",
-    description:
-      "Post-sale delivery system — welcome sequence, kickoff scheduling, milestone tracking, and testimonial capture.",
-    emoji: "🏆",
   },
 ];
 
