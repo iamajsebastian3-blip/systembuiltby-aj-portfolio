@@ -22,6 +22,15 @@ type SystemBuild = {
 
 const clientProjects: SystemBuild[] = [
   {
+    title: "Migrating WooCommerce Products into GHL",
+    category: "GHL Automation",
+    description:
+      "Bulk-migrate a WooCommerce store into GoHighLevel — an automation workflow that fetches products, maps fields (price, stock, etc.), creates/updates them in GHL, syncs media, and confirms completion. Category sync + inventory updates included.",
+    emoji: "🛒",
+    image: "/system-builds/migrating-woocommerce-ghl.webp",
+    videoId: "SlZROJx4Obo",
+  },
+  {
     title: "Lead Capture → Conversion Pipeline",
     category: "GHL Workflow",
     description:
