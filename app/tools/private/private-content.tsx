@@ -12815,6 +12815,14 @@ export function PrivateContent() {
             Compose a full funnel section-by-section in the builder, or browse every variation&apos;s
             wireframe + copy-ready prompts.
           </p>
+          <a
+            href="https://ai-specialist-learning-hub.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#7C5CFC]/45 bg-[#7C5CFC]/15 px-5 py-2.5 text-[13px] font-semibold text-[#C7B8FF] transition hover:bg-[#7C5CFC]/25 hover:border-[#7C5CFC]/75"
+          >
+            🎓 AI Specialist — Learning Hub →
+          </a>
         </section>
 
         {/* Tabs */}
