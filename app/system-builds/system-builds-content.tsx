@@ -22,6 +22,15 @@ type SystemBuild = {
 
 const clientProjects: SystemBuild[] = [
   {
+    title: "Course Order → Instant ClickUp Alert",
+    category: "Client Automation",
+    description:
+      "The moment a customer buys a course on the site, a Zapier webhook fires an instant order notification into our ClickUp channel — every sale logged in real time, so the team never misses an order. Fully automated, zero manual checking.",
+    emoji: "📋",
+    image: "/system-builds/sb-ghl-clickup.webp",
+    videoId: "cBkmitMksrk",
+  },
+  {
     title: "Migrating WooCommerce Products into GHL",
     category: "GHL Automation",
     description:
@@ -71,7 +80,73 @@ const ajTutorials: SystemBuild[] = [
   },
 ];
 
-function BuildCard({ build }: { build: SystemBuild }) {
+const zapierTutorials: SystemBuild[] = [
+  {
+    title: "Instant Form Intake: Notify Everywhere, Log Automatically",
+    category: "Zapier Automation",
+    description:
+      "The second a form is submitted, the lead is broadcast to Discord and Slack, emailed to you via Gmail, and logged in Google Sheets — so nothing slips through. One submission, four destinations, zero manual work.",
+    emoji: "📝",
+    image: "/system-builds/sb-form-intake.webp",
+    videoId: "gComGEuriOA",
+  },
+  {
+    title: "Gmail to Slack: Route Applications the Moment They Land",
+    category: "Zapier Automation",
+    description:
+      "Watches your Gmail for new application emails and instantly posts the details into Slack, so your team sees every applicant without digging through an inbox. Real-time triage, completely hands-free.",
+    emoji: "📧",
+    image: "/system-builds/sb-gmail-slack.webp",
+    videoId: "v2kWQ-ECuZw",
+  },
+  {
+    title: "Deal Won: Auto-Celebrate Across Discord & Slack",
+    category: "GHL Automation",
+    description:
+      "When a deal is marked Won in GoHighLevel, your team gets an instant win alert in both Discord and Slack. Keep momentum high and everyone in the loop the moment money hits the table.",
+    emoji: "🏆",
+    image: "/system-builds/sb-deal-won.webp",
+    videoId: "6WpbbpRR1ZQ",
+  },
+  {
+    title: "New Lead: Auto-Nurture + Instant Team Alert",
+    category: "GHL Automation",
+    description:
+      "Every new GoHighLevel lead is automatically enrolled in your nurture sequence and fires a real-time alert to your team. Follow-up starts the instant a lead arrives — no one left waiting.",
+    emoji: "🌱",
+    image: "/system-builds/sb-lead-nurture.webp",
+    videoId: "yAWNVgueZI8",
+  },
+  {
+    title: "Smart Lead Router: Qualify & Route by Budget Automatically",
+    category: "GHL Automation",
+    description:
+      "Incoming leads are scored by budget and sent down the right path: hot leads fast-tracked to sales, cold leads dropped into nurture — with Discord alerts and Google Sheets logging along the way. Your pipeline sorts itself.",
+    emoji: "🧭",
+    image: "/system-builds/sb-smart-lead-router.webp",
+    videoId: "qBfJ1wAsc24",
+  },
+  {
+    title: "AI Proposal Generator: Custom Proposals in Seconds",
+    category: "AI Automation",
+    description:
+      "Feed in the lead's details and AI drafts a tailored proposal automatically — no blank page, no copy-paste. Turn an inquiry into a ready-to-send proposal before the lead goes cold.",
+    emoji: "🤖",
+    image: "/system-builds/sb-ai-proposal.webp",
+    videoId: "CSpwLbB38uw",
+  },
+  {
+    title: "AI Lead Qualifier: Score Every Lead Instantly",
+    category: "AI Automation",
+    description:
+      "AI reads each incoming lead and scores how qualified they are, so your team knows exactly who to chase first. Smarter prioritization with zero guesswork.",
+    emoji: "🎯",
+    image: "/system-builds/sb-ai-lead-qualifier.webp",
+    videoId: "2NBUg-8YkTw",
+  },
+];
+
+function BuildCard({ build, accent = "text-persian-light" }: { build: SystemBuild; accent?: string }) {
   const [playing, setPlaying] = useState(false);
   const hasVideo = Boolean(build.videoId || build.vimeoId);
   const embedSrc = build.vimeoId
@@ -149,7 +224,7 @@ function BuildCard({ build }: { build: SystemBuild }) {
 
         {/* Card body */}
         <div className="flex flex-1 flex-col p-5">
-          <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-persian-light">
+          <p className={`mb-2 text-[10px] font-semibold uppercase tracking-widest ${accent}`}>
             {build.category}
           </p>
           <h3 className="mb-2 text-base font-bold leading-snug text-white">
@@ -213,24 +288,46 @@ export function SystemBuildsContent() {
             </StaggerChildren>
           </div>
 
-          {/* Section 2 — AJ Tutorial */}
+          {/* Section 2 — GHL Tutorial (blue) */}
           <div>
             <ScrollReveal>
               <div className="mb-8 md:mb-10">
-                <p className="text-yellow text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
+                <p className="text-[#5B9DF9] text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
                   Section 02
                 </p>
                 <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
-                  AJ <span className="text-persian-light">Tutorial</span>
+                  GHL <span className="text-[#5B9DF9]">Tutorial</span>
                 </h2>
                 <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
-                  Step-by-step how-tos. The exact moves I make, recorded raw.
+                  Step-by-step GoHighLevel how-tos. The exact moves I make, recorded raw.
                 </p>
               </div>
             </ScrollReveal>
             <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {ajTutorials.map((build) => (
-                <BuildCard key={build.title} build={build} />
+                <BuildCard key={build.title} build={build} accent="text-[#5B9DF9]" />
+              ))}
+            </StaggerChildren>
+          </div>
+
+          {/* Section 3 — Zapier Tutorial (orange) */}
+          <div>
+            <ScrollReveal>
+              <div className="mb-8 md:mb-10">
+                <p className="text-[#FF8A3D] text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
+                  Section 03
+                </p>
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                  Zapier <span className="text-[#FF8A3D]">Tutorial</span>
+                </h2>
+                <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
+                  Automation walkthroughs — Zapier, GHL &amp; AI workflows that run the busywork for you.
+                </p>
+              </div>
+            </ScrollReveal>
+            <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {zapierTutorials.map((build) => (
+                <BuildCard key={build.title} build={build} accent="text-[#FF8A3D]" />
               ))}
             </StaggerChildren>
           </div>
