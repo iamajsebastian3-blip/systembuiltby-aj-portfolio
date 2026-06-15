@@ -115,7 +115,7 @@ const zapierTutorials: SystemBuild[] = [
       "Every new GoHighLevel lead is automatically enrolled in your nurture sequence and fires a real-time alert to your team. Follow-up starts the instant a lead arrives — no one left waiting.",
     emoji: "🌱",
     image: "/system-builds/sb-lead-nurture.webp",
-    videoId: "yAWNVgueZI8",
+    vimeoId: "1201263468",
   },
   {
     title: "Smart Lead Router: Qualify & Route by Budget Automatically",
@@ -124,7 +124,7 @@ const zapierTutorials: SystemBuild[] = [
       "Incoming leads are scored by budget and sent down the right path: hot leads fast-tracked to sales, cold leads dropped into nurture — with Discord alerts and Google Sheets logging along the way. Your pipeline sorts itself.",
     emoji: "🧭",
     image: "/system-builds/sb-smart-lead-router.webp",
-    videoId: "qBfJ1wAsc24",
+    vimeoId: "1201263467",
   },
   {
     title: "AI Proposal Generator: Custom Proposals in Seconds",
