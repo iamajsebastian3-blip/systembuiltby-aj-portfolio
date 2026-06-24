@@ -9,38 +9,38 @@ const mentors = [
   {
     name: "Jay-Cee Tan",
     alias: "Cece Tan",
-    emoji: "🚀",
-    role: "GoHighLevel Educator · HighLevel Pilipinas",
+    emoji: "🤖",
+    role: "GoHighLevel Educator · Automation Expert",
     image: "/mentors/cece-tan.webp",
     description:
-      "Founder of HighLevel Pilipinas and one of the leading GoHighLevel educators in the Philippines. Jay-Cee is known for helping freelancers, agencies, and business owners implement CRM systems, marketing automation, sales funnels, and scalable client-acquisition processes. Through her courses and community, I gained deeper knowledge of GoHighLevel automation, agency systems, and business workflows.",
+      "One of the leading GoHighLevel educators and automation experts in the Philippines. Through her training programs and community, I developed a strong foundation in CRM systems, sales funnels, lead generation, workflow automation, and client delivery using GoHighLevel.",
   },
   {
     name: "RJ Martinez",
     alias: "Kuys RJ",
-    emoji: "🤖",
-    role: "Technical VA · AI Automation Educator",
+    emoji: "⚡",
+    role: "AI Automation · Technical VA Educator",
     image: "/mentors/kuys-rj.webp",
     description:
-      "A respected Technical VA and AI Automation educator in the Philippines. RJ specializes in AI-powered workflows, automation systems, process optimization, and modern productivity tools. His training helped expand my understanding of AI implementation, workflow automation, and building efficient business systems.",
+      "A respected AI Automation and Technical VA educator known for helping professionals leverage AI tools to streamline business operations. His teachings expanded my understanding of AI workflows, process automation, productivity systems, and practical AI implementation for businesses.",
   },
   {
     name: "Nuno Tavares",
     alias: null as string | null,
-    emoji: "⚙️",
-    role: "GoHighLevel Expert · SaaS & Automation",
+    emoji: "🧠",
+    role: "GoHighLevel + AI · Automation Strategist",
     image: "/mentors/nuno-tavares.webp",
     description:
-      "An internationally recognized GoHighLevel expert, SaaS entrepreneur, and automation strategist. Nuno is known for advanced HighLevel implementations, agency growth systems, CRM architecture, and scalable automation frameworks. His content has helped me improve my technical knowledge of HighLevel and client-delivery systems.",
+      "An internationally recognized GoHighLevel expert, automation strategist, and educator. Nuno is known for combining GoHighLevel with modern AI tools such as Claude to build scalable business systems. Through his content and training, I gained deeper insights into advanced GHL architecture, AI-assisted development, automation strategy, and system design.",
   },
   {
     name: "Nate Herk",
     alias: null as string | null,
-    emoji: "🎯",
-    role: "Agency Growth · Lead Generation",
+    emoji: "🔥",
+    role: "AI Entrepreneur · AI Agents & Automation",
     image: "/mentors/nate-herk.webp",
     description:
-      "A well-known entrepreneur, YouTube educator, and founder focused on helping agencies and service businesses generate leads through outbound systems, content marketing, and sales strategies. His training provides valuable insights into client acquisition, business growth, and building predictable lead-generation systems.",
+      "A leading AI entrepreneur and educator known for teaching businesses and agencies how to leverage Claude, AI agents, and automation systems to increase productivity and scale operations. His content helped me understand AI-powered workflows, prompt engineering, AI business systems, and practical applications of AI in client delivery.",
   },
 ];
 
@@ -109,6 +109,19 @@ export function MentorsContent() {
                 </ScrollReveal>
               );
             })}
+
+            {/* Closing statement */}
+            <ScrollReveal>
+              <div className="mx-auto max-w-3xl border-t border-white/10 pt-12 text-center">
+                <p className="text-[15px] leading-relaxed text-white/70 md:text-base">
+                  I continuously invest in learning from industry leaders in GoHighLevel, AI
+                  Automation, and Business Systems. By combining their proven methodologies with
+                  hands-on client experience, I design and implement AI-powered automation systems,
+                  intelligent workflows, and business-process solutions that help companies reduce
+                  manual work, improve efficiency, and scale operations.
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </section>
 
