@@ -54,7 +54,7 @@ export function AboutContent() {
               About AJ
             </h1>
             <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
-              Growth engineer specializing in GoHighLevel automation systems, funnels, and CRM infrastructure.
+              Automation engineer specializing in GoHighLevel, AI-powered workflows, and Claude-built systems — funnels, CRM pipelines, and end-to-end automation that scale.
             </p>
           </div>
         </section>
@@ -95,9 +95,10 @@ export function AboutContent() {
 
             <ScrollReveal delay={0.15}>
               <BodyText>
-                With over 5 years in freelancing and a deep focus on automation
-                for the last 12 months, I bring a full-stack automation mindset
-                to every project.
+                With over 5 years freelancing and a deep focus on automation, I
+                bring a full-stack mindset to every project — pairing GoHighLevel
+                with AI tools like Claude to build systems that think, route, and
+                scale on their own.
               </BodyText>
             </ScrollReveal>
 
@@ -130,10 +131,10 @@ export function AboutContent() {
 
             <ScrollReveal delay={0.4}>
               <BodyText>
-                I specialize in GoHighLevel — building high-converting funnels,
-                smart CRM pipelines, multi-channel automations, and end-to-end
-                workflows that turn leads into revenue without constant
-                babysitting.
+                I specialize in GoHighLevel and AI automation — building
+                high-converting funnels, smart CRM pipelines, multi-channel
+                automations, and AI-powered workflows (often built with Claude)
+                that turn leads into revenue without constant babysitting.
               </BodyText>
             </ScrollReveal>
 
@@ -157,16 +158,14 @@ export function AboutContent() {
               </div>
             </ScrollReveal>
 
-            {/* Resume CTA */}
+            {/* System Builds CTA */}
             <ScrollReveal delay={0.52}>
-              <a
-                href="/ghl-resume.png"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/system-builds"
                 className="block w-full rounded-xl bg-yellow px-8 py-5 text-center text-lg font-black uppercase tracking-wider text-black transition-all hover:bg-yellow/85 hover:shadow-[0_12px_40px_rgba(234,179,8,0.3)] hover:-translate-y-[2px]"
               >
-                Check My Resume &rarr;
-              </a>
+                See My System Builds &rarr;
+              </Link>
             </ScrollReveal>
 
             {/* Systems + AI */}
@@ -176,9 +175,11 @@ export function AboutContent() {
 
             <ScrollReveal delay={0.6}>
               <BodyText>
-                I&apos;m integrating AI-powered workflows into my automation
-                stack — from intelligent chatbots that qualify leads 24/7, to
-                content engines and smart routing logic that adapt in real time.
+                I build AI directly into my automation stack — using Claude and
+                AI agents for intelligent lead qualification, proposal
+                generation, content engines, and smart routing logic that adapts
+                in real time. Automation that doesn&apos;t just run tasks — it
+                makes decisions.
               </BodyText>
             </ScrollReveal>
 
@@ -211,14 +212,28 @@ export function AboutContent() {
               </p>
             </ScrollReveal>
 
-            {/* CTA */}
+            {/* CTAs */}
             <ScrollReveal delay={0.85}>
-              <Link
-                href="/consult"
-                className="inline-block rounded-lg bg-persian/20 backdrop-blur-sm border border-persian/30 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-persian/40 hover:border-persian/50 hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
-              >
-                Book Strategy Call →
-              </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/consult"
+                  className="inline-block rounded-lg bg-persian/20 backdrop-blur-sm border border-persian/30 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-persian/40 hover:border-persian/50 hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
+                >
+                  Book Strategy Call →
+                </Link>
+                <a
+                  href="/aj-bactad-ghl-resume.pdf"
+                  download="AJ Bactad - GHL.pdf"
+                  className="inline-flex items-center gap-2 rounded-lg border border-yellow/40 bg-yellow/10 px-6 py-3 text-sm font-bold uppercase tracking-wider text-yellow transition-all hover:bg-yellow/20 hover:border-yellow/70"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download My Resume
+                </a>
+              </div>
             </ScrollReveal>
           </div>
 
