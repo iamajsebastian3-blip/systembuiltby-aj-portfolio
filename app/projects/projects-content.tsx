@@ -286,6 +286,40 @@ const coachingFunnels = [
       "/mockups/kurious-d.webp",
     ],
   },
+  {
+    title: "Black Couture",
+    subtitle: "The Luxury Boudoir Experience",
+    pages: "Opt-in funnel · Hero → Apply → Confirmation",
+    gradientFrom: "#1c0608",
+    gradientTo: "#4d0d15",
+    emoji: "🖤",
+    url: "https://enter.coutureblack.com/couture-black",
+    isLive: true,
+    thumbnail: "/mockups/black-couture-d.webp",
+    mockups: [
+      "/mockups/black-couture-a.webp",
+      "/mockups/black-couture-b.webp",
+      "/mockups/black-couture-c.webp",
+      "/mockups/black-couture-d.webp",
+    ],
+  },
+  {
+    title: "Self Love Co",
+    subtitle: "The Couples Boudoir Experience",
+    pages: "Opt-in funnel · Hero → Apply → Confirmation",
+    gradientFrom: "#1c0608",
+    gradientTo: "#4d0d15",
+    emoji: "❤️",
+    url: "https://hello.selflovephotoco.com/self-love-co---couples",
+    isLive: true,
+    thumbnail: "/mockups/self-love-d.webp",
+    mockups: [
+      "/mockups/self-love-a.webp",
+      "/mockups/self-love-b.webp",
+      "/mockups/self-love-c.webp",
+      "/mockups/self-love-d.webp",
+    ],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
