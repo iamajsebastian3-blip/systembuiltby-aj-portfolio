@@ -7,11 +7,12 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerChildren, StaggerItem } from "@/components/motion/stagger-children";
 
 const skills = [
-  "High-converting funnels",
-  "Smart lead pipelines",
-  "Email + SMS automations",
-  "Missed lead recovery",
-  "Calendar + CRM integrations",
+  "GoHighLevel systems",
+  "n8n automations",
+  "AI agents & workflows",
+  "Claude-built systems",
+  "CRM & pipeline automation",
+  "App-to-app integrations",
   "End-to-end backend automation",
 ];
 
@@ -54,7 +55,7 @@ export function AboutContent() {
               About AJ
             </h1>
             <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
-              Automation engineer specializing in GoHighLevel, AI-powered workflows, and Claude-built systems — funnels, CRM pipelines, and end-to-end automation that scale.
+              Automation engineer building business systems with GoHighLevel, n8n, and AI — CRM automation, AI agents, and end-to-end workflows powered by Claude.
             </p>
           </div>
         </section>
@@ -86,19 +87,18 @@ export function AboutContent() {
             {/* Body paragraphs */}
             <ScrollReveal delay={0.1}>
               <BodyText>
-                I don&apos;t just build funnels — I engineer systems that
-                capture, nurture, convert, and scale. Every workflow I design is
-                built to eliminate guesswork, reduce manual effort, and create
-                predictable growth.
+                I don&apos;t build one-off tasks — I engineer complete systems.
+                Automations, AI workflows, and integrations designed to eliminate
+                guesswork, remove manual effort, and run reliably at scale.
               </BodyText>
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
               <BodyText>
                 With over 5 years freelancing and a deep focus on automation, I
-                bring a full-stack mindset to every project — pairing GoHighLevel
-                with AI tools like Claude to build systems that think, route, and
-                scale on their own.
+                bring a full-stack mindset to every project — combining
+                GoHighLevel, n8n, and AI tools like Claude to build systems that
+                think, route, and scale on their own.
               </BodyText>
             </ScrollReveal>
 
@@ -131,10 +131,10 @@ export function AboutContent() {
 
             <ScrollReveal delay={0.4}>
               <BodyText>
-                I specialize in GoHighLevel and AI automation — building
-                high-converting funnels, smart CRM pipelines, multi-channel
-                automations, and AI-powered workflows (often built with Claude)
-                that turn leads into revenue without constant babysitting.
+                I work across GoHighLevel, n8n, and AI automation — building CRM
+                systems, multi-channel workflows, AI agents, and app-to-app
+                integrations (often powered by Claude) that cut manual work and
+                keep operations running on their own.
               </BodyText>
             </ScrollReveal>
 
@@ -154,7 +154,7 @@ export function AboutContent() {
             {/* Flow diagram */}
             <ScrollReveal delay={0.5}>
               <div className="rounded-lg border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm px-5 py-4 text-center text-sm font-medium tracking-wide text-white/50">
-                Capture → Nurture → Convert → Scale
+                Map → Automate → Integrate → Scale
               </div>
             </ScrollReveal>
 
@@ -175,11 +175,11 @@ export function AboutContent() {
 
             <ScrollReveal delay={0.6}>
               <BodyText>
-                I build AI directly into my automation stack — using Claude and
-                AI agents for intelligent lead qualification, proposal
-                generation, content engines, and smart routing logic that adapts
-                in real time. Automation that doesn&apos;t just run tasks — it
-                makes decisions.
+                I build AI directly into my automation stack — using Claude, AI
+                agents, and tools like n8n for intelligent qualification,
+                proposal generation, content engines, and smart routing logic
+                that adapts in real time. Automation that doesn&apos;t just run
+                tasks — it makes decisions.
               </BodyText>
             </ScrollReveal>
 
