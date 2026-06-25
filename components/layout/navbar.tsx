@@ -76,18 +76,18 @@ function getActiveNav(pathname: string): string {
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2 shrink-0">
-      <div className="relative w-20 h-20 flex items-center justify-center">
+    <Link href="/" className="flex items-center gap-2 shrink-0 min-w-0">
+      <div className="relative w-12 h-12 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
         <Image
           src="/aj-logo.webp"
           alt="System-Built By AJ"
           width={120}
           height={120}
-          className="object-contain"
+          className="object-contain w-full h-full"
           priority
         />
       </div>
-      <span className="font-black uppercase text-sm tracking-wide">
+      <span className="font-black uppercase text-[13px] md:text-sm tracking-wide whitespace-nowrap">
         <span className="text-white">SYSTEM-BUILT </span>
         <span className="text-yellow">BY AJ</span>
       </span>
@@ -276,7 +276,7 @@ export function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden flex items-center justify-center w-9 h-9 text-white/70 hover:text-white"
+              className="md:hidden flex items-center justify-center w-10 h-10 shrink-0 rounded-lg border border-white/15 bg-white/[0.04] text-white/80 hover:text-white hover:bg-white/[0.08] transition-colors"
               aria-label="Open menu"
             >
               <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
