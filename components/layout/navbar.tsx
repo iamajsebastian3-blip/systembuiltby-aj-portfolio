@@ -76,8 +76,8 @@ function getActiveNav(pathname: string): string {
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2 shrink-0 min-w-0">
-      <div className="relative w-12 h-12 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
+    <Link href="/" className="flex items-center gap-2 min-w-0">
+      <div className="relative w-11 h-11 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
         <Image
           src="/aj-logo.webp"
           alt="System-Built By AJ"
@@ -87,7 +87,7 @@ function Logo() {
           priority
         />
       </div>
-      <span className="font-black uppercase text-[13px] md:text-sm tracking-wide whitespace-nowrap">
+      <span className="font-black uppercase text-[12px] md:text-sm tracking-wide truncate">
         <span className="text-white">SYSTEM-BUILT </span>
         <span className="text-yellow">BY AJ</span>
       </span>

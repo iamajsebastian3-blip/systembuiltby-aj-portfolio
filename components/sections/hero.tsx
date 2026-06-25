@@ -62,7 +62,7 @@ export function Hero() {
           </motion.div>
 
           {/* Title — large, block-level lines */}
-          <h1 className="text-5xl font-black leading-[1.08] tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="text-[1.9rem] font-black leading-[1.1] tracking-tight text-white break-words sm:text-5xl md:text-6xl lg:text-7xl">
             <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}>
               I DON&apos;T CHASE
             </motion.span>
