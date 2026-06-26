@@ -76,21 +76,33 @@ function getActiveNav(pathname: string): string {
 
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2 min-w-0">
-      <div className="relative w-11 h-11 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
-        <Image
-          src="/aj-logo.webp"
-          alt="System-Built By AJ"
-          width={120}
-          height={120}
-          className="object-contain w-full h-full"
-          priority
-        />
-      </div>
-      <span className="font-black uppercase text-[12px] md:text-sm tracking-wide truncate">
-        <span className="text-white">SYSTEM-BUILT </span>
-        <span className="text-yellow">BY AJ</span>
+    <Link href="/" className="flex items-center gap-2 min-w-0 shrink-0">
+      {/* Mobile: compact mark + wordmark */}
+      <span className="flex items-center gap-2 min-w-0 md:hidden">
+        <span className="relative w-11 h-11 shrink-0 flex items-center justify-center">
+          <Image
+            src="/aj-logo.webp"
+            alt="System-Built By AJ"
+            width={120}
+            height={120}
+            className="object-contain w-full h-full"
+            priority
+          />
+        </span>
+        <span className="font-black uppercase text-[12px] tracking-wide truncate">
+          <span className="text-white">SYSTEM-BUILT </span>
+          <span className="text-yellow">BY AJ</span>
+        </span>
       </span>
+      {/* Desktop: full horizontal logo */}
+      <Image
+        src="/aj-logo-wide.webp"
+        alt="AJ Automate — Systems · Automation · Growth"
+        width={213}
+        height={120}
+        className="hidden md:block h-14 w-auto"
+        priority
+      />
     </Link>
   );
 }

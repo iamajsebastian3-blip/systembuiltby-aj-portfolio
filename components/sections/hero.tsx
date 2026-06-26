@@ -85,7 +85,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            I build HighLevel systems that capture, nurture, and close &mdash; on autopilot. Your CRM, funnels, and automations, engineered to run without you.
+            I engineer the systems behind modern businesses&mdash;connecting CRM, funnels, automations, and AI into one scalable operating system.
           </motion.p>
 
           {/* CTAs */}
