@@ -80,6 +80,18 @@ const ajTutorials: SystemBuild[] = [
   },
 ];
 
+const claudeProjects: SystemBuild[] = [
+  {
+    title: "Building with Claude: An End-to-End Test Project",
+    category: "Claude Test Project",
+    description:
+      "A full walkthrough of a project built with Claude — from prompt to working system. Watch the reasoning, the tool calls, and the actual output come together step by step.",
+    emoji: "🤖",
+    image: "/system-builds/claude-test-project.webp",
+    videoId: "M3OK_1BNEco",
+  },
+];
+
 const zapierTutorials: SystemBuild[] = [
   {
     title: "Instant Form Intake: Notify Everywhere, Log Automatically",
@@ -274,7 +286,7 @@ export function SystemBuildsContent() {
                   Section 01
                 </p>
                 <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
-                  Clients <span className="text-persian-light">Project</span>
+                  Clients <span className="text-yellow">Real Project</span>
                 </h2>
                 <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
                   Real systems I built for real clients — pipelines, automations, funnels.
@@ -310,15 +322,37 @@ export function SystemBuildsContent() {
             </StaggerChildren>
           </div>
 
-          {/* Section 3 — Zapier Tutorial (orange) */}
+          {/* Section 3 — Claude Test Project (terracotta) */}
+          <div>
+            <ScrollReveal>
+              <div className="mb-8 md:mb-10">
+                <p className="text-[#D97757] text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
+                  Section 03
+                </p>
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                  Claude <span className="text-[#D97757]">Test Project</span>
+                </h2>
+                <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
+                  Real builds powered by Claude — AI reasoning wired straight into working systems.
+                </p>
+              </div>
+            </ScrollReveal>
+            <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {claudeProjects.map((build) => (
+                <BuildCard key={build.title} build={build} accent="text-[#D97757]" />
+              ))}
+            </StaggerChildren>
+          </div>
+
+          {/* Section 4 — Zapier Test Project (orange) */}
           <div>
             <ScrollReveal>
               <div className="mb-8 md:mb-10">
                 <p className="text-[#FF8A3D] text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
-                  Section 03
+                  Section 04
                 </p>
                 <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
-                  Zapier <span className="text-[#FF8A3D]">Tutorial</span>
+                  Zapier <span className="text-[#FF8A3D]">Test Project</span>
                 </h2>
                 <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
                   Automation walkthroughs — Zapier, GHL &amp; AI workflows that run the busywork for you.
