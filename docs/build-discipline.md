@@ -1,6 +1,6 @@
 # Universal Build Discipline
 # Extracted from 49 sessions of PageForge development (2026-01 to 2026-03)
-# Project-agnostic — drop into any .claude/ directory
+# On-demand reference — read before any non-trivial build. NOT auto-loaded.
 
 ---
 
@@ -333,8 +333,6 @@ Don't just start coding. Follow this sequence — it uses Claude Code's built-in
 
 ---
 
----
-
 ## 15. First-Time Project Setup (Do This ONCE Per Project)
 
 Before writing any code in a new project, run these commands in order:
@@ -374,7 +372,7 @@ npm run dev / npm run build / npm run test / npm run lint
 ## What Claude Should Never Do
 - [Project-specific anti-patterns]
 
-Read `universal-build-discipline.md` before any non-trivial build.
+Read `docs/build-discipline.md` before any non-trivial build.
 ```
 
 ### Step 3: Create Folder Structure
