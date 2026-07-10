@@ -94,8 +94,9 @@ const claudeProjects: SystemBuild[] = [
     title: "LinkedIn Outreach Automation",
     category: "Claude Test Project",
     description:
-      "Claude drafts LinkedIn content in your brand voice, queues each post, and schedules automatic publishing with Trigger.dev — so your profile stays active and in front of the right people without writing a post every day. Consistent presence, fully hands-off. 🚀",
+      "An AI agent that researches, writes, and publishes your LinkedIn and Instagram content every week — 100% hands-off. Claude drafts each post and its image, Trigger.dev schedules and runs the automation, and it auto-publishes to both platforms. Set it once and your feed stays active with zero manual work. 🚀",
     emoji: "💼",
+    image: "/system-builds/linkedin-content-automation.webp",
     videoId: "_zWVgnQzDuI",
   },
 ];
