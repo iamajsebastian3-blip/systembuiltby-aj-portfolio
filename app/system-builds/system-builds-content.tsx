@@ -88,7 +88,7 @@ const claudeProjects: SystemBuild[] = [
       "Every Sunday at 8:00 AM, Claude researches top-rated resorts and restaurants across Zambales, gathers key business details—including names, locations, websites, ratings, phone numbers, and emails—and organizes everything in ClickUp. Fully automated with Trigger.dev, so your database stays fresh without manual research. 🚀",
     emoji: "🤖",
     image: "/system-builds/claude-test-project.webp",
-    videoId: "M3OK_1BNEco",
+    videoId: "_zWVgnQzDuI",
   },
 ];
 
