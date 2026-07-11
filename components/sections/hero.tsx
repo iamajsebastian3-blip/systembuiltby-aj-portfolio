@@ -1,234 +1,182 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Counter } from "@/components/motion/counter";
+import { motion } from "framer-motion";
+import { Dancing_Script } from "next/font/google";
 
-const badges = [
-  "GHL Expert",
-  "Funnel Builder",
-  "CRM Automation",
-  "A2P 10DLC",
-  "Website Builder",
-  "Workflow Automation",
+// Script font ONLY for the "Hello, I'm" eyebrow (matches the reference); rest stays Inter
+const script = Dancing_Script({ subsets: ["latin"], weight: ["600", "700"] });
+
+// PLACEHOLDER stats — AJ to confirm real numbers
+const stats = [
+  { value: "5+", label: "Years Experience" },
+  { value: "40+", label: "Projects Completed" },
+  { value: "20+", label: "Happy Clients" },
 ];
 
-const metrics = [
-  { target: 60, suffix: "%", label: "Avg conversion lift" },
-  { target: 2.5, suffix: "\u00D7", label: "Revenue multiplier" },
-  { target: 48, suffix: "h", label: "Avg turnaround" },
-  { target: 100, suffix: "%", label: "Client retention" },
-];
-
-const profileStats = [
-  { value: "5+", label: "Years freelancing" },
-  { value: "12mo", label: "Deep automation focus" },
-  { value: "GHL", label: "Certified expert" },
+const socials = [
+  { name: "Facebook", href: "https://www.facebook.com/Ajbactad29/", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg> },
+  { name: "Instagram", href: "https://www.instagram.com/aj_automate.co/", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg> },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/ajbactad29/", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
+  { name: "WhatsApp", href: "https://wa.me/639100809837", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.743-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg> },
 ];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Extra hero glows */}
-      <div className="pointer-events-none absolute top-[5%] right-[15%] w-[400px] h-[400px] rounded-full bg-persian/20 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-[15%] left-[5%] w-[350px] h-[300px] rounded-full bg-yellow/8 blur-[100px]" />
+    <section className="relative flex min-h-[calc(100vh-72px)] items-center overflow-hidden">
+      {/* ambient brand glows */}
+      <div className="pointer-events-none absolute -top-[10%] right-[12%] h-[420px] w-[420px] rounded-full bg-persian/20 blur-[130px]" />
+      <div className="pointer-events-none absolute bottom-[10%] left-[4%] h-[320px] w-[320px] rounded-full bg-yellow/8 blur-[110px]" />
 
-      {/* Dot grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          backgroundImage: "radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
+      {/* Giant background wordmark */}
+      <div className="pointer-events-none absolute inset-x-0 top-[10%] z-0 flex justify-center">
+        <span
+          className="select-none bg-gradient-to-b from-[#8b4dff] via-persian to-persian/30 bg-clip-text font-black leading-none tracking-tighter text-transparent"
+          style={{ fontSize: "clamp(4.5rem, 20vw, 19rem)" }}
+        >
+          PORTFOLIO
+        </span>
+      </div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-6 py-24 lg:grid-cols-[1fr_440px] lg:py-28">
-        {/* LEFT — Text */}
-        <div className="flex flex-col gap-6 pt-8">
-          {/* Eyebrow */}
+      {/* Portrait cutout — center stage, bottom anchored */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center lg:justify-center"
+      >
+        <div className="relative aspect-[1089/1329] h-[58vh] max-h-[540px] w-auto lg:h-[80vh] lg:max-h-[760px] lg:translate-x-[6%]">
+          <Image
+            src="/aj-hero-cutout.webp"
+            alt="Allen Bactad — GHL Expert & AI Specialist"
+            fill
+            priority
+            className="object-contain object-bottom"
+          />
+        </div>
+      </motion.div>
+
+      {/* readability scrims (so text sits above the portrait) */}
+      <div className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-r from-[#08060e] via-[#08060e]/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-40 bg-gradient-to-t from-[#08060e] to-transparent" />
+
+      {/* Content */}
+      <div className="relative z-20 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 lg:grid-cols-12 lg:py-20">
+        {/* LEFT — name / role / copy */}
+        <div className="flex flex-col gap-5 lg:col-span-6">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm bg-white/[0.05] backdrop-blur-sm border border-white/[0.08] text-white/70">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.05] px-4 py-1.5 text-sm text-white/70 backdrop-blur-sm">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-yellow" />
               </span>
-              Available for new clients
+              Available Nationwide
             </span>
           </motion.div>
 
-          {/* Title — large, block-level lines */}
-          <h1 className="text-[1.9rem] font-black leading-[1.1] tracking-tight text-white break-words sm:text-5xl md:text-6xl lg:text-7xl">
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}>
-              I DON&apos;T CHASE
-            </motion.span>
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.3 }}>
-              GROWTH. I{" "}
-              <span className="text-yellow">ENGINEER</span>
-            </motion.span>
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}>
-              THE SYSTEM
-            </motion.span>
-            <motion.span className="block" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.5 }}>
-              BEHIND IT.
-            </motion.span>
-          </h1>
-
-          {/* Subtitle */}
           <motion.p
-            className="max-w-xl text-lg leading-relaxed text-white/50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`${script.className} text-4xl leading-none text-white/80 sm:text-[2.75rem]`}
           >
-            I engineer the systems behind modern businesses&mdash;connecting CRM, funnels, automations, and AI into one scalable operating system.
+            Hello, I&apos;m
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            className="flex flex-wrap gap-4"
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-[2.6rem] font-black leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
+          >
+            AJ BACTAD
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm font-bold uppercase tracking-[0.2em] text-yellow"
+          >
+            GHL Certified &amp; AI Automation Specialist
+          </motion.p>
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="max-w-md text-base leading-relaxed text-white/55"
+          >
+            I don&apos;t just connect tools&mdash;I engineer the system behind your growth. CRM, funnels, automations, and AI, wired into one operating system that runs the busywork so you can scale without the chaos.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap items-center gap-4 pt-6"
           >
             <Link
               href="/consult"
-              className="inline-flex items-center rounded-xl bg-persian px-6 py-3 font-semibold text-white transition-all border border-persian/60 hover:shadow-[0_0_30px_rgba(94,23,235,0.35)] hover:bg-persian-dark"
+              className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-6 py-3 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
             >
               Book Free Consultation &rarr;
             </Link>
             <Link
-              href="/projects"
-              className="inline-flex items-center rounded-xl px-6 py-3 font-semibold transition-all bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] text-white/80 hover:bg-white/[0.07]"
+              href="/system-builds"
+              className="inline-flex items-center rounded-xl border border-white/[0.08] bg-white/[0.04] px-6 py-3 font-semibold text-white/80 backdrop-blur-sm transition-all hover:bg-white/[0.07]"
             >
-              Check My Portfolio
+              Check My System Build
             </Link>
           </motion.div>
 
-          {/* Social links */}
           <motion.div
-            className="flex items-center gap-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="flex items-center gap-6 pt-4"
           >
-            {[
-              { name: "Facebook", href: "https://www.facebook.com/Ajbactad29/", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg> },
-              { name: "Instagram", href: "https://www.instagram.com/aj_automate.co/", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg> },
-              { name: "LinkedIn", href: "https://www.linkedin.com/in/ajbactad29/", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg> },
-              { name: "Threads", href: "https://www.threads.com/@aj_automate.co", icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.2 1.478-.755 2.633-1.657 3.436-1.005.893-2.37 1.364-4.062 1.4-1.243-.028-2.336-.387-3.154-1.036-.869-.69-1.349-1.632-1.349-2.652 0-1.924 1.506-3.393 3.5-3.56 1.303-.11 2.477.158 3.394.77.166.11.32.233.46.364.023-.24.035-.484.035-.733 0-.508-.063-.973-.188-1.386-.257-.85-.737-1.472-1.424-1.847-.747-.408-1.712-.615-2.868-.615l-.076.002c-1.932.046-3.385.86-4.198 2.354l-1.747-.974c1.08-1.983 3.058-3.08 5.572-3.097h.093c1.47 0 2.735.284 3.762.845 1.005.548 1.744 1.363 2.146 2.363a6.78 6.78 0 01.39 2.352c.007.396-.014.79-.063 1.17.558.39 1.026.873 1.378 1.432.748 1.186 1.022 2.608.773 4.008-.37 2.086-1.508 3.756-3.387 4.969-1.648 1.063-3.74 1.633-6.226 1.694z" /></svg> },
-            ].map((social) => (
+            {socials.map((s) => (
               <a
-                key={social.name}
-                href={social.href}
+                key={s.name}
+                href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={social.name}
-                className="flex items-center justify-center w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] text-white/40 hover:text-white hover:bg-white/[0.10] hover:border-white/[0.15] transition-all duration-200"
+                aria-label={s.name}
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.05] text-white/45 transition-all hover:border-white/[0.15] hover:bg-white/[0.10] hover:text-white"
               >
-                {social.icon}
+                {s.icon}
               </a>
             ))}
           </motion.div>
         </div>
 
-        {/* RIGHT — Image placeholder + Profile card */}
-        <div className="flex flex-col gap-5">
-          {/* Profile image */}
-          <motion.div
-            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] shadow-[0_16px_64px_rgba(0,0,0,0.4)]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.4 }}
-          >
-            <Image
-              src="/aj-profile.webp"
-              alt="Allen Bactad — Growth Systems Consultant"
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
-
-          {/* Profile Card */}
-          <motion.div
-            className="relative flex flex-col gap-5 rounded-2xl p-6 bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] shadow-[0_16px_64px_rgba(0,0,0,0.5)] overflow-hidden"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 80, damping: 20, delay: 0.6 }}
-          >
-            {/* Soft yellow glow in the corner for depth */}
-            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-yellow/15 blur-[60px]" />
-            {/* Persian accent strip on the top edge */}
-            <div className="pointer-events-none absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-persian/60 to-transparent" />
-
-            <span className="relative text-xs font-bold uppercase tracking-widest text-persian-light">
-              Growth Systems Consultant
-            </span>
-
-            <div className="relative flex items-center gap-3">
-              <div className="relative h-20 w-20 shrink-0 flex items-center justify-center">
-                <div className="pointer-events-none absolute inset-0 rounded-full bg-persian/15 blur-[16px]" />
-                <Image
-                  src="/aj-logo.webp"
-                  alt="System-Built By AJ"
-                  width={120}
-                  height={120}
-                  className="relative object-contain"
-                />
-              </div>
-              <div>
-                <p className="font-bold text-white">Allen Bactad</p>
-                <p className="text-sm text-white/40">Automation Builder</p>
-              </div>
+        {/* RIGHT — stat column */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="flex flex-row justify-between gap-6 lg:col-span-3 lg:col-start-10 lg:flex-col lg:items-end lg:justify-center lg:gap-8"
+        >
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col lg:items-end lg:text-right">
+              <span className="text-3xl font-extrabold text-yellow sm:text-4xl lg:text-5xl">
+                {stat.value}
+              </span>
+              <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/45 sm:text-xs">
+                {stat.label}
+              </span>
+              <span className="mt-3 hidden h-px w-16 bg-white/10 lg:block" />
             </div>
-
-            <div className="relative flex flex-wrap gap-2">
-              {badges.map((badge) => (
-                <span
-                  key={badge}
-                  className="px-3 py-1 text-xs font-medium rounded-full bg-persian/10 border border-persian/25 text-persian-light"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-
-            <div className="relative grid grid-cols-2 gap-2.5">
-              {metrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="flex flex-col items-center rounded-xl p-3 bg-white/[0.04] border border-white/[0.07] hover:border-persian/30 transition-colors"
-                >
-                  <Counter
-                    target={metric.target}
-                    suffix={metric.suffix}
-                    className="text-xl font-extrabold text-white"
-                  />
-                  <span className="text-center text-[10px] text-white/45">
-                    {metric.label}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative h-px bg-gradient-to-r from-transparent via-white/[0.10] to-transparent" />
-
-            <div className="relative flex justify-between">
-              {profileStats.map((stat) => (
-                <div key={stat.label} className="flex flex-col items-center text-center">
-                  <span className="text-lg font-extrabold text-yellow">{stat.value}</span>
-                  <span className="text-[10px] text-white/35">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
+
     </section>
   );
 }

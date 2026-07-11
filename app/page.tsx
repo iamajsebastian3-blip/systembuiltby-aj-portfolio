@@ -1,26 +1,44 @@
 import { Hero } from "@/components/sections/hero";
+import { TechStack } from "@/components/sections/tech-stack";
 import { IntroVideo } from "@/components/sections/intro-video";
-import { ToolkitMarquee } from "@/components/sections/toolkit-marquee";
 import { Vault } from "@/components/sections/vault";
 import { Philosophy } from "@/components/sections/philosophy";
 import { Services } from "@/components/sections/services";
+import { FeaturedBuilds } from "@/components/sections/featured-builds";
 import { Testimonials } from "@/components/sections/testimonials";
-import { HLBanner } from "@/components/sections/hl-banner";
+import { WorkflowScreens } from "@/components/sections/workflow-screens";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
+
+function Divider() {
+  return (
+    <div className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-white/[0.09] to-transparent" />
+  );
+}
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <Divider />
+      <TechStack />
+      <Divider />
       <IntroVideo />
-      <ToolkitMarquee />
+      <Divider />
       <Vault />
+      <Divider />
       <Philosophy />
-      <Services />
+      <Divider />
+      <FeaturedBuilds />
+      <Divider />
       <Testimonials />
-      <HLBanner />
+      <Divider />
+      <WorkflowScreens />
+      <Divider />
+      <Services />
+      <Divider />
       <FAQ />
+      <Divider />
       <FinalCTA />
     </>
   );

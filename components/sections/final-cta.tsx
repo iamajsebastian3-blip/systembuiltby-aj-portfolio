@@ -1,42 +1,53 @@
 "use client";
 
+import { useEffect } from "react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 
 export function FinalCTA() {
+  useEffect(() => {
+    // Load the GHL calendar embed script (auto-resizes the iframe)
+    const src = "https://connect.ajautomate.co/js/form_embed.js";
+    if (!document.querySelector(`script[src="${src}"]`)) {
+      const script = document.createElement("script");
+      script.src = src;
+      script.type = "text/javascript";
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative overflow-hidden py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-[20%] left-[25%] w-[350px] h-[350px] rounded-full bg-[#2a0a5e]/30 blur-[100px]" />
-        <div className="absolute bottom-[20%] right-[25%] w-[250px] h-[250px] rounded-full bg-yellow/5 blur-[80px]" />
+        <div className="absolute left-[15%] top-[15%] h-[360px] w-[360px] rounded-full bg-persian/18 blur-[130px]" />
+        <div className="absolute bottom-[15%] right-[18%] h-[280px] w-[280px] rounded-full bg-yellow/8 blur-[110px]" />
       </div>
 
-      <div className="relative mx-auto max-w-[700px] px-6 text-center">
+      <div className="relative mx-auto max-w-5xl px-6">
         <ScrollReveal>
-          <h2 className="mb-6 text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
-            IF YOUR GROWTH
-            <br />
-            FEELS FORCED
-            <br />
-            YOUR <span className="text-yellow">SYSTEM</span>
-            <br />
-            IS BROKEN!
-          </h2>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-black uppercase leading-[1.05] tracking-tight text-white md:text-4xl lg:text-5xl">
+              If your growth feels forced, your{" "}
+              <span className="text-yellow">system</span> is broken.
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/55">
+              Stop duct-taping tools together and hoping they hold. Let&apos;s engineer one
+              connected system that runs the busywork and scales with you&mdash;pick a time
+              below, the first call&apos;s on me.
+            </p>
+          </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.15}>
-          <p className="mb-10 text-sm italic text-white/35">
-            Stop duct-taping tools together and hoping they work. Engineer a
-            system that scales with you.
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.3}>
-          <a
-            href="/consult"
-            className="inline-block rounded-full bg-yellow px-10 py-4 text-xs font-bold uppercase tracking-widest text-black transition-all hover:shadow-[0_0_32px_rgba(246,203,31,0.25)]"
-          >
-            Book a System Strategy Call &rarr;
-          </a>
+        {/* Real GHL booking calendar — full width (renders wide, not tall) */}
+        <ScrollReveal delay={0.2}>
+          <div className="mt-12 overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-md">
+            <iframe
+              src="https://connect.ajautomate.co/widget/booking/Ib9dKL70xmR265fkYXWL"
+              style={{ width: "100%", height: "820px", border: "none" }}
+              scrolling="no"
+              id="Ib9dKL70xmR265fkYXWL_cta"
+              title="Book a System Strategy Call"
+            />
+          </div>
         </ScrollReveal>
       </div>
     </section>

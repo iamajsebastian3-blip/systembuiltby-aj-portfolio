@@ -18,14 +18,18 @@ interface Service {
 }
 
 const services: Service[] = [
-  { rank: "01", icon: "\uD83D\uDD25", title: "Funnel & Website Systems", items: ["GHL funnels", "Landing pages", "Conversion optimization"] },
-  { rank: "02", icon: "\uD83D\uDD25", title: "CRM & Pipeline Systems", items: ["Pipeline setup", "Lead tracking", "Segmentation"] },
-  { rank: "03", icon: "\uD83D\uDD25", title: "Automation & Workflows", items: ["Email/SMS sequences", "Lead nurturing", "Re-engagement"] },
+  { rank: "01", icon: "\uD83C\uDFAF", title: "Funnel & Website Systems", items: ["GHL funnels", "Landing pages", "Conversion optimization"] },
+  { rank: "02", icon: "\uD83D\uDCCA", title: "CRM & Pipeline Systems", items: ["Pipeline setup", "Lead tracking", "Segmentation"] },
+  { rank: "03", icon: "\u26A1", title: "Automation & Workflows", items: ["Email/SMS sequences", "Lead nurturing", "Re-engagement"] },
   { rank: "04", icon: "\uD83D\uDCC5", title: "Booking Systems", items: ["Calendars", "Reminders", "No-show reduction"] },
-  { rank: "05", icon: "\uD83D\uDCF2", title: "A2P 10DLC Setup", items: ["Registration", "Compliance", "Deliverability optimization"], isNew: true, heat: 1 },
-  { rank: "06", icon: "\uD83E\uDD16", title: "AI Chatbot Systems", items: ["AI conversation setup", "Lead qualification bots", "Booking bots", "AI + workflow integration"], isNew: true, heat: 2 },
-  { rank: "07", icon: "\uD83C\uDF10", title: "Custom Frontend (Vibe Coding)", items: ["High-performance landing pages", "Custom UI/UX", "GHL integration via forms/webhooks"] },
-  { rank: "08", icon: "\u2699\uFE0F", title: "Advanced Integrations", items: ["API/webhooks", "External tools", "Backend system architecture"] },
+  { rank: "05", icon: "\uD83E\uDD16", title: "AI Chatbot Systems", items: ["AI conversation setup", "Lead qualification bots", "Booking bots", "AI + workflow integration"], isNew: true, heat: 2 },
+  { rank: "06", icon: "\uD83D\uDCE7", title: "Email & SMS Marketing", items: ["Broadcast campaigns", "Drip sequences", "A/B testing"] },
+  { rank: "07", icon: "\uD83C\uDF93", title: "Membership & Course Sites", items: ["Course setup", "Member portals", "Drip content"] },
+  { rank: "08", icon: "\u2B50", title: "Reputation & Reviews", items: ["Review requests", "Auto-responses", "Google/FB sync"] },
+  { rank: "09", icon: "\uD83D\uDCC8", title: "Reporting & Dashboards", items: ["KPI dashboards", "Attribution tracking", "Automated reports"] },
+  { rank: "10", icon: "\uD83D\uDCB3", title: "Payments & Invoicing", items: ["Checkout setup", "Subscriptions", "Invoice automation"] },
+  { rank: "11", icon: "\uD83C\uDF10", title: "Custom Frontend (Vibe Coding)", items: ["High-performance landing pages", "Custom UI/UX", "GHL integration via forms/webhooks"] },
+  { rank: "12", icon: "\uD83D\uDD17", title: "Advanced Integrations", items: ["API/webhooks", "External tools", "Backend system architecture"] },
 ];
 
 function ServiceCard({
@@ -134,7 +138,7 @@ export function Services() {
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
             <p className="text-sm text-white/35 italic mt-2 max-w-[520px] mx-auto">
-              8 core service areas engineered for your sales operations.
+              Core service areas engineered for your sales operations.
             </p>
           </ScrollReveal>
         </div>
