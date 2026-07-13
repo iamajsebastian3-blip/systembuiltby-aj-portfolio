@@ -53,6 +53,64 @@ const revenueTools = [
   },
 ];
 
+// The Claude Code skills & frameworks I build with (links open on GitHub)
+const aiStack = [
+  {
+    name: "Superpowers",
+    author: "obra",
+    tag: "Agentic Framework",
+    icon: "⚡",
+    description:
+      "Brainstorm → plan → TDD → review. The skill methodology behind how I ship — structured, test-driven, and reviewed before merge.",
+    href: "https://github.com/obra/superpowers",
+  },
+  {
+    name: "GSD — Get Shit Done",
+    author: "gsd-build",
+    tag: "Workflow",
+    icon: "🎯",
+    description:
+      "A plan / execute / verify coding workflow with atomic commits, cross-session memory, and drift-detection safeguards.",
+    href: "https://github.com/gsd-build/get-shit-done",
+  },
+  {
+    name: "GStack",
+    author: "Garry Tan",
+    tag: "Dev Team",
+    icon: "🧱",
+    description:
+      "23 opinionated tools that turn Claude into a full engineering team — from CEO and designer down to QA and release.",
+    href: "https://github.com/garrytan/gstack",
+  },
+  {
+    name: "Context7",
+    author: "Upstash",
+    tag: "Live Docs",
+    icon: "📚",
+    description:
+      "Version-accurate library documentation injected straight into context — no stale APIs, no hallucinated code.",
+    href: "https://github.com/upstash/context7",
+  },
+  {
+    name: "Claude Mem",
+    author: "thedotmack",
+    tag: "Memory",
+    icon: "🧠",
+    description:
+      "Persistent memory across sessions — captures the work, compresses it, and re-injects the relevant context next time.",
+    href: "https://github.com/thedotmack/claude-mem",
+  },
+  {
+    name: "Frontend Design",
+    author: "Anthropic",
+    tag: "Design Skill",
+    icon: "🎨",
+    description:
+      "Anthropic's own skill for distinctive, intentional UI — the anti-template design layer behind my funnels and sites.",
+    href: "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+  },
+];
+
 export function ToolsContent() {
   return (
     <PageTransition>
@@ -166,6 +224,53 @@ export function ToolsContent() {
                 </StaggerItem>
               );
             })}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* My AI Dev Stack — Claude Code skills I build with */}
+      <section className="pb-24 px-6">
+        <div className="mx-auto max-w-[1100px]">
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-persian-light/80">
+            My AI Dev Stack
+          </p>
+          <h2 className="mb-2 text-2xl font-black text-white sm:text-3xl">
+            The skills I build with
+          </h2>
+          <p className="mb-7 max-w-2xl text-sm leading-relaxed text-white/55">
+            The Claude Code skills &amp; frameworks powering how I ship automations, funnels, and
+            AI systems &mdash; fast, and production-grade. Tap any to view it on GitHub.
+          </p>
+          <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {aiStack.map((s) => (
+              <StaggerItem key={s.name}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full flex-col rounded-2xl border border-persian/25 bg-gradient-to-br from-persian/12 via-persian/[0.05] to-transparent p-6 transition-all hover:-translate-y-[2px] hover:border-persian/50 hover:shadow-[0_12px_40px_rgba(94,23,235,0.22)]"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-xl">
+                      {s.icon}
+                    </span>
+                    <span className="rounded-full border border-persian/30 bg-persian/15 px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-persian-light">
+                      {s.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-black text-white">{s.name}</h3>
+                  <p className="mb-2 text-xs text-white/40">by {s.author}</p>
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-white/60">{s.description}</p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-yellow transition-colors group-hover:text-yellow-dark">
+                    View on GitHub
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </span>
+                </a>
+              </StaggerItem>
+            ))}
           </StaggerChildren>
         </div>
       </section>

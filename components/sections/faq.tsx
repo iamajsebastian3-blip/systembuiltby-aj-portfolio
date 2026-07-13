@@ -53,7 +53,7 @@ export function FAQ() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <ScrollReveal>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-persian-light">
-              {String(faqs.length).padStart(2, "0")} &middot; Common Questions
+              FAQ &middot; Common Questions
             </p>
             <h2 className="text-5xl font-black uppercase leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
               System

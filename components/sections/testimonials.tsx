@@ -60,7 +60,7 @@ function TextCard({ t }: { t: TextTestimonial }) {
   return (
     <div className="flex h-full flex-col p-6 rounded-xl transition-all duration-300 bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] hover:-translate-y-[2px] hover:bg-white/[0.07] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
       <Stars />
-      <p className="mb-6 flex-1 text-[0.8rem] leading-relaxed text-white/45">
+      <p className="mb-6 flex-1 text-sm leading-relaxed text-white/50">
         &ldquo;{t.quote}&rdquo;
       </p>
       <div className="h-px bg-white/[0.06] mb-4" />
@@ -144,39 +144,35 @@ function VideoCard({ t }: { t: VideoTestimonial }) {
 
 export function Testimonials() {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-16 lg:py-32">
       <Parallax className="pointer-events-none absolute inset-0" speed={65}>
-        <div className="absolute top-0 right-[20%] w-[400px] h-[400px] bg-persian/10 blur-[100px] rounded-full" />
+        <div className="absolute right-[-6%] top-1/3 h-[400px] w-[400px] rounded-full bg-persian/10 blur-[130px]" />
       </Parallax>
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-6xl px-6">
+        {/* Heading — centered */}
         <ScrollReveal>
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-yellow">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-persian-light">
               System Feedback
-            </span>
-            <h2 className="text-3xl font-black uppercase leading-tight text-white md:text-4xl lg:text-5xl">
+            </p>
+            <h2 className="text-5xl font-black uppercase leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-7xl">
               What Clients Say
             </h2>
+            <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/55">
+              Real results from the people I&rsquo;ve engineered systems for&mdash;in their words.
+            </p>
           </div>
         </ScrollReveal>
 
-        {/* Outer glass container */}
-        <ScrollReveal>
-          <div className="rounded-2xl p-5 md:p-7 bg-white/[0.03] backdrop-blur-md border border-white/[0.06]">
-            <StaggerChildren className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {testimonials.map((t) => (
-                <StaggerItem key={t.name} className="h-full">
-                  {t.type === "video" ? (
-                    <VideoCard t={t} />
-                  ) : (
-                    <TextCard t={t} />
-                  )}
-                </StaggerItem>
-              ))}
-            </StaggerChildren>
-          </div>
-        </ScrollReveal>
+        {/* Testimonial grid */}
+        <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <StaggerItem key={t.name} className="h-full">
+              {t.type === "video" ? <VideoCard t={t} /> : <TextCard t={t} />}
+            </StaggerItem>
+          ))}
+        </StaggerChildren>
       </div>
     </section>
   );

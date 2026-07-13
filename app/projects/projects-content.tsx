@@ -13,91 +13,12 @@ import {
 /* ------------------------------------------------------------------ */
 
 const tabs = [
-  { id: "automations", label: "\uD83D\uDDFA\uFE0F Process Map" },
   { id: "funnels", label: "\uD83C\uDFAF Funnels" },
   { id: "websites", label: "\uD83C\uDF10 Websites" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
 
-/* ------------------------------------------------------------------ */
-/*  Data — Automations                                                 */
-/* ------------------------------------------------------------------ */
-
-const automations = [
-  {
-    icon: "\uD83D\uDD25",
-    title: "Lead Capture \u2192 Conversion Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Full Funnel",
-    description:
-      "Captures leads from forms, ads, and landing pages \u2014 then moves them through qualification, nurture, and conversion stages automatically.",
-    chips: ["Form Trigger", "Auto-Tag", "SMS + Email", "Pipeline Stages", "Conversion Tracking"],
-    image: "/pipeline-lead-capture.webp",
-  },
-  {
-    icon: "\uD83D\uDCC5",
-    title: "Appointment Booking Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Booking Flow",
-    description:
-      "Automates the entire booking flow \u2014 from calendar scheduling to reminders, no-show recovery, and post-appointment follow-up.",
-    chips: ["Calendar Sync", "48h/24h/2h Reminders", "No-Show Branch", "Rebooking", "Review Ask"],
-    image: "/pipeline-app-booking.webp",
-  },
-  {
-    icon: "\uD83D\uDCB0",
-    title: "Sales Pipeline (High-Ticket)",
-    subtitle: "GHL Pipeline \u00B7 Closer Flow",
-    description:
-      "Engineered for high-ticket offers \u2014 moves qualified leads through discovery, proposal, negotiation, and close stages with automated follow-ups.",
-    chips: ["Lead Scoring", "Discovery Call", "Proposal Stage", "Follow-Up Sequence", "Won/Lost Tracking"],
-    image: "/pipeline-sales.webp",
-  },
-  {
-    icon: "\uD83D\uDED2",
-    title: "Ecommerce / Order Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Order Flow",
-    description:
-      "Tracks orders from purchase to fulfillment \u2014 with abandoned cart recovery, order confirmations, and post-purchase upsell sequences.",
-    chips: ["Order Trigger", "Cart Recovery", "Confirmation SMS", "Upsell Sequence", "Review Request"],
-    image: "/pipeline-order.webp",
-  },
-  {
-    icon: "\uD83D\uDD01",
-    title: "Re-engagement / Nurture Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Reactivation",
-    description:
-      "Wakes up cold leads and past clients with multi-touch nurture sequences \u2014 SMS, email, and value-driven content over 14\u201330 days.",
-    chips: ["Inactivity Trigger", "Drip Sequence", "Offer Nudge", "Reply Detection", "Re-qualification"],
-    image: "/pipeline-nurture.webp",
-  },
-  {
-    icon: "\uD83C\uDFDD\uFE0F",
-    title: "Booking / Reservation Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Hospitality",
-    description:
-      "Built for resorts, hotels, and service-based businesses \u2014 handles reservation requests, confirmations, pre-arrival sequences, and feedback.",
-    chips: ["Reservation Form", "Confirmation Flow", "Pre-Arrival SMS", "Check-In Reminder", "Feedback Loop"],
-    image: "/pipeline-reservation.webp",
-  },
-  {
-    icon: "\uD83E\uDDD1\u200D\uD83C\uDFEB",
-    title: "High-Ticket Client Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Premium Flow",
-    description:
-      "Designed for coaches, consultants, and agencies \u2014 moves prospects through application, vetting, strategy call, and onboarding stages.",
-    chips: ["Application Form", "Vetting Stage", "Strategy Call", "Contract/Payment", "Onboarding"],
-    image: "/pipeline-high-ticket.webp",
-  },
-  {
-    icon: "\uD83C\uDFC6",
-    title: "Client Onboarding & Delivery Pipeline",
-    subtitle: "GHL Pipeline \u00B7 Fulfillment",
-    description:
-      "Automates post-sale delivery \u2014 welcome sequences, kickoff scheduling, milestone tracking, and project completion with review requests.",
-    chips: ["Welcome Sequence", "Kickoff Call", "Milestone Tracking", "Delivery Complete", "Testimonial Ask"],
-    image: "/pipeline-client-onboarding.webp",
-  },
-];
 
 /* ------------------------------------------------------------------ */
 /*  Data — Funnels                                                     */
@@ -461,137 +382,6 @@ const fadeSlide = {
 /*  Sub-components                                                     */
 /* ------------------------------------------------------------------ */
 
-function AutomationCard({
-  icon,
-  title,
-  subtitle,
-  description,
-  chips,
-  image,
-}: (typeof automations)[number]) {
-  const [showPreview, setShowPreview] = useState(false);
-  const [zoom, setZoom] = useState(1);
-
-  const cardClass = "group rounded-2xl border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm p-7 transition-all duration-300 hover:-translate-y-[3px] hover:bg-white/[0.07] hover:border-white/[0.12] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]";
-
-  return (
-    <>
-      <div
-        className={`${cardClass} ${image ? "cursor-pointer" : ""}`}
-        onClick={image ? () => setShowPreview(true) : undefined}
-      >
-        {image && (
-          <div className="mb-4 -mx-7 -mt-7 rounded-t-2xl overflow-hidden relative h-40 bg-[#0B091A]">
-            <img
-              src={image}
-              alt={title}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]"
-            />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-300 flex items-center justify-center">
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-1.5 bg-white text-black text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                </svg>
-                Click to Preview
-              </span>
-            </div>
-          </div>
-        )}
-        <div className="mb-2 flex items-center gap-2">
-          <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[9px] border border-white/[0.1] bg-white/[0.06] text-lg">
-            {icon}
-          </div>
-          {image && (
-            <span className="text-[0.6rem] font-extrabold uppercase tracking-wider text-persian-light bg-persian/20 border border-persian/30 rounded-full px-2 py-0.5">Preview</span>
-          )}
-        </div>
-        <h3 className="mb-1 text-base font-bold text-white">{title}</h3>
-        <p className="mb-3 text-xs font-medium text-white/50">{subtitle}</p>
-        <p className="mb-4 text-[13px] leading-relaxed text-white/55">
-          {description}
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {chips.map((chip) => (
-            <span
-              key={chip}
-              className="rounded-full border border-white/[0.1] bg-white/[0.06] px-2.5 py-1 text-[0.68rem] font-bold text-white/50"
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Image lightbox modal */}
-      <AnimatePresence>
-        {showPreview && image && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm cursor-pointer overflow-auto"
-            onClick={() => { setShowPreview(false); setZoom(1); }}
-          >
-            {/* Top bar with controls */}
-            <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-3 bg-black/60 backdrop-blur-md border-b border-white/[0.06]">
-              <p className="text-xs text-white/40 uppercase tracking-widest">{title}</p>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={(e) => { e.stopPropagation(); setZoom(Math.max(0.5, zoom - 0.25)); }}
-                  className="w-8 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.15] transition-colors text-lg font-bold"
-                >
-                  −
-                </button>
-                <span className="text-xs text-white/50 font-bold w-12 text-center">{Math.round(zoom * 100)}%</span>
-                <button
-                  onClick={(e) => { e.stopPropagation(); setZoom(Math.min(3, zoom + 0.25)); }}
-                  className="w-8 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.15] transition-colors text-lg font-bold"
-                >
-                  +
-                </button>
-                <button
-                  onClick={(e) => { e.stopPropagation(); setZoom(1); }}
-                  className="px-3 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.15] transition-colors text-[0.6rem] font-bold uppercase tracking-wider"
-                >
-                  Reset
-                </button>
-                <div className="w-px h-5 bg-white/[0.1] mx-1" />
-                <button
-                  onClick={(e) => { e.stopPropagation(); setShowPreview(false); setZoom(1); }}
-                  className="px-3 h-8 rounded-lg bg-white/[0.08] border border-white/[0.12] flex items-center justify-center text-white/60 hover:text-white hover:bg-white/[0.15] transition-colors text-xs font-bold uppercase tracking-wider"
-                >
-                  Close &times;
-                </button>
-              </div>
-            </div>
-
-            {/* Zoomable image */}
-            <div className="flex justify-center p-6" onClick={(e) => e.stopPropagation()}>
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="rounded-2xl overflow-hidden border border-white/[0.1] shadow-[0_24px_64px_rgba(0,0,0,0.6)] inline-block"
-              >
-                <img
-                  src={image}
-                  alt={title}
-                  className="block transition-transform duration-200 origin-top-left"
-                  style={{ transform: `scale(${zoom})`, transformOrigin: "top left", width: zoom > 1 ? `${100}%` : "100%" }}
-                  draggable={false}
-                />
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
-
 function MockupGallery({
   title,
   mockups,
@@ -922,22 +712,15 @@ function WebsiteCard({
 /*  Tab content panels                                                 */
 /* ------------------------------------------------------------------ */
 
-function AutomationsPanel() {
-  return (
-    <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2">
-      {automations.map((a) => (
-        <StaggerItem key={a.title}>
-          <AutomationCard {...a} />
-        </StaggerItem>
-      ))}
-    </StaggerChildren>
-  );
-}
-
-function CategoryHeading({ children }: { children: React.ReactNode }) {
+function CategoryHeading({ children, featured = false }: { children: React.ReactNode; featured?: boolean }) {
   return (
     <div className="mb-6 flex items-center gap-3">
-      <h2 className="shrink-0 text-sm font-bold uppercase tracking-widest text-white/70">
+      {featured && (
+        <span className="shrink-0 rounded-full border border-yellow/40 bg-yellow/15 px-2.5 py-1 text-[0.6rem] font-extrabold uppercase tracking-wider text-yellow">
+          ★ Featured
+        </span>
+      )}
+      <h2 className={`shrink-0 font-bold uppercase tracking-widest ${featured ? "text-base text-white" : "text-sm text-white/70"}`}>
         {children}
       </h2>
       <span className="h-px flex-1 bg-gradient-to-r from-white/15 to-transparent" />
@@ -948,9 +731,9 @@ function CategoryHeading({ children }: { children: React.ReactNode }) {
 function FunnelsPanel() {
   return (
     <div className="space-y-14">
-      {/* Category — Premium Client Funnels */}
-      <div>
-        <CategoryHeading>Premium Client Funnels</CategoryHeading>
+      {/* Category — Premium Client Funnels (highlighted) */}
+      <div className="glow-border rounded-2xl bg-white/[0.02] p-5 sm:p-7">
+        <CategoryHeading featured>Premium Client Funnels</CategoryHeading>
         <p className="-mt-4 mb-6 text-sm text-white/45">
           Live client builds — coaching, personal brand & business growth. Tap a card to preview the mockups, then view the live build.
         </p>
@@ -991,7 +774,6 @@ function WebsitesPanel() {
 }
 
 const panels: Record<TabId, () => React.JSX.Element> = {
-  automations: AutomationsPanel,
   funnels: FunnelsPanel,
   websites: WebsitesPanel,
 };
@@ -1001,7 +783,7 @@ const panels: Record<TabId, () => React.JSX.Element> = {
 /* ------------------------------------------------------------------ */
 
 export function ProjectsContent() {
-  const [activeTab, setActiveTab] = useState<TabId>("automations");
+  const [activeTab, setActiveTab] = useState<TabId>("funnels");
   const ActivePanel = panels[activeTab];
 
   return (

@@ -2,14 +2,18 @@
 
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 
-// PLACEHOLDER cards — AJ will send real workflow screenshots to drop into `image`
-const screens: { label: string; url: string; image?: string }[] = [
-  { label: "Grant Book Access", url: "app.gohighlevel.com/workflows" },
-  { label: "Course Access — Full Pay", url: "app.gohighlevel.com/workflows" },
-  { label: "Portfolio Pipeline", url: "app.gohighlevel.com/opportunities" },
-  { label: "Lead Nurture Sequence", url: "app.gohighlevel.com/automation" },
-  { label: "Missed-Call Text-Back", url: "app.gohighlevel.com/workflows" },
-  { label: "Review Request Flow", url: "app.gohighlevel.com/reputation" },
+// Real screens from workflows/dashboards I've built (PII-safe — no client contact data shown)
+const screens: { label: string; url: string; image?: string; pos?: string }[] = [
+  { label: "Sales Command Center", url: "app.gohighlevel.com/dashboard", image: "/workflow-screens/sales-dashboard.webp" },
+  { label: "Post-Purchase Router", url: "app.gohighlevel.com/workflows", image: "/workflow-screens/post-purchase-router.webp", pos: "center" },
+  { label: "Multi-Path Lead Router", url: "zapier.com/app/editor", image: "/workflow-screens/zapier-paths.webp" },
+  { label: "Funnel Analytics", url: "app.gohighlevel.com/dashboard", image: "/workflow-screens/funnel-analytics.webp" },
+  { label: "Scheduled Content Tasks", url: "cloud.trigger.dev", image: "/workflow-screens/trigger-tasks.webp" },
+  { label: "Course-Access Automation", url: "app.gohighlevel.com/workflows", image: "/workflow-screens/course-access.webp" },
+  { label: "Revenue Dashboard", url: "app.gohighlevel.com/dashboard", image: "/workflow-screens/revenue-dashboard.webp" },
+  { label: "Form → Sheet Sync Suite", url: "zapier.com/app/zaps", image: "/workflow-screens/zapier-zaps.webp" },
+  { label: "Workflow Library", url: "app.gohighlevel.com/workflows", image: "/workflow-screens/workflow-library.webp" },
+  { label: "High-Ticket Funnel", url: "funnels.ajautomate.co", image: "/workflow-screens/va-ladder-funnel.webp", pos: "center" },
 ];
 
 function WorkflowPlaceholder({ label }: { label: string }) {
@@ -39,7 +43,7 @@ function WorkflowPlaceholder({ label }: { label: string }) {
   );
 }
 
-function BrowserCard({ label, url, image }: { label: string; url: string; image?: string }) {
+function BrowserCard({ label, url, image, pos }: { label: string; url: string; image?: string; pos?: string }) {
   return (
     <div className="w-[300px] shrink-0 overflow-hidden rounded-xl border border-white/[0.10] bg-[#0d0b12] shadow-[0_16px_50px_rgba(0,0,0,0.5)] sm:w-[440px]">
       {/* browser chrome */}
@@ -55,7 +59,13 @@ function BrowserCard({ label, url, image }: { label: string; url: string; image?
       <div className="relative aspect-[16/10] w-full">
         {image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={image} alt={label} className="h-full w-full object-cover" loading="lazy" />
+          <img
+            src={image}
+            alt={label}
+            className="h-full w-full object-cover"
+            style={{ objectPosition: pos === "center" ? "center" : "left top" }}
+            loading="lazy"
+          />
         ) : (
           <WorkflowPlaceholder label={label} />
         )}
@@ -86,7 +96,7 @@ export function WorkflowScreens() {
 
         <div className="marquee-scroll flex w-max gap-6">
           {tripled.map((s, i) => (
-            <BrowserCard key={`${s.label}-${i}`} label={s.label} url={s.url} image={s.image} />
+            <BrowserCard key={`${s.label}-${i}`} label={s.label} url={s.url} image={s.image} pos={s.pos} />
           ))}
         </div>
       </div>

@@ -137,14 +137,24 @@ export function FeaturedBuilds() {
               A look at the automations, funnels, and AI workflows I&apos;ve engineered for real
               businesses&mdash;each one a working system, not a one-off task.
             </p>
-            <Magnetic className="mt-8">
-              <Link
-                href="/system-builds"
-                className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-7 py-3.5 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
-              >
-                Explore Builds &rarr;
-              </Link>
-            </Magnetic>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Magnetic>
+                <Link
+                  href="/system-builds"
+                  className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-7 py-3.5 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
+                >
+                  Explore Builds &rarr;
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <Link
+                  href="/consult"
+                  className="inline-flex items-center rounded-xl border border-white/20 bg-white/[0.04] px-7 py-3.5 font-semibold text-white transition-all hover:border-yellow/50 hover:bg-white/[0.08]"
+                >
+                  Book a Free Consultation &rarr;
+                </Link>
+              </Magnetic>
+            </div>
           </ScrollReveal>
         </div>
 

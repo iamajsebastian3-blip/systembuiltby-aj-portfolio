@@ -7,10 +7,14 @@ import {
   Zap, Sparkles, PenTool,
   Database, ShieldCheck, Send, Loader2, Terminal,
   Globe, AtSign, Briefcase, Pencil, GitMerge, Table,
+  AppWindow, GitBranch, Hash, Cloud, MessageCircle, Plus,
 } from "lucide-react";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { NetworkBackdrop } from "@/components/motion/network-backdrop";
+import { Magnetic } from "@/components/motion/magnetic";
 
-const tabs = ["GoHighLevel", "Trigger.dev", "N8N"];
+const tabs = ["GoHighLevel", "Zapier", "N8N", "Trigger.dev"];
 
 /* ================================================================
    GHL — light builder canvas, violet/gold, onboarding, moving pulse
@@ -76,7 +80,7 @@ function GhlFlow() {
           const d = `M${n.x + 40} 110 H${next.x - 40}`;
           return (
             <g key={`gt-${i}`}>
-              <path d={d} stroke="#7c3aed" strokeOpacity={0.4} strokeWidth={2.5} fill="none" />
+              <path d={d} stroke="#c6c5d1" strokeWidth={2.5} fill="none" />
               <path className="circuit-pulse" d={d} stroke="url(#ghl-pulse)" strokeWidth={5} strokeLinecap="round" fill="none" pathLength={1} strokeDasharray="0.28 0.72" filter="url(#ghl-glow)" style={{ ["--dur" as string]: `${2.4 + i * 0.25}s`, animationDelay: `${i * 0.2}s` }} />
             </g>
           );
@@ -85,9 +89,10 @@ function GhlFlow() {
         <path d="M1050 150 C1050 300, 300 250, 200 375" stroke="#9ca3af" strokeOpacity={0.55} strokeWidth={1.75} strokeDasharray="2 5" fill="none" />
         <path d="M1050 150 C1000 320, 700 300, 620 375" stroke="#9ca3af" strokeOpacity={0.55} strokeWidth={1.75} strokeDasharray="2 5" fill="none" />
         <path d="M1050 150 V375" stroke="#9ca3af" strokeOpacity={0.55} strokeWidth={1.75} strokeDasharray="2 5" fill="none" />
-        <path d="M240 420 H340" stroke="#7c3aed" strokeOpacity={0.4} strokeWidth={2.5} fill="none" />
+        <path d="M240 420 H340" stroke="#c6c5d1" strokeWidth={2.5} fill="none" />
         <path className="circuit-pulse" d="M240 420 H340" stroke="url(#ghl-pulse)" strokeWidth={5} strokeLinecap="round" fill="none" pathLength={1} strokeDasharray="0.35 0.65" filter="url(#ghl-glow)" style={{ ["--dur" as string]: "2.6s" }} />
-        <path d="M660 420 H760" stroke="#7c3aed" strokeOpacity={0.4} strokeWidth={2.5} fill="none" />
+        <path d="M660 420 H760" stroke="#c6c5d1" strokeWidth={2.5} fill="none" />
+        <path className="circuit-pulse" d="M660 420 H760" stroke="url(#ghl-pulse)" strokeWidth={5} strokeLinecap="round" fill="none" pathLength={1} strokeDasharray="0.35 0.65" filter="url(#ghl-glow)" style={{ ["--dur" as string]: "3s", animationDelay: "0.4s" }} />
       </svg>
       <div className="absolute left-[66%] top-[34%] -translate-x-1/2 text-[11px] font-semibold text-persian">Contract Resent</div>
       {gTop.map((n) => <GTile key={n.label} n={n} />)}
@@ -256,11 +261,106 @@ function N8nFlow() {
   );
 }
 
+/* ================================================================
+   Zapier — vertical editor: catch → store → split → route
+================================================================ */
+type ZCardT = {
+  top: number; center: number; width: number;
+  app: string; appColor: string; tint: string; icon: LucideIcon;
+  step: string; title: string; pathLabel?: string;
+};
+const zCards: ZCardT[] = [
+  { top: 16, center: 500, width: 300, app: "Webflow", appColor: "#4353ff", tint: "rgba(67,83,255,0.12)", icon: AppWindow, step: "1", title: "New website form submission" },
+  { top: 150, center: 500, width: 300, app: "Zapier Tables", appColor: "#ff4f00", tint: "rgba(255,79,0,0.12)", icon: Table, step: "2", title: "Add a new record" },
+  { top: 280, center: 500, width: 300, app: "Paths by Zapier", appColor: "#ff4f00", tint: "rgba(255,79,0,0.12)", icon: GitBranch, step: "3", title: "Split into paths" },
+  { top: 432, center: 335, width: 250, app: "HubSpot", appColor: "#ff7a59", tint: "rgba(255,122,89,0.14)", icon: UserPlus, step: "4", title: "Add a new contact", pathLabel: "Path A" },
+  { top: 432, center: 665, width: 250, app: "Slack", appColor: "#611f69", tint: "rgba(97,31,105,0.14)", icon: Hash, step: "5", title: "Send message to Sales channel", pathLabel: "Path B" },
+];
+const zFloat: { x: number; y: number; icon: LucideIcon; color: string }[] = [
+  { x: 118, y: 108, icon: FileText, color: "#111111" },      // Notion
+  { x: 84, y: 300, icon: Sparkles, color: "#10a37f" },       // ChatGPT
+  { x: 150, y: 486, icon: Mail, color: "#e8a400" },          // Mailchimp
+  { x: 888, y: 96, icon: MessageCircle, color: "#1877f2" },  // Facebook
+  { x: 842, y: 260, icon: Cloud, color: "#00a1e0" },         // Salesforce
+  { x: 912, y: 430, icon: Table, color: "#0f9d58" },         // Sheets
+];
+
+function ZapierFlow() {
+  return (
+    <div className="relative mx-auto h-[560px] w-[1000px]">
+      <svg viewBox="0 0 1000 560" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="zap-pulse" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7c3aed" />
+            <stop offset="55%" stopColor="#a855f7" />
+            <stop offset="100%" stopColor="#f6cb1f" />
+          </linearGradient>
+          <filter id="zap-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="3" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        {[
+          "M500 80 V150",
+          "M500 214 V280",
+          "M500 344 C500 400 335 398 335 448",
+          "M500 344 C500 400 665 398 665 448",
+        ].map((d, i) => (
+          <g key={`z-${i}`}>
+            <path d={d} stroke="#c7c6cf" strokeWidth={2.5} fill="none" />
+            <path className="circuit-pulse" d={d} stroke="url(#zap-pulse)" strokeWidth={5} strokeLinecap="round" fill="none" pathLength={1} strokeDasharray="0.3 0.7" filter="url(#zap-glow)" style={{ ["--dur" as string]: `${2.4 + i * 0.3}s`, animationDelay: `${i * 0.25}s` }} />
+          </g>
+        ))}
+      </svg>
+
+      {/* "+" add-step buttons on the trunk */}
+      {[115, 247].map((y) => (
+        <div key={y} className="absolute flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white text-gray-400 shadow-sm" style={{ left: 500, top: y }}>
+          <Plus size={13} />
+        </div>
+      ))}
+
+      {/* floating connected apps */}
+      {zFloat.map((f, i) => {
+        const Icon = f.icon;
+        return (
+          <div key={i} className="absolute flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-black/[0.06] bg-white/90 opacity-70 shadow-sm" style={{ left: f.x, top: f.y }}>
+            <Icon size={20} style={{ color: f.color }} />
+          </div>
+        );
+      })}
+
+      {/* step cards */}
+      {zCards.map((c) => {
+        const Icon = c.icon;
+        return (
+          <div key={c.step} className="absolute -translate-x-1/2" style={{ left: c.center, top: c.top, width: c.width }}>
+            {c.pathLabel && (
+              <div className="mb-2 flex justify-center">
+                <span className="rounded-md bg-persian/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-persian">{c.pathLabel}</span>
+              </div>
+            )}
+            <div className="flex items-center gap-3 rounded-xl border border-black/[0.08] bg-white px-3.5 py-3 shadow-[0_4px_14px_rgba(0,0,0,0.07)]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg" style={{ background: c.tint }}>
+                <Icon size={18} style={{ color: c.appColor }} />
+              </div>
+              <div className="min-w-0 text-left">
+                <div className="text-[10px] font-bold uppercase tracking-wide" style={{ color: c.appColor }}>{c.app}</div>
+                <div className="text-[13px] font-bold leading-tight text-gray-800">{c.step}. {c.title}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 /* ================================================================ */
 const meta = [
   { title: "Client Onboarding", subtitle: "One trigger fires. The whole onboarding runs itself.", chrome: "light" as const },
-  { title: "Trigger.dev — Run", subtitle: "Schedule it once. It runs on autopilot.", chrome: "dark" as const },
+  { title: "Zapier — Lead Router", subtitle: "Catch the lead. Route it everywhere it needs to go.", chrome: "light" as const },
   { title: "N8N — Weekly Analytics Report", subtitle: "Connect anything to everything.", chrome: "dark" as const },
+  { title: "Trigger.dev — Run", subtitle: "Schedule it once. It runs on autopilot.", chrome: "dark" as const },
 ];
 
 // Scales a fixed-design-width block down to fit narrow screens (whole diagram stays visible)
@@ -301,6 +401,8 @@ export function AutomationFlows() {
 
   return (
     <section className="relative overflow-hidden py-16 lg:py-28">
+      <NetworkBackdrop />
+      <div className="relative z-10">
       <ScrollReveal>
         <div className="mx-auto mb-10 max-w-2xl px-6 text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-persian-light">The Automations</p>
@@ -310,7 +412,7 @@ export function AutomationFlows() {
         </div>
       </ScrollReveal>
 
-      <div className="mx-auto mb-8 flex max-w-md flex-wrap justify-center gap-2 px-6">
+      <div className="mx-auto mb-8 flex max-w-xl flex-wrap justify-center gap-2 px-6">
         {tabs.map((t, i) => (
           <button key={t} onClick={() => setActive(i)} className={`rounded-full border px-5 py-2 text-sm font-semibold transition-all ${active === i ? "border-persian/60 bg-persian text-white" : "border-white/[0.10] bg-white/[0.04] text-white/60 hover:bg-white/[0.08] hover:text-white"}`}>
             {t}
@@ -342,18 +444,41 @@ export function AutomationFlows() {
                   </div>
                 </div>
               )}
-              {active === 1 && <TriggerFlow />}
+              {active === 1 && (
+                <div className="bg-[#f5f4f8] px-6 py-9" style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+                  <p className="mb-8 text-center text-sm font-medium text-gray-500">{m.subtitle}</p>
+                  <ZapierFlow />
+                </div>
+              )}
               {active === 2 && (
                 <div className="bg-[#14141a] p-6 sm:p-8">
                   <p className="mb-6 text-center text-sm font-medium text-white/45">{m.subtitle}</p>
                   <N8nFlow />
                 </div>
               )}
+              {active === 3 && <TriggerFlow />}
             </div>
           </div>
           </FitToWidth>
         </div>
       </ScrollReveal>
+
+      <ScrollReveal delay={0.15}>
+        <div className="mt-12 flex flex-col items-center gap-4 px-6 text-center">
+          <p className="max-w-md text-sm leading-relaxed text-white/55">
+            Want a system like this wired into your business&mdash;so the busywork runs itself?
+          </p>
+          <Magnetic>
+            <Link
+              href="/consult"
+              className="cta-glow inline-flex items-center rounded-xl border border-persian/60 bg-persian px-8 py-3.5 font-semibold text-white transition-all hover:bg-persian-dark"
+            >
+              Book a Free Consultation &rarr;
+            </Link>
+          </Magnetic>
+        </div>
+      </ScrollReveal>
+      </div>
     </section>
   );
 }
