@@ -13,8 +13,8 @@ import {
 /* ------------------------------------------------------------------ */
 
 const tabs = [
-  { id: "funnels", label: "\uD83C\uDFAF Funnels" },
-  { id: "websites", label: "\uD83C\uDF10 Websites" },
+  { id: "funnels", label: "Funnels" },
+  { id: "websites", label: "Websites" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -714,16 +714,16 @@ function WebsiteCard({
 
 function CategoryHeading({ children, featured = false }: { children: React.ReactNode; featured?: boolean }) {
   return (
-    <div className="mb-6 flex items-center gap-3">
+    <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
       {featured && (
         <span className="shrink-0 rounded-full border border-yellow/40 bg-yellow/15 px-2.5 py-1 text-[0.6rem] font-extrabold uppercase tracking-wider text-yellow">
           ★ Featured
         </span>
       )}
-      <h2 className={`shrink-0 font-bold uppercase tracking-widest ${featured ? "text-base text-white" : "text-sm text-white/70"}`}>
+      <h2 className={`min-w-0 font-bold uppercase tracking-wide sm:tracking-widest ${featured ? "text-sm sm:text-base text-white" : "text-sm text-white/70"}`}>
         {children}
       </h2>
-      <span className="h-px flex-1 bg-gradient-to-r from-white/15 to-transparent" />
+      <span className="hidden h-px flex-1 bg-gradient-to-r from-white/15 to-transparent sm:block" />
     </div>
   );
 }
@@ -734,7 +734,7 @@ function FunnelsPanel() {
       {/* Category — Premium Client Funnels (highlighted) */}
       <div className="glow-border rounded-2xl bg-white/[0.02] p-5 sm:p-7">
         <CategoryHeading featured>Premium Client Funnels</CategoryHeading>
-        <p className="-mt-4 mb-6 text-sm text-white/45">
+        <p className="-mt-4 mb-6 text-sm text-white/60">
           Live client builds — coaching, personal brand & business growth. Tap a card to preview the mockups, then view the live build.
         </p>
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

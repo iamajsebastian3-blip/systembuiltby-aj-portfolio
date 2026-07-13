@@ -12,40 +12,13 @@ interface MobileMenuProps {
   onClose: () => void;
 }
 
-type NavItem = { label: string; href: string; icon: string; external?: boolean };
-type NavSection = { label: string; items: NavItem[] };
+type NavItem = { label: string; href: string };
 
-const navSections: NavSection[] = [
-  {
-    label: "Menu",
-    items: [
-      { label: "Home", href: "/", icon: "🏠" },
-      { label: "About", href: "/about", icon: "🤝" },
-      { label: "Mentors", href: "/mentors", icon: "🎓" },
-      { label: "System Builds", href: "/system-builds", icon: "🎬" },
-      { label: "Funnels & Websites", href: "/projects", icon: "🚀" },
-      { label: "Services", href: "/services", icon: "🧩" },
-      { label: "Packages", href: "/packages", icon: "📦" },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      { label: "All Tools", href: "/tools", icon: "🧰" },
-      { label: "GHL Full Audit", href: "/tools/ghl-audit", icon: "🔥" },
-      { label: "Revenue Audit", href: "/tools/revenue-audit", icon: "📊" },
-      { label: "Email Health", href: "/tools/email-health", icon: "📧" },
-      { label: "Process Map", href: "/tools/process-map", icon: "🗺️" },
-    ],
-  },
-  {
-    label: "Links",
-    items: [
-      { label: "GHL Funnel", href: "https://ajautomate.co/system-builtby-aj", icon: "🔥", external: true },
-      { label: "Featured Funnel", href: "https://convert.ajautomate.co/", icon: "🎯", external: true },
-      { label: "Featured Website", href: "https://webstudio.ajautomate.co/index.html", icon: "🌐", external: true },
-    ],
-  },
+const navItems: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "System Builds", href: "/system-builds" },
+  { label: "Funnels & Websites", href: "/projects" },
 ];
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
@@ -109,59 +82,34 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </button>
             </div>
 
-            {/* Scrollable nav */}
-            <nav className="flex-1 overflow-y-auto px-3 py-4">
-              {navSections.map((section) => (
-                <div key={section.label} className="mb-5 last:mb-0">
-                  <p className="mb-1.5 px-3 text-[10px] font-bold uppercase tracking-[0.18em] text-white/30">
-                    {section.label}
-                  </p>
-                  <div className="flex flex-col gap-0.5">
-                    {section.items.map((item) => {
-                      const active = !item.external && pathname === item.href;
-                      const cls = `group flex items-center gap-3 rounded-lg border-l-2 px-3 py-2.5 text-sm transition-colors ${
-                        active
-                          ? "border-yellow bg-white/[0.07] font-semibold text-white"
-                          : "border-transparent text-white/65 hover:bg-white/[0.05] hover:text-white"
-                      }`;
-                      return item.external ? (
-                        <a
-                          key={item.href}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={onClose}
-                          className={cls}
-                        >
-                          <span className="text-base">{item.icon}</span>
-                          <span className="flex-1">{item.label}</span>
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/25">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                          </svg>
-                        </a>
-                      ) : (
-                        <Link key={item.href} href={item.href} onClick={onClose} className={cls}>
-                          <span className="text-base">{item.icon}</span>
-                          <span className="flex-1">{item.label}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
+            {/* Nav */}
+            <nav className="px-4 pt-4">
+              <div className="flex flex-col gap-1.5">
+                {navItems.map((item) => {
+                  const active = pathname === item.href;
+                  const cls = `flex items-center rounded-lg border-l-2 px-3 py-3 text-lg font-semibold transition-colors ${
+                    active
+                      ? "border-yellow bg-white/[0.07] text-white"
+                      : "border-transparent text-white/70 hover:bg-white/[0.05] hover:text-white"
+                  }`;
+                  return (
+                    <Link key={item.href} href={item.href} onClick={onClose} className={cls}>
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
             </nav>
 
-            {/* Footer */}
-            <div className="shrink-0 border-t border-white/[0.08] px-4 py-4">
+            {/* Free Consultation CTA — extra space above */}
+            <div className="mt-12 px-4">
               <Link
                 href="/consult"
                 onClick={onClose}
-                className="mb-4 flex items-center justify-center rounded-lg bg-yellow px-4 py-2.5 text-sm font-bold text-black transition-colors hover:bg-yellow-dark"
+                className="flex items-center justify-center rounded-lg bg-yellow px-4 py-3 text-base font-bold text-black transition-colors hover:bg-yellow-dark"
               >
                 Free Consultation
               </Link>
-              <p className="text-[11px] font-semibold text-white/40">System-Built by AJ</p>
-              <p className="text-[11px] text-white/25">Allen Bactad</p>
             </div>
           </motion.div>
         </>

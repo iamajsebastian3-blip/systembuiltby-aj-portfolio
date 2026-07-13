@@ -2,6 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import {
+  LayoutTemplate,
+  GitBranch,
+  Workflow,
+  CalendarClock,
+  MessageSquare,
+  Bot,
+  MonitorSmartphone,
+  Plug,
+  type LucideIcon,
+} from "lucide-react";
 import { PageTransition } from "@/components/motion/page-transition";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerChildren, StaggerItem } from "@/components/motion/stagger-children";
@@ -16,15 +27,23 @@ const skills = [
   "End-to-end backend automation",
 ];
 
-const categories = [
-  { icon: "🔥", name: "Funnel & Website Systems", desc: "High-converting landing pages and sales funnels" },
-  { icon: "🔥", name: "CRM & Pipeline Systems", desc: "Structured lead tracking from first touch to close" },
-  { icon: "🔥", name: "Automation & Workflows", desc: "End-to-end GHL workflow automation" },
-  { icon: "📅", name: "Booking Systems", desc: "Calendar integration with automated reminders" },
-  { icon: "📲", name: "A2P 10DLC Setup", desc: "Compliant SMS registration and setup", isNew: true, heat: 1 },
-  { icon: "🤖", name: "AI Chatbot Systems", desc: "Intelligent bots that qualify leads 24/7", isNew: true, heat: 2 },
-  { icon: "🖥", name: "Custom Frontend", desc: "Tailored web interfaces and dashboards" },
-  { icon: "⚙️", name: "Advanced Integrations", desc: "API and webhook connections across your stack" },
+type Category = {
+  Icon: LucideIcon;
+  name: string;
+  desc: string;
+  isNew?: boolean;
+  heat?: number;
+};
+
+const categories: Category[] = [
+  { Icon: LayoutTemplate, name: "Funnel & Website Systems", desc: "High-converting landing pages and sales funnels" },
+  { Icon: GitBranch, name: "CRM & Pipeline Systems", desc: "Structured lead tracking from first touch to close" },
+  { Icon: Workflow, name: "Automation & Workflows", desc: "End-to-end GHL workflow automation" },
+  { Icon: CalendarClock, name: "Booking Systems", desc: "Calendar integration with automated reminders" },
+  { Icon: MessageSquare, name: "A2P 10DLC Setup", desc: "Compliant SMS registration and setup", isNew: true, heat: 1 },
+  { Icon: Bot, name: "AI Chatbot Systems", desc: "Intelligent bots that qualify leads 24/7", isNew: true, heat: 2 },
+  { Icon: MonitorSmartphone, name: "Custom Frontend", desc: "Tailored web interfaces and dashboards" },
+  { Icon: Plug, name: "Advanced Integrations", desc: "API and webhook connections across your stack" },
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -38,6 +57,26 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 function BodyText({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-[15px] leading-relaxed text-white/65">{children}</p>
+  );
+}
+
+function Strong({ children }: { children: React.ReactNode }) {
+  return <strong className="font-semibold text-white/90">{children}</strong>;
+}
+
+function EmphasisLine({
+  children,
+  accent,
+}: {
+  children: React.ReactNode;
+  accent?: boolean;
+}) {
+  return (
+    <p
+      className={`text-lg font-bold leading-snug ${accent ? "text-yellow" : "text-white"}`}
+    >
+      {children}
+    </p>
   );
 }
 
@@ -84,44 +123,108 @@ export function AboutContent() {
               </h1>
             </ScrollReveal>
 
-            {/* Body paragraphs */}
+            {/* My Story */}
             <ScrollReveal delay={0.1}>
+              <SectionLabel>My Story</SectionLabel>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.12}>
               <BodyText>
-                I don&apos;t build one-off tasks — I engineer complete systems.
-                Automations, AI workflows, and integrations designed to eliminate
-                guesswork, remove manual effort, and run reliably at scale.
+                My career didn&apos;t start in tech. It started with people,
+                problems, and process.
               </BodyText>
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
               <BodyText>
-                With over 5 years freelancing and a deep focus on automation, I
-                bring a full-stack mindset to every project — combining
-                GoHighLevel, n8n, and AI tools like Claude to build systems that
-                think, route, and scale on their own.
+                From <Strong>2016 to 2020</Strong>, I ran the floor as a{" "}
+                <Strong>Branch Head Supervisor</Strong> — leading teams, fixing
+                broken operations, and finding a quiet obsession with making
+                messy things run clean. But I hit a ceiling. I was growing faster
+                than the role could hold me.
               </BodyText>
             </ScrollReveal>
 
-            {/* Foundation */}
-            <ScrollReveal delay={0.2}>
-              <SectionLabel>Foundation — System Thinking</SectionLabel>
+            <ScrollReveal delay={0.17}>
+              <BodyText>
+                So on <Strong>October 16, 2020</Strong>, I resigned. No backup
+                plan.
+              </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.19}>
+              <BodyText>
+                The very next day, I started freelancing as an{" "}
+                <Strong>Amazon Product Researcher</Strong>. 😅 Everything was new
+                — I learned fast, failed faster, and figured it out on my own. Six
+                months later I was promoted to <Strong>Head of Operations</Strong>,
+                leading a team of researchers. That&apos;s where it clicked: I
+                loved building the <em>system</em> as much as doing the work.
+              </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.21}>
+              <BodyText>
+                Fast-forward five years, and that ceiling feeling came back — not
+                because I had nothing to do, but because I wanted to build
+                something bigger.
+              </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.23}>
+              <BodyText>
+                So in <Strong>November 2025</Strong>, I went down the AI and
+                automation rabbit hole. I enrolled in{" "}
+                <Strong>Coach Jaycee Tan&apos;s</Strong> automation program and
+                spent countless late nights learning GoHighLevel, APIs, and
+                workflows. I got addicted to solving business problems with
+                systems.
+              </BodyText>
             </ScrollReveal>
 
             <ScrollReveal delay={0.25}>
               <BodyText>
-                Before I touched a single funnel builder, I spent years studying
-                data, logic, and systems thinking. That analytical foundation
-                shapes everything I build — from pipeline architecture to
-                automation sequencing.
+                Three months later, in <Strong>February 2026</Strong>, I landed my
+                first client as an <Strong>Automation Specialist</Strong>. Soon
+                after, I partnered with <Strong>Coach Lish Aquino</Strong>,
+                founder of <Strong>Amazenation OPC</Strong>, rebuilding backend
+                operations — and the projects kept coming. Every build taught me
+                something new.
               </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.27}>
+              <BodyText>The biggest lesson?</BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.28}>
+              <EmphasisLine>
+                Businesses don&apos;t scale because people work harder. They scale
+                because their systems work smarter.
+              </EmphasisLine>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
               <BodyText>
-                I don&apos;t guess what might work. I map the customer journey,
-                identify friction points, and engineer solutions that are
-                measurable and repeatable.
+                I&apos;m still learning — technology moves too fast to ever stop.
+                Every new AI model, tool, and workflow is another chance to build
+                something better.
               </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.32}>
+              <BodyText>
+                Whether it&apos;s <Strong>GoHighLevel</Strong>,{" "}
+                <Strong>n8n</Strong>, <Strong>AI agents</Strong>, or{" "}
+                <Strong>backend automation</Strong>, my goal never changes:
+              </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.33}>
+              <EmphasisLine accent>
+                Engineer systems that eliminate manual work, simplify operations,
+                and help businesses scale with confidence.
+              </EmphasisLine>
             </ScrollReveal>
 
             {/* What I Do */}
@@ -256,10 +359,12 @@ export function AboutContent() {
               <StaggerChildren className="flex flex-col gap-2">
                 {categories.map((cat) => (
                   <StaggerItem key={cat.name}>
-                    <div className="flex items-center gap-3 rounded-[10px] border border-white/[0.08] bg-white/[0.04] px-3.5 py-3 transition-colors hover:border-persian/30 hover:bg-persian/[0.12] hover:text-white">
-                      <span className="text-base shrink-0">{cat.icon}</span>
+                    <div className="group flex items-center gap-3 rounded-[10px] border border-white/[0.08] border-l-2 border-l-transparent bg-white/[0.04] px-3.5 py-3 transition-all hover:border-persian/30 hover:border-l-yellow hover:bg-persian/[0.12]">
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-persian/25 bg-persian/15 text-white/75 transition-colors group-hover:border-yellow/40 group-hover:text-yellow">
+                        <cat.Icon size={16} strokeWidth={2} aria-hidden />
+                      </span>
                       <div className="flex-1 min-w-0">
-                        <span className="text-sm font-semibold text-white/65">{cat.name}</span>
+                        <span className="text-sm font-semibold text-white/70 transition-colors group-hover:text-white">{cat.name}</span>
                         <p className="text-[0.65rem] text-white/35 mt-0.5 leading-snug">{cat.desc}</p>
                       </div>
                       {cat.isNew && (
