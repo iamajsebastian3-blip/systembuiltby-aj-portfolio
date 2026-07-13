@@ -42,7 +42,7 @@ export function FAQ() {
   const toggle = (index: number) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-16 lg:py-32">
       <div className="pointer-events-none absolute left-[-6%] top-1/3 h-[380px] w-[380px] rounded-full bg-persian/12 blur-[140px]" />
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">

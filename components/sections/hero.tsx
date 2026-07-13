@@ -44,7 +44,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center lg:justify-center"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden justify-center lg:flex"
       >
         <div className="relative aspect-[1089/1329] h-[58vh] max-h-[540px] w-auto lg:h-[80vh] lg:max-h-[760px] lg:translate-x-[6%]">
           <Image
@@ -96,6 +96,22 @@ export function Hero() {
           >
             AJ BACTAD
           </motion.h1>
+
+          {/* Mobile portrait — in-flow below the name so it never overlaps the buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative mx-auto aspect-[1089/1329] w-full max-w-[240px] lg:hidden"
+          >
+            <Image
+              src="/aj-hero-cutout.webp"
+              alt="Allen Bactad — GHL Expert & AI Specialist"
+              fill
+              priority
+              className="object-contain object-bottom"
+            />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }}

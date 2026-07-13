@@ -118,7 +118,7 @@ export function Services() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 scroll-mt-16">
+    <section id="services" className="relative py-16 lg:py-32 scroll-mt-16">
       <div className="pointer-events-none absolute top-1/2 left-[-5%] w-[400px] h-[400px] bg-[#2a0a5e]/30 blur-[120px] rounded-full -translate-y-1/2" />
 
       <div className="relative mx-auto max-w-[1100px] px-8">

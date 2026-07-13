@@ -14,6 +14,16 @@ const tools = [
   { name: "GPT", logo: "/logos/openai.svg", invert: true, x: 1000, y: 480, entry: "M1000 480 H660 V350", dur: "4.0s", delay: "0.9s" },
 ];
 
+// Mobile board tile positions (portrait 380x560 space), same order as `tools`
+const mobilePos = [
+  { x: 95, y: 210 },
+  { x: 285, y: 210 },
+  { x: 68, y: 350 },
+  { x: 312, y: 350 },
+  { x: 110, y: 490 },
+  { x: 270, y: 490 },
+];
+
 // Decorative faint traces (no pulse) for circuit density
 const decor = [
   "M600 178 V70 H960",
@@ -151,16 +161,56 @@ export function TechStack() {
         </div>
       </div>
 
-      {/* ---------- Mobile: chip + grid ---------- */}
-      <div className="mt-12 px-6 lg:hidden">
-        <div className="mx-auto mb-10 flex justify-center">
-          <div className="glow-border relative flex h-24 w-24 items-center justify-center rounded-[22px] bg-[#0d0b16]">
-            <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-3xl font-black text-transparent">AI</span>
+      {/* ---------- Mobile: wired circuit (hub + connected tiles) ---------- */}
+      <div className="mt-10 px-6 lg:hidden">
+        <div className="relative mx-auto aspect-[380/560] w-full max-w-[360px]">
+          <svg viewBox="0 0 380 560" preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full">
+            <defs>
+              <linearGradient id="tsm-pulse" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="560">
+                <stop offset="0%" stopColor="#f6cb1f" />
+                <stop offset="45%" stopColor="#7c3aed" />
+                <stop offset="100%" stopColor="#5e17eb" />
+              </linearGradient>
+              <filter id="tsm-glow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="2.5" result="b" />
+                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+            {mobilePos.map((m, i) => (
+              <path key={`mb-${i}`} d={`M${m.x} ${m.y} L190 72`} stroke="#5e17eb" strokeOpacity={0.3} strokeWidth={1.5} fill="none" />
+            ))}
+            {mobilePos.map((m, i) => (
+              <path
+                key={`mp-${i}`}
+                className="circuit-pulse"
+                d={`M${m.x} ${m.y} L190 72`}
+                stroke="url(#tsm-pulse)"
+                strokeWidth={2.5}
+                fill="none"
+                pathLength={1}
+                strokeDasharray="0.2 0.8"
+                filter="url(#tsm-glow)"
+                style={{ ["--dur" as string]: tools[i].dur, animationDelay: tools[i].delay }}
+              />
+            ))}
+          </svg>
+
+          {/* hub */}
+          <div className="absolute left-1/2 z-10 -translate-x-1/2 -translate-y-1/2" style={{ top: pct(72, 560) }}>
+            <div className="glow-border relative flex h-[76px] w-[76px] items-center justify-center rounded-[20px] bg-[#0d0b16]">
+              <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-2xl font-black text-transparent">AI</span>
+            </div>
           </div>
-        </div>
-        <div className="mx-auto grid max-w-md grid-cols-3 gap-y-8">
-          {tools.map((t) => (
-            <LogoTile key={t.name} name={t.name} logo={t.logo} invert={t.invert} />
+
+          {/* tiles */}
+          {tools.map((t, i) => (
+            <div
+              key={t.name}
+              className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+              style={{ left: pct(mobilePos[i].x, 380), top: pct(mobilePos[i].y, 560) }}
+            >
+              <LogoTile name={t.name} logo={t.logo} invert={t.invert} />
+            </div>
           ))}
         </div>
       </div>
