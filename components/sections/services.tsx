@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { Parallax } from "@/components/motion/parallax";
 import {
   StaggerChildren,
   StaggerItem,
@@ -119,7 +120,9 @@ export function Services() {
 
   return (
     <section id="services" className="relative py-16 lg:py-32 scroll-mt-16">
-      <div className="pointer-events-none absolute top-1/2 left-[-5%] w-[400px] h-[400px] bg-[#2a0a5e]/30 blur-[120px] rounded-full -translate-y-1/2" />
+      <Parallax className="pointer-events-none absolute inset-0" speed={70}>
+        <div className="absolute top-1/2 left-[-5%] w-[400px] h-[400px] bg-[#2a0a5e]/30 blur-[120px] rounded-full -translate-y-1/2" />
+      </Parallax>
 
       <div className="relative mx-auto max-w-[1100px] px-8">
         <div className="text-center mb-14">

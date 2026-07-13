@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { Parallax } from "@/components/motion/parallax";
 import {
   StaggerChildren,
   StaggerItem,
@@ -144,7 +145,9 @@ function VideoCard({ t }: { t: VideoTestimonial }) {
 export function Testimonials() {
   return (
     <section className="relative py-24 lg:py-32">
-      <div className="pointer-events-none absolute top-0 right-[20%] w-[400px] h-[400px] bg-persian/10 blur-[100px] rounded-full" />
+      <Parallax className="pointer-events-none absolute inset-0" speed={65}>
+        <div className="absolute top-0 right-[20%] w-[400px] h-[400px] bg-persian/10 blur-[100px] rounded-full" />
+      </Parallax>
 
       <div className="relative mx-auto max-w-7xl px-6">
         <ScrollReveal>

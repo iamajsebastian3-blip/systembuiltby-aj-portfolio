@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { Parallax } from "@/components/motion/parallax";
 
 const faqs = [
   {
@@ -43,7 +44,9 @@ export function FAQ() {
 
   return (
     <section className="relative py-16 lg:py-32">
-      <div className="pointer-events-none absolute left-[-6%] top-1/3 h-[380px] w-[380px] rounded-full bg-persian/12 blur-[140px]" />
+      <Parallax className="pointer-events-none absolute inset-0" speed={60}>
+        <div className="absolute left-[-6%] top-1/3 h-[380px] w-[380px] rounded-full bg-persian/12 blur-[140px]" />
+      </Parallax>
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         {/* LEFT — heading */}

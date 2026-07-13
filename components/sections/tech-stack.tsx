@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { Parallax } from "@/components/motion/parallax";
 
 // The 6 tools that make up the system. Coords live in a 1200x560 board space so the
 // SVG traces and the HTML tiles share one coordinate system (perfect alignment).
@@ -65,7 +66,9 @@ const bottomPins = topPins;
 export function TechStack() {
   return (
     <section className="relative overflow-hidden py-20 lg:py-28">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-persian/12 blur-[160px]" />
+      <Parallax className="pointer-events-none absolute inset-0" speed={70}>
+        <div className="absolute left-1/2 top-1/2 h-[560px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-persian/12 blur-[160px]" />
+      </Parallax>
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <ScrollReveal>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { Magnetic } from "@/components/motion/magnetic";
+import { Parallax } from "@/components/motion/parallax";
 
 // Featured builds shown as landscape (Canva-size) thumbnail cards in a slideshow
 const cards = [
@@ -107,8 +109,10 @@ export function FeaturedBuilds() {
             <circle key={`n-${i}`} cx={x} cy={y} r={3.5} fill="#7c3aed" fillOpacity={0.9} />
           ))}
         </svg>
-        <div className="absolute right-[8%] top-[6%] h-[460px] w-[460px] rounded-full bg-persian/28 blur-[140px]" />
-        <div className="absolute bottom-[4%] left-[16%] h-[340px] w-[340px] rounded-full bg-yellow/14 blur-[130px]" />
+        <Parallax className="absolute inset-0" speed={90}>
+          <div className="absolute right-[8%] top-[6%] h-[460px] w-[460px] rounded-full bg-persian/28 blur-[140px]" />
+          <div className="absolute bottom-[4%] left-[16%] h-[340px] w-[340px] rounded-full bg-yellow/14 blur-[130px]" />
+        </Parallax>
         {/* lighter left scrim so the network stays visible */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#08060e] via-[#08060e]/65 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#08060e] to-transparent" />
@@ -133,12 +137,14 @@ export function FeaturedBuilds() {
               A look at the automations, funnels, and AI workflows I&apos;ve engineered for real
               businesses&mdash;each one a working system, not a one-off task.
             </p>
-            <Link
-              href="/system-builds"
-              className="mt-8 inline-flex items-center rounded-xl border border-persian/60 bg-persian px-7 py-3.5 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
-            >
-              Explore Builds &rarr;
-            </Link>
+            <Magnetic className="mt-8">
+              <Link
+                href="/system-builds"
+                className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-7 py-3.5 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
+              >
+                Explore Builds &rarr;
+              </Link>
+            </Magnetic>
           </ScrollReveal>
         </div>
 

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { Parallax } from "@/components/motion/parallax";
 
 export function FinalCTA() {
   useEffect(() => {
@@ -17,10 +18,10 @@ export function FinalCTA() {
 
   return (
     <section className="relative overflow-hidden py-16 lg:py-32">
-      <div className="pointer-events-none absolute inset-0">
+      <Parallax className="pointer-events-none absolute inset-0" speed={75}>
         <div className="absolute left-[15%] top-[15%] h-[360px] w-[360px] rounded-full bg-persian/18 blur-[130px]" />
         <div className="absolute bottom-[15%] right-[18%] h-[280px] w-[280px] rounded-full bg-yellow/8 blur-[110px]" />
-      </div>
+      </Parallax>
 
       <div className="relative mx-auto max-w-5xl px-6">
         <ScrollReveal>

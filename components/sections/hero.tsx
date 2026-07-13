@@ -2,17 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Dancing_Script } from "next/font/google";
+import { Counter } from "@/components/motion/counter";
+import { Magnetic } from "@/components/motion/magnetic";
 
 // Script font ONLY for the "Hello, I'm" eyebrow (matches the reference); rest stays Inter
 const script = Dancing_Script({ subsets: ["latin"], weight: ["600", "700"] });
 
 // PLACEHOLDER stats — AJ to confirm real numbers
 const stats = [
-  { value: "5+", label: "Years Experience" },
-  { value: "40+", label: "Projects Completed" },
-  { value: "20+", label: "Happy Clients" },
+  { target: 5, suffix: "+", label: "Years Experience" },
+  { target: 40, suffix: "+", label: "Projects Completed" },
+  { target: 20, suffix: "+", label: "Happy Clients" },
 ];
 
 const socials = [
@@ -23,21 +26,25 @@ const socials = [
 ];
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const wordY = useTransform(scrollYProgress, [0, 1], [0, -70]);
+
   return (
-    <section className="relative flex min-h-[calc(100vh-72px)] items-center overflow-hidden">
+    <section ref={sectionRef} className="relative flex min-h-[calc(100vh-72px)] items-center overflow-hidden">
       {/* ambient brand glows */}
       <div className="pointer-events-none absolute -top-[10%] right-[12%] h-[420px] w-[420px] rounded-full bg-persian/20 blur-[130px]" />
       <div className="pointer-events-none absolute bottom-[10%] left-[4%] h-[320px] w-[320px] rounded-full bg-yellow/8 blur-[110px]" />
 
-      {/* Giant background wordmark */}
-      <div className="pointer-events-none absolute inset-x-0 top-[10%] z-0 flex justify-center">
-        <span
-          className="select-none bg-gradient-to-b from-[#8b4dff] via-persian to-persian/30 bg-clip-text font-black leading-none tracking-tighter text-transparent"
-          style={{ fontSize: "clamp(4.5rem, 20vw, 19rem)" }}
-        >
+      {/* Giant background wordmark (subtle scroll parallax) */}
+      <motion.div style={{ y: wordY }} className="pointer-events-none absolute inset-x-0 top-1 z-0 flex justify-center lg:top-[10%]">
+        <span className="select-none whitespace-nowrap bg-gradient-to-b from-[#8b4dff] via-persian to-persian/30 bg-clip-text text-[3.4rem] font-black leading-none tracking-tighter text-transparent sm:text-[6.5rem] md:text-[9rem] lg:text-[13rem] xl:text-[18rem]">
           PORTFOLIO
         </span>
-      </div>
+      </motion.div>
 
       {/* Portrait cutout — center stage, bottom anchored */}
       <motion.div
@@ -97,19 +104,20 @@ export function Hero() {
             AJ BACTAD
           </motion.h1>
 
-          {/* Mobile portrait — in-flow below the name so it never overlaps the buttons */}
+          {/* Mobile portrait — professional photo card below the name */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative mx-auto aspect-[1089/1329] w-full max-w-[240px] lg:hidden"
+            className="relative mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl border border-white/[0.10] shadow-[0_18px_50px_rgba(0,0,0,0.45)] lg:hidden"
           >
             <Image
-              src="/aj-hero-cutout.webp"
-              alt="Allen Bactad — GHL Expert & AI Specialist"
-              fill
+              src="/aj-bactad-photo.webp"
+              alt="AJ Bactad — GHL Certified & AI Automation Specialist"
+              width={1122}
+              height={1402}
               priority
-              className="object-contain object-bottom"
+              className="h-auto w-full"
             />
           </motion.div>
 
@@ -137,18 +145,22 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.45 }}
             className="flex flex-wrap items-center gap-4 pt-6"
           >
-            <Link
-              href="/consult"
-              className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-6 py-3 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
-            >
-              Book Free Consultation &rarr;
-            </Link>
-            <Link
-              href="/system-builds"
-              className="inline-flex items-center rounded-xl border border-white/[0.08] bg-white/[0.04] px-6 py-3 font-semibold text-white/80 backdrop-blur-sm transition-all hover:bg-white/[0.07]"
-            >
-              Check My System Build
-            </Link>
+            <Magnetic>
+              <Link
+                href="/consult"
+                className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-6 py-3 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
+              >
+                Book Free Consultation &rarr;
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link
+                href="/system-builds"
+                className="inline-flex items-center rounded-xl border border-white/[0.08] bg-white/[0.04] px-6 py-3 font-semibold text-white/80 backdrop-blur-sm transition-all hover:bg-white/[0.07]"
+              >
+                Check My System Build
+              </Link>
+            </Magnetic>
           </motion.div>
 
           <motion.div
@@ -181,9 +193,11 @@ export function Hero() {
         >
           {stats.map((stat) => (
             <div key={stat.label} className="flex flex-col lg:items-end lg:text-right">
-              <span className="text-3xl font-extrabold text-yellow sm:text-4xl lg:text-5xl">
-                {stat.value}
-              </span>
+              <Counter
+                target={stat.target}
+                suffix={stat.suffix}
+                className="text-3xl font-extrabold text-yellow sm:text-4xl lg:text-5xl"
+              />
               <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/45 sm:text-xs">
                 {stat.label}
               </span>
