@@ -99,6 +99,15 @@ const claudeProjects: SystemBuild[] = [
     image: "/system-builds/linkedin-content-automation.webp",
     videoId: "_zWVgnQzDuI",
   },
+  {
+    title: "Slack AI Agent",
+    category: "Claude Test Project",
+    description:
+      "A Slack-native AI agent powered by Claude, ask it a question or drop a task in any channel and it reasons, responds, and takes action without ever leaving Slack. A hands-on Claude test project for real-time team automation. 🚀",
+    emoji: "💬",
+    image: "/system-builds/slack-agent.webp",
+    videoId: "jMBQzVgpXyU",
+  },
 ];
 
 const zapierTutorials: SystemBuild[] = [
