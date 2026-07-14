@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
     "You receive (1) a CATALOG of available section variations and (2) a client's full funnel COPY. " +
     'Each catalog item is {id, label, v:[{n,d,f}]} where n=variation number, d=design/vibe description, f=best-for tags. ' +
     "Do three things: (a) detect which sections from the catalog are present in the copy; " +
-    "(b) for each present section extract the EXACT verbatim copy from the input that belongs to it — never rewrite, summarize, or invent text; " +
+    "(b) for each present section extract the EXACT verbatim copy from the input that belongs to it, never rewrite, summarize, or invent text; " +
     "(c) recommend the single best-fit variation for that section by matching the copy's niche, tone and vibe to each variation's d/f, with a one-sentence reason. " +
     "Respond with STRICT JSON only (no markdown). Schema: " +
     '{"niche":string,"vibe":string,"sections":[{"sectionId":string,"recommendedVariation":string,"reason":string,"copy":string}]}. ' +

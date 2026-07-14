@@ -161,7 +161,7 @@ function PhoneCard({ slide, interactive }: { slide: Slide; interactive: boolean 
         interactive ? "ring-2 ring-persian/40" : ""
       }`}
     >
-      {/* Screenshot — fills the phone */}
+      {/* Screenshot, fills the phone */}
       <Image
         src={slide.image}
         alt={`${slide.title} preview`}

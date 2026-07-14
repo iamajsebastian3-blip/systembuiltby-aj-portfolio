@@ -18,7 +18,7 @@ export function PortfolioContent() {
             </h1>
             <p className="text-white/70 text-lg max-w-xl mx-auto">
               Every project is engineered to generate measurable business
-              outcomes — not just look pretty.
+              outcomes, not just look pretty.
             </p>
           </ScrollReveal>
         </div>

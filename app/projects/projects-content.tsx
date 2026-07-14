@@ -21,7 +21,7 @@ type TabId = (typeof tabs)[number]["id"];
 
 
 /* ------------------------------------------------------------------ */
-/*  Data — Funnels                                                     */
+/*  Data, Funnels                                                     */
 /* ------------------------------------------------------------------ */
 
 const funnels = [
@@ -152,7 +152,7 @@ const funnels = [
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Data — Premium Coaching Funnels (with mockup galleries)            */
+/*  Data, Premium Coaching Funnels (with mockup galleries)            */
 /* ------------------------------------------------------------------ */
 
 const coachingFunnels = [
@@ -244,7 +244,7 @@ const coachingFunnels = [
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Data — Websites                                                    */
+/*  Data, Websites                                                    */
 /* ------------------------------------------------------------------ */
 
 const websites = [
@@ -333,7 +333,7 @@ const websites = [
 
 
 /* ------------------------------------------------------------------ */
-/*  Lazy-mount hook — only render iframes after the card enters view   */
+/*  Lazy-mount hook, only render iframes after the card enters view   */
 /* ------------------------------------------------------------------ */
 
 function useInViewOnce<T extends HTMLElement>(rootMargin = "200px") {
@@ -731,11 +731,11 @@ function CategoryHeading({ children, featured = false }: { children: React.React
 function FunnelsPanel() {
   return (
     <div className="space-y-14">
-      {/* Category — Premium Client Funnels (highlighted) */}
+      {/* Category, Premium Client Funnels (highlighted) */}
       <div className="glow-border rounded-2xl bg-white/[0.02] p-5 sm:p-7">
         <CategoryHeading featured>Premium Client Funnels</CategoryHeading>
         <p className="-mt-4 mb-6 text-sm text-white/60">
-          Live client builds — coaching, personal brand & business growth. Tap a card to preview the mockups, then view the live build.
+          Live client builds, coaching, personal brand & business growth. Tap a card to preview the mockups, then view the live build.
         </p>
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {coachingFunnels.map((f) => (
@@ -746,7 +746,7 @@ function FunnelsPanel() {
         </StaggerChildren>
       </div>
 
-      {/* Category — Types of Funnels */}
+      {/* Category, Types of Funnels */}
       <div>
         <CategoryHeading>Types of Funnels</CategoryHeading>
         <StaggerChildren className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -799,7 +799,7 @@ export function ProjectsContent() {
               Work I&apos;ve Built.
             </h1>
             <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
-              Live funnels and websites &mdash; every build engineered for real
+              Live funnels and websites, every build engineered for real
               business outcomes.
             </p>
           </div>

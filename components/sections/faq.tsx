@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "What do you need from me to start?",
     answer:
-      "Access to your existing tools (HighLevel, domain, email provider, etc.), a 30-minute kickoff call, and your current offer details. I handle everything else — build, logic, integrations, and testing.",
+      "Access to your existing tools (HighLevel, domain, email provider, etc.), a 30-minute kickoff call, and your current offer details. I handle everything else, build, logic, integrations, and testing.",
   },
   {
     question: "How long does the build take?",
@@ -49,7 +49,7 @@ export function FAQ() {
       </Parallax>
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-        {/* LEFT — heading */}
+        {/* LEFT, heading */}
         <div className="lg:sticky lg:top-28 lg:self-start">
           <ScrollReveal>
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-persian-light">
@@ -61,12 +61,12 @@ export function FAQ() {
               Inquiries
             </h2>
             <p className="mt-6 max-w-sm text-lg leading-relaxed text-white/50">
-              The questions I get most before a build&mdash;answered straight, no fluff.
+              The questions I get most before a build, answered straight, no fluff.
             </p>
           </ScrollReveal>
         </div>
 
-        {/* RIGHT — accordion */}
+        {/* RIGHT, accordion */}
         <div className="flex flex-col">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;

@@ -17,7 +17,7 @@ import { Magnetic } from "@/components/motion/magnetic";
 const tabs = ["GoHighLevel", "Zapier", "N8N", "Trigger.dev"];
 
 /* ================================================================
-   GHL — light builder canvas, violet/gold, onboarding, moving pulse
+   GHL, light builder canvas, violet/gold, onboarding, moving pulse
 ================================================================ */
 type GNode = { x: number; y: number; icon: LucideIcon; label: string; sub: string; theme?: "trigger" | "active" | "green" | "red" };
 
@@ -102,14 +102,14 @@ function GhlFlow() {
 }
 
 /* ================================================================
-   Trigger.dev — dark run view with LIVE scrolling logs
+   Trigger.dev, dark run view with LIVE scrolling logs
 ================================================================ */
 const tRuns = [
   { icon: Clock, name: "schedule.cron", detail: "0 8 * * 0", dur: "0ms", ts: "08:00:00", status: "done" as const },
   { icon: Database, name: "fetch.sources", detail: "12 items pulled", dur: "1.2s", ts: "08:00:01", status: "done" as const },
   { icon: Sparkles, name: "ai.generate", detail: "Claude · draft + image", dur: "3.4s", ts: "08:00:02", status: "running" as const },
-  { icon: ShieldCheck, name: "retry.guard", detail: "0 retries", dur: "—", ts: "—", status: "queued" as const },
-  { icon: Send, name: "publish.output", detail: "LinkedIn · Instagram", dur: "—", ts: "—", status: "queued" as const },
+  { icon: ShieldCheck, name: "retry.guard", detail: "0 retries", dur: "-", ts: "-", status: "queued" as const },
+  { icon: Send, name: "publish.output", detail: "LinkedIn · Instagram", dur: "-", ts: "-", status: "queued" as const },
 ];
 
 const logSeq = [
@@ -198,7 +198,7 @@ function TriggerFlow() {
 }
 
 /* ================================================================
-   N8N — real dark canvas (weekly analytics report)
+   N8N, real dark canvas (weekly analytics report)
 ================================================================ */
 type NNode = { x: number; y: number; icon: LucideIcon; title: string; sub?: string; color: string; trigger?: boolean };
 const n8: NNode[] = [
@@ -262,7 +262,7 @@ function N8nFlow() {
 }
 
 /* ================================================================
-   Zapier — vertical editor: catch → store → split → route
+   Zapier, vertical editor: catch → store → split → route
 ================================================================ */
 type ZCardT = {
   top: number; center: number; width: number;
@@ -358,9 +358,9 @@ function ZapierFlow() {
 /* ================================================================ */
 const meta = [
   { title: "Client Onboarding", subtitle: "One trigger fires. The whole onboarding runs itself.", chrome: "light" as const },
-  { title: "Zapier — Lead Router", subtitle: "Catch the lead. Route it everywhere it needs to go.", chrome: "light" as const },
-  { title: "N8N — Weekly Analytics Report", subtitle: "Connect anything to everything.", chrome: "dark" as const },
-  { title: "Trigger.dev — Run", subtitle: "Schedule it once. It runs on autopilot.", chrome: "dark" as const },
+  { title: "Zapier, Lead Router", subtitle: "Catch the lead. Route it everywhere it needs to go.", chrome: "light" as const },
+  { title: "N8N, Weekly Analytics Report", subtitle: "Connect anything to everything.", chrome: "dark" as const },
+  { title: "Trigger.dev, Run", subtitle: "Schedule it once. It runs on autopilot.", chrome: "dark" as const },
 ];
 
 // Scales a fixed-design-width block down to fit narrow screens (whole diagram stays visible)
@@ -466,7 +466,7 @@ export function AutomationFlows() {
       <ScrollReveal delay={0.15}>
         <div className="mt-12 flex flex-col items-center gap-4 px-6 text-center">
           <p className="max-w-md text-sm leading-relaxed text-white/55">
-            Want a system like this wired into your business&mdash;so the busywork runs itself?
+            Want a system like this wired into your business, so the busywork runs itself?
           </p>
           <Magnetic>
             <Link

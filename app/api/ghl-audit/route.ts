@@ -116,7 +116,7 @@ async function generateRecommendations(checks: CheckResult[], apiKey: string): P
     .map((c) => {
       const status = c.status.toUpperCase();
       const count = c.count ?? "n/a";
-      const detail = c.detail ? ` — ${c.detail}` : "";
+      const detail = c.detail ? `, ${c.detail}` : "";
       return `[${status}] ${c.title} (count=${count})${detail}`;
     })
     .join("\n");
@@ -234,7 +234,7 @@ export async function POST(req: NextRequest) {
       return {
         count: list.length,
         status: list.length === 0 ? "critical" : "pass",
-        detail: list.length === 0 ? "Zero campaigns — marketing automation is unused" : undefined,
+        detail: list.length === 0 ? "Zero campaigns, marketing automation is unused" : undefined,
         items,
       };
     }),
@@ -253,7 +253,7 @@ export async function POST(req: NextRequest) {
       return {
         count: list.length,
         status: list.length === 0 ? "warning" : "pass",
-        detail: list.length === 0 ? "No trigger links — limits automation tracking" : undefined,
+        detail: list.length === 0 ? "No trigger links, limits automation tracking" : undefined,
         items,
       };
     }),
@@ -358,7 +358,7 @@ export async function POST(req: NextRequest) {
       return {
         count: list.length,
         status: list.length === 0 ? "critical" : "pass",
-        detail: list.length === 0 ? "No calendars set up — booking flow won't work" : undefined,
+        detail: list.length === 0 ? "No calendars set up, booking flow won't work" : undefined,
         items,
       };
     }),
@@ -377,7 +377,7 @@ export async function POST(req: NextRequest) {
       return {
         count: list.length,
         status: list.length === 0 ? "warning" : "pass",
-        detail: list.length === 0 ? "No forms — limits lead capture" : undefined,
+        detail: list.length === 0 ? "No forms, limits lead capture" : undefined,
         items,
       };
     }),

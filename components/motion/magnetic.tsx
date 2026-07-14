@@ -4,7 +4,7 @@ import { useRef, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 // Subtly pulls its child toward the cursor on hover, springs back on leave.
-// Pointer-only — on touch devices (no mousemove) it stays perfectly still.
+// Pointer-only, on touch devices (no mousemove) it stays perfectly still.
 export function Magnetic({
   children,
   className,

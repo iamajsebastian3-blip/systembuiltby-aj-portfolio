@@ -1,7 +1,7 @@
 "use client";
 
 /* ------------------------------------------------------------------ */
-/*  PREVIEW — Toolkit Marquee with real brand SVG paths                */
+/*  PREVIEW, Toolkit Marquee with real brand SVG paths                */
 /* ------------------------------------------------------------------ */
 
 const toolkitItems = [
@@ -225,7 +225,7 @@ export default function PreviewPage() {
 
       <div className="relative z-10">
         <div className="fixed top-16 left-0 right-0 z-40 bg-yellow text-black text-center py-2 text-xs font-bold uppercase tracking-widest">
-          Preview — White Marquee Cards + Real Logos + Social Links
+          Preview, White Marquee Cards + Real Logos + Social Links
         </div>
 
         {/* Hero CTA + Social links preview */}
@@ -249,7 +249,7 @@ export default function PreviewPage() {
         {/* Marquee preview */}
         <section className="pt-12 pb-4 px-6 max-w-3xl mx-auto">
           <h2 className="text-3xl font-black text-white mb-2">Toolkit Marquee</h2>
-          <p className="text-sm text-white/40 mb-8">White cards with brand-colored SVG logos — 11 tools</p>
+          <p className="text-sm text-white/40 mb-8">White cards with brand-colored SVG logos, 11 tools</p>
         </section>
 
         <PreviewMarquee />

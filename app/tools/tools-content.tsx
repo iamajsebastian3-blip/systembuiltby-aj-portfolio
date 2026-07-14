@@ -20,7 +20,7 @@ const revenueTools: Tool[] = [
     icon: "📊",
     title: "Revenue Audit",
     description:
-      "Three-part audit — calculate your revenue leak, see typical ROI multipliers, and benchmark against the most common audit findings.",
+      "Three-part audit, calculate your revenue leak, see typical ROI multipliers, and benchmark against the most common audit findings.",
     cta: "Run Revenue Audit",
     badge: null,
   },
@@ -50,16 +50,16 @@ const buildLearnTools: Tool[] = [
     icon: "🔒",
     title: "Funnel Section Builder",
     description:
-      "Internal tool — wireframe reference + copy-ready AI prompts for every funnel section. Passcode required to enter.",
+      "Internal tool, wireframe reference + copy-ready AI prompts for every funnel section. Passcode required to enter.",
     cta: "Enter Passcode",
     badge: "PRIVATE",
   },
   {
     href: "https://ai-specialist-learning-hub.vercel.app/",
     icon: "🎓",
-    title: "AI Specialist — Learning Hub",
+    title: "AI Specialist, Learning Hub",
     description:
-      "My personal learning hub for mastering AI-specialist skills — lessons, references, and resources. Same passcode as the Funnel Section Builder.",
+      "My personal learning hub for mastering AI-specialist skills, lessons, references, and resources. Same passcode as the Funnel Section Builder.",
     cta: "Open Learning Hub",
     badge: "PRIVATE",
   },
@@ -73,11 +73,11 @@ const aiStack = [
     tag: "Agentic Framework",
     icon: "⚡",
     description:
-      "Brainstorm → plan → TDD → review. The skill methodology behind how I ship — structured, test-driven, and reviewed before merge.",
+      "Brainstorm → plan → TDD → review. The skill methodology behind how I ship, structured, test-driven, and reviewed before merge.",
     href: "https://github.com/obra/superpowers",
   },
   {
-    name: "GSD — Get Shit Done",
+    name: "GSD, Get Shit Done",
     author: "gsd-build",
     tag: "Workflow",
     icon: "🎯",
@@ -91,7 +91,7 @@ const aiStack = [
     tag: "Dev Team",
     icon: "🧱",
     description:
-      "23 opinionated tools that turn Claude into a full engineering team — from CEO and designer down to QA and release.",
+      "23 opinionated tools that turn Claude into a full engineering team, from CEO and designer down to QA and release.",
     href: "https://github.com/garrytan/gstack",
   },
   {
@@ -100,7 +100,7 @@ const aiStack = [
     tag: "Live Docs",
     icon: "📚",
     description:
-      "Version-accurate library documentation injected straight into context — no stale APIs, no hallucinated code.",
+      "Version-accurate library documentation injected straight into context, no stale APIs, no hallucinated code.",
     href: "https://github.com/upstash/context7",
   },
   {
@@ -109,7 +109,7 @@ const aiStack = [
     tag: "Memory",
     icon: "🧠",
     description:
-      "Persistent memory across sessions — captures the work, compresses it, and re-injects the relevant context next time.",
+      "Persistent memory across sessions, captures the work, compresses it, and re-injects the relevant context next time.",
     href: "https://github.com/thedotmack/claude-mem",
   },
   {
@@ -118,7 +118,7 @@ const aiStack = [
     tag: "Design Skill",
     icon: "🎨",
     description:
-      "Anthropic's own skill for distinctive, intentional UI — the anti-template design layer behind my funnels and sites.",
+      "Anthropic's own skill for distinctive, intentional UI, the anti-template design layer behind my funnels and sites.",
     href: "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
   },
 ];
@@ -187,14 +187,14 @@ export function ToolsContent() {
               The Stack &amp; Tools I Build With
             </h1>
             <p className="text-white/70 text-lg max-w-xl mx-auto">
-              The AI dev stack behind my builds — plus free tools to audit your
+              The AI dev stack behind my builds, plus free tools to audit your
               GoHighLevel systems, revenue, and deliverability.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* 1. My AI Dev Stack — Claude Code skills I build with */}
+      {/* 1. My AI Dev Stack, Claude Code skills I build with */}
       <section id="ai-dev-stack" className="scroll-mt-24 py-14 px-6">
         <div className="mx-auto max-w-[1100px]">
           <p className="mb-2 text-xs font-bold uppercase tracking-widest text-persian-light/80">
@@ -205,7 +205,7 @@ export function ToolsContent() {
           </h2>
           <p className="mb-7 max-w-2xl text-sm leading-relaxed text-white/55">
             The Claude Code skills &amp; frameworks powering how I ship automations, funnels, and
-            AI systems &mdash; fast, and production-grade. Tap any to view it on GitHub.
+            AI systems, fast, and production-grade. Tap any to view it on GitHub.
           </p>
           <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {aiStack.map((s) => (
@@ -293,7 +293,7 @@ export function ToolsContent() {
         </div>
       </section>
 
-      {/* 4. Build & Learn Hub — passcode-gated builder + learning tools */}
+      {/* 4. Build & Learn Hub, passcode-gated builder + learning tools */}
       <section id="build-learn-hub" className="scroll-mt-24 pb-24 px-6">
         <div className="mx-auto max-w-[1100px]">
           <p className="mb-4 text-xs font-bold uppercase tracking-widest text-persian-light/80">

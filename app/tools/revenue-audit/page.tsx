@@ -9,7 +9,7 @@ import { AuditTracker } from "@/components/interactive/audit-tracker";
 export const metadata: Metadata = {
   title: "Revenue Audit",
   description:
-    "Three-part revenue audit — calculate your revenue leak, see typical ROI multipliers, and benchmark against the most common audit findings.",
+    "Three-part revenue audit, calculate your revenue leak, see typical ROI multipliers, and benchmark against the most common audit findings.",
 };
 
 export default function RevenueAuditPage() {

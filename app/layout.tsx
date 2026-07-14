@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://systembuiltbyaj.com"),
   title: {
-    default: "System Built by AJ — Growth Engineering",
+    default: "System Built by AJ, Growth Engineering",
     template: "%s | System Built by AJ",
   },
   description:

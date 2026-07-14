@@ -75,7 +75,7 @@ export function PackagesContent() {
             </h1>
             <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
               Every business is at a different stage. Pick the phase that matches
-              where you are &mdash; and where you want to go.
+              where you are, and where you want to go.
             </p>
           </ScrollReveal>
         </div>

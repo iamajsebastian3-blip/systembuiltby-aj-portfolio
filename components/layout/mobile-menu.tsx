@@ -101,7 +101,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </div>
             </nav>
 
-            {/* Free Consultation CTA — extra space above */}
+            {/* Free Consultation CTA, extra space above */}
             <div className="mt-12 px-4">
               <Link
                 href="/consult"

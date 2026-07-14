@@ -5,7 +5,7 @@ import { Parallax } from "@/components/motion/parallax";
 
 // The 6 tools that make up the system. Coords live in a 1200x560 board space so the
 // SVG traces and the HTML tiles share one coordinate system (perfect alignment).
-// `entry` is an orthogonal path from the tile toward the central AI chip — the pulse flows in.
+// `entry` is an orthogonal path from the tile toward the central AI chip, the pulse flows in.
 const tools = [
   { name: "GoHighLevel", logo: "/logos/gohighlevel.png", x: 150, y: 80, entry: "M150 80 H540 V210", dur: "3.4s", delay: "0s" },
   { name: "n8n", logo: "/logos/n8n.svg", x: 1050, y: 80, entry: "M1050 80 H660 V210", dur: "3.9s", delay: "0.6s" },
@@ -82,7 +82,7 @@ export function TechStack() {
             </span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/55">
-            Growth isn&apos;t luck&mdash;it&apos;s architecture. I wire your CRM, automations, and AI into one
+            Growth isn&apos;t luck, it&apos;s architecture. I wire your CRM, automations, and AI into one
             connected system, so every tool below runs as a single engine that works while you scale.
           </p>
         </ScrollReveal>

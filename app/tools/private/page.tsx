@@ -4,7 +4,7 @@ import { PrivateGate } from "./private-gate";
 import { PrivateContent } from "./private-content";
 
 export const metadata: Metadata = {
-  title: "Private — Funnel Section Builder",
+  title: "Private, Funnel Section Builder",
   description: "Wireframe reference + copy-ready prompts for every funnel section. Restricted access.",
   robots: { index: false, follow: false },
 };

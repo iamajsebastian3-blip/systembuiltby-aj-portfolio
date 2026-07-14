@@ -1,20 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Parallax } from "@/components/motion/parallax";
 
-// Featured builds shown as landscape (Canva-size) thumbnail cards in a slideshow
+// Featured builds shown as landscape (Canva-size) thumbnail cards in a slideshow.
+// videoId maps to the YouTube walkthrough (plays inline in a lightbox).
 const cards = [
-  { title: "WooCommerce → GHL", tag: "Migration", image: "/system-builds/migrating-woocommerce-ghl.webp" },
-  { title: "Appointment Booking", tag: "GHL · Calendars", image: "/system-builds/appointment-booking.webp" },
-  { title: "Weekly AI Research", tag: "Claude · Trigger.dev", image: "/system-builds/claude-test-project.webp" },
-  { title: "LinkedIn Automation", tag: "Claude · Auto-Publish", image: "/system-builds/linkedin-content-automation.webp" },
-  { title: "GHL → ClickUp Alerts", tag: "GHL · Zapier", image: "/system-builds/sb-ghl-clickup.webp" },
-  { title: "Deal-Won Alerts", tag: "GHL · Discord · Slack", image: "/system-builds/sb-deal-won.webp" },
+  { title: "WooCommerce → GHL", tag: "Migration", image: "/system-builds/migrating-woocommerce-ghl.webp", videoId: "SlZROJx4Obo" },
+  { title: "Appointment Booking", tag: "GHL · Calendars", image: "/system-builds/appointment-booking.webp", videoId: "9FOymB9sZEs" },
+  { title: "Weekly AI Research", tag: "Claude · Trigger.dev", image: "/system-builds/claude-test-project.webp", videoId: "M3OK_1BNEco" },
+  { title: "LinkedIn Automation", tag: "Claude · Auto-Publish", image: "/system-builds/linkedin-content-automation.webp", videoId: "_zWVgnQzDuI" },
+  { title: "GHL → ClickUp Alerts", tag: "GHL · Zapier", image: "/system-builds/sb-ghl-clickup.webp", videoId: "cBkmitMksrk" },
+  { title: "Deal-Won Alerts", tag: "GHL · Discord · Slack", image: "/system-builds/sb-deal-won.webp", videoId: "6WpbbpRR1ZQ" },
 ];
 
 // Abstract AI-system network for the background
@@ -40,18 +41,19 @@ const pulses = [
 ];
 const edgePath = (a: number, b: number) => `M${nodes[a][0]} ${nodes[a][1]} L${nodes[b][0]} ${nodes[b][1]}`;
 
-function BuildCard({ card }: { card: (typeof cards)[number] }) {
+function BuildCard({ card, onPlay }: { card: (typeof cards)[number]; onPlay: () => void }) {
   return (
-    <Link
-      href="/system-builds"
-      aria-label={`View ${card.title} build`}
-      className="group relative block overflow-hidden rounded-2xl border border-white/[0.10] shadow-[0_16px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/40 hover:shadow-[0_20px_60px_rgba(94,23,235,0.28)]"
+    <button
+      type="button"
+      onClick={onPlay}
+      aria-label={`Play ${card.title} walkthrough`}
+      className="group relative block w-full overflow-hidden rounded-2xl border border-white/[0.10] text-left shadow-[0_16px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/40 hover:shadow-[0_20px_60px_rgba(94,23,235,0.28)]"
     >
       <div className="relative aspect-[16/10] w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={card.image} alt={card.title} className="h-full w-full object-cover" loading="lazy" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-        {/* Play affordance — always visible (mobile has no hover) */}
+        {/* Play affordance, always visible (mobile has no hover) */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-black/45 text-white backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white/50 group-hover:bg-persian/75">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="ml-0.5">
@@ -66,12 +68,58 @@ function BuildCard({ card }: { card: (typeof cards)[number] }) {
           {card.tag}
         </span>
       </div>
-    </Link>
+    </button>
+  );
+}
+
+function VideoLightbox({ videoId, onClose }: { videoId: string; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Build walkthrough video"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm sm:p-8"
+    >
+      <div onClick={(e) => e.stopPropagation()} className="relative w-full max-w-4xl">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close video"
+          className="absolute -top-11 right-0 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
+        >
+          ✕
+        </button>
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/15 shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            title="Build walkthrough"
+            className="absolute inset-0 h-full w-full"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
 export function FeaturedBuilds() {
   const [idx, setIdx] = useState(0);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const n = cards.length;
   const visible = [cards[idx % n], cards[(idx + 1) % n]];
   const next = () => setIdx((i) => (i + 1) % n);
@@ -132,7 +180,7 @@ export function FeaturedBuilds() {
 
       {/* ---------- Content ---------- */}
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2">
-        {/* LEFT — statement */}
+        {/* LEFT, statement */}
         <div>
           <ScrollReveal>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-persian-light">
@@ -147,7 +195,7 @@ export function FeaturedBuilds() {
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-white/55">
               A look at the automations, funnels, and AI workflows I&apos;ve engineered for real
-              businesses&mdash;each one a working system, not a one-off task.
+              businesses, each one a working system, not a one-off task.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Magnetic>
@@ -170,7 +218,7 @@ export function FeaturedBuilds() {
           </ScrollReveal>
         </div>
 
-        {/* RIGHT — slideshow (2 cards) */}
+        {/* RIGHT, slideshow (2 cards) */}
         <div className="flex flex-col gap-5">
           <div className="min-h-[420px]">
             <AnimatePresence mode="wait">
@@ -183,7 +231,7 @@ export function FeaturedBuilds() {
                 className="flex flex-col gap-5"
               >
                 {visible.map((c) => (
-                  <BuildCard key={c.title} card={c} />
+                  <BuildCard key={c.title} card={c} onPlay={() => setActiveVideo(c.videoId)} />
                 ))}
               </motion.div>
             </AnimatePresence>
@@ -216,6 +264,10 @@ export function FeaturedBuilds() {
           </div>
         </div>
       </div>
+
+      {activeVideo && (
+        <VideoLightbox videoId={activeVideo} onClose={() => setActiveVideo(null)} />
+      )}
     </section>
   );
 }

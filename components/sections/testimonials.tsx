@@ -150,7 +150,7 @@ export function Testimonials() {
       </Parallax>
 
       <div className="relative mx-auto max-w-6xl px-6">
-        {/* Heading — centered */}
+        {/* Heading, centered */}
         <ScrollReveal>
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-persian-light">
@@ -160,7 +160,7 @@ export function Testimonials() {
               What Clients Say
             </h2>
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-white/55">
-              Real results from the people I&rsquo;ve engineered systems for&mdash;in their words.
+              Real results from the people I&rsquo;ve engineered systems for, in their words.
             </p>
           </div>
         </ScrollReveal>

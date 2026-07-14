@@ -53,7 +53,7 @@ export function BookingContent() {
 
             <ScrollReveal delay={0.15}>
               <p className="text-sm text-white/45 max-w-xl mx-auto leading-relaxed">
-                Pick a time for your free discovery call. We&apos;ll walk you through exactly how automation handles your leads &mdash; instant follow-up, missed call text-back, review requests, and your real-time dashboard.
+                Pick a time for your free discovery call. We&apos;ll walk you through exactly how automation handles your leads, instant follow-up, missed call text-back, review requests, and your real-time dashboard.
               </p>
             </ScrollReveal>
           </div>
@@ -67,7 +67,7 @@ export function BookingContent() {
                 <iframe
                   src="https://connect.ajautomate.co/widget/booking/Ib9dKL70xmR265fkYXWL"
                   scrolling="no"
-                  className="w-full border-0 h-[1750px] sm:h-[1250px]"
+                  className="w-full border-0 min-h-[1850px] sm:min-h-[1450px]"
                   id="Ib9dKL70xmR265fkYXWL_1774708976909"
                   title="Book a Call"
                 />

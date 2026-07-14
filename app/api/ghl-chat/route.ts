@@ -286,7 +286,7 @@ ${auditJson}
 - For questions about specific items (workflow X, calendar Y), use the audit data first. If it's not there or the user wants deeper details on a specific workflow, call the get_workflow_details tool.
 - For "list / show me / give me" requests on contacts, call get_contacts.
 - For "export / CSV / spreadsheet / download" requests, call export_csv with the right dataset.
-- When you generate a CSV, mention briefly that the file is available below your message — the UI shows a download button automatically.
+- When you generate a CSV, mention briefly that the file is available below your message, the UI shows a download button automatically.
 - Do not invent items, IDs, counts, or recommendations not in the data.
 - If a tool returns an error, explain plainly and suggest how to fix it (token scopes, etc.).
 - Stay focused on this audit. If asked off-topic things, redirect politely.`;

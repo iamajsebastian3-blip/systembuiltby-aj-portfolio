@@ -12,7 +12,7 @@ interface Message {
 const GREETING: Message = {
   role: "assistant",
   content:
-    "Hi 👋 I'm AJ — Certified GoHighLevel Admin and your automation specialist.\n\nTell me a bit about your business or what you're trying to build. I'll point you in the right direction.",
+    "Hi 👋 I'm AJ, Certified GoHighLevel Admin and your automation specialist.\n\nTell me a bit about your business or what you're trying to build. I'll point you in the right direction.",
 };
 
 export function ChatBubble() {

@@ -32,13 +32,13 @@ export function FinalCTA() {
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/55">
               Stop duct-taping tools together and hoping they hold. Let&apos;s engineer one
-              connected system that runs the busywork and scales with you&mdash;pick a time
+              connected system that runs the busywork and scales with you, pick a time
               below, the first call&apos;s on me.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Real GHL booking calendar — full width (renders wide, not tall) */}
+        {/* Real GHL booking calendar, full width (renders wide, not tall) */}
         <ScrollReveal delay={0.2}>
           <div className="mt-12 overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] shadow-[0_16px_48px_rgba(0,0,0,0.35)] backdrop-blur-md">
             <iframe

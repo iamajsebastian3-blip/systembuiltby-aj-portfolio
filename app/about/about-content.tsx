@@ -115,7 +115,7 @@ const positioningSlides = [
           automation can make the biggest impact.
         </BodyText>
         <BodyText>
-          From there, I design systems that fit the business—not the other way
+          From there, I design systems that fit the business, not the other way
           around.
         </BodyText>
         <BodyText>
@@ -124,7 +124,7 @@ const positioningSlides = [
           easy for teams to use every day.
         </BodyText>
         <BodyText>
-          Because technology should support your business—not slow it down.
+          Because technology should support your business, not slow it down.
         </BodyText>
       </>
     ),
@@ -135,8 +135,8 @@ const positioningSlides = [
       <>
         <BodyText>I don&apos;t just build automations.</BodyText>
         <BodyText>
-          I look at the entire customer journey—from the moment someone visits
-          your website to becoming a paying customer—and build systems that help
+          I look at the entire customer journey, from the moment someone visits
+          your website to becoming a paying customer, and build systems that help
           every step work together.
         </BodyText>
         <BodyText>
@@ -231,13 +231,13 @@ function AboutPanel() {
               About AJ
             </h1>
             <p className="max-w-xl text-[15px] leading-relaxed text-white/70">
-              Automation engineer building business systems with GoHighLevel, n8n, and AI — CRM automation, AI agents, and end-to-end workflows powered by Claude.
+              Automation engineer building business systems with GoHighLevel, n8n, and AI, CRM automation, AI agents, and end-to-end workflows powered by Claude.
             </p>
           </div>
         </section>
 
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-14 px-8 py-16 pb-20 lg:grid-cols-[1fr_340px]">
-          {/* Left column — Bio */}
+          {/* Left column, Bio */}
           <div className="flex flex-col gap-10">
             {/* Title */}
             <ScrollReveal delay={0.05}>
@@ -259,7 +259,7 @@ function AboutPanel() {
 
             <ScrollReveal delay={0.08}>
               <BodyText>
-                My career didn&apos;t start in tech—it started in operations.
+                My career didn&apos;t start in tech, it started in operations.
               </BodyText>
             </ScrollReveal>
 
@@ -277,7 +277,7 @@ function AboutPanel() {
                 Looking back, I realized I enjoyed solving problems, improving
                 processes, and making work more efficient. But eventually, I felt
                 there wasn&apos;t much room to grow anymore. I wanted more than just
-                working to pay the bills—I wanted to build a career without limits.
+                working to pay the bills, I wanted to build a career without limits.
               </BodyText>
             </ScrollReveal>
 
@@ -289,7 +289,7 @@ function AboutPanel() {
               <BodyText>
                 A fun fact about my journey: on <Strong>October 14, 2020</Strong>,
                 I submitted my immediate resignation. Just two days later, on{" "}
-                <Strong>October 16</Strong>, I got hired—and the very next day, I
+                <Strong>October 16</Strong>, I got hired, and the very next day, I
                 started freelancing as an{" "}
                 <Strong>Amazon Product Researcher</Strong>.
               </BodyText>
@@ -308,7 +308,7 @@ function AboutPanel() {
               <BodyText>
                 In that role, I managed a team of product researchers, oversaw
                 purchasing operations, and helped improve business workflows.
-                That&apos;s when I realized something about myself—I enjoyed fixing
+                That&apos;s when I realized something about myself, I enjoyed fixing
                 broken systems just as much as managing people.
               </BodyText>
             </ScrollReveal>
@@ -359,7 +359,7 @@ function AboutPanel() {
               <BodyText>
                 Technology continues to evolve, especially AI, and I believe
                 learning never stops. That&apos;s why I&apos;m constantly expanding
-                my skills beyond GoHighLevel—exploring tools like{" "}
+                my skills beyond GoHighLevel, exploring tools like{" "}
                 <Strong>n8n</Strong>, <Strong>AI agents</Strong>,{" "}
                 <Strong>APIs</Strong>, and modern automation platforms to build
                 even better solutions for my clients.
@@ -387,12 +387,12 @@ function AboutPanel() {
               </BodyText>
             </ScrollReveal>
 
-            {/* What I Do / My Approach / Why Work With Me — slideshow */}
+            {/* What I Do / My Approach / Why Work With Me, slideshow */}
             <ScrollReveal delay={0.05}>
               <PositioningSlideshow />
             </ScrollReveal>
 
-            {/* Let's Build Something Better — CTA */}
+            {/* Let's Build Something Better, CTA */}
             <ScrollReveal delay={0.05}>
               <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-8">
                 <SectionLabel>Let&apos;s Build Something Better</SectionLabel>
@@ -402,7 +402,7 @@ function AboutPanel() {
                   <Strong>AI automation</Strong>, I&apos;d love to help. Whether you
                   need a high-converting website, a complete GoHighLevel setup,
                   AI-powered workflows, or a fully connected backend system,
-                  let&apos;s build something that helps your business run smarter—not
+                  let&apos;s build something that helps your business run smarter, not
                   harder.
                 </p>
                 <p className="mt-5 text-base font-bold text-white">
@@ -438,7 +438,7 @@ function AboutPanel() {
             </ScrollReveal>
           </div>
 
-          {/* Right column — Sticky sidebar */}
+          {/* Right column, Sticky sidebar */}
           <div className="lg:sticky lg:top-20 lg:self-start">
             <div className="flex flex-col gap-6">
               {/* Photo placeholder */}

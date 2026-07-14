@@ -15,7 +15,7 @@ export function HLBanner() {
                 WANT TO SEE MY <span className="text-yellow">SYSTEM BUILDS?</span>
               </h2>
               <p className="mx-auto mb-6 max-w-[560px] text-sm leading-relaxed text-white/50">
-                I screen-record every system I build &mdash; workflows,
+                I screen-record every system I build, workflows,
                 pipelines, funnels, automations. Watch the actual logic behind
                 each one, step by step.
               </p>

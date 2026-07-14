@@ -116,7 +116,7 @@ const services: Service[] = [
     icon: "🌐",
     title: "Custom Frontend (Vibe Coding)",
     subtitle:
-      "When GHL templates aren't enough — custom-coded, high-performance pages.",
+      "When GHL templates aren't enough, custom-coded, high-performance pages.",
     items: [
       "High-performance landing pages (Next.js, React)",
       "Custom UI/UX design & development",
@@ -238,7 +238,7 @@ export function ServicesContent() {
           <ScrollReveal delay={0.15}>
             <p className="text-base text-white/60 leading-relaxed max-w-[560px]">
               8 core service areas engineered to build, automate, and scale your
-              entire sales operation — from first click to closed deal.
+              entire sales operation, from first click to closed deal.
             </p>
           </ScrollReveal>
         </div>

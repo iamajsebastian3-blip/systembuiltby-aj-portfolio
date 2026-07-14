@@ -20,7 +20,7 @@ export function IntroVideo() {
             <span className="text-persian-light">Actually Deliver.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-white/60">
-            A 90-second look behind the systems &mdash; the mindset, the
+            A 90-second look behind the systems, the mindset, the
             workflow, and why my builds keep running long after I&apos;ve handed
             them over.
           </p>
@@ -39,7 +39,7 @@ export function IntroVideo() {
           {playing ? (
             <iframe
               src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
-              title="Get to know me — intro video"
+              title="Get to know me, intro video"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -55,7 +55,7 @@ export function IntroVideo() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`https://i.ytimg.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
-                alt="Get to know me — intro video"
+                alt="Get to know me, intro video"
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.src = `https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`;

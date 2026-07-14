@@ -60,7 +60,7 @@ export function MentorsContent({ embedded = false }: { embedded?: boolean }) {
               <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-white/70 md:text-lg">
                 I didn&apos;t figure this out alone. I enrolled in their courses, invested in
                 their programs, and learned directly from the people leading the GoHighLevel,
-                automation, and AI space — and their teaching shaped how I build.
+                automation, and AI space, and their teaching shaped how I build.
               </p>
             </ScrollReveal>
           </div>

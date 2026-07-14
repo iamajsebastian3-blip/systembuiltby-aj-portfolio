@@ -49,7 +49,7 @@ export function AuditChat({ audit, locationId, pit }: AuditChatProps) {
     {
       role: "assistant",
       content:
-        "Hi 👋 I just scanned your sub-account. Ask me anything about the results — list workflows, look up calendars, or export contacts to CSV.",
+        "Hi 👋 I just scanned your sub-account. Ask me anything about the results, list workflows, look up calendars, or export contacts to CSV.",
     },
   ]);
   const [input, setInput] = useState("");

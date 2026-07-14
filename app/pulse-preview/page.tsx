@@ -142,7 +142,7 @@ export default function PulsePreviewPage() {
   const [view, setView] = useState<View>(null);
 
   const cards: Array<{ id: View; label: string; desc: string }> = [
-    { id: "demo-original", label: "1. Original Demo (Cyan/Violet)", desc: "The component as-shipped — with cyan→violet→purple beams." },
+    { id: "demo-original", label: "1. Original Demo (Cyan/Violet)", desc: "The component as-shipped, with cyan→violet→purple beams." },
     { id: "demo-brand", label: "2. Demo (Brand Purple/Yellow)", desc: "Same beams, swapped to your portfolio colors." },
     { id: "cta-button", label: "3. CTA with Pulse Beams", desc: "How it would look behind a primary CTA like 'Book Strategy Call'." },
     { id: "intro", label: "4. Intro: Allen Bactad + Beams", desc: "Your name reveal animation enhanced with pulse beams." },

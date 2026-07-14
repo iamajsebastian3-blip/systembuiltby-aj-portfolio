@@ -25,7 +25,7 @@ const clientProjects: SystemBuild[] = [
     title: "Course Order → Instant ClickUp Alert",
     category: "Client Automation",
     description:
-      "The moment a customer buys a course on the site, a Zapier webhook fires an instant order notification into our ClickUp channel — every sale logged in real time, so the team never misses an order. Fully automated, zero manual checking.",
+      "The moment a customer buys a course on the site, a Zapier webhook fires an instant order notification into our ClickUp channel, every sale logged in real time, so the team never misses an order. Fully automated, zero manual checking.",
     emoji: "📋",
     image: "/system-builds/sb-ghl-clickup.webp",
     videoId: "cBkmitMksrk",
@@ -34,7 +34,7 @@ const clientProjects: SystemBuild[] = [
     title: "Migrating WooCommerce Products into GHL",
     category: "GHL Automation",
     description:
-      "Bulk-migrate a WooCommerce store into GoHighLevel — an automation workflow that fetches products, maps fields (price, stock, etc.), creates/updates them in GHL, syncs media, and confirms completion. Category sync + inventory updates included.",
+      "Bulk-migrate a WooCommerce store into GoHighLevel, an automation workflow that fetches products, maps fields (price, stock, etc.), creates/updates them in GHL, syncs media, and confirms completion. Category sync + inventory updates included.",
     emoji: "🛒",
     image: "/system-builds/migrating-woocommerce-ghl.webp",
     videoId: "SlZROJx4Obo",
@@ -43,7 +43,7 @@ const clientProjects: SystemBuild[] = [
     title: "Appointment Booking Automation",
     category: "GHL Workflow",
     description:
-      "Calendar sync, multi-touch reminders, no-show recovery, and post-appointment follow-up — built from scratch for myoldretirement.com.",
+      "Calendar sync, multi-touch reminders, no-show recovery, and post-appointment follow-up, built from scratch for myoldretirement.com.",
     emoji: "📅",
     image: "/system-builds/appointment-booking.webp",
     videoId: "9FOymB9sZEs",
@@ -55,7 +55,7 @@ const ajTutorials: SystemBuild[] = [
     title: "Create Snapshot, Subaccount & Load It to a Subaccount",
     category: "GHL Tutorial",
     description:
-      "Step-by-step GHL workflow — capture a snapshot of an account, spin up a new subaccount, and load the snapshot in. Fast, easy, repeatable.",
+      "Step-by-step GHL workflow, capture a snapshot of an account, spin up a new subaccount, and load the snapshot in. Fast, easy, repeatable.",
     emoji: "📸",
     image: "/system-builds/snapshot-tutorial.webp",
     videoId: "OQXXNVjJfgE",
@@ -64,7 +64,7 @@ const ajTutorials: SystemBuild[] = [
     title: "Build High-Converting Funnels in 1 Hour",
     category: "Funnel Tutorial",
     description:
-      "Build a high-converting funnel from scratch — Attract · Engage · Convert · Retain. Built with HighLevel (built-in) or Vercel. Step-by-step, no experience needed.",
+      "Build a high-converting funnel from scratch, Attract · Engage · Convert · Retain. Built with HighLevel (built-in) or Vercel. Step-by-step, no experience needed.",
     emoji: "🎯",
     image: "/system-builds/funnel-tutorial.webp",
     videoId: "iIZPsP7MTYs",
@@ -73,7 +73,7 @@ const ajTutorials: SystemBuild[] = [
     title: "How to Use GHL Using Claude",
     category: "AI Tutorial",
     description:
-      "Connect Claude to GoHighLevel via the GHL MCP and run your account with AI — lead research, content creation, automations, and follow-ups. Step-by-step, beginner-friendly.",
+      "Connect Claude to GoHighLevel via the GHL MCP and run your account with AI, lead research, content creation, automations, and follow-ups. Step-by-step, beginner-friendly.",
     emoji: "🤖",
     image: "/system-builds/how-to-use-claude.webp",
     vimeoId: "1197634726",
@@ -85,7 +85,7 @@ const claudeProjects: SystemBuild[] = [
     title: "Weekly AI Research: Find the Best Resorts & Restaurants Automatically",
     category: "Claude Test Project",
     description:
-      "Every Sunday at 8:00 AM, Claude researches top-rated resorts and restaurants across Zambales, gathers key business details—including names, locations, websites, ratings, phone numbers, and emails—and organizes everything in ClickUp. Fully automated with Trigger.dev, so your database stays fresh without manual research. 🚀",
+      "Every Sunday at 8:00 AM, Claude researches top-rated resorts and restaurants across Zambales, gathers key business details, including names, locations, websites, ratings, phone numbers, and emails, and organizes everything in ClickUp. Fully automated with Trigger.dev, so your database stays fresh without manual research. 🚀",
     emoji: "🤖",
     image: "/system-builds/claude-test-project.webp",
     videoId: "M3OK_1BNEco",
@@ -94,7 +94,7 @@ const claudeProjects: SystemBuild[] = [
     title: "LinkedIn Outreach Automation",
     category: "Claude Test Project",
     description:
-      "An AI agent that researches, writes, and publishes your LinkedIn and Instagram content every week — 100% hands-off. Claude drafts each post and its image, Trigger.dev schedules and runs the automation, and it auto-publishes to both platforms. Set it once and your feed stays active with zero manual work. 🚀",
+      "An AI agent that researches, writes, and publishes your LinkedIn and Instagram content every week, 100% hands-off. Claude drafts each post and its image, Trigger.dev schedules and runs the automation, and it auto-publishes to both platforms. Set it once and your feed stays active with zero manual work. 🚀",
     emoji: "💼",
     image: "/system-builds/linkedin-content-automation.webp",
     videoId: "_zWVgnQzDuI",
@@ -106,7 +106,7 @@ const zapierTutorials: SystemBuild[] = [
     title: "Instant Form Intake: Notify Everywhere, Log Automatically",
     category: "Zapier Automation",
     description:
-      "The second a form is submitted, the lead is broadcast to Discord and Slack, emailed to you via Gmail, and logged in Google Sheets — so nothing slips through. One submission, four destinations, zero manual work.",
+      "The second a form is submitted, the lead is broadcast to Discord and Slack, emailed to you via Gmail, and logged in Google Sheets, so nothing slips through. One submission, four destinations, zero manual work.",
     emoji: "📝",
     image: "/system-builds/sb-form-intake.webp",
     videoId: "gComGEuriOA",
@@ -133,7 +133,7 @@ const zapierTutorials: SystemBuild[] = [
     title: "New Lead: Auto-Nurture + Instant Team Alert",
     category: "GHL Automation",
     description:
-      "Every new GoHighLevel lead is automatically enrolled in your nurture sequence and fires a real-time alert to your team. Follow-up starts the instant a lead arrives — no one left waiting.",
+      "Every new GoHighLevel lead is automatically enrolled in your nurture sequence and fires a real-time alert to your team. Follow-up starts the instant a lead arrives, no one left waiting.",
     emoji: "🌱",
     image: "/system-builds/sb-lead-nurture.webp",
     vimeoId: "1201263468",
@@ -142,7 +142,7 @@ const zapierTutorials: SystemBuild[] = [
     title: "Smart Lead Router: Qualify & Route by Budget Automatically",
     category: "GHL Automation",
     description:
-      "Incoming leads are scored by budget and sent down the right path: hot leads fast-tracked to sales, cold leads dropped into nurture — with Discord alerts and Google Sheets logging along the way. Your pipeline sorts itself.",
+      "Incoming leads are scored by budget and sent down the right path: hot leads fast-tracked to sales, cold leads dropped into nurture, with Discord alerts and Google Sheets logging along the way. Your pipeline sorts itself.",
     emoji: "🧭",
     image: "/system-builds/sb-smart-lead-router.webp",
     vimeoId: "1201263467",
@@ -151,7 +151,7 @@ const zapierTutorials: SystemBuild[] = [
     title: "AI Proposal Generator: Custom Proposals in Seconds",
     category: "AI Automation",
     description:
-      "Feed in the lead's details and AI drafts a tailored proposal automatically — no blank page, no copy-paste. Turn an inquiry into a ready-to-send proposal before the lead goes cold.",
+      "Feed in the lead's details and AI drafts a tailored proposal automatically, no blank page, no copy-paste. Turn an inquiry into a ready-to-send proposal before the lead goes cold.",
     emoji: "🤖",
     image: "/system-builds/sb-ai-proposal.webp",
     videoId: "CSpwLbB38uw",
@@ -275,7 +275,7 @@ export function SystemBuildsContent() {
             </h1>
             <p className="text-white/70 text-[15px] md:text-lg max-w-xl mx-auto leading-relaxed">
               Raw screen-recorded walkthroughs of the workflows, pipelines, and
-              automations I build for clients. No fluff &mdash; just the actual
+              automations I build for clients. No fluff, just the actual
               logic, decisions, and configuration behind each system.
             </p>
           </ScrollReveal>
@@ -287,7 +287,7 @@ export function SystemBuildsContent() {
         <div className="pointer-events-none absolute top-1/3 left-[15%] w-[400px] h-[400px] bg-persian/10 blur-[120px] rounded-full" />
 
         <div className="relative max-w-7xl mx-auto space-y-16 md:space-y-20">
-          {/* Section 1 — Clients Project */}
+          {/* Section 1, Clients Project */}
           <div>
             <ScrollReveal>
               <div className="mb-8 md:mb-10">
@@ -298,7 +298,7 @@ export function SystemBuildsContent() {
                   Clients <span className="text-yellow">Real Project</span>
                 </h2>
                 <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
-                  Real systems I built for real clients — pipelines, automations, funnels.
+                  Real systems I built for real clients, pipelines, automations, funnels.
                 </p>
               </div>
             </ScrollReveal>
@@ -309,7 +309,7 @@ export function SystemBuildsContent() {
             </StaggerChildren>
           </div>
 
-          {/* Section 2 — GHL Tutorial (blue) */}
+          {/* Section 2, GHL Tutorial (blue) */}
           <div>
             <ScrollReveal>
               <div className="mb-8 md:mb-10">
@@ -331,7 +331,7 @@ export function SystemBuildsContent() {
             </StaggerChildren>
           </div>
 
-          {/* Section 3 — Claude Test Project (terracotta) */}
+          {/* Section 3, Claude Test Project (terracotta) */}
           <div>
             <ScrollReveal>
               <div className="mb-8 md:mb-10">
@@ -342,7 +342,7 @@ export function SystemBuildsContent() {
                   Claude <span className="text-[#D97757]">Test Project</span>
                 </h2>
                 <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
-                  Real builds powered by Claude — AI reasoning wired straight into working systems.
+                  Real builds powered by Claude, AI reasoning wired straight into working systems.
                 </p>
               </div>
             </ScrollReveal>
@@ -353,7 +353,7 @@ export function SystemBuildsContent() {
             </StaggerChildren>
           </div>
 
-          {/* Section 4 — Zapier Test Project (orange) */}
+          {/* Section 4, Zapier Test Project (orange) */}
           <div>
             <ScrollReveal>
               <div className="mb-8 md:mb-10">
@@ -364,7 +364,7 @@ export function SystemBuildsContent() {
                   Zapier <span className="text-[#FF8A3D]">Test Project</span>
                 </h2>
                 <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
-                  Automation walkthroughs — Zapier, GHL &amp; AI workflows that run the busywork for you.
+                  Automation walkthroughs, Zapier, GHL &amp; AI workflows that run the busywork for you.
                 </p>
               </div>
             </ScrollReveal>

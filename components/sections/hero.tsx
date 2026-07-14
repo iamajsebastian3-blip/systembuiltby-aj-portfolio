@@ -11,7 +11,7 @@ import { Magnetic } from "@/components/motion/magnetic";
 // Script font ONLY for the "Hello, I'm" eyebrow (matches the reference); rest stays Inter
 const script = Dancing_Script({ subsets: ["latin"], weight: ["600", "700"] });
 
-// PLACEHOLDER stats — AJ to confirm real numbers
+// PLACEHOLDER stats, AJ to confirm real numbers
 const stats = [
   { target: 5, suffix: "+", label: "Years Experience" },
   { target: 40, suffix: "+", label: "Projects Completed" },
@@ -46,7 +46,7 @@ export function Hero() {
         </span>
       </motion.div>
 
-      {/* Portrait cutout — center stage, bottom anchored */}
+      {/* Portrait cutout, center stage, bottom anchored */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function Hero() {
         <div className="relative aspect-[1089/1329] h-[58vh] max-h-[540px] w-auto lg:h-[80vh] lg:max-h-[760px] lg:translate-x-[6%]">
           <Image
             src="/aj-hero-cutout.webp"
-            alt="Allen Bactad — GHL Expert & AI Specialist"
+            alt="Allen Bactad, GHL Expert & AI Specialist"
             fill
             priority
             className="object-contain object-bottom"
@@ -70,7 +70,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-20 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 lg:grid-cols-12 lg:py-20">
-        {/* LEFT — name / role / copy */}
+        {/* LEFT, name / role / copy */}
         <div className="flex flex-col gap-5 lg:col-span-6">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -104,7 +104,7 @@ export function Hero() {
             AJ BACTAD
           </motion.h1>
 
-          {/* Mobile portrait — professional photo card below the name */}
+          {/* Mobile portrait, professional photo card below the name */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ export function Hero() {
           >
             <Image
               src="/aj-bactad-photo.webp"
-              alt="AJ Bactad — GHL Certified & AI Automation Specialist"
+              alt="AJ Bactad, GHL Certified & AI Automation Specialist"
               width={1122}
               height={1402}
               priority
@@ -136,7 +136,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="max-w-md text-base leading-relaxed text-white/55"
           >
-            I don&apos;t just connect tools&mdash;I engineer the system behind your growth. CRM, funnels, automations, and AI, wired into one operating system that runs the busywork so you can scale without the chaos.
+            I don&apos;t just connect tools, I engineer the system behind your growth. CRM, funnels, automations, and AI, wired into one operating system that runs the busywork so you can scale without the chaos.
           </motion.p>
 
           <motion.div
@@ -184,7 +184,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT — stat column */}
+        {/* RIGHT, stat column */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}

@@ -478,7 +478,7 @@ function CheckRow({ check }: { check: CheckResult }) {
           >
             <div className="px-4 pb-4 pt-2 border-t border-white/[0.04]">
               <p className="text-sm text-white/55 mb-3">
-                {check.detail ?? (check.status === "pass" ? "Looks good — no issues detected." : check.status === "unknown" ? "Couldn't reach this endpoint. Verify your token has the right scope." : "Action recommended.")}
+                {check.detail ?? (check.status === "pass" ? "Looks good, no issues detected." : check.status === "unknown" ? "Couldn't reach this endpoint. Verify your token has the right scope." : "Action recommended.")}
               </p>
               {check.items && check.items.length > 0 && (
                 <ItemsList items={check.items} />
