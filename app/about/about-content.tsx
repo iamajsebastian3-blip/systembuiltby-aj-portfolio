@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import { MentorsContent } from "../mentors/mentors-content";
 import {
   LayoutTemplate,
   GitBranch,
@@ -16,16 +19,6 @@ import {
 import { PageTransition } from "@/components/motion/page-transition";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerChildren, StaggerItem } from "@/components/motion/stagger-children";
-
-const skills = [
-  "GoHighLevel systems",
-  "n8n automations",
-  "AI agents & workflows",
-  "Claude-built systems",
-  "CRM & pipeline automation",
-  "App-to-app integrations",
-  "End-to-end backend automation",
-];
 
 type Category = {
   Icon: LucideIcon;
@@ -80,11 +73,155 @@ function EmphasisLine({
   );
 }
 
-export function AboutContent() {
+const positioningSlides = [
+  {
+    label: "What I Do",
+    body: (
+      <>
+        <BodyText>
+          I help businesses streamline their operations by building systems that
+          reduce manual work, improve efficiency, and create better customer
+          experiences.
+        </BodyText>
+        <BodyText>
+          My primary platform is <Strong>GoHighLevel</Strong>, where I build
+          websites, landing pages, sales funnels, CRM systems, pipeline
+          automations, appointment booking systems, and AI-powered workflows.
+        </BodyText>
+        <BodyText>
+          When projects require more advanced functionality, I integrate tools
+          like <Strong>n8n</Strong>, <Strong>Claude</Strong>,{" "}
+          <Strong>APIs</Strong>, and <Strong>AI agents</Strong> to connect
+          multiple applications and automate business processes from end to end.
+        </BodyText>
+        <BodyText>Every solution I build is designed with one goal in mind:</BodyText>
+        <EmphasisLine accent>
+          Create systems that save time, simplify operations, and help businesses
+          grow with confidence.
+        </EmphasisLine>
+      </>
+    ),
+  },
+  {
+    label: "My Approach",
+    body: (
+      <>
+        <BodyText>
+          I don&apos;t believe automation should make a business more complicated.
+        </BodyText>
+        <BodyText>
+          Before I build anything, I take time to understand how the business
+          operates, identify repetitive tasks, and find opportunities where
+          automation can make the biggest impact.
+        </BodyText>
+        <BodyText>
+          From there, I design systems that fit the business—not the other way
+          around.
+        </BodyText>
+        <BodyText>
+          Whether it&apos;s a website, CRM, funnel, AI automation, or backend
+          workflow, I focus on creating solutions that are reliable, scalable, and
+          easy for teams to use every day.
+        </BodyText>
+        <BodyText>
+          Because technology should support your business—not slow it down.
+        </BodyText>
+      </>
+    ),
+  },
+  {
+    label: "Why Work With Me",
+    body: (
+      <>
+        <BodyText>I don&apos;t just build automations.</BodyText>
+        <BodyText>
+          I look at the entire customer journey—from the moment someone visits
+          your website to becoming a paying customer—and build systems that help
+          every step work together.
+        </BodyText>
+        <BodyText>
+          My background in operations allows me to think beyond the software. I
+          focus on improving workflows, reducing bottlenecks, and building systems
+          that make running a business easier.
+        </BodyText>
+        <BodyText>
+          Whether you&apos;re a startup, local business, agency, or growing
+          company, my goal is to create solutions that continue working long after
+          they&apos;re launched.
+        </BodyText>
+      </>
+    ),
+  },
+];
+
+function PositioningSlideshow() {
+  const [i, setI] = useState(0);
+  const n = positioningSlides.length;
+  const next = () => setI((p) => (p + 1) % n);
+  const prev = () => setI((p) => (p - 1 + n) % n);
+  const slide = positioningSlides[i];
+
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-transparent">
-        {/* Hero */}
+    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-8">
+      <div className="mb-5 flex items-center justify-between">
+        <SectionLabel>{slide.label}</SectionLabel>
+        <span className="text-xs font-semibold text-white/40">
+          {i + 1} / {n}
+        </span>
+      </div>
+
+      <div className="min-h-[320px] sm:min-h-[260px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -24 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="flex flex-col gap-4"
+          >
+            {slide.body}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="mt-7 flex items-center gap-4">
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous section"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/70 transition-all hover:border-persian/50 hover:bg-white/[0.10] hover:text-white"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+        </button>
+        <div className="flex flex-1 items-center gap-1.5">
+          {positioningSlides.map((s, idx) => (
+            <button
+              key={s.label}
+              type="button"
+              onClick={() => setI(idx)}
+              aria-label={`Go to ${s.label}`}
+              className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-yellow" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next section"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-persian/60 bg-persian text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_20px_rgba(94,23,235,0.4)]"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function AboutPanel() {
+  return (
+    <div className="bg-transparent">
+      {/* Hero */}
         <section className="bg-persian/20 backdrop-blur-xl px-8 py-16 pb-12">
           <div className="mx-auto max-w-[1100px]">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/50">
@@ -102,14 +239,6 @@ export function AboutContent() {
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-14 px-8 py-16 pb-20 lg:grid-cols-[1fr_340px]">
           {/* Left column — Bio */}
           <div className="flex flex-col gap-10">
-            {/* Eyebrow */}
-            <ScrollReveal delay={0}>
-              <p className="text-sm tracking-wide">
-                <span className="text-yellow">→</span>{" "}
-                <span className="text-white/40">About AJ</span>
-              </p>
-            </ScrollReveal>
-
             {/* Title */}
             <ScrollReveal delay={0.05}>
               <h1 className="text-4xl font-black leading-[1.15] tracking-tight text-white md:text-5xl">
@@ -124,212 +253,181 @@ export function AboutContent() {
             </ScrollReveal>
 
             {/* My Story */}
-            <ScrollReveal delay={0.1}>
+            <ScrollReveal delay={0.05}>
               <SectionLabel>My Story</SectionLabel>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.12}>
+            <ScrollReveal delay={0.08}>
               <BodyText>
-                My career didn&apos;t start in tech. It started with people,
-                problems, and process.
+                My career didn&apos;t start in tech—it started in operations.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.15}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                From <Strong>2016 to 2020</Strong>, I ran the floor as a{" "}
-                <Strong>Branch Head Supervisor</Strong> — leading teams, fixing
-                broken operations, and finding a quiet obsession with making
-                messy things run clean. But I hit a ceiling. I was growing faster
-                than the role could hold me.
+                From <Strong>2016 to 2020</Strong>, I worked as a{" "}
+                <Strong>Branch Head Supervisor</Strong> in the financial industry.
+                I managed branch operations, led a team, worked toward sales
+                targets, and focused on improving the customer experience.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.17}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                So on <Strong>October 16, 2020</Strong>, I resigned. No backup
-                plan.
+                Looking back, I realized I enjoyed solving problems, improving
+                processes, and making work more efficient. But eventually, I felt
+                there wasn&apos;t much room to grow anymore. I wanted more than just
+                working to pay the bills—I wanted to build a career without limits.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.19}>
+            <ScrollReveal delay={0.1}>
+              <BodyText>So after work, I started learning about freelancing.</BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                The very next day, I started freelancing as an{" "}
-                <Strong>Amazon Product Researcher</Strong>. 😅 Everything was new
-                — I learned fast, failed faster, and figured it out on my own. Six
-                months later I was promoted to <Strong>Head of Operations</Strong>,
-                leading a team of researchers. That&apos;s where it clicked: I
-                loved building the <em>system</em> as much as doing the work.
+                A fun fact about my journey: on <Strong>October 14, 2020</Strong>,
+                I submitted my immediate resignation. Just two days later, on{" "}
+                <Strong>October 16</Strong>, I got hired—and the very next day, I
+                started freelancing as an{" "}
+                <Strong>Amazon Product Researcher</Strong>.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.21}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                Fast-forward five years, and that ceiling feeling came back — not
-                because I had nothing to do, but because I wanted to build
-                something bigger.
+                It was a completely different industry, and I had to learn
+                everything from scratch. Through continuous learning and hands-on
+                experience, I was promoted to <Strong>Head of Operations</Strong>{" "}
+                after just six months.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.23}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                So in <Strong>November 2025</Strong>, I went down the AI and
-                automation rabbit hole. I enrolled in{" "}
-                <Strong>Coach Jaycee Tan&apos;s</Strong> automation program and
-                spent countless late nights learning GoHighLevel, APIs, and
-                workflows. I got addicted to solving business problems with
-                systems.
+                In that role, I managed a team of product researchers, oversaw
+                purchasing operations, and helped improve business workflows.
+                That&apos;s when I realized something about myself—I enjoyed fixing
+                broken systems just as much as managing people.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.25}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                Three months later, in <Strong>February 2026</Strong>, I landed my
-                first client as an <Strong>Automation Specialist</Strong>. Soon
-                after, I partnered with <Strong>Coach Lish Aquino</Strong>,
-                founder of <Strong>Amazenation OPC</Strong>, rebuilding backend
-                operations — and the projects kept coming. Every build taught me
-                something new.
+                After nearly five years in eCommerce, I was ready for another
+                challenge.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.27}>
-              <BodyText>The biggest lesson?</BodyText>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.28}>
-              <EmphasisLine>
-                Businesses don&apos;t scale because people work harder. They scale
-                because their systems work smarter.
-              </EmphasisLine>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.3}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                I&apos;m still learning — technology moves too fast to ever stop.
-                Every new AI model, tool, and workflow is another chance to build
-                something better.
+                In <Strong>November 2025</Strong>, I started learning{" "}
+                <Strong>AI and automation</Strong>. I enrolled in{" "}
+                <Strong>Coach Jaycee Tan&apos;s Automation Program</Strong> and
+                immersed myself in GoHighLevel, APIs, workflows, and AI-powered
+                business systems.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.32}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                Whether it&apos;s <Strong>GoHighLevel</Strong>,{" "}
-                <Strong>n8n</Strong>, <Strong>AI agents</Strong>, or{" "}
-                <Strong>backend automation</Strong>, my goal never changes:
+                The more I learned, the more I realized this was exactly what I
+                wanted to do.
               </BodyText>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.33}>
-              <EmphasisLine accent>
-                Engineer systems that eliminate manual work, simplify operations,
-                and help businesses scale with confidence.
-              </EmphasisLine>
-            </ScrollReveal>
-
-            {/* What I Do */}
-            <ScrollReveal delay={0.35}>
-              <SectionLabel>What I Do</SectionLabel>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.4}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                I work across GoHighLevel, n8n, and AI automation — building CRM
-                systems, multi-channel workflows, AI agents, and app-to-app
-                integrations (often powered by Claude) that cut manual work and
-                keep operations running on their own.
+                By <Strong>February 2026</Strong>, I landed my first client as an{" "}
+                <Strong>Automation Specialist</Strong>. Soon after, I worked with{" "}
+                <Strong>Coach Lish Aquino</Strong>, founder of{" "}
+                <Strong>Amazenation OPC</Strong>, helping improve and optimize
+                backend operations through automation.
               </BodyText>
             </ScrollReveal>
 
-            {/* Skill chips */}
-            <ScrollReveal delay={0.45}>
-              <StaggerChildren className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <StaggerItem key={skill}>
-                    <span className="inline-block rounded-full border border-white/[0.12] bg-white/[0.07] px-3 py-1.5 text-xs text-white/65">
-                      {skill}
-                    </span>
-                  </StaggerItem>
-                ))}
-              </StaggerChildren>
-            </ScrollReveal>
-
-            {/* Flow diagram */}
-            <ScrollReveal delay={0.5}>
-              <div className="rounded-lg border border-white/[0.07] bg-white/[0.04] backdrop-blur-sm px-5 py-4 text-center text-sm font-medium tracking-wide text-white/50">
-                Map → Automate → Integrate → Scale
-              </div>
-            </ScrollReveal>
-
-            {/* System Builds CTA */}
-            <ScrollReveal delay={0.52}>
-              <Link
-                href="/system-builds"
-                className="block w-full rounded-xl bg-yellow px-8 py-5 text-center text-lg font-black uppercase tracking-wider text-black transition-all hover:bg-yellow/85 hover:shadow-[0_12px_40px_rgba(234,179,8,0.3)] hover:-translate-y-[2px]"
-              >
-                See My System Builds &rarr;
-              </Link>
-            </ScrollReveal>
-
-            {/* Systems + AI */}
-            <ScrollReveal delay={0.55}>
-              <SectionLabel>Systems + AI (New Edge)</SectionLabel>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.6}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                I build AI directly into my automation stack — using Claude, AI
-                agents, and tools like n8n for intelligent qualification,
-                proposal generation, content engines, and smart routing logic
-                that adapts in real time. Automation that doesn&apos;t just run
-                tasks — it makes decisions.
+                Since then, I&apos;ve continued building websites, sales funnels,
+                CRM systems, AI automations, and backend workflows for businesses
+                across different industries.
               </BodyText>
             </ScrollReveal>
 
-            {/* Value / ROI */}
-            <ScrollReveal delay={0.65}>
-              <SectionLabel>Value / ROI Positioning</SectionLabel>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.7}>
+            <ScrollReveal delay={0.1}>
               <BodyText>
-                What I build isn&apos;t a cost — it&apos;s revenue
-                infrastructure. Every funnel, automation, and pipeline I deliver
-                is designed to pay for itself, then keep compounding.
+                Technology continues to evolve, especially AI, and I believe
+                learning never stops. That&apos;s why I&apos;m constantly expanding
+                my skills beyond GoHighLevel—exploring tools like{" "}
+                <Strong>n8n</Strong>, <Strong>AI agents</Strong>,{" "}
+                <Strong>APIs</Strong>, and modern automation platforms to build
+                even better solutions for my clients.
               </BodyText>
             </ScrollReveal>
 
-            {/* Blockquote */}
-            <ScrollReveal delay={0.75}>
-              <blockquote className="border-l-[3px] border-yellow pl-5 italic text-white/50">
-                &ldquo;Most businesses plateau because they lack structure — not
-                effort. I build the structure so your effort finally
-                compounds.&rdquo;
+            <ScrollReveal delay={0.1}>
+              <BodyText>
+                One lesson has stayed with me throughout my journey:
+              </BodyText>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <blockquote className="border-l-[3px] border-yellow pl-5">
+                <EmphasisLine>
+                  Businesses don&apos;t grow because people work harder. They grow
+                  because they build better systems.
+                </EmphasisLine>
               </blockquote>
             </ScrollReveal>
 
-            {/* Tagline */}
-            <ScrollReveal delay={0.8}>
-              <p className="italic text-white/30">
-                Systems evolve. AI is evolving. And I evolve with both.
-              </p>
+            <ScrollReveal delay={0.1}>
+              <BodyText>
+                Today, that&apos;s exactly what I help businesses do.
+              </BodyText>
             </ScrollReveal>
 
-            {/* CTAs */}
-            <ScrollReveal delay={0.85}>
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  href="/consult"
-                  className="inline-block rounded-lg bg-persian/20 backdrop-blur-sm border border-persian/30 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-persian/40 hover:border-persian/50 hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]"
-                >
-                  Book Strategy Call →
-                </Link>
+            {/* What I Do / My Approach / Why Work With Me — slideshow */}
+            <ScrollReveal delay={0.05}>
+              <PositioningSlideshow />
+            </ScrollReveal>
+
+            {/* Let's Build Something Better — CTA */}
+            <ScrollReveal delay={0.05}>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 sm:p-8">
+                <SectionLabel>Let&apos;s Build Something Better</SectionLabel>
+                <p className="mt-4 text-[15px] leading-relaxed text-white/65">
+                  If you&apos;re looking for someone who understands both{" "}
+                  <Strong>business operations</Strong> and{" "}
+                  <Strong>AI automation</Strong>, I&apos;d love to help. Whether you
+                  need a high-converting website, a complete GoHighLevel setup,
+                  AI-powered workflows, or a fully connected backend system,
+                  let&apos;s build something that helps your business run smarter—not
+                  harder.
+                </p>
+                <p className="mt-5 text-base font-bold text-white">
+                  Ready to automate and scale your business?
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/consult"
+                    className="inline-flex items-center gap-2 rounded-lg bg-yellow px-6 py-3 text-sm font-bold uppercase tracking-wider text-black transition-all hover:bg-yellow/85 hover:shadow-[0_12px_40px_rgba(234,179,8,0.3)] hover:-translate-y-[2px]"
+                  >
+                    Book a Free Strategy Call →
+                  </Link>
+                  <Link
+                    href="/system-builds"
+                    className="inline-flex items-center gap-2 rounded-lg border border-persian/30 bg-persian/20 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-persian/40 hover:border-persian/50"
+                  >
+                    Explore My System Builds →
+                  </Link>
+                </div>
                 <a
                   href="/aj-bactad-ghl-resume.pdf"
                   download="AJ Bactad - GHL.pdf"
-                  className="inline-flex items-center gap-2 rounded-lg border border-yellow/40 bg-yellow/10 px-6 py-3 text-sm font-bold uppercase tracking-wider text-yellow transition-all hover:bg-yellow/20 hover:border-yellow/70"
+                  className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-yellow/80 transition-colors hover:text-yellow"
                 >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
@@ -379,6 +477,122 @@ export function AboutContent() {
             </div>
           </div>
         </div>
+      </div>
+  );
+}
+
+function TabPill({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`shrink-0 rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+        active
+          ? "bg-gradient-to-r from-persian to-[#7b3ff2] text-white shadow-[0_4px_20px_rgba(94,23,235,0.45)]"
+          : "border border-white/[0.08] bg-white/[0.05] text-white/60 hover:bg-white/[0.09] hover:text-white"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function SoonModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Badges and Certificates"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-sm rounded-2xl border border-white/[0.1] bg-[#0c0a17] p-8 text-center shadow-[0_24px_80px_rgba(0,0,0,0.6)]"
+      >
+        <span className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-yellow/40 bg-yellow/15 text-yellow">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <circle cx="12" cy="8" r="6" />
+            <path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5" />
+          </svg>
+        </span>
+        <p className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-yellow">
+          Coming Soon
+        </p>
+        <h3 className="mb-2 text-xl font-black text-white">Badges &amp; Certificates</h3>
+        <p className="text-sm leading-relaxed text-white/55">
+          I&apos;m collecting and verifying my certifications right now. This section
+          will showcase them soon.
+        </p>
+        <button
+          type="button"
+          onClick={onClose}
+          className="mt-6 inline-flex items-center justify-center rounded-lg bg-white/[0.06] px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/[0.1]"
+        >
+          Got it
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function AboutContent() {
+  const [tab, setTab] = useState<"about" | "mentors">("about");
+  const [showSoon, setShowSoon] = useState(false);
+
+  return (
+    <PageTransition>
+      <div className="min-h-screen bg-transparent">
+        {/* Merged tab bar */}
+        <div className="sticky top-20 z-30 border-b border-white/[0.06] bg-[#0c0a17]/70 backdrop-blur-md">
+          <div className="mx-auto flex max-w-[1100px] items-center gap-2 overflow-x-auto px-6 py-3">
+            <TabPill active={tab === "about"} onClick={() => setTab("about")}>
+              About
+            </TabPill>
+            <TabPill active={tab === "mentors"} onClick={() => setTab("mentors")}>
+              Mentors
+            </TabPill>
+            <TabPill active={false} onClick={() => setShowSoon(true)}>
+              Badge &amp; Certificates
+            </TabPill>
+          </div>
+        </div>
+
+        {/* Panels */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
+          >
+            {tab === "about" ? <AboutPanel /> : <MentorsContent embedded />}
+          </motion.div>
+        </AnimatePresence>
+
+        {showSoon && <SoonModal onClose={() => setShowSoon(false)} />}
       </div>
     </PageTransition>
   );

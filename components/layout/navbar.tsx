@@ -23,8 +23,7 @@ interface NavDropdown {
 const solutionsDropdown: NavDropdown = {
   label: "Gallery",
   items: [
-    { label: "About", emoji: "\u{1F91D}", href: "/about", description: "Who I am & how I work" },
-    { label: "Mentors", emoji: "\u{1F393}", href: "/mentors", description: "The experts I learned from" },
+    { label: "About", emoji: "\u{1F91D}", href: "/about", description: "My story, mentors & how I work" },
     { label: "System Builds", emoji: "\u{1F3AC}", href: "/system-builds", description: "Recorded walkthroughs of every build" },
     { label: "Funnels & Websites", emoji: "\u{1F680}", href: "/projects", description: "Live funnel & website builds" },
     { label: "Services", emoji: "\u{1F9E9}", href: "/services", description: "All 8 service categories" },
@@ -44,11 +43,11 @@ const workDropdown: NavDropdown = {
 const toolsDropdown: NavDropdown = {
   label: "Tools",
   items: [
-    { label: "All Tools", emoji: "\u{1F9F0}", href: "/tools", description: "Browse every free tool" },
-    { label: "GHL Full Audit", emoji: "\u{1F525}", href: "/tools/ghl-audit", description: "Health-scan any GHL sub-account" },
-    { label: "Revenue Audit", emoji: "\u{1F4CA}", href: "/tools/revenue-audit", description: "Find the leaks. Quantify the upside." },
-    { label: "Email Health Tools", emoji: "\u{1F4E7}", href: "/tools/email-health", description: "Domain, sender & deliverability checks" },
-    { label: "Process Map", emoji: "\u{1F5FA}\u{FE0F}", href: "/tools/process-map", description: "Render GHL workflow diagrams from Mermaid" },
+    { label: "All Tools", emoji: "\u{1F9F0}", href: "/tools", description: "Everything on one page" },
+    { label: "AI Dev Stack", emoji: "\u{26A1}", href: "/tools#ai-dev-stack", description: "The skills & frameworks I build with" },
+    { label: "GHL Full Audit", emoji: "\u{1F525}", href: "/tools#ghl-full-audit", description: "Health-scan any GHL sub-account" },
+    { label: "Revenue Tools", emoji: "\u{1F4CA}", href: "/tools#revenue-tools", description: "Revenue audit, email health & process map" },
+    { label: "Build & Learn Hub", emoji: "\u{1F393}", href: "/tools#build-learn-hub", description: "Funnel builder & learning hub (private)" },
   ],
   dividerAfter: 0,
 };

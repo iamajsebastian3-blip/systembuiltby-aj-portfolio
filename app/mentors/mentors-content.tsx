@@ -44,10 +44,9 @@ const mentors = [
   },
 ];
 
-export function MentorsContent() {
-  return (
-    <PageTransition>
-      <div className="min-h-screen bg-transparent">
+export function MentorsContent({ embedded = false }: { embedded?: boolean }) {
+  const body = (
+    <div className="min-h-screen bg-transparent">
         {/* Hero */}
         <section className="bg-persian/20 backdrop-blur-xl px-6 py-16 md:py-20 text-center">
           <div className="mx-auto max-w-3xl">
@@ -141,7 +140,8 @@ export function MentorsContent() {
             </div>
           </ScrollReveal>
         </section>
-      </div>
-    </PageTransition>
+    </div>
   );
+
+  return embedded ? body : <PageTransition>{body}</PageTransition>;
 }

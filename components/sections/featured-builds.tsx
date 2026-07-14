@@ -42,11 +42,23 @@ const edgePath = (a: number, b: number) => `M${nodes[a][0]} ${nodes[a][1]} L${no
 
 function BuildCard({ card }: { card: (typeof cards)[number] }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-white/[0.10] shadow-[0_16px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/40 hover:shadow-[0_20px_60px_rgba(94,23,235,0.28)]">
+    <Link
+      href="/system-builds"
+      aria-label={`View ${card.title} build`}
+      className="group relative block overflow-hidden rounded-2xl border border-white/[0.10] shadow-[0_16px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-[3px] hover:border-persian/40 hover:shadow-[0_20px_60px_rgba(94,23,235,0.28)]"
+    >
       <div className="relative aspect-[16/10] w-full">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={card.image} alt={card.title} className="h-full w-full object-cover" loading="lazy" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+        {/* Play affordance — always visible (mobile has no hover) */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-black/45 text-white backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white/50 group-hover:bg-persian/75">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="ml-0.5">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </div>
       </div>
       <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-4">
         <span className="text-sm font-bold text-white">{card.title}</span>
@@ -54,7 +66,7 @@ function BuildCard({ card }: { card: (typeof cards)[number] }) {
           {card.tag}
         </span>
       </div>
-    </div>
+    </Link>
   );
 }
 
