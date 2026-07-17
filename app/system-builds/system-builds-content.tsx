@@ -108,6 +108,15 @@ const claudeProjects: SystemBuild[] = [
     image: "/system-builds/slack-agent.webp",
     vimeoId: "1210062752",
   },
+  {
+    title: "RAG Knowledge Bot",
+    category: "Claude Test Project",
+    description:
+      "Chat with your own documents right inside Slack. This retrieval-augmented (RAG) knowledge bot ingests PDFs, DOCX, and YouTube into a Supabase vector database, then answers questions instantly with cited sources, so it never makes anything up. Built with Trigger.dev and a Slack /ask command. 🚀",
+    emoji: "📚",
+    image: "/system-builds/rag-knowledge-bot.webp",
+    videoId: "USSYFHZg5Xo",
+  },
 ];
 
 const zapierTutorials: SystemBuild[] = [
