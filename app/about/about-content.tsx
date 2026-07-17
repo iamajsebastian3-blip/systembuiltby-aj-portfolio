@@ -650,9 +650,8 @@ function BadgesPanel() {
         </button>
       </div>
 
-      {/* Label + dots */}
-      <div className="mt-6 flex flex-col items-center gap-4">
-        <p className="text-lg font-bold text-white">{badges[i].label}</p>
+      {/* Dots */}
+      <div className="mt-8 flex flex-col items-center gap-4">
         <div className="flex items-center gap-2">
           {badges.map((b, idx) => (
             <button
