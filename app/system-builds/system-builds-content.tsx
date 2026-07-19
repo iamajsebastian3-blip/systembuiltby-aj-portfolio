@@ -117,6 +117,24 @@ const claudeProjects: SystemBuild[] = [
     image: "/system-builds/rag-knowledge-bot.webp",
     videoId: "USSYFHZg5Xo",
   },
+  {
+    title: "Team Knowledge Dashboard",
+    category: "Claude Test Project",
+    description:
+      "A secure dashboard where your whole team logs into one place and sees the same company knowledge your AI reads from. One login, one source of truth, locked down with real database-level (row-level) security so people only see what they're allowed to. Built with Supabase auth, Trigger.dev, and deployed on Vercel. 🚀",
+    emoji: "📊",
+    image: "/system-builds/team-knowledge-dashboard.webp",
+    videoId: "VpT3w4yZpl4",
+  },
+  {
+    title: "Subscription Paywall",
+    category: "Claude Test Project",
+    description:
+      "Lock your app behind a Stripe subscription, the owner pays once, the whole team gets in, and a webhook keeps your database in sync so access flips the moment a payment does. No pay, no access. Built with Stripe, Next.js, and Supabase, deployed on Vercel. 🚀",
+    emoji: "🔒",
+    image: "/system-builds/subscription-paywall.webp",
+    vimeoId: "1211124288",
+  },
 ];
 
 const zapierTutorials: SystemBuild[] = [
