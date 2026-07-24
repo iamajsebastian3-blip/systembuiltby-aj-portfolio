@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { PageTransition } from "@/components/motion/page-transition";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { CertificatesExplorer } from "@/components/sections/certificates-explorer";
 import { StaggerChildren, StaggerItem } from "@/components/motion/stagger-children";
 
 type Category = {
@@ -505,175 +506,11 @@ function TabPill({
   );
 }
 
-const badges = [
-  { src: "/badges/badges.webp", label: "Badges" },
-  { src: "/badges/hla-badge.webp", label: "HLA Badge" },
-  { src: "/badges/certificate.webp", label: "Certificate" },
-];
-
-function BadgeLightbox({
-  src,
-  label,
-  onClose,
-}: {
-  src: string;
-  label: string;
-  onClose: () => void;
-}) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label={label}
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm sm:p-8"
-    >
-      <div onClick={(e) => e.stopPropagation()} className="relative">
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute -top-11 right-0 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
-        >
-          ✕
-        </button>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={label}
-          className="max-h-[85vh] w-auto rounded-xl border border-white/15 shadow-[0_20px_80px_rgba(0,0,0,0.6)]"
-        />
-      </div>
-    </div>
-  );
-}
-
 function BadgesPanel() {
-  const [i, setI] = useState(0);
-  const [zoom, setZoom] = useState<number | null>(null);
-  const n = badges.length;
-  const go = (idx: number) => setI(((idx % n) + n) % n);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (zoom !== null) return;
-      if (e.key === "ArrowRight") setI((p) => (p + 1) % n);
-      else if (e.key === "ArrowLeft") setI((p) => (p - 1 + n) % n);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [n, zoom]);
-
+  // Same tech-stack picker -> coverflow flow as the hero popup (shared component).
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-16">
-      <div className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-widest text-yellow">
-          Badges &amp; Certificates
-        </p>
-        <h2 className="mt-3 text-3xl font-black text-white md:text-4xl">
-          Credentials &amp; Recognition
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-white/60">
-          Badges and certifications from the programs and platforms I build with.
-          Click any card to view it full size.
-        </p>
-      </div>
-
-      {/* Coverflow */}
-      <div
-        className="relative mt-12 flex h-[440px] items-center justify-center sm:h-[520px]"
-        style={{ perspective: "1500px" }}
-      >
-        {badges.map((b, idx) => {
-          let rel = idx - i;
-          if (rel > n / 2) rel -= n;
-          if (rel < -n / 2) rel += n;
-          const isCenter = rel === 0;
-          const abs = Math.abs(rel);
-          const style: React.CSSProperties = {
-            transform: `translateX(${rel * 58}%) scale(${isCenter ? 1 : 0.78}) rotateY(${rel * -22}deg)`,
-            zIndex: 30 - abs,
-            opacity: abs > 1 ? 0 : isCenter ? 1 : 0.5,
-            pointerEvents: abs > 1 ? "none" : "auto",
-          };
-          return (
-            <button
-              key={b.src}
-              type="button"
-              onClick={() => (isCenter ? setZoom(idx) : go(idx))}
-              aria-label={isCenter ? `View ${b.label} full size` : `Show ${b.label}`}
-              className="absolute h-full w-[260px] transition-all duration-500 ease-out sm:w-[340px]"
-              style={style}
-            >
-              <div
-                className={`relative h-full w-full overflow-hidden rounded-2xl border bg-white/[0.05] backdrop-blur-sm ${
-                  isCenter
-                    ? "border-yellow/40 shadow-[0_20px_70px_rgba(94,23,235,0.35)]"
-                    : "border-white/[0.08]"
-                }`}
-              >
-                <Image src={b.src} alt={b.label} fill sizes="340px" className="object-contain p-4" />
-              </div>
-            </button>
-          );
-        })}
-
-        {/* Arrows */}
-        <button
-          type="button"
-          onClick={() => go(i - 1)}
-          aria-label="Previous"
-          className="absolute left-1 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.12] bg-black/50 text-white/80 backdrop-blur-sm transition hover:border-persian/50 hover:text-white sm:left-4"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-        </button>
-        <button
-          type="button"
-          onClick={() => go(i + 1)}
-          aria-label="Next"
-          className="absolute right-1 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-persian/60 bg-persian text-white transition hover:bg-persian-dark sm:right-4"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-        </button>
-      </div>
-
-      {/* Dots */}
-      <div className="mt-8 flex flex-col items-center gap-4">
-        <div className="flex items-center gap-2">
-          {badges.map((b, idx) => (
-            <button
-              key={b.src}
-              type="button"
-              onClick={() => go(idx)}
-              aria-label={`Go to ${b.label}`}
-              className={`h-1.5 rounded-full transition-all ${
-                idx === i ? "w-6 bg-yellow" : "w-1.5 bg-white/20 hover:bg-white/40"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {zoom !== null && (
-        <BadgeLightbox
-          src={badges[zoom].src}
-          label={badges[zoom].label}
-          onClose={() => setZoom(null)}
-        />
-      )}
+      <CertificatesExplorer />
     </div>
   );
 }

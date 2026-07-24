@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Dancing_Script } from "next/font/google";
 import { Counter } from "@/components/motion/counter";
 import { Magnetic } from "@/components/motion/magnetic";
+import { HeroCertificates } from "@/components/sections/hero-certificates";
 
 // Script font ONLY for the "Hello, I'm" eyebrow (matches the reference); rest stays Inter
 const script = Dancing_Script({ subsets: ["latin"], weight: ["600", "700"] });
@@ -184,26 +185,32 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT, stat column */}
+        {/* RIGHT, stat column + certificates entry point */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="flex flex-row justify-between gap-6 lg:col-span-3 lg:col-start-10 lg:flex-col lg:items-end lg:justify-center lg:gap-8"
+          className="flex flex-col gap-8 lg:col-span-3 lg:col-start-10 lg:justify-center"
         >
-          {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col lg:items-end lg:text-right">
-              <Counter
-                target={stat.target}
-                suffix={stat.suffix}
-                className="text-3xl font-extrabold text-yellow sm:text-4xl lg:text-5xl"
-              />
-              <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/45 sm:text-xs">
-                {stat.label}
-              </span>
-              <span className="mt-3 hidden h-px w-16 bg-white/10 lg:block" />
-            </div>
-          ))}
+          <div className="flex flex-row justify-between gap-6 lg:flex-col lg:items-end lg:gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col lg:items-end lg:text-right">
+                <Counter
+                  target={stat.target}
+                  suffix={stat.suffix}
+                  className="text-3xl font-extrabold text-yellow sm:text-4xl lg:text-5xl"
+                />
+                <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-white/45 sm:text-xs">
+                  {stat.label}
+                </span>
+                <span className="mt-3 hidden h-px w-16 bg-white/10 lg:block" />
+              </div>
+            ))}
+          </div>
+
+          <div className="flex lg:justify-end">
+            <HeroCertificates />
+          </div>
         </motion.div>
       </div>
 
