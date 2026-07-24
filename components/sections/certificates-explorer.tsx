@@ -34,8 +34,16 @@ const techStack: Tool[] = [
     logo: "/logos/n8n.svg",
     orientation: "landscape",
     badges: [
-      { src: "/badges/n8n/n8n-quickstart.webp", label: "n8n Quickstart" },
-      { src: "/badges/n8n/in-practice.webp", label: "In Practice: AI, Testing & Best Practices" },
+      { src: "/badges/n8n/n8n-quickstart.webp", label: "n8n Quickstart — Certificate" },
+      { src: "/badges/n8n/in-practice.webp", label: "In Practice: AI, Testing & Best Practices — Badge" },
+      { src: "/badges/n8n/quickstart-verified.webp", label: "n8n Quickstart — Verified Credential" },
+      { src: "/badges/n8n/quickstart-skills.webp", label: "n8n Quickstart — Skills & Criteria" },
+      { src: "/badges/n8n/quickstart-progress.webp", label: "n8n Quickstart — Course Progress" },
+      { src: "/badges/n8n/quickstart-badge-email.webp", label: "n8n Quickstart — Badge Awarded" },
+      { src: "/badges/n8n/in-practice-skills.webp", label: "In Practice — Skills & Criteria" },
+      { src: "/badges/n8n/credentials-wallet.webp", label: "n8n Credentials Wallet" },
+      { src: "/badges/n8n/in-practice-progress.webp", label: "In Practice — Course Progress" },
+      { src: "/badges/n8n/in-practice-badge-email.webp", label: "In Practice — Badge Awarded" },
     ],
   },
   {
