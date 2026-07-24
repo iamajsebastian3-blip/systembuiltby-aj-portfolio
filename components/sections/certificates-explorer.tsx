@@ -35,6 +35,7 @@ const techStack: Tool[] = [
     orientation: "landscape",
     badges: [
       { src: "/badges/n8n/n8n-quickstart.webp", label: "n8n Quickstart" },
+      { src: "/badges/n8n/in-practice.webp", label: "In Practice: AI, Testing & Best Practices" },
     ],
   },
   {
