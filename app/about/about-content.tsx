@@ -507,10 +507,26 @@ function TabPill({
 }
 
 function BadgesPanel() {
-  // Same tech-stack picker -> coverflow flow as the hero popup (shared component).
+  // Same tech-stack picker -> coverflow flow as the hero popup (shared component),
+  // rendered larger for the roomier page, with the homepage CTAs below.
   return (
     <div className="mx-auto max-w-[1100px] px-6 py-16">
-      <CertificatesExplorer />
+      <CertificatesExplorer large />
+
+      <div className="mt-16 flex flex-wrap items-center justify-center gap-4">
+        <Link
+          href="/consult"
+          className="inline-flex items-center rounded-xl border border-persian/60 bg-persian px-6 py-3 font-semibold text-white transition-all hover:bg-persian-dark hover:shadow-[0_0_30px_rgba(94,23,235,0.35)]"
+        >
+          Book Free Consultation &rarr;
+        </Link>
+        <Link
+          href="/system-builds"
+          className="inline-flex items-center rounded-xl border border-white/[0.08] bg-white/[0.04] px-6 py-3 font-semibold text-white/80 backdrop-blur-sm transition-all hover:bg-white/[0.07]"
+        >
+          Check My System Build
+        </Link>
+      </div>
     </div>
   );
 }
