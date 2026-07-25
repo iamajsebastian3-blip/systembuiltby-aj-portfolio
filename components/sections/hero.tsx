@@ -15,8 +15,8 @@ const script = Dancing_Script({ subsets: ["latin"], weight: ["600", "700"] });
 // PLACEHOLDER stats, AJ to confirm real numbers
 const stats = [
   { target: 5, suffix: "+", label: "Years Experience" },
-  { target: 40, suffix: "+", label: "Projects Completed" },
-  { target: 20, suffix: "+", label: "Happy Clients" },
+  { target: 10, suffix: "+", label: "Projects Completed" },
+  { target: 5, suffix: "+", label: "Happy Clients" },
 ];
 
 const socials = [
