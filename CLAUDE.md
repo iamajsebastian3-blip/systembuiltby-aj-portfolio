@@ -28,13 +28,14 @@ TypeScript, framer-motion, lucide-react. Deploy: Vercel.
 - `app/[route]/page.tsx` → delegates to a co-located `*-content.tsx` client component
 - `components/sections/` → page sections   ·   `components/ui/` → shadcn primitives
 - `components/layout/` → navbar, footer   ·   `components/motion/` → framer helpers
+- `components/interactive/` → embedded tools (ROI/revenue/audit widgets)   ·   `components/chat/` → chat bubble   ·   `components/intro/` → name-reveal intro
 - Page copy is INLINED in `*-content.tsx` and section files (no `content/` folder)
 
 ## Homepage sections (order) — components/sections/
-Hero → IntroVideo → ToolkitMarquee → Vault → Philosophy → Services → Testimonials
-→ HLBanner → FAQ → FinalCTA
+Hero → TechStack → IntroVideo → Vault → Philosophy → FeaturedBuilds → Testimonials
+→ WorkflowScreens → AutomationFlows → Services → FAQ → FinalCTA
 Other pages: /about /services /packages /system-builds /projects /portfolio /mentors
-/consult /tools/*
+/consult /tools/*  (plus dev-only preview routes: /preview /intro-preview /pulse-preview /slides-preview)
 
 ## Deploy
 Commit + push to `master`; AJ verifies on Vercel. Verify on the dev server before committing.
