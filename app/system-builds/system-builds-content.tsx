@@ -22,6 +22,15 @@ type SystemBuild = {
 
 const clientProjects: SystemBuild[] = [
   {
+    title: "AI Automation Course",
+    category: "Course",
+    description:
+      "A complete AI Automation Course — step-by-step video lessons, real automation examples, and GHL + AI agent integrations, plus workflow blueprints and bonus templates. Everything to go from beginner to automation pro.",
+    emoji: "🎓",
+    image: "/system-builds/ai-automation-course.webp",
+    videoId: "7XCfAifD378",
+  },
+  {
     title: "Course Order → Instant ClickUp Alert",
     category: "Client Automation",
     description:
