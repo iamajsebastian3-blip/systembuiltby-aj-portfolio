@@ -29,14 +29,6 @@ type Testimonial = TextTestimonial | VideoTestimonial;
 
 const testimonials: Testimonial[] = [
   {
-    type: "text",
-    name: "Patricia Villanueva",
-    role: "COO · Brightpath Solutions",
-    avatar: "/avatars/patricia.webp",
-    quote:
-      "AJ didn’t just ‘set up’ our HighLevel. He rebuilt the entire logic behind how our leads move. Before him, we had automations but no structure. Now everything flows perfectly.",
-  },
-  {
     type: "video",
     name: "Coach Lish Aquino",
     role: "Amaze OPC · Coaching Business",
@@ -46,17 +38,25 @@ const testimonials: Testimonial[] = [
   },
   {
     type: "text",
-    name: "Daniel Reyes",
-    role: "Founder & CEO · Northgate Consulting",
-    avatar: "/avatars/daniel.webp",
+    name: "Patricia Villanueva",
+    role: "COO · Brightpath Solutions",
+    avatar: "/avatars/patricia.webp",
     quote:
-      "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
+      "AJ didn’t just ‘set up’ our HighLevel. He rebuilt the entire logic behind how our leads move. Before him, we had automations but no structure. Now everything flows perfectly.",
   },
   {
     type: "video",
     name: "Josh Broach",
     role: "Retirement Consultant for Teachers",
     videoId: "VAuLfl_P5ms",
+  },
+  {
+    type: "text",
+    name: "Daniel Reyes",
+    role: "Founder & CEO · Northgate Consulting",
+    avatar: "/avatars/daniel.webp",
+    quote:
+      "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
   },
 ];
 
