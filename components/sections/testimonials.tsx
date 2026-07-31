@@ -48,6 +48,12 @@ const testimonials: Testimonial[] = [
     quote:
       "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
   },
+  {
+    type: "video",
+    name: "Coach Lish Aquino",
+    role: "Amaze OPC · Coaching Business",
+    videoId: "TK_K5MhsfFs",
+  },
 ];
 
 const Stars = () => (

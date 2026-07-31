@@ -555,7 +555,10 @@ function FunnelCard({
                 src={thumbnail}
                 alt={title}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover object-top"
+                // Device-mockup thumbnails (coaching funnels) are full 16:9 composites —
+                // contain them so nothing gets cropped on narrow/mobile cards. Regular
+                // funnel screenshots stay cover+top.
+                className={`absolute inset-0 w-full h-full ${hasMockups ? "object-contain" : "object-cover object-top"}`}
               />
             ) : (
               <div className="absolute inset-0 overflow-hidden pointer-events-none">

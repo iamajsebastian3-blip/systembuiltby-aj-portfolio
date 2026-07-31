@@ -9,7 +9,7 @@ import {
   StaggerItem,
 } from "@/components/motion/stagger-children";
 
-type SystemBuild = {
+export type SystemBuild = {
   title: string;
   category: string;
   description: string;
@@ -20,7 +20,7 @@ type SystemBuild = {
   image?: string;
 };
 
-const clientProjects: SystemBuild[] = [
+export const clientProjects: SystemBuild[] = [
   {
     title: "AI Automation Course",
     category: "Course",
@@ -59,7 +59,7 @@ const clientProjects: SystemBuild[] = [
   },
 ];
 
-const ajTutorials: SystemBuild[] = [
+export const ajTutorials: SystemBuild[] = [
   {
     title: "Create Snapshot, Subaccount & Load It to a Subaccount",
     category: "GHL Tutorial",
@@ -89,7 +89,7 @@ const ajTutorials: SystemBuild[] = [
   },
 ];
 
-const claudeProjects: SystemBuild[] = [
+export const claudeProjects: SystemBuild[] = [
   {
     title: "Weekly AI Research: Find the Best Resorts & Restaurants Automatically",
     category: "Claude Test Project",
@@ -146,7 +146,7 @@ const claudeProjects: SystemBuild[] = [
   },
 ];
 
-const zapierTutorials: SystemBuild[] = [
+export const zapierTutorials: SystemBuild[] = [
   {
     title: "Instant Form Intake: Notify Everywhere, Log Automatically",
     category: "Zapier Automation",

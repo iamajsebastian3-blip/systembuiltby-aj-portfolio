@@ -6,16 +6,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Parallax } from "@/components/motion/parallax";
+import {
+  clientProjects,
+  ajTutorials,
+  claudeProjects,
+  zapierTutorials,
+  type SystemBuild,
+} from "@/app/system-builds/system-builds-content";
 
-// Featured builds shown as landscape (Canva-size) thumbnail cards in a slideshow.
-// videoId maps to the YouTube walkthrough (plays inline in a lightbox).
-const cards = [
-  { title: "WooCommerce → GHL", tag: "Migration", image: "/system-builds/migrating-woocommerce-ghl.webp", videoId: "SlZROJx4Obo" },
-  { title: "Appointment Booking", tag: "GHL · Calendars", image: "/system-builds/appointment-booking.webp", videoId: "9FOymB9sZEs" },
-  { title: "Weekly AI Research", tag: "Claude · Trigger.dev", image: "/system-builds/claude-test-project.webp", videoId: "M3OK_1BNEco" },
-  { title: "LinkedIn Automation", tag: "Claude · Auto-Publish", image: "/system-builds/linkedin-content-automation.webp", videoId: "_zWVgnQzDuI" },
-  { title: "GHL → ClickUp Alerts", tag: "GHL · Zapier", image: "/system-builds/sb-ghl-clickup.webp", videoId: "cBkmitMksrk" },
-  { title: "Deal-Won Alerts", tag: "GHL · Discord · Slack", image: "/system-builds/sb-deal-won.webp", videoId: "6WpbbpRR1ZQ" },
+// Mirror the full /system-builds gallery here as a slideshow, so every build on
+// that page also cycles through on the homepage. Single source of truth for the
+// build list lives in system-builds-content.
+const cards: SystemBuild[] = [
+  ...clientProjects,
+  ...ajTutorials,
+  ...claudeProjects,
+  ...zapierTutorials,
 ];
 
 // Abstract AI-system network for the background
@@ -64,15 +70,18 @@ function BuildCard({ card, onPlay }: { card: (typeof cards)[number]; onPlay: () 
       </div>
       <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-4">
         <span className="text-sm font-bold text-white">{card.title}</span>
-        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/70 backdrop-blur-sm">
-          {card.tag}
+        <span className="shrink-0 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/70 backdrop-blur-sm">
+          {card.category}
         </span>
       </div>
     </button>
   );
 }
 
-function VideoLightbox({ videoId, onClose }: { videoId: string; onClose: () => void }) {
+function VideoLightbox({ build, onClose }: { build: SystemBuild; onClose: () => void }) {
+  const embedSrc = build.vimeoId
+    ? `https://player.vimeo.com/video/${build.vimeoId}?autoplay=1`
+    : `https://www.youtube.com/embed/${build.videoId}?autoplay=1&rel=0`;
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -105,7 +114,7 @@ function VideoLightbox({ videoId, onClose }: { videoId: string; onClose: () => v
         </button>
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-white/15 shadow-[0_20px_80px_rgba(0,0,0,0.6)]">
           <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            src={embedSrc}
             title="Build walkthrough"
             className="absolute inset-0 h-full w-full"
             allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
@@ -119,7 +128,7 @@ function VideoLightbox({ videoId, onClose }: { videoId: string; onClose: () => v
 
 export function FeaturedBuilds() {
   const [idx, setIdx] = useState(0);
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<SystemBuild | null>(null);
   const n = cards.length;
   const visible = [cards[idx % n], cards[(idx + 1) % n]];
   const next = () => setIdx((i) => (i + 1) % n);
@@ -231,7 +240,7 @@ export function FeaturedBuilds() {
                 className="flex flex-col gap-5"
               >
                 {visible.map((c) => (
-                  <BuildCard key={c.title} card={c} onPlay={() => setActiveVideo(c.videoId)} />
+                  <BuildCard key={c.title} card={c} onPlay={() => setActiveVideo(c)} />
                 ))}
               </motion.div>
             </AnimatePresence>
@@ -266,7 +275,7 @@ export function FeaturedBuilds() {
       </div>
 
       {activeVideo && (
-        <VideoLightbox videoId={activeVideo} onClose={() => setActiveVideo(null)} />
+        <VideoLightbox build={activeVideo} onClose={() => setActiveVideo(null)} />
       )}
     </section>
   );
