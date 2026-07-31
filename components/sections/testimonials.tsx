@@ -37,20 +37,20 @@ const testimonials: Testimonial[] = [
       "AJ didn’t just ‘set up’ our HighLevel. He rebuilt the entire logic behind how our leads move. Before him, we had automations but no structure. Now everything flows perfectly.",
   },
   {
-    type: "text",
-    name: "Daniel Reyes",
-    role: "Founder & CEO · Northgate Consulting",
-    avatar: "/avatars/daniel.webp",
-    quote:
-      "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
-  },
-  {
     type: "video",
     name: "Coach Lish Aquino",
     role: "Amaze OPC · Coaching Business",
     videoId: "TK_K5MhsfFs",
     poster: "/testimonials/lish-aquino.webp",
     vertical: true,
+  },
+  {
+    type: "text",
+    name: "Daniel Reyes",
+    role: "Founder & CEO · Northgate Consulting",
+    avatar: "/avatars/daniel.webp",
+    quote:
+      "We hired AJ to fix broken workflows. What we got was a fully engineered sales infrastructure. He mapped the pipeline, corrected trigger logic, and eliminated every bottleneck.",
   },
   {
     type: "video",
@@ -194,10 +194,10 @@ export function Testimonials() {
           </div>
         </ScrollReveal>
 
-        {/* Testimonial grid */}
-        <StaggerChildren className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Testimonials — single horizontal scroll row (swipe / scroll for more) */}
+        <StaggerChildren className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {testimonials.map((t) => (
-            <StaggerItem key={t.name} className="h-full">
+            <StaggerItem key={t.name} className="w-[300px] shrink-0 snap-start sm:w-[350px]">
               {t.type === "video" ? <VideoCard t={t} /> : <TextCard t={t} />}
             </StaggerItem>
           ))}
