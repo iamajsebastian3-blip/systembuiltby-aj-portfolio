@@ -21,6 +21,8 @@ type VideoTestimonial = {
   name: string;
   role: string;
   videoId: string;
+  poster?: string; // custom poster (e.g. a clean vertical frame for a Short)
+  vertical?: boolean; // vertical/Short: blurred backdrop + contained frame so it fills the card
 };
 
 type Testimonial = TextTestimonial | VideoTestimonial;
@@ -35,12 +37,6 @@ const testimonials: Testimonial[] = [
       "AJ didn’t just ‘set up’ our HighLevel. He rebuilt the entire logic behind how our leads move. Before him, we had automations but no structure. Now everything flows perfectly.",
   },
   {
-    type: "video",
-    name: "Josh Broach",
-    role: "Retirement Consultant for Teachers",
-    videoId: "VAuLfl_P5ms",
-  },
-  {
     type: "text",
     name: "Daniel Reyes",
     role: "Founder & CEO · Northgate Consulting",
@@ -53,6 +49,14 @@ const testimonials: Testimonial[] = [
     name: "Coach Lish Aquino",
     role: "Amaze OPC · Coaching Business",
     videoId: "TK_K5MhsfFs",
+    poster: "/testimonials/lish-aquino.webp",
+    vertical: true,
+  },
+  {
+    type: "video",
+    name: "Josh Broach",
+    role: "Retirement Consultant for Teachers",
+    videoId: "VAuLfl_P5ms",
   },
 ];
 
@@ -88,7 +92,7 @@ function TextCard({ t }: { t: TextTestimonial }) {
 
 function VideoCard({ t }: { t: VideoTestimonial }) {
   const [playing, setPlaying] = useState(false);
-  const poster = `https://i.ytimg.com/vi/${t.videoId}/hqdefault.jpg`;
+  const poster = t.poster ?? `https://i.ytimg.com/vi/${t.videoId}/hqdefault.jpg`;
 
   return (
     <div className="group relative h-full min-h-[340px] overflow-hidden rounded-xl border border-white/[0.07] bg-black/40 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]">
@@ -107,13 +111,32 @@ function VideoCard({ t }: { t: VideoTestimonial }) {
           aria-label={`Play ${t.name} video testimonial`}
           className="absolute inset-0 h-full w-full cursor-pointer"
         >
-          {/* Poster */}
-          <img
-            src={poster}
-            alt={`${t.name} video testimonial`}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          {/* Poster — vertical Shorts get a blurred backdrop + contained frame so
+              the card fills edge-to-edge instead of showing black bars. */}
+          {t.vertical ? (
+            <>
+              <img
+                src={poster}
+                alt=""
+                aria-hidden
+                loading="lazy"
+                className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
+              />
+              <img
+                src={poster}
+                alt={`${t.name} video testimonial`}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-contain"
+              />
+            </>
+          ) : (
+            <img
+              src={poster}
+              alt={`${t.name} video testimonial`}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/10 to-black/55 transition-colors group-hover:from-black/45 group-hover:to-black/45" />
 
           {/* Name label */}
