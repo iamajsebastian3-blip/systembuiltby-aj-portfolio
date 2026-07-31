@@ -201,25 +201,8 @@ export function Testimonials() {
           </div>
         </ScrollReveal>
 
-        {/* Testimonials — horizontal scroll row with prev/next controls (swipe on mobile) */}
+        {/* Testimonials — horizontal scroll row with prev/next controls (swipe on mobile too) */}
         <div className="relative">
-          <button
-            type="button"
-            onClick={() => scrollByPage(-1)}
-            aria-label="Previous testimonials"
-            className="absolute left-0 top-1/2 z-20 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.12] bg-black/60 text-white/80 backdrop-blur-sm transition hover:border-persian/50 hover:text-white sm:flex"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollByPage(1)}
-            aria-label="Next testimonials"
-            className="absolute right-0 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border border-persian/60 bg-persian text-white backdrop-blur-sm transition hover:bg-persian-dark hover:shadow-[0_0_20px_rgba(94,23,235,0.4)] sm:flex"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-
           <div
             ref={scrollRef}
             className="-mx-6 snap-x snap-mandatory overflow-x-auto px-6 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -231,6 +214,26 @@ export function Testimonials() {
                 </StaggerItem>
               ))}
             </StaggerChildren>
+          </div>
+
+          {/* Scroll controls — visible on mobile + desktop */}
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollByPage(-1)}
+              aria-label="Previous testimonials"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.05] text-white/70 transition hover:border-persian/50 hover:bg-white/[0.10] hover:text-white"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByPage(1)}
+              aria-label="Next testimonials"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-persian/60 bg-persian text-white transition hover:bg-persian-dark hover:shadow-[0_0_20px_rgba(94,23,235,0.4)]"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
           </div>
         </div>
       </div>
