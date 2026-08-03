@@ -157,6 +157,24 @@ const funnels = [
 
 const coachingFunnels = [
   {
+    title: "Coach Faith",
+    subtitle: "AI Automation Course · Amaze",
+    pages: "Full landing page · Hero → Story → Offer → CTA",
+    gradientFrom: "#1c1305",
+    gradientTo: "#3d2a10",
+    emoji: "🤖",
+    url: "https://www.amaze.ph/ai-implementation",
+    isLive: true,
+    thumbnail: "/mockups/coach-faith-4.webp",
+    mockups: [
+      "/mockups/coach-faith-4.webp",
+      "/mockups/coach-faith-2.webp",
+      "/mockups/coach-faith-5.webp",
+      "/mockups/coach-faith-1.webp",
+      "/mockups/coach-faith-3.webp",
+    ],
+  },
+  {
     title: "Zack Andrei",
     subtitle: "High-Performance Coaching",
     pages: "Full landing page · Hero → Story → Offer → CTA",
