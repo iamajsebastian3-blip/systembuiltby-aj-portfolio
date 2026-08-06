@@ -157,9 +157,40 @@ const funnels = [
 
 const coachingFunnels = [
   {
-    title: "Coach Faith",
+    title: "Zack Andrei",
+    subtitle: "High-Performance Coaching",
+    gradientFrom: "#1a0b2e",
+    gradientTo: "#3a1d6b",
+    emoji: "👑",
+    url: "https://zack-andrei-funnel.vercel.app/",
+    isLive: true,
+    thumbnail: "/mockups/zack-andrei-d.webp",
+    mockups: [
+      "/mockups/zack-andrei-a.webp",
+      "/mockups/zack-andrei-b.webp",
+      "/mockups/zack-andrei-c.webp",
+      "/mockups/zack-andrei-d.webp",
+    ],
+  },
+  {
+    title: "Black Couture",
+    subtitle: "The Luxury Boudoir Experience",
+    gradientFrom: "#1c0608",
+    gradientTo: "#4d0d15",
+    emoji: "🖤",
+    url: "https://enter.coutureblack.com/couture-black",
+    isLive: true,
+    thumbnail: "/mockups/black-couture-d.webp",
+    mockups: [
+      "/mockups/black-couture-a.webp",
+      "/mockups/black-couture-b.webp",
+      "/mockups/black-couture-c.webp",
+      "/mockups/black-couture-d.webp",
+    ],
+  },
+  {
+    title: "AI Accelerator",
     subtitle: "AI Automation Course · Amaze",
-    pages: "Full landing page · Hero → Story → Offer → CTA",
     gradientFrom: "#1c1305",
     gradientTo: "#3d2a10",
     emoji: "🤖",
@@ -175,26 +206,8 @@ const coachingFunnels = [
     ],
   },
   {
-    title: "Zack Andrei",
-    subtitle: "High-Performance Coaching",
-    pages: "Full landing page · Hero → Story → Offer → CTA",
-    gradientFrom: "#1a0b2e",
-    gradientTo: "#3a1d6b",
-    emoji: "👑",
-    url: "https://zack-andrei-funnel.vercel.app/",
-    isLive: true,
-    thumbnail: "/mockups/zack-andrei-d.webp",
-    mockups: [
-      "/mockups/zack-andrei-a.webp",
-      "/mockups/zack-andrei-b.webp",
-      "/mockups/zack-andrei-c.webp",
-      "/mockups/zack-andrei-d.webp",
-    ],
-  },
-  {
     title: "Ava Sterling",
     subtitle: "Mindset & High Performance Coaching",
-    pages: "Full landing page · Hero → Story → Offer → CTA",
     gradientFrom: "#0f1f1a",
     gradientTo: "#2e4d3f",
     emoji: "✨",
@@ -209,9 +222,40 @@ const coachingFunnels = [
     ],
   },
   {
+    title: "Self Love Co",
+    subtitle: "The Couples Boudoir Experience",
+    gradientFrom: "#1c0608",
+    gradientTo: "#4d0d15",
+    emoji: "❤️",
+    url: "https://hello.selflovephotoco.com/self-love-co---couples",
+    isLive: true,
+    thumbnail: "/mockups/self-love-d.webp",
+    mockups: [
+      "/mockups/self-love-a.webp",
+      "/mockups/self-love-b.webp",
+      "/mockups/self-love-c.webp",
+      "/mockups/self-love-d.webp",
+    ],
+  },
+  {
+    title: "AI Workforce",
+    subtitle: "AI Workforce Accelerator · Amaze",
+    gradientFrom: "#1c1305",
+    gradientTo: "#3d2a10",
+    emoji: "⚡",
+    url: "https://www.amaze.ph/aiwa",
+    isLive: true,
+    thumbnail: "/mockups/ai-workforce-4.webp",
+    mockups: [
+      "/mockups/ai-workforce-4.webp",
+      "/mockups/ai-workforce-2.webp",
+      "/mockups/ai-workforce-1.webp",
+      "/mockups/ai-workforce-3.webp",
+    ],
+  },
+  {
     title: "Kurious Group",
     subtitle: "Your Partners in Growth · Small Business",
-    pages: "Full landing page · Hero → Story → Offer → CTA",
     gradientFrom: "#08201d",
     gradientTo: "#1d4d44",
     emoji: "📈",
@@ -226,37 +270,35 @@ const coachingFunnels = [
     ],
   },
   {
-    title: "Black Couture",
-    subtitle: "The Luxury Boudoir Experience",
-    pages: "Opt-in funnel · Hero → Apply → Confirmation",
-    gradientFrom: "#1c0608",
-    gradientTo: "#4d0d15",
-    emoji: "🖤",
-    url: "https://enter.coutureblack.com/couture-black",
+    title: "Convert Website",
+    subtitle: "High-Converting Web Design",
+    gradientFrom: "#1a0b3e",
+    gradientTo: "#3b2d9a",
+    emoji: "🌐",
+    url: "https://convert.ajautomate.co/",
     isLive: true,
-    thumbnail: "/mockups/black-couture-d.webp",
+    thumbnail: "/mockups/convert-website-4.webp",
     mockups: [
-      "/mockups/black-couture-a.webp",
-      "/mockups/black-couture-b.webp",
-      "/mockups/black-couture-c.webp",
-      "/mockups/black-couture-d.webp",
+      "/mockups/convert-website-4.webp",
+      "/mockups/convert-website-2.webp",
+      "/mockups/convert-website-1.webp",
+      "/mockups/convert-website-3.webp",
     ],
   },
   {
-    title: "Self Love Co",
-    subtitle: "The Couples Boudoir Experience",
-    pages: "Opt-in funnel · Hero → Apply → Confirmation",
-    gradientFrom: "#1c0608",
-    gradientTo: "#4d0d15",
-    emoji: "❤️",
-    url: "https://hello.selflovephotoco.com/self-love-co---couples",
+    title: "Website Studio",
+    subtitle: "Premium Websites & Content",
+    gradientFrom: "#12082e",
+    gradientTo: "#2e1d6b",
+    emoji: "🎨",
+    url: "https://webstudio.ajautomate.co/index.html",
     isLive: true,
-    thumbnail: "/mockups/self-love-d.webp",
+    thumbnail: "/mockups/website-studio-4.webp",
     mockups: [
-      "/mockups/self-love-a.webp",
-      "/mockups/self-love-b.webp",
-      "/mockups/self-love-c.webp",
-      "/mockups/self-love-d.webp",
+      "/mockups/website-studio-4.webp",
+      "/mockups/website-studio-2.webp",
+      "/mockups/website-studio-1.webp",
+      "/mockups/website-studio-3.webp",
     ],
   },
 ];
@@ -528,7 +570,8 @@ function FunnelCard({
   isLive,
   thumbnail,
   mockups,
-}: (typeof funnels)[number] & {
+}: Omit<(typeof funnels)[number], "pages"> & {
+  pages?: string;
   url?: string;
   isLive?: boolean;
   thumbnail?: string;
@@ -634,7 +677,7 @@ function FunnelCard({
           )}
         </div>
         <p className="mb-2 text-sm text-white/50">{subtitle}</p>
-        <p className="text-xs text-white/45">{pages}</p>
+        {pages && <p className="text-xs text-white/45">{pages}</p>}
       </div>
     </Wrapper>
     {hasMockups && gallery && (
