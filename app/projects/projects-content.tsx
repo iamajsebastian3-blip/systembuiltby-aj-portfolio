@@ -26,6 +26,17 @@ type TabId = (typeof tabs)[number]["id"];
 
 const funnels = [
   {
+    title: "GHL Funnel",
+    subtitle: "My First GoHighLevel Build",
+    pages: "Drag & drop · Built in GoHighLevel",
+    gradientFrom: "#1a0b2e",
+    gradientTo: "#27187E",
+    emoji: "🔥",
+    url: "https://ajautomate.co/system-builtby-aj",
+    isLive: true,
+    thumbnail: "/showcase/ghl-first-funnel.webp",
+  },
+  {
     title: "Webinar Funnel",
     subtitle: "Live Training Registration",
     pages: "3 pages \u00B7 Registration \u2192 Confirmation \u2192 Replay",
@@ -137,17 +148,6 @@ const funnels = [
     url: "https://funnelmastery-10p.vercel.app/",
     isLive: true,
     thumbnail: "/showcase/funnelmastery-10p.webp",
-  },
-  {
-    title: "GHL Funnel",
-    subtitle: "My First GoHighLevel Build",
-    pages: "Drag & drop \u00B7 Built in GoHighLevel",
-    gradientFrom: "#1a0b2e",
-    gradientTo: "#27187E",
-    emoji: "\uD83D\uDD25",
-    url: "https://ajautomate.co/system-builtby-aj",
-    isLive: true,
-    thumbnail: "/showcase/ghl-first-funnel.webp",
   },
 ];
 

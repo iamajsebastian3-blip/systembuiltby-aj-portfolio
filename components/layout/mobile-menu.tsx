@@ -18,7 +18,7 @@ const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "System Builds", href: "/system-builds" },
-  { label: "Funnels & Websites", href: "/projects" },
+  { label: "Web Showcase", href: "/projects" },
 ];
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {

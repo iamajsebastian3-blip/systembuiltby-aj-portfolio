@@ -25,7 +25,7 @@ const solutionsDropdown: NavDropdown = {
   items: [
     { label: "About", emoji: "\u{1F91D}", href: "/about", description: "My story, mentors & how I work" },
     { label: "System Builds", emoji: "\u{1F3AC}", href: "/system-builds", description: "Recorded walkthroughs of every build" },
-    { label: "Funnels & Websites", emoji: "\u{1F680}", href: "/projects", description: "Live funnel & website builds" },
+    { label: "Web Showcase ⭐", emoji: "\u{1F310}", href: "/projects", description: "Explore live websites & funnels" },
     { label: "Services", emoji: "\u{1F9E9}", href: "/services", description: "All 8 service categories" },
     { label: "Packages", emoji: "\u{1F4E6}", href: "/packages", description: "Starter \u00B7 Growth \u00B7 Scale" },
   ],
@@ -130,6 +130,9 @@ function DropdownMenu({
                 )}
               <Link
                 href={item.href}
+                {...(item.href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="flex items-start gap-3 px-4 py-2.5 hover:bg-white/5 transition-colors group"
               >
                 <span className="text-base mt-0.5">{item.emoji}</span>

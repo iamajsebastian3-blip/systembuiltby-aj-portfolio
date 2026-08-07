@@ -46,22 +46,22 @@ const revenueTools: Tool[] = [
 
 const buildLearnTools: Tool[] = [
   {
-    href: "/tools/private",
-    icon: "🔒",
+    href: "https://funnel-section-builder.vercel.app/",
+    icon: "🧩",
     title: "Funnel Section Builder",
     description:
-      "Internal tool, wireframe reference + copy-ready AI prompts for every funnel section. Passcode required to enter.",
-    cta: "Enter Passcode",
-    badge: "PRIVATE",
+      "A full-stack app I built — turn the 10P framework into copy-ready AI prompts for every funnel section. Sign up and try it.",
+    cta: "Open Builder",
+    badge: "LIVE APP",
   },
   {
     href: "https://ai-specialist-learning-hub.vercel.app/",
     icon: "🎓",
     title: "AI Specialist, Learning Hub",
     description:
-      "My personal learning hub for mastering AI-specialist skills, lessons, references, and resources. Same passcode as the Funnel Section Builder.",
+      "My personal learning hub for mastering AI-specialist skills, lessons, references, and resources.",
     cta: "Open Learning Hub",
-    badge: "PRIVATE",
+    badge: "LIVE",
   },
 ];
 
