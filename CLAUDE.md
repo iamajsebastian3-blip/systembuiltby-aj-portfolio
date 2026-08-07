@@ -37,6 +37,13 @@ Hero → TechStack → IntroVideo → Vault → Philosophy → FeaturedBuilds �
 Other pages: /about /services /packages /system-builds /projects /portfolio /mentors
 /consult /tools/*  (plus dev-only preview routes: /preview /intro-preview /pulse-preview /slides-preview)
 
+## Related app (separate repo)
+The Funnel Section Builder was extracted out of this portfolio into its own
+full-stack app (repo `funnel-section-builder`, deployed at
+funnel-section-builder.vercel.app; Next.js + Supabase auth/DB). The portfolio
+only links to it now (nav "Real Apps" + /tools cards). There is no `/tools/private`
+route or `public/private/` here anymore.
+
 ## Deploy
 Commit + push to `master`; AJ verifies on Vercel. Verify on the dev server before committing.
 
