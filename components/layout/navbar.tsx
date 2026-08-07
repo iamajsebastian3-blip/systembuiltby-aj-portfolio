@@ -32,11 +32,10 @@ const solutionsDropdown: NavDropdown = {
 };
 
 const workDropdown: NavDropdown = {
-  label: "Link",
+  label: "Real Apps",
   items: [
-    { label: "GHL Funnel", emoji: "\u{1F525}", href: "https://ajautomate.co/system-builtby-aj", description: "GoHighLevel funnel showcase" },
-    { label: "Featured Funnel", emoji: "\u{1F3AF}", href: "https://convert.ajautomate.co/", description: "Live funnel showcase" },
-    { label: "Featured Website", emoji: "\u{1F310}", href: "https://webstudio.ajautomate.co/index.html", description: "Live website showcase" },
+    { label: "Funnel Section Builder", emoji: "\u{1F9E9}", href: "https://funnel-section-builder.vercel.app/", description: "Full-stack AI funnel prompt builder (live app)" },
+    { label: "AI Specialist Learning Hub", emoji: "\u{1F393}", href: "https://ai-specialist-learning-hub.vercel.app/", description: "My AI-specialist learning hub" },
   ],
 };
 
@@ -66,7 +65,6 @@ const routeToActiveNav: Record<string, string> = {
   "/tools/email-health": "Tools",
   "/tools/process-map": "Tools",
   "/consult": "Home",
-  "/portfolio": "Link",
 };
 
 function getActiveNav(pathname: string): string {

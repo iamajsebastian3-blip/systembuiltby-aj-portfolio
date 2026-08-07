@@ -139,15 +139,15 @@ const funnels = [
     thumbnail: "/showcase/funnelmastery-10p.webp",
   },
   {
-    title: "Ecommerce Funnel",
-    subtitle: "Skincare Product Offer",
-    pages: "1 page \u00B7 Long-Form Sales (10P Framework)",
-    gradientFrom: "#3a1a2a",
+    title: "GHL Funnel",
+    subtitle: "My First GoHighLevel Build",
+    pages: "Drag & drop \u00B7 Built in GoHighLevel",
+    gradientFrom: "#1a0b2e",
     gradientTo: "#27187E",
-    emoji: "\uD83C\uDF38",
-    url: "https://bloom-10p.vercel.app/",
+    emoji: "\uD83D\uDD25",
+    url: "https://ajautomate.co/system-builtby-aj",
     isLive: true,
-    thumbnail: "/showcase/bloom-10p.webp",
+    thumbnail: "/showcase/ghl-first-funnel.webp",
   },
 ];
 
