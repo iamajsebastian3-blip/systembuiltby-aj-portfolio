@@ -135,12 +135,16 @@ A temporary `sharp` script converts the two Desktop screenshots. `sharp`
 
 | Source | Treatment | Output |
 |---|---|---|
-| `~/Desktop/Funnel Thumbnail.png` (1195×932) | trim dead space around the card, fit to 16:9 | `public/real-apps/funnel-builder.webp` |
-| `~/Desktop/Leaning Thumbnail.png` (1042×637) | already tight, fit to 16:9 | `public/real-apps/ai-learning-hub.webp` |
+| `~/Desktop/Funnel Thumbnail.png` (1195×932) | trim dead space around the card, fit to 3:2 | `public/real-apps/funnel-builder.webp` |
+| `~/Desktop/Leaning Thumbnail.png` (1042×637) | already tight, fit to 3:2 | `public/real-apps/ai-learning-hub.webp` |
 
-Both are fitted onto a `#08060e` canvas at identical 16:9 dimensions, so the
-grid stays even and the letterbox bars disappear against the page background.
-Quality 82, matching the other `.webp` assets.
+Both are fitted onto a `#08060e` canvas at 1200×800, so the grid stays even
+and any letterbox bars disappear against the page background. Quality 82,
+matching the other `.webp` assets.
+
+**3:2, not 16:9.** The card thumbnail frame is `aspect-[3/2]`
+(`system-builds-content.tsx:226`). An earlier draft of this spec said 16:9;
+that was wrong and would have letterboxed every card.
 
 The script is deleted once it has run. No build-time image processing is
 added.
