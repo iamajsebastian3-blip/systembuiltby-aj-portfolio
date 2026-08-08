@@ -212,6 +212,16 @@ export const zapierTutorials: SystemBuild[] = [
   },
 ];
 
+export const n8nProjects: SystemBuild[] = [
+  {
+    title: "Self-Hosted n8n Workflow",
+    category: "n8n Automation",
+    description:
+      "Building automations on self-hosted n8n, webhooks, scheduled jobs, and API chains running on my own infrastructure instead of a SaaS plan. Walkthrough recording in progress.",
+    emoji: "🔗",
+  },
+];
+
 function BuildCard({ build, accent = "text-persian-light" }: { build: SystemBuild; accent?: string }) {
   const [playing, setPlaying] = useState(false);
   const hasVideo = Boolean(build.videoId || build.vimeoId);
@@ -416,6 +426,28 @@ export function SystemBuildsContent() {
             <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {zapierTutorials.map((build) => (
                 <BuildCard key={build.title} build={build} accent="text-[#FF8A3D]" />
+              ))}
+            </StaggerChildren>
+          </div>
+
+          {/* Section 5, n8n Test Project (n8n pink-red) */}
+          <div>
+            <ScrollReveal>
+              <div className="mb-8 md:mb-10">
+                <p className="text-[#EA4B71] text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold mb-2">
+                  Section 05
+                </p>
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                  n8n <span className="text-[#EA4B71]">Test Project</span>
+                </h2>
+                <p className="text-white/55 text-[14px] md:text-base max-w-xl leading-relaxed">
+                  Self-hosted n8n builds, running on my own infrastructure.
+                </p>
+              </div>
+            </ScrollReveal>
+            <StaggerChildren className="grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {n8nProjects.map((build) => (
+                <BuildCard key={build.title} build={build} accent="text-[#EA4B71]" />
               ))}
             </StaggerChildren>
           </div>
