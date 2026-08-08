@@ -60,14 +60,25 @@ export function RealAppsContent() {
           </p>
 
           <div
-            className="relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl
-              border border-white/[0.08] bg-gradient-to-br from-[#1a1245] via-[#0f0a25] to-black
-              shadow-[0_24px_64px_rgba(0,0,0,0.45)]"
+            className="relative flex aspect-video items-center justify-center overflow-hidden rounded-3xl
+              border border-white/[0.12] bg-white/[0.05] backdrop-blur-2xl
+              shadow-[0_24px_64px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.10)]"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(94,23,235,0.18)_0%,transparent_70%)]" />
-            <span className="relative rounded-full border border-yellow/25 bg-yellow/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-yellow backdrop-blur-sm">
-              Coming Soon
-            </span>
+            {/* Violet bloom behind the glass */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(94,23,235,0.28)_0%,transparent_70%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.07] via-transparent to-transparent" />
+
+            {/* Ghost play button, so the empty frame reads as a video slot */}
+            <div className="relative flex flex-col items-center gap-5">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.06] backdrop-blur-sm">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="rgba(255,255,255,0.35)" className="ml-1" aria-hidden>
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <span className="rounded-full border border-yellow/25 bg-yellow/15 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-yellow backdrop-blur-sm">
+                Coming Soon
+              </span>
+            </div>
           </div>
         </div>
       </section>

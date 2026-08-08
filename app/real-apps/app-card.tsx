@@ -13,8 +13,14 @@ export type App = {
   cta?: string;
 };
 
+// Glass shell: translucent fill + heavy backdrop blur, a 1px inset highlight
+// along the top edge for the "lit glass" read, and a violet lift on hover.
 const cardCls =
-  "group flex h-full flex-col rounded-xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.07] overflow-hidden transition-all duration-300 hover:-translate-y-[2px] hover:bg-white/[0.06] hover:shadow-[0_8px_32px_rgba(94,23,235,0.12)]";
+  "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.12] " +
+  "bg-white/[0.06] backdrop-blur-2xl " +
+  "shadow-[0_8px_32px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.10)] " +
+  "transition-all duration-300 hover:-translate-y-[3px] hover:border-white/[0.20] hover:bg-white/[0.09] " +
+  "hover:shadow-[0_16px_48px_rgba(94,23,235,0.28),inset_0_1px_0_rgba(255,255,255,0.16)]";
 
 export function AppCard({ app }: { app: App }) {
   const inner = (
@@ -63,6 +69,9 @@ export function AppCard({ app }: { app: App }) {
           </span>
         )}
       </div>
+
+      {/* Sheen, brightest at the top edge, fading out by the midpoint */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.06] via-transparent to-transparent" />
     </>
   );
 
