@@ -34,8 +34,8 @@ const solutionsDropdown: NavDropdown = {
 const workDropdown: NavDropdown = {
   label: "Real Apps",
   items: [
-    { label: "Funnel Section Builder", emoji: "\u{1F9E9}", href: "https://funnel-section-builder.vercel.app/", description: "Full-stack AI funnel prompt builder (live app)" },
-    { label: "AI Specialist Learning Hub", emoji: "\u{1F393}", href: "https://ai-specialist-learning-hub.vercel.app/", description: "My AI-specialist learning hub" },
+    { label: "Funnel Builder", emoji: "\u{1F9E9}", href: "https://funnel-section-builder.vercel.app/", description: "Full-stack AI funnel prompt builder (live app)" },
+    { label: "AI Learning Hub", emoji: "\u{1F393}", href: "https://ai-specialist-learning-hub.vercel.app/", description: "My AI-specialist learning hub" },
   ],
 };
 
@@ -46,7 +46,7 @@ const toolsDropdown: NavDropdown = {
     { label: "AI Dev Stack", emoji: "\u{26A1}", href: "/tools#ai-dev-stack", description: "The skills & frameworks I build with" },
     { label: "GHL Full Audit", emoji: "\u{1F525}", href: "/tools#ghl-full-audit", description: "Health-scan any GHL sub-account" },
     { label: "Revenue Tools", emoji: "\u{1F4CA}", href: "/tools#revenue-tools", description: "Revenue audit, email health & process map" },
-    { label: "Build & Learn Hub", emoji: "\u{1F393}", href: "/tools#build-learn-hub", description: "Funnel builder & learning hub (private)" },
+    { label: "Build & Learn Hub", emoji: "\u{1F393}", href: "/tools#build-learn-hub", description: "Funnel builder & learning hub" },
   ],
   dividerAfter: 0,
 };

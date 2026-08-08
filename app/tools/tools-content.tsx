@@ -48,7 +48,7 @@ const buildLearnTools: Tool[] = [
   {
     href: "https://funnel-section-builder.vercel.app/",
     icon: "🧩",
-    title: "Funnel Section Builder",
+    title: "Funnel Builder",
     description:
       "A full-stack app I built — turn the 10P framework into copy-ready AI prompts for every funnel section. Sign up and try it.",
     cta: "Open Builder",
@@ -57,7 +57,7 @@ const buildLearnTools: Tool[] = [
   {
     href: "https://ai-specialist-learning-hub.vercel.app/",
     icon: "🎓",
-    title: "AI Specialist, Learning Hub",
+    title: "AI Learning Hub",
     description:
       "My personal learning hub for mastering AI-specialist skills, lessons, references, and resources.",
     cta: "Open Learning Hub",
@@ -140,7 +140,7 @@ function ToolCardList({ tools }: { tools: Tool[] }) {
                 <h3 className="text-xl font-black text-white">{t.title}</h3>
                 {t.badge && (
                   <span className="rounded-full bg-white/10 px-2 py-0.5 text-[0.55rem] font-extrabold text-white/70 uppercase tracking-wider border border-white/15">
-                    🔒 {t.badge}
+                    {t.badge}
                   </span>
                 )}
               </div>
